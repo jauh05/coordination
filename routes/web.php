@@ -80,6 +80,10 @@ Route::get('/settings', function () {
     return view('settings.index');
 })->name('settings');
 
+Route::get('/support', function () {
+    return view('support.index');
+})->name('support');
+
 // Auth routes
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

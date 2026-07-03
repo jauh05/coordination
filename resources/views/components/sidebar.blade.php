@@ -64,11 +64,11 @@
         </a>
     </nav>
     <div class="mt-auto space-y-1">
-        <a class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:text-on-surface hover:bg-surface-container-low transition-colors rounded-lg" href="#">
+        <a class="flex items-center gap-3 px-3 py-2 {{ request()->routeIs('support') ? 'text-primary font-semibold bg-surface-container-low' : 'text-text-secondary hover:text-on-surface hover:bg-surface-container-low' }} transition-colors rounded-lg" href="{{ route('support') }}">
             <span class="material-symbols-outlined">help_outline</span>
             <span class="font-label-md text-label-md">Bantuan</span>
         </a>
-        <a class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:text-on-surface hover:bg-surface-container-low transition-colors rounded-lg" href="#">
+        <a class="flex items-center gap-3 px-3 py-2 {{ request()->routeIs('settings') ? 'text-primary font-semibold bg-surface-container-low' : 'text-text-secondary hover:text-on-surface hover:bg-surface-container-low' }} transition-colors rounded-lg" href="{{ route('settings') }}">
             <span class="material-symbols-outlined">settings</span>
             <span class="font-label-md text-label-md">Pengaturan</span>
         </a>
