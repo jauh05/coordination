@@ -1,0 +1,1 @@
+<x-placeholder-page icon="📋" title="Perencanaan Event" description="Rencanakan event dari nol — tentukan konsep, timeline, target, dan budget awal. AI akan membantu memberikan rekomendasi berdasarkan data historis." />

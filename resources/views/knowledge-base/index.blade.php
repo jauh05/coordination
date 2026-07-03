@@ -1,0 +1,1 @@
+<x-placeholder-page icon="📚" title="Knowledge Base" description="Database pengetahuan dari event-event sebelumnya. AI akan menggunakan data ini untuk memberikan rekomendasi yang lebih akurat di event mendatang." />
