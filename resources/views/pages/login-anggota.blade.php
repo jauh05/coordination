@@ -2,7 +2,7 @@
 <html class="scroll-smooth" lang="id"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Login Perusahaan | Coordination</title>
+<title>Login Anggota Divisi | Coordination</title>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -113,27 +113,27 @@
     <!-- Left Side: Visual/Contextual Anchor -->
     <section class="hidden lg:flex lg:col-span-5 flex-col justify-center space-y-xl pr-xl">
         <div class="space-y-md">
-            <span class="inline-flex items-center px-md py-xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-md text-label-md">
-                Portal Perusahaan
+            <span class="inline-flex items-center px-md py-xs rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md">
+                Portal Anggota Divisi
             </span>
             <h2 class="font-display-lg text-display-lg text-on-background leading-tight">
-                Selamat datang kembali di <span class="text-primary">Mission Control.</span>
+                Selesaikan task, kirim <span class="text-primary">laporan harian.</span>
             </h2>
             <p class="font-body-lg text-body-lg text-on-surface-variant">
-                Akses dashboard perusahaan Anda untuk memantau seluruh operasi event secara real-time.
+                Akses workspace divisi Anda untuk mengerjakan task, upload dokumen, dan mengirim laporan progress harian ke Ketua Divisi.
             </p>
         </div>
         <!-- Mini Bento Proof Points -->
         <div class="grid grid-cols-2 gap-md">
             <div class="bento-card p-lg flex flex-col gap-sm">
-                <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">shield</span>
-                <p class="font-title-md text-title-md">Keamanan Enterprise</p>
-                <p class="font-caption text-caption text-on-surface-variant">Enkripsi end-to-end.</p>
+                <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+                <p class="font-title-md text-title-md">Task Pribadi</p>
+                <p class="font-caption text-caption text-on-surface-variant">Lihat task yang di-assign ke Anda.</p>
             </div>
             <div class="bento-card p-lg flex flex-col gap-sm">
-                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">monitoring</span>
-                <p class="font-title-md text-title-md">Dashboard Real-time</p>
-                <p class="font-caption text-caption text-on-surface-variant">Pantau semua event sekaligus.</p>
+                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+                <p class="font-title-md text-title-md">Laporan Harian</p>
+                <p class="font-caption text-caption text-on-surface-variant">Tulis progress & upload foto.</p>
             </div>
         </div>
     </section>
@@ -144,20 +144,37 @@
 
             <!-- Role Navigation -->
             <div class="flex items-center gap-sm mb-xl p-xs bg-surface-container-low rounded-full">
-                <a href="{{ route('login') }}" class="flex-1 py-sm text-center rounded-full font-label-md text-label-md bg-primary text-white shadow-sm transition-all">Perusahaan</a>
+                <a href="{{ route('login') }}" class="flex-1 py-sm text-center rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all">Perusahaan</a>
                 <a href="{{ route('login.ketua') }}" class="flex-1 py-sm text-center rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all">Ketua Divisi</a>
-                <a href="{{ route('login.anggota') }}" class="flex-1 py-sm text-center rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all">Anggota</a>
+                <a href="{{ route('login.anggota') }}" class="flex-1 py-sm text-center rounded-full font-label-md text-label-md bg-primary text-white shadow-sm transition-all">Anggota</a>
             </div>
 
             <form action="{{ route('dashboard') }}" class="space-y-xl">
                 <header class="mb-lg">
-                    <h3 class="font-headline-md text-headline-md mb-xs">Login Perusahaan</h3>
-                    <p class="font-body-md text-body-md text-on-surface-variant">Masuk sebagai Event Director atau Project Manager.</p>
+                    <h3 class="font-headline-md text-headline-md mb-xs">Login Anggota Divisi</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Masuk untuk mengerjakan task dan mengirim laporan harian.</p>
                 </header>
                 <div class="space-y-md">
                     <div class="space-y-xs">
-                        <label class="font-label-md text-label-md text-on-surface">Email Bisnis</label>
-                        <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="nama@perusahaan.com" required type="email"/>
+                        <label class="font-label-md text-label-md text-on-surface">Kode Event</label>
+                        <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="contoh: GTS-2024" required type="text"/>
+                    </div>
+                    <div class="space-y-xs">
+                        <label class="font-label-md text-label-md text-on-surface">ID Anggota</label>
+                        <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="contoh: AGT-PRD-001" required type="text"/>
+                    </div>
+                    <div class="space-y-xs">
+                        <label class="font-label-md text-label-md text-on-surface">Nama Divisi</label>
+                        <select class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md appearance-none" required>
+                            <option value="">Pilih Divisi</option>
+                            <option>Produksi</option>
+                            <option>Marketing</option>
+                            <option>Logistik</option>
+                            <option>Sponsorship</option>
+                            <option>Dokumentasi</option>
+                            <option>Keuangan</option>
+                            <option>Acara</option>
+                        </select>
                     </div>
                     <div class="space-y-xs">
                         <label class="font-label-md text-label-md text-on-surface flex justify-between">
@@ -174,7 +191,7 @@
                 </div>
                 <div class="mt-xl">
                     <button class="w-full py-md bg-primary text-white rounded-full font-title-md text-title-md hover:opacity-90 active:scale-95 transition-all flex items-center justify-center gap-sm" type="submit">
-                        Masuk ke Dashboard
+                        Masuk ke Workspace
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </button>
                 </div>
@@ -182,8 +199,7 @@
 
             <div class="mt-xxl pt-lg border-t border-outline-variant text-center">
                 <p class="font-body-md text-body-md text-on-surface-variant">
-                    Belum punya akun?
-                    <a class="text-primary font-bold hover:underline" href="{{ route('register') }}">Daftar Perusahaan</a>
+                    Akun dibuat oleh Ketua Divisi. Hubungi Ketua Divisi Anda jika belum memiliki akses.
                 </p>
             </div>
         </div>
@@ -201,8 +217,8 @@
 </footer>
 
 <!-- Background Decoration -->
-<div class="fixed top-0 right-0 -z-10 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -mr-64 -mt-64"></div>
-<div class="fixed bottom-0 left-0 -z-10 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] -ml-32 -mb-32"></div>
+<div class="fixed top-0 right-0 -z-10 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[120px] -mr-64 -mt-64"></div>
+<div class="fixed bottom-0 left-0 -z-10 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -ml-32 -mb-32"></div>
 
 <script>
 function togglePassword() {

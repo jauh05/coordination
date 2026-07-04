@@ -24,6 +24,16 @@ Route::get('/login', function () {
     return view('pages.login');
 })->name('login');
 
+// Login Ketua Divisi
+Route::get('/login/ketua-divisi', function () {
+    return view('pages.login-ketua');
+})->name('login.ketua');
+
+// Login Anggota Divisi
+Route::get('/login/anggota-divisi', function () {
+    return view('pages.login-anggota');
+})->name('login.anggota');
+
 // Dashboard / Command Center
 Route::get('/dashboard', function () {
     return view('dashboard.index');
