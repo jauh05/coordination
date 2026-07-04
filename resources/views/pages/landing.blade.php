@@ -1,522 +1,574 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="id">
+<html class="light" lang="id" style="">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Coordination | Platform Operasi Event Enterprise</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Coordination - Mission Control Elite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class", 
-            theme: {
-                extend: {
-                    colors: {
-                        "tertiary-fixed": "#ffdbcd", background: "#faf8ff", primary: "#004ac6", "inverse-primary": "#b4c5ff", "surface-container-low": "#f2f3ff", "secondary-fixed-dim": "#4edea3", "outline-variant": "#c3c6d7", "surface-variant": "#dae2fd", "surface-dim": "#d2d9f4", "inverse-on-surface": "#eef0ff", "surface-container-highest": "#dae2fd", "secondary-container": "#6cf8bb", "primary-fixed-dim": "#b4c5ff", "surface-bright": "#faf8ff", "on-tertiary-fixed": "#360f00", "on-secondary-fixed": "#002113", "surface-container-lowest": "#ffffff", outline: "#737686", danger: "#EF4444", "border-subtle": "#E2E8F0", "inverse-surface": "#283044", "surface-container": "#eaedff", "on-surface": "#131b2e", "on-error": "#ffffff", "primary-fixed": "#dbe1ff", "on-background": "#131b2e", "on-surface-variant": "#434655", error: "#ba1a1a", tertiary: "#943700", secondary: "#006c49", "text-primary": "#0F172A", "on-secondary-fixed-variant": "#005236", "on-secondary": "#ffffff", "surface-tint": "#0053db", "on-primary-fixed": "#00174b", "text-secondary": "#64748B", "on-tertiary-container": "#ffede6", "secondary-fixed": "#6ffbbe", surface: "#faf8ff", "surface-container-high": "#e2e7ff", "on-secondary-container": "#00714d", "on-primary-container": "#eeefff", "error-container": "#ffdad6", "on-tertiary-fixed-variant": "#7d2d00", success: "#22C55E", "on-primary-fixed-variant": "#003ea8", "on-tertiary": "#ffffff", warning: "#F59E0B", "on-error-container": "#93000a", "tertiary-container": "#bc4800", "on-primary": "#ffffff", "tertiary-fixed-dim": "#ffb596", "primary-container": "#2563eb"
-                    }, 
-                    borderRadius: {
-                        DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"
-                    }, 
-                    spacing: {
-                        "stack-sm": "8px", "stack-md": "16px", "container-max": "1440px", gutter: "24px", "sidebar-width": "260px", "margin-page": "32px", unit: "8px", "stack-lg": "24px"
-                    }, 
-                    fontFamily: {
-                        "label-md": ["Inter"], "headline-md": ["Inter"], "label-sm": ["Inter"], "headline-lg": ["Inter"], "body-sm": ["Inter"], "headline-xl": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], headline: ["Inter"], display: ["Inter"], body: ["Inter"], label: ["Inter"]
-                    }, 
-                    fontSize: {
-                        "label-md": ["12px", {lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600"}], 
-                        "headline-md": ["20px", {lineHeight: "28px", fontWeight: "600"}], 
-                        "label-sm": ["11px", {lineHeight: "14px", fontWeight: "500"}], 
-                        "headline-lg": ["24px", {lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600"}], 
-                        "body-sm": ["13px", {lineHeight: "18px", fontWeight: "400"}], 
-                        "headline-xl": ["36px", {lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700"}], 
-                        "body-md": ["14px", {lineHeight: "20px", fontWeight: "400"}], 
-                        "body-lg": ["16px", {lineHeight: "24px", fontWeight: "400"}]
-                    }
-                }
+        try{
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                            "outline-variant": "#c3c6d6",
+                            "secondary-fixed": "#9df4c8",
+                            "background": "#f8f9ff",
+                            "surface-container-lowest": "#ffffff",
+                            "on-surface": "#0b1c30",
+                            "tertiary": "#231fb5",
+                            "on-secondary-fixed-variant": "#005236",
+                            "on-primary-container": "#b8c8ff",
+                            "surface-container-highest": "#d3e4fe",
+                            "on-error-container": "#93000a",
+                            "outline": "#737685",
+                            "on-tertiary-fixed-variant": "#2e2dbe",
+                            "surface-variant": "#d3e4fe",
+                            "on-tertiary-container": "#c4c4ff",
+                            "surface-ice": "#f8f9ff",
+                            "on-secondary": "#ffffff",
+                            "tertiary-fixed-dim": "#c0c1ff",
+                            "on-secondary-container": "#0c714d",
+                            "warning-amber": "#FFB000",
+                            "on-surface-variant": "#434654",
+                            "tertiary-container": "#3e3fcc",
+                            "on-primary-fixed": "#00174b",
+                            "on-secondary-fixed": "#002113",
+                            "surface-tint": "#1b55d0",
+                            "inverse-primary": "#b4c5ff",
+                            "hero-gradient-start": "#004ac6",
+                            "secondary-container": "#9af2c5",
+                            "secondary-fixed-dim": "#81d8ad",
+                            "surface": "#f8f9ff",
+                            "inverse-surface": "#213145",
+                            "tertiary-fixed": "#e1e0ff",
+                            "on-error": "#ffffff",
+                            "primary-fixed-dim": "#b4c5ff",
+                            "error-container": "#ffdad6",
+                            "surface-container-low": "#eff4ff",
+                            "surface-dim": "#cbdbf5",
+                            "on-primary-fixed-variant": "#003ea8",
+                            "error-critical": "#ba1a1a",
+                            "inverse-on-surface": "#eaf1ff",
+                            "hero-gradient-end": "#2563eb",
+                            "error": "#ba1a1a",
+                            "surface-bright": "#f8f9ff",
+                            "surface-container": "#e5eeff",
+                            "primary-fixed": "#dbe1ff",
+                            "success-emerald": "#4edea3",
+                            "primary-container": "#004ac6",
+                            "on-background": "#0b1c30",
+                            "on-tertiary-fixed": "#06006c",
+                            "secondary": "#006c49",
+                            "surface-container-high": "#dce9ff",
+                            "on-primary": "#ffffff",
+                            "on-tertiary": "#ffffff",
+                            "primary": "#003594"
+                        },
+                        "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                        },
+                        "spacing": {
+                            "xs": "4px",
+                            "sm": "8px",
+                            "margin": "32px",
+                            "xl": "32px",
+                            "lg": "24px",
+                            "gutter": "24px",
+                            "xxl": "48px",
+                            "md": "16px"
+                        },
+                        "fontFamily": {
+                            "body-md": ["Inter"],
+                            "headline-lg-mobile": ["Inter"],
+                            "title-md": ["Inter"],
+                            "headline-sm": ["Inter"],
+                            "display-lg": ["Inter"],
+                            "label-md": ["Inter"],
+                            "body-lg": ["Inter"],
+                            "headline-lg": ["Inter"],
+                            "caption": ["Inter"],
+                            "headline-md": ["Inter"]
+                        },
+                        "fontSize": {
+                            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                            "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                            "title-md": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                            "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                        }
+                    },
+                },
             }
-        };
+        }catch(_e){}
     </script>
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-        }
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 24px;
-        }
-        .shadow-soft {
-            box-shadow: 0px 1px 3px rgba(15, 23, 42, 0.08);
-        }
-        .shadow-float {
-            box-shadow: 0px 10px 15px -3px rgba(15, 23, 42, 0.12);
-        }
-    </style>
 </head>
-<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
-<!-- TopAppBar -->
-<header class="h-16 sticky top-0 z-50 w-full bg-surface/80 backdrop-blur-md border-b border-border-subtle shadow-sm flex items-center">
-    <div class="flex justify-between items-center px-margin-page w-full max-w-container-max mx-auto">
-        <div class="flex items-center gap-stack-lg">
-            <span class="font-headline-md text-headline-md font-bold text-on-surface flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary">bolt</span> Coordination
-            </span>
-            <nav class="hidden md:flex items-center gap-stack-md">
-                <a class="font-label-md text-label-md text-primary border-b-2 border-primary py-1" href="#">Beranda</a>
-                <a class="font-label-md text-label-md text-text-secondary hover:text-primary transition-colors" href="#features">Fitur</a>
-                <a class="font-label-md text-label-md text-text-secondary hover:text-primary transition-colors" href="#pricing">Harga</a>
-                <a class="font-label-md text-label-md text-text-secondary hover:text-primary transition-colors" href="#faq">Bantuan</a>
-            </nav>
+<body class="bg-background text-on-background font-body-md selection:bg-primary/20">
+
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full bg-surface/80 dark:bg-on-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm z-50">
+    <div class="flex justify-between items-center px-gutter py-md max-w-[1536px] mx-auto">
+        <div class="text-title-md font-title-md font-bold text-primary dark:text-primary-fixed flex items-center gap-2">
+            <span class="material-symbols-outlined">hub</span>
+            Coordination
         </div>
-        <div class="flex items-center gap-stack-md">
-            <a href="{{ route('login') }}" class="hidden md:block font-label-md text-label-md text-text-secondary hover:text-primary px-stack-md py-stack-sm">Masuk</a>
-            <a href="{{ route('register') }}" class="bg-primary text-on-primary font-label-md text-label-md px-stack-lg py-2 rounded-lg font-semibold hover:bg-primary/90 transition-transform active:scale-[0.98]">
-                Mulai Gratis
-            </a>
+        <nav class="hidden md:flex gap-xl">
+            <a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">Features</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Solutions</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Pricing</a>
+        </nav>
+        <div class="flex items-center gap-md">
+            <a href="{{ route('dashboard') }}" class="text-on-surface-variant hover:text-primary px-md py-sm transition-all duration-200 active:scale-95 inline-block text-center">Login</a>
+            <a href="{{ route('dashboard') }}" class="bg-primary text-on-primary px-lg py-sm rounded-full font-bold hover:opacity-90 active:scale-95 transition-all duration-200 shadow-lg shadow-primary/20 inline-block text-center">Get Started</a>
         </div>
     </div>
 </header>
-<main>
-<!-- Hero Section -->
-<section class="relative pt-24 pb-32 overflow-hidden">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 pointer-events-none opacity-40">
-    </div>
-    <div class="max-w-container-max mx-auto px-margin-page text-center">
-        <div class="inline-flex items-center gap-2 bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full mb-stack-lg">
-            <span class="material-symbols-outlined text-[18px]">auto_awesome</span>
-            <span class="font-label-sm text-label-sm">Didukung oleh AI Terkini</span>
-        </div>
-        <h1 class="font-headline-xl text-[48px] md:text-[64px] leading-tight mb-stack-md text-on-background">
-            Rencanakan Lebih Pintar. <span class="text-primary">Eksekusi Lebih Baik.</span>
-        </h1>
-        <p class="font-body-lg text-body-lg text-text-secondary max-w-2xl mx-auto mb-stack-lg">
-            Sistem operasi utama untuk event enterprise. Optimalkan logistik Anda, kelola anggaran dengan AI, dan pantau setiap divisi secara real-time.
-        </p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-stack-md mb-24">
-            <a href="{{ route('register') }}" class="w-full sm:w-auto bg-primary text-on-primary px-8 py-4 rounded-xl font-headline-md text-headline-md shadow-float hover:scale-105 transition-transform text-center">
-                Mulai Proyek Gratis
-            </a>
-            <a href="#features" class="w-full sm:w-auto flex items-center justify-center gap-2 border border-border-subtle bg-surface px-8 py-4 rounded-xl font-headline-md text-headline-md hover:bg-surface-container-low transition-colors text-center">
-                <span class="material-symbols-outlined">play_circle</span>
-                Lihat Cara Kerja
-            </a>
-        </div>
-        <!-- Dashboard Mockup -->
-        <div class="relative max-w-5xl mx-auto">
-            <div class="rounded-2xl border border-border-subtle bg-white shadow-2xl overflow-hidden aspect-[16/10] relative">
-                <!-- Sidebar Mock -->
-                <div class="absolute left-0 top-0 w-48 h-full bg-surface-container border-r border-border-subtle hidden md:flex flex-col p-4 gap-4">
-                    <div class="w-32 h-6 bg-surface-variant rounded animate-pulse"></div>
-                    <div class="space-y-3 mt-6">
-                        <div class="w-full h-8 bg-primary/10 rounded"></div>
-                        <div class="w-full h-8 bg-surface-variant rounded opacity-50"></div>
-                        <div class="w-full h-8 bg-surface-variant rounded opacity-50"></div>
-                        <div class="w-full h-8 bg-surface-variant rounded opacity-50"></div>
-                    </div>
+
+<main class="pt-xxl">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden px-gutter py-xxl md:py-[120px] max-w-[1536px] mx-auto">
+        <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none"></div>
+        <div class="grid lg:grid-cols-2 gap-xxl items-center relative z-10">
+            <div class="space-y-lg">
+                <div class="absolute -inset-4 bg-primary/5 blur-2xl rounded-full pointer-events-none -z-10 shadow-sm border-primary/20" data-stitch-orig-opacity="0"></div>
+                <div class="inline-flex items-center gap-2 px-md py-xs bg-primary-fixed text-on-primary-fixed rounded-full border border-primary/10">
+                    <span class="material-symbols-outlined text-[18px]">verified</span>
+                    <span class="font-label-md text-label-md">MISSION CONTROL ELITE</span>
                 </div>
-                <!-- Content Mock -->
-                <div class="md:ml-48 h-full p-8 bg-background flex flex-col gap-6">
-                    <div class="flex justify-between items-end">
-                        <div class="space-y-2">
-                            <div class="w-48 h-4 bg-outline-variant rounded"></div>
-                            <div class="w-64 h-8 bg-on-surface rounded"></div>
+                <h1 class="font-display-lg text-display-lg text-primary leading-tight tracking-tight tracking-widest shadow-sm font-bold">
+                    <span style="color: rgb(0, 53, 148); letter-spacing: -0.025em;">Operasional Event<br></span>
+                    <span style="color: rgb(0, 74, 198);">Tanpa Resiko.</span>
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                    Ubah kompleksitas logistik menjadi presisi militer. Coordination menggunakan AI untuk memantau kesehatan event Anda secara real-time, mencegah budget bocor, dan memastikan Riders terpenuhi 100%.
+                </p>
+                <div class="flex flex-wrap gap-md pt-md">
+                    <a href="{{ route('dashboard') }}" class="inline-block bg-primary text-on-primary px-xxl py-lg rounded-full font-bold text-title-md hover:shadow-xl hover:shadow-primary/30 transition-all active:scale-95">Mulai Mission Control</a>
+                    <button class="flex items-center gap-sm px-xxl py-lg rounded-full border border-outline-variant font-bold text-title-md hover:bg-surface-container-low transition-all">
+                        <span class="material-symbols-outlined">play_circle</span> Lihat Demo
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Hero Dashboard Visual -->
+            <div class="relative group">
+                <div class="absolute -inset-4 bg-primary/5 rounded-[32px] blur-3xl group-hover:bg-primary/10 transition-colors"></div>
+                <div class="glass-card rounded-[24px] p-lg shadow-2xl relative border-outline-variant/40" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(226, 228, 231, 0.5);">
+                    <div class="flex items-center justify-between mb-lg">
+                        <div class="flex items-center gap-sm">
+                            <div class="w-3 h-3 rounded-full bg-error"></div>
+                            <div class="w-3 h-3 rounded-full bg-warning-amber"></div>
+                            <div class="w-3 h-3 rounded-full bg-success-emerald"></div>
                         </div>
-                        <div class="flex gap-2">
-                            <div class="w-10 h-10 rounded-full bg-surface-container-high"></div>
-                            <div class="w-10 h-10 rounded-full bg-surface-container-high"></div>
-                        </div>
+                        <div class="px-md py-xs bg-surface-container rounded-full text-caption font-bold text-primary">MISSION CONTROL LIVE</div>
                     </div>
-                    <!-- Mock Stats -->
-                    <div class="grid grid-cols-3 gap-4">
-                        <div class="h-24 bg-white rounded-xl border border-border-subtle p-4 shadow-soft"></div>
-                        <div class="h-24 bg-white rounded-xl border border-border-subtle p-4 shadow-soft"></div>
-                        <div class="h-24 bg-white rounded-xl border border-border-subtle p-4 shadow-soft"></div>
-                    </div>
-                    <!-- Mock Chart/List -->
-                    <div class="flex-grow bg-white rounded-xl border border-border-subtle p-6 shadow-soft flex flex-col gap-4">
-                        <div class="w-1/3 h-6 bg-surface-variant rounded"></div>
-                        <div class="space-y-4">
-                            <div class="h-12 w-full bg-background rounded-lg border border-border-subtle flex items-center px-4">
-                                <div class="w-8 h-8 rounded bg-primary/20 mr-4"></div>
-                                <div class="flex-grow h-4 bg-surface-variant rounded max-w-md"></div>
+                    <div class="grid grid-cols-2 gap-md">
+                        <div class="p-md bg-white/10 backdrop-blur-md rounded-xl border border-white/20 space-y-sm">
+                            <div class="flex items-center gap-2 text-primary">
+                                <span class="material-symbols-outlined text-[20px]">flight_takeoff</span>
+                                <span class="font-label-md">Logistik Tamu</span>
                             </div>
-                            <div class="h-12 w-full bg-background rounded-lg border border-border-subtle flex items-center px-4 opacity-70">
-                                <div class="w-8 h-8 rounded bg-secondary/20 mr-4"></div>
-                                <div class="flex-grow h-4 bg-surface-variant rounded max-w-sm"></div>
+                            <div class="flex justify-between items-end">
+                                <div class="text-headline-sm font-bold">12</div>
+                                <div class="px-sm py-xs bg-warning-amber/20 text-warning-amber rounded text-[10px] font-bold">TIBA</div>
                             </div>
-                            <div class="h-12 w-full bg-background rounded-lg border border-border-subtle flex items-center px-4 opacity-40">
-                                <div class="w-8 h-8 rounded bg-tertiary/20 mr-4"></div>
-                                <div class="flex-grow h-4 bg-surface-variant rounded max-w-md"></div>
+                            <div class="flex justify-between items-end">
+                                <div class="text-headline-sm font-bold">45</div>
+                                <div class="px-sm py-xs bg-success-emerald/20 text-success-emerald rounded text-[10px] font-bold">TERKONFIRMASI</div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <!-- Floating Glass Action -->
-                <div class="absolute right-12 bottom-12 w-64 h-24 glass-card rounded-2xl shadow-float p-4 flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-success/20 flex items-center justify-center text-success">
-                        <span class="material-symbols-outlined">trending_up</span>
-                    </div>
-                    <div>
-                        <p class="font-label-sm text-label-sm text-text-secondary uppercase">Efisiensi Budget</p>
-                        <p class="font-headline-md text-headline-md text-on-surface">+18.4% YoY</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Decorative Elements -->
-            <div class="absolute -top-12 -right-12 w-32 h-32 bg-secondary/20 blur-3xl rounded-full"></div>
-            <div class="absolute -bottom-12 -left-12 w-48 h-48 bg-primary/10 blur-3xl rounded-full"></div>
-        </div>
-    </div>
-</section>
-<!-- Social Proof -->
-<section class="py-16 border-y border-border-subtle bg-white">
-    <div class="max-w-container-max mx-auto px-margin-page">
-        <p class="text-center font-label-md text-label-md text-text-secondary uppercase tracking-widest mb-12">Dipercaya oleh 2,000+ event organizer kelas dunia</p>
-        <div class="flex flex-wrap justify-center items-center gap-x-20 gap-y-10 grayscale opacity-50">
-            <span class="font-headline-lg font-bold">TECHCON</span>
-            <span class="font-headline-lg font-bold">GLOBAL_EXPO</span>
-            <span class="font-headline-lg font-bold">VORTEX_LIVE</span>
-            <span class="font-headline-lg font-bold">EVENTUM</span>
-            <span class="font-headline-lg font-bold">PLATINUM_PRO</span>
-        </div>
-    </div>
-</section>
-<!-- Features (Bento Grid) -->
-<section class="py-32 bg-background" id="features">
-    <div class="max-w-container-max mx-auto px-margin-page">
-        <div class="mb-16">
-            <span class="text-primary font-label-md text-label-md uppercase tracking-wide">Ekosistem Utama</span>
-            <h2 class="font-headline-xl text-headline-xl mt-2">Direkayasa untuk Ketenangan Operasional</h2>
-        </div>
-        <div class="bento-grid">
-            <!-- Feature 1: AI Health Score -->
-            <div class="col-span-12 md:col-span-7 bg-white rounded-3xl p-8 border border-border-subtle shadow-soft relative overflow-hidden group">
-                <div class="relative z-10">
-                    <div class="w-12 h-12 bg-primary-fixed text-primary rounded-xl flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined">auto_awesome</span>
-                    </div>
-                    <h3 class="font-headline-lg text-headline-lg mb-4">Skor Kesehatan Proyek AI</h3>
-                    <p class="text-text-secondary font-body-lg text-body-lg max-w-md">Mesin neural kami memantau kecepatan tugas dan pengeluaran anggaran secara real-time, memprediksi hambatan sebelum terjadi.</p>
-                </div>
-                <div class="mt-12 flex items-center gap-4">
-                    <div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
-                        <div class="h-full bg-primary w-[88%] rounded-full shadow-[0_0_15px_rgba(0,74,198,0.4)]"></div>
-                    </div>
-                    <span class="font-label-md text-label-md text-primary">88% Sehat</span>
-                </div>
-                <div class="absolute right-0 bottom-0 translate-x-1/4 translate-y-1/4 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <span class="material-symbols-outlined text-[240px]">shield</span>
-                </div>
-            </div>
-            <!-- Feature 2: Budget Planning -->
-            <div class="col-span-12 md:col-span-5 bg-on-background rounded-3xl p-8 border border-outline-variant shadow-soft relative text-white overflow-hidden">
-                <div class="w-12 h-12 bg-secondary-container text-on-secondary-container rounded-xl flex items-center justify-center mb-6">
-                    <span class="material-symbols-outlined">payments</span>
-                </div>
-                <h3 class="font-headline-lg text-headline-lg mb-4">Anggaran Granular</h3>
-                <p class="text-outline font-body-md text-body-md">Pelacakan presisi hingga invoice vendor terakhir. Dukungan manajemen RAB lengkap dengan rekonsiliasi otomatis.</p>
-                <div class="mt-8 p-4 bg-white/5 rounded-xl border border-white/10">
-                    <div class="flex justify-between mb-2">
-                        <span class="text-label-sm">Estimasi</span>
-                        <span class="text-label-sm">Rp 1,2M</span>
-                    </div>
-                    <div class="flex justify-between text-secondary-fixed">
-                        <span class="text-label-sm">Aktual</span>
-                        <span class="text-label-sm">Rp 1,14M</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Feature 3: Division Management -->
-            <div class="col-span-12 md:col-span-4 bg-white rounded-3xl p-8 border border-border-subtle shadow-soft">
-                <div class="w-12 h-12 bg-tertiary-fixed text-tertiary rounded-xl flex items-center justify-center mb-6">
-                    <span class="material-symbols-outlined">groups</span>
-                </div>
-                <h3 class="font-headline-lg text-headline-lg mb-4">Akses Divisi</h3>
-                <p class="text-text-secondary font-body-md text-body-md">Pisahkan alur kerja namun tetap pertahankan visibilitas pusat. Sempurna untuk tim Sekretariat, Produksi, dan Pemasaran.</p>
-            </div>
-            <!-- Feature 4: Real-time Comms -->
-            <div class="col-span-12 md:col-span-8 bg-surface-container-low rounded-3xl p-8 border border-border-subtle shadow-soft flex flex-col md:flex-row gap-8 items-center">
-                <div class="flex-grow">
-                    <h3 class="font-headline-lg text-headline-lg mb-4">Command Center Terpadu</h3>
-                    <p class="text-text-secondary font-body-lg text-body-lg">Berhenti berpindah tab. Dapatkan pengarahan event, komunikasi vendor, timeline, dan persetujuan aset dalam satu tempat.</p>
-                </div>
-                <div class="w-full md:w-64 aspect-square bg-white rounded-2xl border border-border-subtle p-4 shadow-soft">
-                    <div class="space-y-3">
-                        <div class="h-3 w-3/4 bg-surface-variant rounded"></div>
-                        <div class="h-3 w-1/2 bg-surface-variant rounded opacity-50"></div>
-                        <div class="mt-4 flex -space-x-2">
-                            <div class="w-8 h-8 rounded-full border-2 border-white bg-slate-200"></div>
-                            <div class="w-8 h-8 rounded-full border-2 border-white bg-slate-300"></div>
-                            <div class="w-8 h-8 rounded-full border-2 border-white bg-slate-400"></div>
+                        <div class="p-md bg-white/10 backdrop-blur-md rounded-xl border border-white/20 space-y-sm">
+                            <div class="flex items-center gap-2 text-primary">
+                                <span class="material-symbols-outlined text-[20px]">payments</span>
+                                <span class="font-label-md">Kesehatan Keuangan</span>
+                            </div>
+                            <div class="space-y-xs">
+                                <div class="flex justify-between text-[10px]">
+                                    <span class="">Laju Pengeluaran</span>
+                                    <span class="text-success-emerald">Optimal</span>
+                                </div>
+                                <div class="flex gap-1 h-4 items-end">
+                                    <div class="flex-grow bg-primary/40 h-1/2 rounded-t-sm"></div>
+                                    <div class="flex-grow bg-primary/60 h-3/4 rounded-t-sm"></div>
+                                    <div class="flex-grow bg-primary h-full rounded-t-sm"></div>
+                                    <div class="flex-grow bg-primary/30 h-1/3 rounded-t-sm"></div>
+                                    <div class="flex-grow bg-primary/80 h-2/3 rounded-t-sm"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-2 p-md bg-primary/5 rounded-xl border border-primary/10">
+                            <div class="flex items-center justify-between mb-sm">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary">theater_comedy</span>
+                                    <span class="font-label-md">Panggung & Produksi</span>
+                                </div>
+                                <span class="text-caption text-success-emerald font-bold">85% Siap</span>
+                            </div>
+                            <div class="w-full bg-outline-variant/20 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-primary h-full w-[85%]"></div>
+                            </div>
+                            <div class="flex gap-md mt-sm">
+                                <div class="flex items-center gap-1 text-[10px]">
+                                    <span class="material-symbols-outlined text-[14px] text-success-emerald">check_circle</span> Cek Audio
+                                </div>
+                                <div class="flex items-center gap-1 text-[10px]">
+                                    <span class="material-symbols-outlined text-[14px] text-success-emerald">check_circle</span> Rangka Pencahayaan
+                                </div>
+                                <div class="flex items-center gap-1 text-[10px]">
+                                    <span class="material-symbols-outlined text-[14px] text-outline">pending</span> Dinding LED
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- Testimonials -->
-<section class="py-32 bg-white relative">
-    <div class="max-w-container-max mx-auto px-margin-page">
-        <div class="text-center mb-16">
-            <h2 class="font-headline-xl text-headline-xl">Dicintai oleh Para Pemimpin Logistik</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Testimonial 1 -->
-            <div class="p-8 rounded-2xl bg-background border border-border-subtle relative">
-                <span class="material-symbols-outlined text-primary text-[40px] absolute -top-5 -left-2 bg-white px-2">format_quote</span>
-                <p class="font-body-lg text-body-lg text-on-surface mb-8 italic">"Coordination mengubah cara kami menjalankan event tahunan. Alat manajemen divisi memungkinkan tim produksi kami tetap gesit tanpa kehilangan sinkronisasi dengan pemasaran."</p>
-                <div class="flex items-center gap-4">
-                    <img class="w-12 h-12 rounded-full object-cover" data-alt="Headshot of a professional event director" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVotfX1eJaDDvcaZyF6S1yS0HtKk9H5O0mDilAXphkZle0rnw0tRa_GIOmgfDu0aBVqm1Ag8RUvbVyWO_iBAKWms32Ot7hQFfQ4wR8GrpyQ3okYA1jg3nLrQczD8GvVRwVjawjPHy9McO1irXUs_CNtbhkwyFZ2uEU3xK7Vvbjxi88PLKeybONsWYr6jFX_Q-eWEJFicOuGjnnvKIcBjtiQ8ta7dK8tcEsawIupmavJBpynkKJmCuomxvPOO_JXKYGwq5Ttmb0hao"/>
-                    <div>
-                        <p class="font-label-md text-label-md">Sarah Jenkins</p>
-                        <p class="text-text-secondary text-[12px]">Director of Ops, TechCon</p>
+    </section>
+
+    <!-- Value Proposition / Scenarios -->
+    <section class="bg-surface-container-low/50 py-xxl">
+        <div class="max-w-[1536px] mx-auto px-gutter">
+            <div class="text-center mb-xxl">
+                <h2 class="font-headline-lg text-headline-lg text-on-surface">Solusi Presisi untuk Setiap Skala</h2>
+                <p class="text-on-surface-variant font-body-lg mt-md">Dirancang untuk Event Director yang menuntut kesempurnaan.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-lg">
+                <!-- Scenario 1 -->
+                <div class="p-xl rounded-[24px] hover:translate-y-[-8px] transition-all duration-300 shadow-sm hover:shadow-md" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(226, 228, 231, 0.5);">
+                    <div class="w-12 h-12 bg-primary-container rounded-xl flex items-center justify-center text-on-primary mb-lg">
+                        <span class="material-symbols-outlined">theater_comedy</span>
+                    </div>
+                    <h3 class="font-headline-sm text-headline-sm mb-sm text-on-surface">Konser & Festival</h3>
+                    <p class="text-on-surface-variant mb-lg">Anti-Gagal Konser dengan tracking Riders Artis yang detail, manajemen vendor panggung, dan monitoring kesehatan finansial real-time.</p>
+                    <div class="flex items-center text-primary font-bold gap-xs group cursor-pointer">
+                        <span class="">Pelajari Lebih Lanjut</span>
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </div>
+                </div>
+                <!-- Scenario 2 -->
+                <div class="p-xl rounded-[24px] hover:translate-y-[-8px] transition-all duration-300 shadow-sm hover:shadow-md" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(226, 228, 231, 0.5);">
+                    <div class="w-12 h-12 bg-secondary-container rounded-xl flex items-center justify-center text-on-secondary-container mb-lg">
+                        <span class="material-symbols-outlined">inventory_2</span>
+                    </div>
+                    <h3 class="font-headline-sm text-headline-sm mb-sm text-on-surface">Logistik & Expo</h3>
+                    <p class="text-on-surface-variant mb-lg">Kelola ribuan item inventaris, jadwal loading yang ketat, dan koordinasi vendor teknis dalam satu pusat kendali yang terintegrasi.</p>
+                    <div class="flex items-center text-primary font-bold gap-xs group cursor-pointer">
+                        <span class="">Pelajari Lebih Lanjut</span>
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </div>
+                </div>
+                <!-- Scenario 3 -->
+                <div class="p-xl rounded-[24px] hover:translate-y-[-8px] transition-all duration-300 shadow-sm hover:shadow-md" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(226, 228, 231, 0.5);">
+                    <div class="w-12 h-12 bg-tertiary-container rounded-xl flex items-center justify-center text-on-tertiary-container mb-lg">
+                        <span class="material-symbols-outlined">corporate_fare</span>
+                    </div>
+                    <h3 class="font-headline-sm text-headline-sm mb-sm text-on-surface">Corporate Events</h3>
+                    <p class="text-on-surface-variant mb-lg">Pastikan standar brand terpenuhi dengan manajemen tamu VIP, tracking akomodasi, dan pelaporan biaya yang transparan untuk audit.</p>
+                    <div class="flex items-center text-primary font-bold gap-xs group cursor-pointer">
+                        <span class="">Pelajari Lebih Lanjut</span>
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
                     </div>
                 </div>
             </div>
-            <!-- Testimonial 2 -->
-            <div class="p-8 rounded-2xl bg-background border border-border-subtle relative">
-                <span class="material-symbols-outlined text-primary text-[40px] absolute -top-5 -left-2 bg-white px-2">format_quote</span>
-                <p class="font-body-lg text-body-lg text-on-surface mb-8 italic">"Skor kesehatan AI bukan sekadar gimmick—ini benar-benar mendeteksi keterlambatan vendor yang bisa menghentikan pembangunan panggung kami. Sangat esensial."</p>
-                <div class="flex items-center gap-4">
-                    <img class="w-12 h-12 rounded-full object-cover" data-alt="Close-up portrait of a young male professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4bXFwhzLuixOfkmz60Ed5Oc5wfnfw_hJu0LSBpNw8aYot8C01kCgX5Xjq1a0_4vmhGokR39rSv_H6KcBU2LTe-hZbf4SOp7iiSM31-g3OiT82d1DRcOxVDIc04YypQx5tbXDQqfxk2xhgEwecOD9G_1lWirZ6hfb2QPfjfVNCBybxsK-2Of57WiPCIKEH9DC_UJoLJA1hOtStgkHdRuEX19zpz1rh6IQSfzp1jnu4qaxvlxZbhrV734Gg6Tv5sjljOC9oxUo1gmU"/>
-                    <div>
-                        <p class="font-label-md text-label-md">Marcus Thorne</p>
-                        <p class="text-text-secondary text-[12px]">Lead Producer, Vortex Live</p>
+        </div>
+    </section>
+
+    <!-- Feature Showcase (Bento Grid) -->
+    <section class="py-xxl max-w-[1536px] mx-auto px-gutter">
+        <div class="mb-xxl max-w-2xl">
+            <h2 class="font-headline-lg text-headline-lg mb-md">Fitur Utama Command Center</h2>
+            <p class="text-on-surface-variant font-body-lg">Kendalikan setiap detail tanpa rasa khawatir. Dari Guest List hingga Price List Vendor, semuanya ada dalam satu dashboard.</p>
+        </div>
+        <div class="grid grid-cols-12 gap-lg">
+            <!-- Large Feature: Financial Health -->
+            <div class="col-span-12 lg:col-span-8 bg-surface-container-highest rounded-[24px] p-xl border border-outline-variant/30 flex flex-col md:flex-row gap-lg items-center group overflow-hidden">
+                <div class="md:w-1/2 space-y-md">
+                    <div class="inline-block px-sm py-xs bg-error/10 text-error rounded font-label-md">RISK MITIGATION</div>
+                    <h3 class="font-headline-md text-headline-md">Financial Risk Real-Time Alerts</h3>
+                    <p class="text-on-surface-variant">Sistem AI kami mendeteksi potensi pembengkakan biaya sebelum terjadi. Dapatkan peringatan otomatis saat realisasi pengeluaran mendekati 85% dari budget rencana.</p>
+                    <div class="p-md bg-surface/50 rounded-xl border border-outline-variant/20">
+                        <div class="flex justify-between mb-sm">
+                            <span class="font-bold">Budget Health Score</span>
+                            <span class="text-warning-amber">73 / 100</span>
+                        </div>
+                        <div class="w-full bg-outline-variant/20 h-2 rounded-full overflow-hidden">
+                            <div class="bg-warning-amber h-full w-[73%]"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="relative w-full h-64 flex items-center justify-center overflow-visible">
+                        <div class="absolute inset-0 bg-primary/5 rounded-full blur-3xl"></div>
+                        <div class="relative z-10 flex flex-wrap justify-center items-center gap-lg">
+                            <div class="p-lg bg-white rounded-2xl shadow-xl border border-outline-variant/20 transform -rotate-6 hover:rotate-0 transition-transform duration-500"><span class="material-symbols-outlined text-primary text-[48px]">groups</span></div>
+                            <div class="p-md bg-primary text-on-primary rounded-2xl shadow-lg transform rotate-12 hover:rotate-0 transition-transform duration-500"><span class="material-symbols-outlined text-[32px]">hub</span></div>
+                            <div class="p-md bg-secondary-container text-on-secondary-container rounded-2xl shadow-md transform -translate-y-8 hover:translate-y-0 transition-transform duration-500"><span class="material-symbols-outlined text-[24px]">security</span></div>
+                            <div class="p-sm bg-white/80 backdrop-blur-md rounded-xl border border-outline-variant/30 shadow-sm transform translate-x-4 translate-y-4 hover:translate-0 transition-transform duration-500"><span class="material-symbols-outlined text-primary-container text-[20px]">settings_input_component</span></div>
+                            <div class="absolute -top-4 -right-4 p-sm bg-warning-amber/20 text-warning-amber rounded-full animate-pulse"><span class="material-symbols-outlined text-[18px]">monitoring</span></div>
+                            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 p-xs bg-success-emerald/10 text-success-emerald rounded-full opacity-60"><span class="material-symbols-outlined text-[40px]">query_stats</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- Testimonial 3 -->
-            <div class="p-8 rounded-2xl bg-background border border-border-subtle relative">
-                <span class="material-symbols-outlined text-primary text-[40px] absolute -top-5 -left-2 bg-white px-2">format_quote</span>
-                <p class="font-body-lg text-body-lg text-on-surface mb-8 italic">"Akhirnya, ada platform yang memahami kerumitan anggaran event. Kami telah mengurangi waktu rekonsiliasi keuangan kami lebih dari 40%."</p>
-                <div class="flex items-center gap-4">
-                    <img class="w-12 h-12 rounded-full object-cover" data-alt="A portrait of a mature professional man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxG2tg85-4bFevxMZJZ2BFRmdl0iDQidbKDod7yf-ClpYSATKXdtgmWqkccXqWHhUDrCo9ivDzgFsRx0YW9aa-8RiKNfeRjOJa3TGgI-vUgsxAC8aJVqSgNx9_oq0mMN4tz-7Xd8IXJidoWzOPTrswKqRREIZgPSvdH9zvY6YySFdMs1uXeB_Un9Qr6NFqWJMCNhUknMUNac2tNplqRas_YLjcJxwyetynChyfa2jTr0Z2M2IJCV0hLfPAhWguJ8ZcHIv-qhC-HQQ"/>
-                    <div>
-                        <p class="font-label-md text-label-md">David Chen</p>
-                        <p class="text-text-secondary text-[12px]">CFO, Global Expo Group</p>
+
+            <div class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-[24px] p-xl border border-outline-variant/30 shadow-sm hover:shadow-md transition-shadow">
+                <span class="material-symbols-outlined text-primary mb-md text-[32px]">database</span>
+                <h3 class="font-headline-sm text-headline-sm mb-sm">Vendor Master Database</h3>
+                <p class="text-on-surface-variant mb-lg">Akses katalog harga standar vendor panggung, lighting, dan sound. Hindari harga 'markup' dan pastikan efisiensi biaya sejak fase perencanaan.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-md py-xs bg-surface-container rounded-full text-caption">Standardized Price Lists</span>
+                    <span class="px-md py-xs bg-surface-container rounded-full text-caption">Verified Vendors</span>
+                </div>
+            </div>
+
+            <!-- Small Feature: Rider Management -->
+            <div class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-[24px] p-xl border border-outline-variant/30 shadow-sm hover:shadow-md transition-shadow">
+                <span class="material-symbols-outlined text-primary mb-md text-[32px]">hotel</span>
+                <h3 class="font-headline-sm text-headline-sm mb-sm">Riders & Guest Fulfillment</h3>
+                <p class="text-on-surface-variant mb-lg">Lacak setiap kebutuhan spesifik artis dan tamu VIP. Dari detail hotel, jadwal flight, hingga diet khusus, tidak ada detail yang terlewat.</p>
+                <div class="space-y-sm">
+                    <div class="flex items-center gap-md p-sm bg-success-emerald/5 rounded-lg border border-success-emerald/10">
+                        <span class="material-symbols-outlined text-success-emerald">check_circle</span>
+                        <span class="text-caption">Akomodasi Hotel Bintang 5</span>
+                    </div>
+                    <div class="flex items-center gap-md p-sm bg-outline-variant/5 rounded-lg border border-outline-variant/10">
+                        <span class="material-symbols-outlined text-outline">pending</span>
+                        <span class="text-caption">Transportasi VIP Alphard</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature Detail: Command Center -->
+            <div class="col-span-12 lg:col-span-8 bg-inverse-surface rounded-[24px] p-xl text-inverse-on-surface flex flex-col md:flex-row gap-lg items-center overflow-hidden relative">
+                <div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none"></div>
+                <div class="md:w-3/5 space-y-md relative z-10">
+                    <h3 class="font-headline-md text-headline-md">Multi-user Mission Control</h3>
+                    <p class="text-on-surface-variant opacity-80">Koordinasikan seluruh divisi dalam satu dashboard pusat. Divisi Produksi, Sponsorship, Marketing, hingga Logistik bekerja dalam satu timeline yang sinkron.</p>
+                    <ul class="grid grid-cols-2 gap-sm">
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-success-emerald">verified</span> Real-time Sync</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-success-emerald">verified</span> Approval Berjenjang</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-success-emerald">verified</span> Laporan Otomatis</li>
+                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-success-emerald">verified</span> Whitelabel Access</li>
+                    </ul>
+                </div>
+                <div class="md:w-2/5 relative z-10">
+                    <div class="w-full h-48 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/20">
+                        <div class="relative w-full h-full p-md flex flex-col justify-center gap-sm">
+                            <div class="flex items-center gap-2 bg-white/5 p-sm rounded border border-white/10">
+                                <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[18px]">person</span></div>
+                                <div class="flex-grow">
+                                    <div class="h-2 w-24 bg-white/20 rounded"></div>
+                                    <div class="h-1.5 w-16 bg-white/10 rounded mt-1"></div>
+                                </div>
+                                <span class="material-symbols-outlined text-success-emerald text-[18px]">sync</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white/5 p-sm rounded border border-white/10 opacity-60">
+                                <div class="w-8 h-8 rounded-full bg-secondary-container/20 flex items-center justify-center"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">person</span></div>
+                                <div class="flex-grow">
+                                    <div class="h-2 w-20 bg-white/20 rounded"></div>
+                                    <div class="h-1.5 w-12 bg-white/10 rounded mt-1"></div>
+                                </div>
+                                <span class="material-symbols-outlined text-success-emerald text-[18px]">sync</span>
+                            </div>
+                            <div class="absolute -right-4 top-1/2 -translate-y-1/2 bg-primary p-md rounded-xl shadow-xl border border-white/20 animate-pulse"><span class="material-symbols-outlined text-on-primary">bolt</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- Pricing Tiers -->
-<section class="py-32 bg-background" id="pricing">
-    <div class="max-w-container-max mx-auto px-margin-page">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-            <h2 class="font-headline-xl text-headline-xl mb-4">Paket Skalabel untuk Setiap Skala</h2>
-            <p class="text-text-secondary font-body-lg text-body-lg">Dari workshop butik hingga festival berskala global.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-stack-lg items-end">
-            <!-- Starter -->
-            <div class="bg-white rounded-3xl p-8 border border-border-subtle shadow-soft">
-                <p class="font-label-md text-label-md text-text-secondary uppercase mb-2">Pemula</p>
-                <div class="flex items-baseline gap-1 mb-6">
-                    <span class="font-headline-xl text-[40px]">Gratis</span>
-                </div>
-                <ul class="space-y-4 mb-8">
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-success">check_circle</span>
-                        <span class="text-body-md">Hingga 3 Event / Tahun</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-success">check_circle</span>
-                        <span class="text-body-md">Budgeting Dasar</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-success">check_circle</span>
-                        <span class="text-body-md">Daftar Tugas Bersama</span>
-                    </li>
-                </ul>
-                <a href="{{ route('register') }}" class="block w-full py-3 rounded-xl border border-primary text-primary font-label-md text-label-md hover:bg-primary-fixed transition-colors text-center">Mulai Gratis</a>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-xxl bg-surface">
+        <div class="max-w-[1536px] mx-auto px-gutter">
+            <div class="text-center mb-xxl">
+                <h2 class="font-headline-lg text-headline-lg text-on-surface">Pilih Kekuatan Operasional Anda</h2>
+                <p class="text-on-surface-variant font-body-lg mt-md">Investasi cerdas untuk event yang minim resiko dan maksimal profit.</p>
             </div>
-            <!-- Pro -->
-            <div class="bg-on-background rounded-3xl p-10 border border-primary shadow-float relative transform scale-105 z-10 text-white">
-                <div class="absolute top-0 right-8 -translate-y-1/2 bg-primary text-on-primary px-4 py-1 rounded-full text-label-sm font-bold uppercase">Paling Populer</div>
-                <p class="font-label-md text-label-md text-outline uppercase mb-2">Operasional Pro</p>
-                <div class="flex items-baseline gap-1 mb-6">
-                    <span class="font-headline-xl text-[40px] text-white">Rp 199rb</span>
-                    <span class="text-outline text-body-md">/bulan</span>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-lg">
+                <!-- Pricing Card 1 -->
+                <div class="bg-white rounded-[24px] p-xl border border-outline-variant/30 flex flex-col hover:border-primary/30 transition-colors">
+                    <div class="mb-lg">
+                        <h3 class="font-headline-sm text-headline-sm text-on-surface">Gratis</h3>
+                        <p class="text-caption text-on-surface-variant">Solo Op</p>
+                    </div>
+                    <div class="mb-lg">
+                        <span class="font-display-lg text-[40px] text-primary">Rp 0</span>
+                        <span class="text-on-surface-variant">/event</span>
+                    </div>
+                    <ul class="space-y-md mb-xxl flex-grow">
+                        <li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[20px]">check</span> 1 Active Event</li>
+                        <li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[20px]">check</span> Basic Guest List</li>
+                        <li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[20px]">check</span> Standard Budgeting</li>
+                    </ul>
+                    <button class="w-full py-md rounded-full border border-primary text-primary font-bold hover:bg-primary/5 transition-colors">Mulai Gratis</button>
                 </div>
-                <ul class="space-y-4 mb-8">
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-secondary-fixed">check_circle</span>
-                        <span class="text-body-md">Event Tidak Terbatas</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-secondary-fixed">check_circle</span>
-                        <span class="text-body-md">Penilaian Kesehatan AI</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-secondary-fixed">check_circle</span>
-                        <span class="text-body-md">Manajemen Divisi</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-secondary-fixed">check_circle</span>
-                        <span class="text-body-md">Portal Vendor</span>
-                    </li>
-                </ul>
-                <a href="{{ route('register') }}" class="block w-full py-4 rounded-xl bg-primary text-on-primary font-headline-md text-headline-md shadow-lg hover:bg-primary/90 transition-transform active:scale-[0.98] text-center">Pilih Pro Sekarang</a>
-            </div>
-            <!-- Enterprise -->
-            <div class="bg-white rounded-3xl p-8 border border-border-subtle shadow-soft">
-                <p class="font-label-md text-label-md text-text-secondary uppercase mb-2">Enterprise</p>
-                <div class="flex items-baseline gap-1 mb-6">
-                    <span class="font-headline-xl text-[40px]">Kustom</span>
+                <!-- Pricing Card 2 -->
+                <div class="bg-white rounded-[24px] p-xl border border-outline-variant/30 flex flex-col hover:border-primary/30 transition-colors">
+                    <div class="mb-lg">
+                        <h3 class="font-headline-sm text-headline-sm text-on-surface">Logistics Pro</h3>
+                        <p class="text-caption text-on-surface-variant">Best for Operations</p>
+                    </div>
+                    <div class="mb-lg">
+                        <span class="font-display-lg text-[40px] text-primary">100rb</span>
+                        <span class="text-on-surface-variant">/bln/evt</span>
+                    </div>
+                    <ul class="space-y-md mb-xxl flex-grow">
+                        <li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[20px]">check</span> Full Rider Management</li>
+                        <li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[20px]">check</span> Vendor Price Lists</li>
+                        <li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[20px]">check</span> Inventory Tracking</li>
+                    </ul>
+                    <button class="w-full py-md rounded-full border border-primary text-primary font-bold hover:bg-primary/5 transition-colors">Pilih Pro</button>
                 </div>
-                <ul class="space-y-4 mb-8">
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-success">check_circle</span>
-                        <span class="text-body-md">Dashboard White-label</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-success">check_circle</span>
-                        <span class="text-body-md">Dukungan SLA Prioritas</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-success">check_circle</span>
-                        <span class="text-body-md">Integrasi API Kustom</span>
-                    </li>
-                </ul>
-                <a href="#" class="block w-full py-3 rounded-xl border border-on-surface text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors text-center">Hubungi Sales</a>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- FAQ -->
-<section class="py-32 bg-white" id="faq">
-    <div class="max-w-3xl mx-auto px-margin-page">
-        <h2 class="font-headline-xl text-headline-xl text-center mb-16">Pertanyaan yang Sering Diajukan</h2>
-        <div class="space-y-4">
-            <details class="group border border-border-subtle rounded-2xl p-6 bg-background open:bg-white transition-all cursor-pointer">
-                <summary class="flex justify-between items-center list-none font-headline-md text-headline-md">
-                    Bagaimana cara kerja Skor Kesehatan AI?
-                    <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-                </summary>
-                <p class="mt-4 text-text-secondary font-body-lg text-body-lg">AI menganalisis lebih dari 50 titik data termasuk tingkat penyelesaian tugas, respons vendor, dan tren anggaran historis untuk menghitung persentase risiko real-time dari event Anda.</p>
-            </details>
-            <details class="group border border-border-subtle rounded-2xl p-6 bg-background open:bg-white transition-all cursor-pointer">
-                <summary class="flex justify-between items-center list-none font-headline-md text-headline-md">
-                    Bolehkah saya mengimpor spreadsheet yang ada?
-                    <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-                </summary>
-                <p class="mt-4 text-text-secondary font-body-lg text-body-lg">Ya! Coordination mendukung impor massal CSV dan Excel untuk daftar tugas, anggaran, dan daftar vendor. AI kami bahkan akan mencoba memetakan kolom Anda secara otomatis ke kolom kami.</p>
-            </details>
-            <details class="group border border-border-subtle rounded-2xl p-6 bg-background open:bg-white transition-all cursor-pointer">
-                <summary class="flex justify-between items-center list-none font-headline-md text-headline-md">
-                    Apakah ada aplikasi seluler untuk tim lapangan?
-                    <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-                </summary>
-                <p class="mt-4 text-text-secondary font-body-lg text-body-lg">Tentu saja. Platform kami didesain responsif untuk layar ponsel, dan kami juga memiliki aplikasi native iOS dan Android khusus untuk eksekusi lapangan.</p>
-            </details>
-        </div>
-    </div>
-</section>
-<!-- CTA Section -->
-<section class="py-24">
-    <div class="max-w-container-max mx-auto px-margin-page">
-        <div class="bg-primary rounded-[40px] p-12 md:p-24 text-center text-white relative overflow-hidden">
-            <div class="absolute inset-0 opacity-20 pointer-events-none"></div>
-            <div class="relative z-10">
-                <h2 class="font-headline-xl text-[40px] md:text-[56px] leading-tight mb-8">Siap Membawa Keteraturan pada Event Anda?</h2>
-                <p class="font-body-lg text-body-lg text-primary-fixed mb-12 max-w-2xl mx-auto">Bergabunglah dengan ribuan perencana yang telah memprofesionalkan operasi event mereka bersama Coordination.</p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="{{ route('register') }}" class="w-full sm:w-auto bg-white text-primary px-10 py-5 rounded-2xl font-headline-md text-headline-md hover:scale-105 transition-transform shadow-xl inline-block">Mulai Gratis Sekarang</a>
-                    <a href="#" class="w-full sm:w-auto border border-white/30 bg-white/10 backdrop-blur text-white px-10 py-5 rounded-2xl font-headline-md text-headline-md hover:bg-white/20 transition-colors inline-block">Jadwalkan Demo</a>
+                <!-- Pricing Card 3 (Popular) -->
+                <div class="bg-primary-container rounded-[24px] p-xl border border-primary/20 flex flex-col relative shadow-xl shadow-primary/20 scale-105 z-10">
+                    <div class="absolute top-0 right-xl -translate-y-1/2 px-md py-xs bg-warning-amber text-on-surface font-bold text-caption rounded-full">POPULER</div>
+                    <div class="mb-lg">
+                        <h3 class="font-headline-sm text-headline-sm text-on-primary">Team Command</h3>
+                        <p class="text-caption text-on-primary-container">Collaboration Focus</p>
+                    </div>
+                    <div class="mb-lg">
+                        <span class="font-display-lg text-[40px] text-on-primary">150rb</span>
+                        <span class="text-on-primary-container">/bln/evt</span>
+                    </div>
+                    <ul class="space-y-md mb-xxl flex-grow text-on-primary">
+                        <li class="flex items-start gap-sm"><span class="material-symbols-outlined text-secondary-fixed text-[20px]">done_all</span> Multi-user Collaboration</li>
+                        <li class="flex items-start gap-sm"><span class="material-symbols-outlined text-secondary-fixed text-[20px]">done_all</span> Financial Health AI</li>
+                        <li class="flex items-start gap-sm"><span class="material-symbols-outlined text-secondary-fixed text-[20px]">done_all</span> Real-time Team Chat</li>
+                        <li class="flex items-start gap-sm"><span class="material-symbols-outlined text-secondary-fixed text-[20px]">done_all</span> Budget Real-time Sync</li>
+                    </ul>
+                    <button class="w-full py-md rounded-full bg-on-primary text-primary font-bold hover:bg-surface-ice transition-colors">Pilih Team</button>
+                </div>
+                <!-- Pricing Card 4 -->
+                <div class="bg-white rounded-[24px] p-xl border border-outline-variant/30 flex flex-col hover:border-primary/30 transition-colors">
+                    <div class="mb-lg">
+                        <h3 class="font-headline-sm text-headline-sm text-on-surface">Agency Elite</h3>
+                        <p class="text-caption text-on-surface-variant">Whitelabel Power</p>
+                    </div>
+                    <div class="mb-lg">
+                        <span class="font-display-lg text-[40px] text-primary">300rb</span>
+                        <span class="text-on-surface-variant">/bln/evt</span>
+                    </div>
+                    <ul class="space-y-md mb-xxl flex-grow">
+                        <li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[20px]">check</span> Whitelabel Dashboards</li>
+                        <li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[20px]">check</span> Dedicated Support</li>
+                        <li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[20px]">check</span> Custom API Integration</li>
+                        <li class="flex items-start gap-sm"><span class="material-symbols-outlined text-primary text-[20px]">check</span> Unlimited Team Members</li>
+                    </ul>
+                    <button class="w-full py-md rounded-full border border-primary text-primary font-bold hover:bg-primary/5 transition-colors">Pilih Elite</button>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- Trust & Social Proof -->
+    <section class="py-xxl bg-surface-container-low/30">
+        <div class="max-w-[1536px] mx-auto px-gutter text-center">
+            <p class="font-label-md text-label-md text-on-surface-variant mb-xl tracking-widest uppercase">TRUSTED BY INDUSTRY LEADERS</p>
+            <div class="flex flex-wrap justify-center items-center gap-xxl opacity-50 mb-xxl">
+                <div class="font-bold text-headline-sm">EVENTRA</div>
+                <div class="font-bold text-headline-sm">FESTIVALPRO</div>
+                <div class="font-bold text-headline-sm">CONCERTMASTER</div>
+                <div class="font-bold text-headline-sm">LOGISTIX</div>
+                <div class="font-bold text-headline-sm">AGENCYHUB</div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-lg max-w-4xl mx-auto">
+                <div class="p-xl rounded-xl text-left border-l-4 border-l-primary" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(226, 228, 231, 0.5); border-left: 4px solid #004ac6;">
+                    <p class="italic text-on-surface-variant font-body-lg mb-lg">"Coordination mengubah cara kami mengelola Riders artis. Tidak ada lagi permintaan mendadak yang terlewat, dan budget kami tetap sehat sampai hari-H."</p>
+                    <div class="flex items-center gap-md">
+                        <div class="w-12 h-12 bg-outline-variant rounded-full overflow-hidden">
+                            <img class="w-full h-full object-cover" data-alt="A professional headshot of a senior event director in his late 40s, wearing a sleek black polo shirt, with a blurred modern office background. The lighting is soft and corporate, highlighting a confident smile. The image style is clean, sharp, and high-fidelity, matching a premium business profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkOFc8TrwDZZwMLNbx6d8qIMdbbcxCoPzvq9kbeZ6rB8LXuMSOXqOnN0fKZ4Zl6Q7_1q3RgMjUiCNECLyJlkitaWFrRWwPdlAaac6njX9yUWBgwGImekcRn0rVO1XjdO_vCVWPz4n8387eAUYOL3FvjaW5w1-_wmkGPncLZgz_XBl_gMWLV35rqyZOl6wgaBCQGdu87anCA0iJzYiz7Ewy3VpVkBJaqJi2PWVwviyiD2HcCdcB-E_jxPruDk8JxynCW1kDDQ7RZM8">
+                        </div>
+                        <div>
+                            <p class="font-bold">Andi Pratama</p>
+                            <p class="text-caption text-on-surface-variant">Event Director, SoundWave Festival</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-xl rounded-xl text-left border-l-4 border-l-secondary-container" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(226, 228, 231, 0.5); border-left: 4px solid #9af2c5;">
+                    <p class="italic text-on-surface-variant font-body-lg mb-lg">"Dashboard Financial Health-nya sangat membantu. Kami bisa melihat potensi budget blow-out 2 minggu lebih awal dan segera mengambil tindakan korektif."</p>
+                    <div class="flex items-center gap-md">
+                        <div class="w-12 h-12 bg-outline-variant rounded-full overflow-hidden">
+                            <img class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged woman in a modern corporate setting, wearing a sophisticated dark blue blazer. She has a warm, professional expression. The background is a brightly lit, high-end office lobby with architectural glass elements, consistent with a high-performance executive image." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXORM1muWA6dxPF9JMn-CgIL27c4yrNOtzUHVf0BpHM5A6Q4zxohxsfUmgXvlmjA70osQ0LbPJ0b6N_wqOrBJSmBigKh_msLR876UI1_nmoGK62brIXjP6062OouLEkfcRKL853QY_WtJMC2FD2Pm5yW4ejglC5emIuwX9ExnVfLj7adB_XGAC1pNE57U83445A_2m64UxKWFKtiKiNsVVDqGDyHGNIqDimEFiqhm_mufC5x9zbhPQ0PcK8dnbrJoM8cqOVmhalB8">
+                        </div>
+                        <div>
+                            <p class="font-bold">Sari Wijaya</p>
+                            <p class="text-caption text-on-surface-variant">Project Manager, ExpoXpert</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-xxl px-gutter">
+        <div class="max-w-[1200px] mx-auto bg-primary rounded-[48px] p-xxl text-center relative overflow-hidden shadow-2xl shadow-primary/30">
+            <div class="absolute inset-0 opacity-10 pointer-events-none"></div>
+            <div class="relative z-10 space-y-lg">
+                <h2 class="font-headline-lg text-display-lg text-on-primary">Siap Mengambil Kendali?</h2>
+                <p class="text-on-primary-container text-body-lg max-w-xl mx-auto">Bergabunglah dengan ribuan event planner yang sudah beralih ke operasional berbasis data dan AI.</p>
+                <div class="flex flex-wrap justify-center gap-md pt-lg">
+                    <a href="{{ route('dashboard') }}" class="inline-block bg-on-primary text-primary px-xxl py-lg rounded-full font-bold text-title-md hover:shadow-xl transition-all active:scale-95">Mulai Sekarang</a>
+                    <button class="px-xxl py-lg rounded-full border border-on-primary text-on-primary font-bold text-title-md hover:bg-white/10 transition-all">Hubungi Tim Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
+
 <!-- Footer -->
-<footer class="bg-on-background pt-24 pb-12 text-white">
-    <div class="max-w-container-max mx-auto px-margin-page">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24">
-            <div class="col-span-1 md:col-span-1">
-                <span class="font-headline-lg text-headline-lg font-bold text-white mb-6 flex items-center gap-2">
-                    <span class="material-symbols-outlined text-primary">bolt</span> Coordination
-                </span>
-                <p class="text-outline font-body-md text-body-md mb-8">Operasi event yang direkayasa secara presisi untuk enterprise modern.</p>
-                <div class="flex gap-4">
-                    <a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
-                        <span class="material-symbols-outlined text-[20px]">hub</span>
-                    </a>
-                    <a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
-                        <span class="material-symbols-outlined text-[20px]">public</span>
-                    </a>
-                    <a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
-                        <span class="material-symbols-outlined text-[20px]">mail</span>
-                    </a>
-                </div>
-            </div>
-            <div>
-                <h4 class="font-label-md text-label-md text-white mb-6 uppercase tracking-widest">Platform</h4>
-                <ul class="space-y-4 text-outline font-body-md">
-                    <li><a class="hover:text-white transition-colors" href="#">Kesehatan Event</a></li>
-                    <li><a class="hover:text-white transition-colors" href="#">Logika Anggaran</a></li>
-                    <li><a class="hover:text-white transition-colors" href="#">Sinkronisasi Divisi</a></li>
-                    <li><a class="hover:text-white transition-colors" href="#">Integrasi API</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-label-md text-label-md text-white mb-6 uppercase tracking-widest">Perusahaan</h4>
-                <ul class="space-y-4 text-outline font-body-md">
-                    <li><a class="hover:text-white transition-colors" href="#">Tentang Kami</a></li>
-                    <li><a class="hover:text-white transition-colors" href="#">Karir</a></li>
-                    <li><a class="hover:text-white transition-colors" href="#">Privasi</a></li>
-                    <li><a class="hover:text-white transition-colors" href="#">Syarat & Ketentuan</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-label-md text-label-md text-white mb-6 uppercase tracking-widest">Tetap Terkoneksi</h4>
-                <p class="text-outline font-body-sm text-body-sm mb-4">Tips bulanan tentang presisi ops event.</p>
-                <form class="flex gap-2">
-                    <input class="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-body-sm flex-grow focus:ring-primary focus:border-primary outline-none" placeholder="Email" type="email"/>
-                    <button class="bg-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-primary/90 transition-colors">Gabung</button>
-                </form>
-            </div>
+<footer class="bg-surface-container-lowest dark:bg-on-surface border-t border-outline-variant">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-lg px-gutter py-xxl max-w-[1536px] mx-auto">
+        <div class="col-span-2">
+            <div class="text-headline-sm font-headline-sm font-bold text-on-surface mb-md">Coordination AI</div>
+            <p class="text-on-surface-variant font-caption text-caption pr-lg">High-performance coordination platform for large-scale event management. Precise, authoritative, and dependable.</p>
         </div>
-        <div class="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-outline font-body-sm text-body-sm">
-            <p>© 2026 Coordination Enterprise Ops. Hak cipta dilindungi.</p>
-            <div class="flex gap-8">
-                <a class="hover:text-white" href="#">Status</a>
-                <a class="hover:text-white" href="#">Bantuan</a>
-                <a class="hover:text-white" href="#">Keamanan</a>
-            </div>
+        <div class="">
+            <h4 class="font-bold mb-md text-on-surface">Product</h4>
+            <nav class="flex flex-col gap-sm">
+                <a class="text-on-surface-variant hover:text-primary transition-all duration-150 font-caption text-caption hover:underline" href="#">Features</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all duration-150 font-caption text-caption hover:underline" href="#">Integrations</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all duration-150 font-caption text-caption hover:underline" href="#">Security</a>
+            </nav>
         </div>
+        <div>
+            <h4 class="font-bold mb-md text-on-surface">Company</h4>
+            <nav class="flex flex-col gap-sm">
+                <a class="text-on-surface-variant hover:text-primary transition-all duration-150 font-caption text-caption hover:underline" href="#">About Us</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all duration-150 font-caption text-caption hover:underline" href="#">Careers</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all duration-150 font-caption text-caption hover:underline" href="#">Blog</a>
+            </nav>
+        </div>
+        <div class="">
+            <h4 class="font-bold mb-md text-on-surface">Legal</h4>
+            <nav class="flex flex-col gap-sm">
+                <a class="text-on-surface-variant hover:text-primary transition-all duration-150 font-caption text-caption hover:underline" href="#">Privacy Policy</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all duration-150 font-caption text-caption hover:underline" href="#">Terms of Service</a>
+            </nav>
+        </div>
+        <div class="">
+            <h4 class="font-bold mb-md text-on-surface">Social</h4>
+            <nav class="flex flex-col gap-sm">
+                <a class="text-on-surface-variant hover:text-primary transition-all duration-150 font-caption text-caption hover:underline" href="#">Twitter</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all duration-150 font-caption text-caption hover:underline" href="#">LinkedIn</a>
+            </nav>
+        </div>
+    </div>
+    <div class="px-gutter py-lg border-t border-outline-variant/30 text-center text-on-surface-variant font-caption text-caption">
+        &copy; 2024 Coordination AI. All rights reserved.
     </div>
 </footer>
-<script>
-    // Micro-interactions and simple animations
-    document.querySelectorAll('details').forEach((el) => {
-        el.addEventListener('toggle', (e) => {
-            if (el.open) {
-                document.querySelectorAll('details').forEach((other) => {
-                    if (other !== el) other.removeAttribute('open');
-                });
-            }
-        });
-    });
-
-    // Add some "parallax" motion to decorative elements
-    window.addEventListener('mousemove', (e) => {
-        const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
-        const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
-        
-        document.querySelectorAll('.blur-3xl').forEach(el => {
-            el.style.transform = `translate(${moveX}px, ${moveY}px)`;
-        });
-    });
-</script>
 </body>
 </html>
