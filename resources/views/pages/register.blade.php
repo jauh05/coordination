@@ -114,7 +114,7 @@
     <!-- Left Side: Visual/Contextual Anchor -->
     <section class="hidden lg:flex lg:col-span-5 flex-col justify-center space-y-xl pr-xl">
         <div class="space-y-md">
-            <span class="inline-flex items-center px-md py-xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-md text-label-md">
+            <span class="inline-flex items-center px-md py-xs rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md">
                 Siap Untuk Perusahaan
             </span>
             <h2 class="font-display-lg text-display-lg text-on-background leading-tight">
@@ -127,14 +127,14 @@
         <!-- Mini Bento Proof Points -->
         <div class="grid grid-cols-2 gap-md">
             <div class="bento-card p-lg flex flex-col gap-sm">
-                <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
-                <p class="font-title-md text-title-md">Uptime 99,9%</p>
-                <p class="font-caption text-caption text-on-surface-variant">Keandalan misi kritis.</p>
+                <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+                <p class="font-title-md text-title-md">Task Management</p>
+                <p class="font-caption text-caption text-on-surface-variant">Buat, assign, dan pantau task.</p>
             </div>
             <div class="bento-card p-lg flex flex-col gap-sm">
-                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">speed</span>
-                <p class="font-title-md text-title-md">Sinkronisasi Real-time</p>
-                <p class="font-caption text-caption text-on-surface-variant">Pembaruan koordinasi instan.</p>
+                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">summarize</span>
+                <p class="font-title-md text-title-md">Laporan AI</p>
+                <p class="font-caption text-caption text-on-surface-variant">AI merangkum laporan anggota.</p>
             </div>
         </div>
     </section>

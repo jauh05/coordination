@@ -113,7 +113,7 @@
     <!-- Left Side: Visual/Contextual Anchor -->
     <section class="hidden lg:flex lg:col-span-5 flex-col justify-center space-y-xl pr-xl">
         <div class="space-y-md">
-            <span class="inline-flex items-center px-md py-xs rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md">
+            <span class="inline-flex items-center px-md py-xs rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md">
                 Portal Anggota Divisi
             </span>
             <h2 class="font-display-lg text-display-lg text-on-background leading-tight">
@@ -126,14 +126,14 @@
         <!-- Mini Bento Proof Points -->
         <div class="grid grid-cols-2 gap-md">
             <div class="bento-card p-lg flex flex-col gap-sm">
-                <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">task_alt</span>
-                <p class="font-title-md text-title-md">Task Pribadi</p>
-                <p class="font-caption text-caption text-on-surface-variant">Lihat task yang di-assign ke Anda.</p>
+                <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+                <p class="font-title-md text-title-md">Task Management</p>
+                <p class="font-caption text-caption text-on-surface-variant">Buat, assign, dan pantau task.</p>
             </div>
             <div class="bento-card p-lg flex flex-col gap-sm">
-                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">edit_note</span>
-                <p class="font-title-md text-title-md">Laporan Harian</p>
-                <p class="font-caption text-caption text-on-surface-variant">Tulis progress & upload foto.</p>
+                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">summarize</span>
+                <p class="font-title-md text-title-md">Laporan AI</p>
+                <p class="font-caption text-caption text-on-surface-variant">AI merangkum laporan anggota.</p>
             </div>
         </div>
     </section>
