@@ -299,7 +299,7 @@
 </footer>
 
 <!-- Background Decoration -->
-<div class="fixed top-0 right-0 -z-10 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -mr-64 -mt-64"></div>
+<div class="fixed top-0 right-0 -z-10 w-[600px] h-[600px] bg-tertiary/5 rounded-full blur-[120px] -mr-64 -mt-64"></div>
 <div class="fixed bottom-0 left-0 -z-10 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] -ml-32 -mb-32"></div>
 
 <script>
