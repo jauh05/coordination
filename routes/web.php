@@ -14,6 +14,11 @@ Route::get('/', function () {
     return view('pages.landing');
 })->name('landing');
 
+// Registration Page
+Route::get('/register', function () {
+    return view('pages.register');
+})->name('register');
+
 // Dashboard / Command Center
 Route::get('/dashboard', function () {
     return view('dashboard.index');

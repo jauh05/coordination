@@ -130,7 +130,7 @@
         </nav>
         <div class="flex items-center gap-md">
             <a href="{{ route('dashboard') }}" class="text-on-surface-variant hover:text-primary px-md py-sm transition-all duration-200 active:scale-95 inline-block text-center">Login</a>
-            <a href="{{ route('dashboard') }}" class="bg-primary text-on-primary px-lg py-sm rounded-full font-bold hover:opacity-90 active:scale-95 transition-all duration-200 shadow-lg shadow-primary/20 inline-block text-center">Get Started</a>
+            <a href="{{ route('register') }}" class="bg-primary text-on-primary px-lg py-sm rounded-full font-bold hover:opacity-90 active:scale-95 transition-all duration-200 shadow-lg shadow-primary/20 inline-block text-center">Get Started</a>
         </div>
     </div>
 </header>
@@ -154,7 +154,7 @@
                     Ubah kompleksitas logistik menjadi presisi militer. Coordination menggunakan AI untuk memantau kesehatan event Anda secara real-time, mencegah budget bocor, dan memastikan Riders terpenuhi 100%.
                 </p>
                 <div class="flex flex-wrap gap-md pt-md">
-                    <a href="{{ route('dashboard') }}" class="inline-block bg-primary text-on-primary px-xxl py-lg rounded-full font-bold text-title-md hover:shadow-xl hover:shadow-primary/30 transition-all active:scale-95">Mulai Mission Control</a>
+                    <a href="{{ route('register') }}" class="inline-block bg-primary text-on-primary px-xxl py-lg rounded-full font-bold text-title-md hover:shadow-xl hover:shadow-primary/30 transition-all active:scale-95">Mulai Mission Control</a>
                     <button class="flex items-center gap-sm px-xxl py-lg rounded-full border border-outline-variant font-bold text-title-md hover:bg-surface-container-low transition-all">
                         <span class="material-symbols-outlined">play_circle</span> Lihat Demo
                     </button>
@@ -520,7 +520,7 @@
                 <h2 class="font-headline-lg text-display-lg text-on-primary">Siap Mengambil Kendali?</h2>
                 <p class="text-on-primary-container text-body-lg max-w-xl mx-auto">Bergabunglah dengan ribuan event planner yang sudah beralih ke operasional berbasis data dan AI.</p>
                 <div class="flex flex-wrap justify-center gap-md pt-lg">
-                    <a href="{{ route('dashboard') }}" class="inline-block bg-on-primary text-primary px-xxl py-lg rounded-full font-bold text-title-md hover:shadow-xl transition-all active:scale-95">Mulai Sekarang</a>
+                    <a href="{{ route('register') }}" class="inline-block bg-on-primary text-primary px-xxl py-lg rounded-full font-bold text-title-md hover:shadow-xl transition-all active:scale-95">Mulai Sekarang</a>
                     <button class="px-xxl py-lg rounded-full border border-on-primary text-on-primary font-bold text-title-md hover:bg-white/10 transition-all">Hubungi Tim Sales</button>
                 </div>
             </div>
