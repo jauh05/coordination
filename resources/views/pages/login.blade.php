@@ -178,13 +178,13 @@
 <div>
 <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue text-primary font-label-md text-label-md mb-4 border border-primary/10">
 <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">security</span>
-                        Division Head Authorization Required
+                        Enterprise Administration Required
                     </span>
 <h1 class="font-display-lg text-display-lg text-text-primary leading-tight mb-stack-md">
-                        Executive <span class="text-primary">Operational</span> Command Portal
+                        Global <span class="text-primary">Enterprise</span> Command Portal
                     </h1>
 <p class="font-body-lg text-body-lg text-text-secondary max-w-lg">
-                        Access high-security event coordination tools and AI-driven predictive insights. This interface is restricted to Grade A-1 Division Heads and authorized personnel.
+                        Access high-level event oversight and holistic company performance analytics. This interface is restricted to Project Managers and Event Directors.
                     </p>
 </div>
 <div class="grid grid-cols-2 gap-stack-md">
@@ -212,6 +212,13 @@
 <!-- Right Side: Login Card -->
 <div class="w-full max-w-[480px] mx-auto">
 <div class="glass-panel p-stack-lg md:p-12 rounded-[24px] border-t-4 border-t-primary relative overflow-hidden">
+
+<div class="flex items-center gap-sm mb-stack-lg p-2 bg-surface-container-high rounded-lg shadow-inner z-20 relative">
+    <a href="{{ route('login') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md bg-white text-primary shadow-sm transition-all border border-outline-variant/20">Perusahaan</a>
+    <a href="{{ route('login.ketua') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md text-text-secondary hover:text-primary transition-all">Ketua Divisi</a>
+    <a href="{{ route('login.anggota') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md text-text-secondary hover:text-primary transition-all">Anggota</a>
+</div>
+
 <!-- Subtle technical corner accents -->
 <div class="absolute top-0 right-0 p-4">
 <span class="material-symbols-outlined text-outline-variant/40" style="font-size: 48px;">settings_overscan</span>
@@ -224,12 +231,12 @@
 <!-- Officer ID -->
 <div class="flex flex-col gap-2">
 <label class="font-label-md text-label-md text-text-primary flex items-center justify-between" for="officer-id">
-                                Officer Identification
+                                Enterprise Email or ID
                                 <span class="text-[10px] font-bold text-outline uppercase tracking-wider">Required</span>
 </label>
 <div class="relative group">
 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">badge</span>
-<input class="w-full h-[48px] pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-text-primary placeholder:text-outline/50 input-focus-ring transition-all" id="officer-id" placeholder="ID-7742-ALPHA" type="text" required/>
+<input class="w-full h-[48px] pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-text-primary placeholder:text-outline/50 input-focus-ring transition-all" id="officer-id" placeholder="corp@company.com" type="text" required/>
 </div>
 </div>
 <!-- Access Keycode -->

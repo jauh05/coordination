@@ -1,218 +1,375 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="id"><head>
+<html class="light" lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Login Ketua Divisi | Coordination</title>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<title>Coordination | Secure Access Portal</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
         theme: {
           extend: {
             "colors": {
-                    "secondary-fixed-dim": "#81d8ad",
-                    "surface-container-high": "#dce9ff",
-                    "tertiary": "#231fb5",
-                    "error-critical": "#ba1a1a",
-                    "tertiary-container": "#3e3fcc",
-                    "secondary-container": "#9af2c5",
-                    "on-primary-fixed": "#00174b",
-                    "inverse-surface": "#213145",
-                    "error-container": "#ffdad6",
-                    "on-tertiary-fixed": "#06006c",
-                    "surface-container": "#e5eeff",
-                    "success-emerald": "#4edea3",
-                    "secondary-fixed": "#9df4c8",
-                    "surface-container-low": "#eff4ff",
-                    "error": "#ba1a1a",
-                    "warning-amber": "#FFB000",
-                    "primary": "#003594",
-                    "on-background": "#0b1c30",
                     "on-primary-fixed-variant": "#003ea8",
-                    "on-secondary": "#ffffff",
-                    "hero-gradient-end": "#2563eb",
-                    "on-surface-variant": "#434654",
-                    "surface-variant": "#d3e4fe",
-                    "on-error-container": "#93000a",
-                    "on-primary-container": "#b8c8ff",
-                    "surface-dim": "#cbdbf5",
-                    "surface-ice": "#f8f9ff",
-                    "outline": "#737685",
-                    "secondary": "#006c49",
-                    "primary-container": "#004ac6",
-                    "surface": "#f8f9ff",
-                    "inverse-primary": "#b4c5ff",
-                    "on-tertiary-fixed-variant": "#2e2dbe",
-                    "on-tertiary": "#ffffff",
-                    "surface-bright": "#f8f9ff",
-                    "on-tertiary-container": "#c4c4ff",
-                    "on-secondary-container": "#0c714d",
-                    "on-primary": "#ffffff",
-                    "background": "#f8f9ff",
+                    "tertiary-container": "#bc4800",
                     "on-secondary-fixed": "#002113",
-                    "tertiary-fixed": "#e1e0ff",
+                    "surface-dim": "#d8dadc",
+                    "surface-container-low": "#f2f4f6",
                     "on-secondary-fixed-variant": "#005236",
-                    "surface-tint": "#1b55d0",
-                    "surface-container-lowest": "#ffffff",
-                    "on-surface": "#0b1c30",
+                    "surface-container-high": "#e6e8ea",
                     "on-error": "#ffffff",
-                    "primary-fixed-dim": "#b4c5ff",
-                    "tertiary-fixed-dim": "#c0c1ff",
-                    "inverse-on-surface": "#eaf1ff",
-                    "outline-variant": "#c3c6d6",
-                    "surface-container-highest": "#d3e4fe",
+                    "secondary-container": "#6cf8bb",
+                    "success": "#22C55E",
+                    "on-surface": "#191c1e",
+                    "text-primary": "#0F172A",
+                    "secondary": "#006c49",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#eeefff",
+                    "accent-blue": "#DBEAFE",
+                    "tertiary": "#943700",
+                    "on-background": "#191c1e",
+                    "on-primary-fixed": "#00174b",
+                    "background": "#f7f9fb",
+                    "on-surface-variant": "#434655",
+                    "inverse-on-surface": "#eff1f3",
+                    "inverse-surface": "#2d3133",
+                    "surface-bright": "#f7f9fb",
+                    "surface-tint": "#0053db",
+                    "surface-card": "#FFFFFF",
+                    "secondary-fixed-dim": "#4edea3",
+                    "outline-variant": "#c3c6d7",
+                    "border-subtle": "#E2E8F0",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "surface-container": "#eceef0",
+                    "on-tertiary-fixed-variant": "#7d2d00",
                     "primary-fixed": "#dbe1ff",
-                    "hero-gradient-start": "#004ac6"
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#ffdbcd",
+                    "outline": "#737686",
+                    "on-tertiary-fixed": "#360f00",
+                    "surface-variant": "#e0e3e5",
+                    "danger": "#EF4444",
+                    "accent-emerald": "#D1FAE5",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-tertiary-container": "#ffede6",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "inverse-primary": "#b4c5ff",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-secondary-container": "#00714d",
+                    "primary-container": "#2563eb",
+                    "primary": "#004ac6",
+                    "error-container": "#ffdad6",
+                    "text-secondary": "#64748B",
+                    "on-primary": "#ffffff",
+                    "warning": "#F59E0B",
+                    "error": "#ba1a1a"
             },
-            "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
-            "spacing": { "gutter": "24px", "sm": "8px", "lg": "24px", "xl": "32px", "xxl": "48px", "md": "16px", "xs": "4px", "margin": "32px" },
-            "fontFamily": { "display-lg": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], "headline-lg": ["Inter"], "title-md": ["Inter"], "headline-sm": ["Inter"], "label-md": ["Inter"], "caption": ["Inter"], "headline-lg-mobile": ["Inter"], "headline-md": ["Inter"] },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "margin-desktop": "40px",
+                    "container-max": "1440px",
+                    "margin-mobile": "16px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px",
+                    "gutter": "24px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
             "fontSize": {
-                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
-                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "title-md": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
-                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
-                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
-                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
-                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
-                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
             }
           },
         },
       }
-</script>
+    </script>
 <style>
-    body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; color: #0b1c30; }
-    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
-    .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border: 1px solid #e2e4e7; }
-    .bento-card { background: #ffffff; border: 1px solid #e2e4e7; border-radius: 16px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .bento-card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
-    input:focus, select:focus { outline: none; border-color: #003594; box-shadow: 0 0 0 4px rgba(0, 53, 148, 0.1); }
-</style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(226, 232, 240, 0.6);
+            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .input-focus-ring:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .technical-grid {
+            background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+        @keyframes subtle-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .float-animation {
+            animation: subtle-float 6s ease-in-out infinite;
+        }
+    </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center p-md">
+<body class="min-h-screen flex flex-col selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
+<!-- Top Navigation Bar (Shared Component Reference) -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm px-gutter py-md">
+<div class="max-w-[1536px] mx-auto flex justify-between items-center">
+<div class="flex items-center gap-stack-sm">
+<span class="material-symbols-outlined text-primary font-bold" style="font-size: 32px;">verified_user</span>
+<span class="text-title-md font-title-md font-bold text-primary dark:text-primary-fixed">Coordination</span>
+</div>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Features</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Solutions</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Pricing</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<a href="{{ route('login') }}" class="text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-95 font-body-md text-body-md px-4 py-2">Login</a>
+<a href="{{ route('register') }}" class="bg-primary text-on-primary font-bold px-6 py-2 rounded-lg hover:opacity-90 active:scale-95 transition-all duration-200 font-body-md text-body-md shadow-sm">Get Started</a>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-grow flex items-center justify-center pt-24 pb-12 px-margin-mobile md:px-margin-desktop technical-grid relative overflow-hidden">
+<!-- Background Elements -->
+<div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-24 w-96 h-96 bg-accent-blue/40 rounded-full blur-3xl pointer-events-none"></div>
+<div class="w-full max-w-[1200px] grid lg:grid-cols-2 gap-stack-lg items-center z-10">
+<!-- Left Side: Branding & Info -->
+<div class="hidden lg:flex flex-col gap-stack-lg pr-12">
+<div>
+<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue text-primary font-label-md text-label-md mb-4 border border-primary/10">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">security</span>
+                        Division Head Authorization Required
+                    </span>
+<h1 class="font-display-lg text-display-lg text-text-primary leading-tight mb-stack-md">
+                        Executive <span class="text-primary">Operational</span> Command Portal
+                    </h1>
+<p class="font-body-lg text-body-lg text-text-secondary max-w-lg">
+                        Access high-security event coordination tools and AI-driven predictive insights. This interface is restricted to Grade A-1 Division Heads and authorized personnel.
+                    </p>
+</div>
+<div class="grid grid-cols-2 gap-stack-md">
+<div class="glass-panel p-stack-md rounded-xl">
+<span class="material-symbols-outlined text-primary mb-2">analytics</span>
+<h3 class="font-label-md text-label-md text-text-primary">Real-time Coordination</h3>
+<p class="font-body-sm text-body-sm text-text-secondary">Low-latency data synchronization across divisions.</p>
+</div>
+<div class="glass-panel p-stack-md rounded-xl">
+<span class="material-symbols-outlined text-secondary mb-2">verified</span>
+<h3 class="font-label-md text-label-md text-text-primary">Encrypted Tokens</h3>
+<p class="font-body-sm text-body-sm text-text-secondary">End-to-end asymmetric key encryption for all sessions.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 mt-4">
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover" data-alt="A professional headshot of a corporate executive woman in a sharp white blazer, set against a clean minimalist studio background, high-end photography, soft directional lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_wcw8XIA7i-Tst7YzEF5QQoNYhGtj0ozuomNY_exvWfnut-uIBHMBlQicLHrgQn5ku5yWqp--MUZPvI4uGUYGdVeDBt86LdkO5bzDB3pMaR-vNhXSMvUgRFoatZVGD8wTvRIyi0aFJWe3HNYcXwuFawV4GdUFo3KGfmHtUkb_86Ywos0HZV5KoM0BR43bbZN2lQ3rjgGxk5UWLmF-ABFqwxZLaCJprz-dRdV_DgoLF_kxBMvBTg_xaz8Xg9Q7lLgadVAriwUBoWk"/>
+<img class="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover" data-alt="A professional headshot of a senior technology officer with glasses, wearing a premium navy blue sweater, minimalist clean office environment background, natural daylight, professional corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYxyymmDAzEzTX8Y2fmiCnEr8dSc4QQciU53YZhgHos8zwlHytpQdz0rzdEgZ_8GYNAGC4qoD8vMY85MZOtQ-jXcN_SNi_FpcruDvJC7RXQLVchJ-9Rb6flCxb3KURrUriYocPkvbS03nEL3TEW8PrlIh-KyNBA5csAMf62sWx9z454kMTUgy8_z8tpxKsOL7tsPo-fKJiNJ3u-a3msLO7X_DAXCteqyphmmV4A0NSVBYBwNF-FL1ZffSlp4LzFfZbtN3xsOKVp8Y"/>
+<img class="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover" data-alt="A professional headshot of a young male division head in a modern minimalist suit, looking confident and focused, high-key lighting, bright light-mode studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhSl0c1_Y9NO7F3JG1FFFvRFWEIU3XDqD45JdEAd7iXVAy3JBVo2pK3weJ9E7cAelRhGHEH8AohoDxooBOFhutFaX24Eh_G8hjybVCBuZwqMtzyaZtOtNW5t474J0BlYmwqi9fFvF01OK1_ROKqBbTEVCJ4-oE5aVyptRXZvh6rKJffnnGyPo-kjj3ukFD5FeW0IHZxo_Wt7h5Vm8L4Oo7yoxTB8SXLPfkWo63vsQ0cnSy61Cy_gSLjp6BKDbjC9JsOmjbZSk4wOQ"/>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-white flex items-center justify-center text-[10px] font-bold text-text-secondary shadow-sm">+12</div>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary italic">Currently overseeing Active Command sessions.</p>
+</div>
+</div>
+<!-- Right Side: Login Card -->
+<div class="w-full max-w-[480px] mx-auto">
+<div class="glass-panel p-stack-lg md:p-12 rounded-[24px] border-t-4 border-t-primary relative overflow-hidden">
 
-<!-- Top Navigation -->
-<header class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter py-md max-w-[1536px] mx-auto backdrop-blur-xl">
-    <div class="flex items-center gap-sm">
-        <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">hub</span>
-        <h1 class="text-title-md font-title-md font-bold text-primary">Coordination</h1>
-    </div>
-    <div>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="{{ route('support') }}">Bantuan</a>
-    </div>
-</header>
+<div class="flex items-center gap-sm mb-stack-lg p-2 bg-surface-container-high rounded-lg shadow-inner">
+    <a href="{{ route('login') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md text-text-secondary hover:text-primary transition-all">Perusahaan</a>
+    <a href="{{ route('login.ketua') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md bg-white text-primary shadow-sm transition-all border border-outline-variant/20">Ketua Divisi</a>
+    <a href="{{ route('login.anggota') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md text-text-secondary hover:text-primary transition-all">Anggota</a>
+</div>
 
-<!-- Main Login Canvas -->
-<main class="w-full max-w-[1200px] mt-xxl grid grid-cols-1 lg:grid-cols-12 gap-lg relative">
-
-    <!-- Left Side: Visual/Contextual Anchor -->
-    <section class="hidden lg:flex lg:col-span-5 flex-col justify-center space-y-xl pr-xl">
-        <div class="space-y-md">
-            <span class="inline-flex items-center px-md py-xs rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md">
-                Portal Ketua Divisi
-            </span>
-            <h2 class="font-display-lg text-display-lg text-on-background leading-tight">
-                Kelola divisi Anda dengan <span class="text-primary">efisiensi penuh.</span>
-            </h2>
-            <p class="font-body-lg text-body-lg text-on-surface-variant">
-                Pantau task anggota, review laporan harian, dan pastikan timeline divisi Anda berjalan sesuai rencana.
-            </p>
-        </div>
-        <!-- Mini Bento Proof Points -->
-        <div class="grid grid-cols-2 gap-md">
-            <div class="bento-card p-lg flex flex-col gap-sm">
-                <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
-                <p class="font-title-md text-title-md">Task Management</p>
-                <p class="font-caption text-caption text-on-surface-variant">Buat, assign, dan pantau task.</p>
-            </div>
-            <div class="bento-card p-lg flex flex-col gap-sm">
-                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">summarize</span>
-                <p class="font-title-md text-title-md">Laporan AI</p>
-                <p class="font-caption text-caption text-on-surface-variant">AI merangkum laporan anggota.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Right Side: Login Form -->
-    <section class="lg:col-span-7 flex flex-col items-center justify-center">
-        <div class="w-full max-w-[520px] glass-panel rounded-xl shadow-sm p-xl md:p-xxl relative overflow-hidden">
-
-            <!-- Role Navigation -->
-            <div class="flex items-center gap-sm mb-xl p-xs bg-surface-container-low rounded-full">
-                <a href="{{ route('login') }}" class="flex-1 py-sm text-center rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all">Perusahaan</a>
-                <a href="{{ route('login.ketua') }}" class="flex-1 py-sm text-center rounded-full font-label-md text-label-md bg-primary text-white shadow-sm transition-all">Ketua Divisi</a>
-                <a href="{{ route('login.anggota') }}" class="flex-1 py-sm text-center rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all">Anggota</a>
-            </div>
-
-            <form action="{{ route('dashboard') }}" class="space-y-xl">
-                <header class="mb-lg">
-                    <h3 class="font-headline-md text-headline-md mb-xs">Login Ketua Divisi</h3>
-                    <p class="font-body-md text-body-md text-on-surface-variant">Masuk untuk mengelola divisi dan review laporan anggota.</p>
-                </header>
-                <div class="space-y-md">
-                    <div class="space-y-xs">
-                        <label class="font-label-md text-label-md text-on-surface">Kode Event</label>
-                        <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="contoh: GTS-2024" required type="text"/>
-                    </div>
-                    <div class="space-y-xs">
-                        <label class="font-label-md text-label-md text-on-surface">Email atau ID Ketua Divisi</label>
-                        <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="email@divisi.com atau ID-KD-001" required type="text"/>
-                    </div>
-                    <div class="space-y-xs">
-                        <label class="font-label-md text-label-md text-on-surface flex justify-between">
-                            <span>Kata Sandi</span>
-                            <a href="#" class="text-primary hover:underline font-label-md text-label-md">Lupa sandi?</a>
-                        </label>
-                        <div class="relative">
-                            <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="••••••••" required type="password" id="password-field"/>
-                            <button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors" type="button" onclick="togglePassword()">
-                                <span class="material-symbols-outlined" id="toggle-icon">visibility</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-xl">
-                    <button class="w-full py-md bg-primary text-white rounded-full font-title-md text-title-md hover:opacity-90 active:scale-95 transition-all flex items-center justify-center gap-sm" type="submit">
-                        Masuk ke Workspace Divisi
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </button>
-                </div>
-            </form>
-
-            <div class="mt-xxl pt-lg border-t border-outline-variant text-center">
-                <p class="font-body-md text-body-md text-on-surface-variant">
-                    Akun dibuat oleh Event Director. Hubungi admin jika belum memiliki akses.
-                </p>
-            </div>
-        </div>
-    </section>
-
+<!-- Subtle technical corner accents -->
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-outline-variant/40" style="font-size: 48px;">settings_overscan</span>
+</div>
+<div class="mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-text-primary mb-2">Secure Login</h2>
+<p class="font-body-md text-body-md text-text-secondary">Enter credentials to initialize secure session.</p>
+</div>
+<form action="{{ route('dashboard') }}" class="flex flex-col gap-stack-md" id="secure-login-form">
+<!-- Officer ID -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-text-primary flex items-center justify-between" for="officer-id">
+                                Officer Identification
+                                <span class="text-[10px] font-bold text-outline uppercase tracking-wider">Required</span>
+</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">badge</span>
+<input class="w-full h-[48px] pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-text-primary placeholder:text-outline/50 input-focus-ring transition-all" id="officer-id" placeholder="ID-7742-ALPHA" type="text" required/>
+</div>
+</div>
+<!-- Access Keycode -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-text-primary flex items-center justify-between" for="access-keycode">
+                                Access Keycode
+                                <a class="text-primary hover:underline text-[12px]" href="#">Request OTP</a>
+</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full h-[48px] pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-text-primary placeholder:text-outline/50 input-focus-ring transition-all" id="access-keycode" placeholder="••••••••••••" type="password" required/>
+</div>
+</div>
+<!-- Event Token -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-text-primary flex items-center justify-between" for="event-token">
+                                Specific Event Token
+                                <span class="material-symbols-outlined text-[14px] text-outline cursor-help" title="The unique hash provided for your specific active event assignment.">help_outline</span>
+</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">token</span>
+<input class="w-full h-[48px] pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-text-primary placeholder:text-outline/50 input-focus-ring transition-all uppercase" id="event-token" placeholder="EVT-0XF382-77" type="text" required/>
+</div>
+</div>
+<div class="flex items-center gap-2 py-2">
+<input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary/20" id="biometric" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-text-secondary" for="biometric">Enable Biometric Secondary Layer</label>
+</div>
+<button class="mt-4 w-full h-[52px] bg-primary text-on-primary font-bold rounded-lg hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/20" type="submit">
+<span class="material-symbols-outlined">verified_user</span>
+                            Authorize Access
+                        </button>
+</form>
+<div class="mt-stack-lg pt-stack-lg border-t border-outline-variant/30 text-center">
+<p class="font-body-sm text-body-sm text-text-secondary">
+                            Access Problems? Contact <a class="text-primary font-semibold hover:underline" href="#">Security Division Hub</a>.
+                        </p>
+</div>
+</div>
+<!-- Subtle Status Indicator Below Card -->
+<div class="mt-stack-md flex items-center justify-center gap-6">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-success"></div>
+<span class="font-label-sm text-label-sm text-text-secondary uppercase">System Operational</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-outline-variant"></div>
+<span class="font-label-sm text-label-sm text-text-secondary uppercase">Last Scan: 2m ago</span>
+</div>
+</div>
+</div>
+</div>
 </main>
-
-<!-- Footer -->
-<footer class="mt-xxl w-full max-w-[1536px] px-gutter py-xl border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-md opacity-70">
-    <p class="font-caption text-caption text-on-surface-variant">© 2024 Coordination AI. Seluruh hak cipta dilindungi undang-undang.</p>
-    <div class="flex gap-lg">
-        <a class="font-caption text-caption text-on-surface-variant hover:text-primary" href="#">Kebijakan Privasi</a>
-        <a class="font-caption text-caption text-on-surface-variant hover:text-primary" href="#">Ketentuan Layanan</a>
-    </div>
+<!-- Footer (Shared Component Reference) -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant">
+<div class="max-w-[1536px] mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-lg px-gutter py-stack-lg">
+<div class="col-span-2">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface">Coordination AI</span>
+<p class="mt-2 font-caption text-caption text-on-surface-variant max-w-xs">Empowering executive coordination with high-precision AI and military-grade security infrastructure.</p>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-primary font-semibold font-caption text-caption">Product</span>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Security</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Integrations</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-primary font-semibold font-caption text-caption">Company</span>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Compliance</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Careers</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-primary font-semibold font-caption text-caption">Legal</span>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">SLA</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-primary font-semibold font-caption text-caption">Social</span>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Twitter</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">LinkedIn</a>
+</div>
+</div>
+<div class="border-t border-outline-variant/30 py-4 px-gutter text-center">
+<p class="font-caption text-caption text-on-surface-variant">© 2024 Coordination AI. All rights reserved. Managed by SecureSystems Intl.</p>
+</div>
 </footer>
-
-<!-- Background Decoration -->
-<div class="fixed top-0 right-0 -z-10 w-[600px] h-[600px] bg-tertiary/5 rounded-full blur-[120px] -mr-64 -mt-64"></div>
-<div class="fixed bottom-0 left-0 -z-10 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] -ml-32 -mb-32"></div>
-
+<!-- Interactive Micro-Interactions Script -->
 <script>
-function togglePassword() {
-    const field = document.getElementById('password-field');
-    const icon = document.getElementById('toggle-icon');
-    if (field.type === 'password') { field.type = 'text'; icon.textContent = 'visibility_off'; }
-    else { field.type = 'password'; icon.textContent = 'visibility'; }
-}
-</script>
+        document.getElementById('secure-login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const originalContent = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = `
+                <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Initialising Secure Session...
+            `;
+
+            // Simulating authentication delay
+            setTimeout(() => {
+                btn.classList.replace('bg-primary', 'bg-success');
+                btn.innerHTML = `
+                    <span class="material-symbols-outlined">check_circle</span>
+                    Access Granted
+                `;
+                
+                // Visual feedback of success
+                document.body.style.transition = 'opacity 0.5s ease-in-out';
+                setTimeout(() => {
+                    // alert('Session Authorized. Welcome, Division Head.');
+                    btn.disabled = false;
+                    btn.innerHTML = originalContent;
+                    btn.classList.replace('bg-success', 'bg-primary');
+                    window.location.href = "{{ route('dashboard') }}";
+                }, 500);
+            }, 2000);
+        });
+
+        // Focus field logic
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('scale-[1.01]');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+    </script>
 </body></html>
