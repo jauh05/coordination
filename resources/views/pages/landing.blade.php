@@ -129,7 +129,7 @@
             <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Pricing</a>
         </nav>
         <div class="flex items-center gap-md">
-            <a href="{{ route('dashboard') }}" class="text-on-surface-variant hover:text-primary px-md py-sm transition-all duration-200 active:scale-95 inline-block text-center">Login</a>
+            <a href="{{ route('login') }}" class="text-on-surface-variant hover:text-primary px-md py-sm transition-all duration-200 active:scale-95 inline-block text-center">Login</a>
             <a href="{{ route('register') }}" class="bg-primary text-on-primary px-lg py-sm rounded-full font-bold hover:opacity-90 active:scale-95 transition-all duration-200 shadow-lg shadow-primary/20 inline-block text-center">Get Started</a>
         </div>
     </div>

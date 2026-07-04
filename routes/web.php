@@ -19,6 +19,11 @@ Route::get('/register', function () {
     return view('pages.register');
 })->name('register');
 
+// Login Page
+Route::get('/login', function () {
+    return view('pages.login');
+})->name('login');
+
 // Dashboard / Command Center
 Route::get('/dashboard', function () {
     return view('dashboard.index');

@@ -335,7 +335,7 @@
 <div class="mt-xxl pt-lg border-t border-outline-variant text-center">
 <p class="font-body-md text-body-md text-on-surface-variant">
                     Sudah punya akun? 
-                    <a class="text-primary font-bold hover:underline" href="{{ route('dashboard') }}">Masuk</a>
+                    <a class="text-primary font-bold hover:underline" href="{{ route('login') }}">Masuk</a>
 </p>
 </div>
 </div>
