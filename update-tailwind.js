@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html class="light" lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $title ?? 'Flowvent' }} | Executive Ops Dashboard</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <!-- Tailwind Configuration -->
-    <script id="tailwind-config">
-        tailwind.config = {
+const fs = require('fs');
+
+const appBladePath = 'resources/views/components/layouts/app.blade.php';
+let content = fs.readFileSync(appBladePath, 'utf8');
+
+const regex = /tailwind\.config = \{[\s\S]*?\};\s*<\/script>/;
+
+const newConfig = `tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
@@ -45,66 +39,7 @@
                 }
             }
         };
-    </script>
-    <style>
-        [x-cloak] { display: none !important; }
-        body { font-family: 'Inter', sans-serif; }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 10px; }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(226, 232, 240, 0.5);
-        }
-        .hero-gradient { background: linear-gradient(135deg, #004ac6 0%, #2563eb 100%); }
-    </style>
-    
-    <!-- Legacy Coordination Styles for other pages -->
-    <link rel="stylesheet" href="{{ asset('css/coordination.css') }}">
-    @stack('styles')
-</head>
-<body class="bg-background text-on-surface selection:bg-primary/20 selection:text-primary">
-    <div x-data="{ sidebarOpen: true }" class="flex min-h-screen">
-        <!-- SIDEBAR -->
-        <div x-show="sidebarOpen" x-transition.opacity.duration.300ms class="flex-shrink-0" x-cloak>
-            @include('components.sidebar')
-        </div>
+    </script>`;
 
-        <!-- MAIN CONTENT -->
-        <main class="flex-1 flex flex-col min-w-0">
-            <!-- TOP APP BAR -->
-            @include('components.topnav')
-
-            <!-- DASHBOARD CANVAS (or any page content) -->
-            {{ $slot }}
-        </main>
-    </div>
-
-    <!-- AI ASSISTANT FAB -->
-    <div class="fixed bottom-margin-page right-margin-page z-50">
-        <button class="flex items-center gap-3 bg-on-surface text-white p-4 rounded-2xl shadow-2xl hover:scale-105 active:scale-95 transition-all group overflow-hidden relative">
-            <div class="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <span class="material-symbols-outlined relative z-10" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
-            <span class="font-label-md text-label-md relative z-10">Ask Flowvent AI</span>
-        </button>
-    </div>
-
-    <script>
-        // Search bar interaction
-        const searchInput = document.querySelector('input[type="text"]');
-        if (searchInput) {
-            searchInput.addEventListener('focus', () => {
-                searchInput.parentElement.classList.add('ring-2', 'ring-primary/20');
-            });
-            searchInput.addEventListener('blur', () => {
-                searchInput.parentElement.classList.remove('ring-2', 'ring-primary/20');
-            });
-        }
-    </script>
-    @stack('scripts')
-</body>
-</html>
+content = content.replace(regex, newConfig);
+fs.writeFileSync(appBladePath, content);
