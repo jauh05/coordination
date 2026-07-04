@@ -117,10 +117,10 @@
                 Portal Perusahaan
             </span>
             <h2 class="font-display-lg text-display-lg text-on-background leading-tight">
-                Selamat datang kembali di <span class="text-primary">Mission Control.</span>
+                Kelola event perusahaan Anda dengan <span class="text-primary">efisiensi penuh.</span>
             </h2>
             <p class="font-body-lg text-body-lg text-on-surface-variant">
-                Akses dashboard perusahaan Anda untuk memantau seluruh operasi event secara real-time.
+                Pantau semua event, kelola vendor, dan pastikan timeline berjalan sesuai rencana.
             </p>
         </div>
         <!-- Mini Bento Proof Points -->
@@ -142,7 +142,6 @@
     <section class="lg:col-span-7 flex flex-col items-center justify-center">
         <div class="w-full max-w-[520px] glass-panel rounded-xl shadow-sm p-xl md:p-xxl relative overflow-hidden">
 
-            <!-- Role Navigation -->
             <div class="flex items-center gap-sm mb-xl p-xs bg-surface-container-low rounded-full">
                 <a href="{{ route('login') }}" class="flex-1 py-sm text-center rounded-full font-label-md text-label-md bg-primary text-white shadow-sm transition-all">Perusahaan</a>
                 <a href="{{ route('login.ketua') }}" class="flex-1 py-sm text-center rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all">Ketua Divisi</a>
@@ -152,12 +151,16 @@
             <form action="{{ route('dashboard') }}" class="space-y-xl">
                 <header class="mb-lg">
                     <h3 class="font-headline-md text-headline-md mb-xs">Login Perusahaan</h3>
-                    <p class="font-body-md text-body-md text-on-surface-variant">Masuk sebagai Event Director atau Project Manager.</p>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Masuk untuk mengelola event perusahaan Anda.</p>
                 </header>
                 <div class="space-y-md">
                     <div class="space-y-xs">
-                        <label class="font-label-md text-label-md text-on-surface">Email Bisnis</label>
-                        <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="nama@perusahaan.com" required type="email"/>
+                        <label class="font-label-md text-label-md text-on-surface">Kode Event</label>
+                        <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="contoh: GTS-2024" required type="text"/>
+                    </div>
+                    <div class="space-y-xs">
+                        <label class="font-label-md text-label-md text-on-surface">Email atau ID Perusahaan</label>
+                        <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="email@perusahaan.com atau ID-PR-001" required type="text"/>
                     </div>
                     <div class="space-y-xs">
                         <label class="font-label-md text-label-md text-on-surface flex justify-between">
@@ -174,7 +177,7 @@
                 </div>
                 <div class="mt-xl">
                     <button class="w-full py-md bg-primary text-white rounded-full font-title-md text-title-md hover:opacity-90 active:scale-95 transition-all flex items-center justify-center gap-sm" type="submit">
-                        Masuk ke Dashboard
+                        Masuk ke Workspace Perusahaan
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </button>
                 </div>
@@ -182,8 +185,7 @@
 
             <div class="mt-xxl pt-lg border-t border-outline-variant text-center">
                 <p class="font-body-md text-body-md text-on-surface-variant">
-                    Belum punya akun?
-                    <a class="text-primary font-bold hover:underline" href="{{ route('register') }}">Daftar Perusahaan</a>
+                    Belum punya akun? <a href="{{ route('register') }}" class="text-primary hover:underline font-bold">Daftar Perusahaan</a>
                 </p>
             </div>
         </div>
