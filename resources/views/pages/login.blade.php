@@ -162,8 +162,8 @@
 <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Pricing</a>
 </div>
 <div class="flex items-center gap-stack-md">
-<button class="text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-95 font-body-md text-body-md px-4 py-2">Login</button>
-<button class="bg-primary text-on-primary font-bold px-6 py-2 rounded-lg hover:opacity-90 active:scale-95 transition-all duration-200 font-body-md text-body-md shadow-sm">Get Started</button>
+<a href="{{ route('login') }}" class="text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-95 font-body-md text-body-md px-4 py-2">Login</a>
+<a href="{{ route('register') }}" class="bg-primary text-on-primary font-bold px-6 py-2 rounded-lg hover:opacity-90 active:scale-95 transition-all duration-200 font-body-md text-body-md shadow-sm">Get Started</a>
 </div>
 </div>
 </nav>
@@ -178,13 +178,13 @@
 <div>
 <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue text-primary font-label-md text-label-md mb-4 border border-primary/10">
 <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">security</span>
-                        Enterprise Administration Required
+                        Division Head Authorization Required
                     </span>
 <h1 class="font-display-lg text-display-lg text-text-primary leading-tight mb-stack-md">
-                        Global <span class="text-primary">Enterprise</span> Command Portal
+                        Executive <span class="text-primary">Operational</span> Command Portal
                     </h1>
 <p class="font-body-lg text-body-lg text-text-secondary max-w-lg">
-                        Access high-level event oversight and holistic company performance analytics. This interface is restricted to Project Managers and Event Directors.
+                        Access high-security event coordination tools and AI-driven predictive insights. This interface is restricted to Grade A-1 Division Heads and authorized personnel.
                     </p>
 </div>
 <div class="grid grid-cols-2 gap-stack-md">
@@ -231,12 +231,12 @@
 <!-- Officer ID -->
 <div class="flex flex-col gap-2">
 <label class="font-label-md text-label-md text-text-primary flex items-center justify-between" for="officer-id">
-                                Enterprise Email or ID
+                                Officer Identification
                                 <span class="text-[10px] font-bold text-outline uppercase tracking-wider">Required</span>
 </label>
 <div class="relative group">
 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">badge</span>
-<input class="w-full h-[48px] pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-text-primary placeholder:text-outline/50 input-focus-ring transition-all" id="officer-id" placeholder="corp@company.com" type="text" required/>
+<input class="w-full h-[48px] pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-text-primary placeholder:text-outline/50 input-focus-ring transition-all" id="officer-id" placeholder="ID-7742-ALPHA" type="text" required/>
 </div>
 </div>
 <!-- Access Keycode -->
