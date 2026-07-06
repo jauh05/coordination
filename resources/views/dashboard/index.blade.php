@@ -110,7 +110,7 @@
                     <p class="text-label-md font-bold text-red-800 flex items-center gap-sm">
                         <span class="material-symbols-outlined text-[18px]">warning</span> Vendor LED Belum Terkonfirmasi
                     </p>
-                    <p class="text-caption text-on-surface-variant mt-1">Estimasi keterlambatan instalasi jika tidak difinalisasi hari ini: 48 jam.</p>
+                    <p class="text-caption text-slate-500 mt-1">Estimasi keterlambatan instalasi jika tidak difinalisasi hari ini: 48 jam.</p>
                 </div>
                 <div class="p-md rounded-xl bg-surface-container-low border border-outline-variant/30">
                     <p class="text-label-md font-bold text-on-surface flex items-center gap-sm">
