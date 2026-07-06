@@ -130,21 +130,21 @@
         </a>
         <nav class="hidden md:flex gap-8">
             <a class="relative text-primary font-semibold font-body-md text-body-md group" href="#">
-                Features
+                Fitur
                 <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
             </a>
             <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="#">
-                Solutions
+                Solusi
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="#">
-                Pricing
+                Harga
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
         </nav>
         <div class="flex items-center gap-2 md:gap-4">
-            <a href="{{ route('login') }}" class="text-on-surface-variant font-medium hover:text-primary px-3 py-2 transition-all duration-200 hover:bg-primary/5 rounded-lg active:scale-95 inline-block text-center text-[13px] md:text-base whitespace-nowrap">Login</a>
-            <a href="{{ route('register') }}" class="bg-gradient-to-r from-primary to-blue-600 text-on-primary px-4 md:px-6 py-1.5 md:py-2 rounded-full font-bold hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 inline-block text-center border border-transparent hover:border-white/20 whitespace-nowrap text-[13px] md:text-base">Get Started</a>
+            <a href="{{ route('login') }}" class="text-on-surface-variant font-medium hover:text-primary px-3 py-2 transition-all duration-200 hover:bg-primary/5 rounded-lg active:scale-95 inline-block text-center text-[13px] md:text-base whitespace-nowrap">Masuk</a>
+            <a href="{{ route('register') }}" class="bg-gradient-to-r from-primary to-blue-600 text-on-primary px-4 md:px-6 py-1.5 md:py-2 rounded-full font-bold hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 inline-block text-center border border-transparent hover:border-white/20 whitespace-nowrap text-[13px] md:text-base">Mulai</a>
         </div>
     </div>
 </header>
@@ -305,7 +305,7 @@
             
             // We shouldn't disable the button immediately or the form might not submit in some browsers,
             // but for UI feedback we can change the content
-            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Processing...';
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Memproses...';
         });
 
         // Password Visibility Toggle

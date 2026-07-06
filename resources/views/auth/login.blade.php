@@ -160,21 +160,21 @@
         </a>
         <nav class="hidden md:flex gap-8">
             <a class="relative text-primary font-semibold font-body-md text-body-md group" href="#">
-                Features
+                Fitur
                 <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
             </a>
             <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="#">
-                Solutions
+                Solusi
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="#">
-                Pricing
+                Harga
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
         </nav>
         <div class="flex items-center gap-2 md:gap-4">
-            <a href="{{ route('login') }}" class="text-on-surface-variant font-medium hover:text-primary px-3 py-2 transition-all duration-200 hover:bg-primary/5 rounded-lg active:scale-95 inline-block text-center text-[13px] md:text-base whitespace-nowrap">Login</a>
-            <a href="{{ route('register') }}" class="bg-gradient-to-r from-primary to-blue-600 text-on-primary px-4 md:px-6 py-1.5 md:py-2 rounded-full font-bold hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 inline-block text-center border border-transparent hover:border-white/20 whitespace-nowrap text-[13px] md:text-base">Get Started</a>
+            <a href="{{ route('login') }}" class="text-on-surface-variant font-medium hover:text-primary px-3 py-2 transition-all duration-200 hover:bg-primary/5 rounded-lg active:scale-95 inline-block text-center text-[13px] md:text-base whitespace-nowrap">Masuk</a>
+            <a href="{{ route('register') }}" class="bg-gradient-to-r from-primary to-blue-600 text-on-primary px-4 md:px-6 py-1.5 md:py-2 rounded-full font-bold hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 inline-block text-center border border-transparent hover:border-white/20 whitespace-nowrap text-[13px] md:text-base">Mulai</a>
         </div>
     </div>
 </header>
@@ -224,31 +224,27 @@
 <div class="w-full max-w-[480px] mx-auto">
 <div class="glass-panel p-stack-lg md:p-12 rounded-[24px] border-t-4 border-t-primary relative overflow-hidden">
 
-<div class="flex items-center gap-sm mb-stack-lg p-2 bg-surface-container-high rounded-lg shadow-inner z-20 relative">
-    <a href="{{ route('login') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md bg-white text-primary shadow-sm transition-all border border-outline-variant/20">Event</a>
-    <a href="{{ route('login.ketua') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md text-text-secondary hover:text-primary transition-all">Ketua Divisi</a>
-    <a href="{{ route('login.anggota') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md text-text-secondary hover:text-primary transition-all">Anggota</a>
+<div class="flex items-center p-1.5 bg-slate-100 dark:bg-slate-800/50 rounded-xl mb-stack-lg relative z-20 shadow-inner">
+    <a href="{{ route('login') }}" class="flex-1 py-2 text-center rounded-lg font-bold text-sm bg-white dark:bg-slate-700 text-primary dark:text-white shadow-[0_2px_8px_-2px_rgba(0,0,0,0.1)] transition-all duration-300">Event</a>
+    <a href="{{ route('login.ketua') }}" class="flex-1 py-2 text-center rounded-lg font-medium text-sm text-slate-500 hover:text-primary hover:bg-slate-200/50 dark:text-slate-400 dark:hover:bg-slate-700/50 transition-all duration-300">Ketua Divisi</a>
+    <a href="{{ route('login.anggota') }}" class="flex-1 py-2 text-center rounded-lg font-medium text-sm text-slate-500 hover:text-primary hover:bg-slate-200/50 dark:text-slate-400 dark:hover:bg-slate-700/50 transition-all duration-300">Anggota</a>
 </div>
 
-<!-- Subtle technical corner accents -->
-<div class="absolute top-0 right-0 p-4">
-<span class="material-symbols-outlined text-outline-variant/40" style="font-size: 48px;">settings_overscan</span>
-</div>
 <div class="mb-stack-lg">
-<h2 class="font-headline-lg text-headline-lg text-text-primary mb-2">Secure Login</h2>
-<p class="font-body-md text-body-md text-text-secondary">Enter credentials to initialize secure session.</p>
+<h2 class="font-headline-lg text-headline-lg text-text-primary mb-2">Login Aman</h2>
+<p class="font-body-md text-body-md text-text-secondary">Masukkan kredensial untuk memulai sesi aman.</p>
 </div>
 <form method="POST" action="{{ route('login') }}" class="flex flex-col gap-stack-md" id="secure-login-form">
 @csrf
 <!-- Email Address -->
 <div class="flex flex-col gap-2">
 <label class="font-label-md text-label-md text-text-primary flex items-center justify-between" for="email">
-                                Email Address
-                                <span class="text-[10px] font-bold text-outline uppercase tracking-wider">Required</span>
+                                Alamat Email
+                                <span class="text-[10px] font-bold text-outline uppercase tracking-wider">Wajib</span>
 </label>
 <div class="relative group">
 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">mail</span>
-<input class="w-full h-[48px] pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-text-primary placeholder:text-outline/50 input-focus-ring transition-all" id="email" name="email" placeholder="name@company.com" type="email" value="{{ old('email') }}" required autofocus/>
+<input class="w-full h-[48px] pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-text-primary placeholder:text-outline/50 input-focus-ring transition-all" id="email" name="email" placeholder="nama@perusahaan.com" type="email" value="{{ old('email') }}" required autofocus/>
 </div>
 @error('email')
 <p class="text-xs mt-1" style="color: #ba1a1a;">{{ $message }}</p>
@@ -257,9 +253,9 @@
 <!-- Password -->
 <div class="flex flex-col gap-2">
 <label class="font-label-md text-label-md text-text-primary flex items-center justify-between" for="password">
-                                Password
+                                Kata Sandi
                                 @if (Route::has('password.request'))
-                                    <a class="text-primary hover:underline text-[12px]" href="{{ route('password.request') }}">Forgot password?</a>
+                                    <a class="text-primary hover:underline text-[12px]" href="{{ route('password.request') }}">Lupa kata sandi?</a>
                                 @endif
 </label>
 <div class="relative group">
@@ -273,16 +269,16 @@
 
 <div class="flex items-center gap-2 py-2">
 <input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary/20" id="remember-me" name="remember" type="checkbox"/>
-<label class="font-body-sm text-body-sm text-text-secondary" for="remember-me">Remember me for 30 days</label>
+<label class="font-body-sm text-body-sm text-text-secondary" for="remember-me">Ingat saya selama 30 hari</label>
 </div>
 <button class="mt-4 w-full h-[52px] bg-primary text-on-primary font-bold rounded-lg hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/20" type="submit">
 <span class="material-symbols-outlined">login</span>
-                            Log In
+                            Masuk
                         </button>
 </form>
 <div class="mt-stack-lg pt-stack-lg border-t border-outline-variant/30 text-center">
 <p class="font-body-sm text-body-sm text-text-secondary">
-                            Don't have an account? <a class="text-primary font-semibold hover:underline" href="{{ route('register') }}">Request access</a>
+                            Belum punya akun? <a class="text-primary font-semibold hover:underline" href="{{ route('register') }}">Minta akses</a>
                         </p>
 </div>
 </div>
@@ -290,11 +286,11 @@
 <div class="mt-stack-md flex items-center justify-center gap-6">
 <div class="flex items-center gap-1.5">
 <div class="w-2 h-2 rounded-full bg-success"></div>
-<span class="font-label-sm text-label-sm text-text-secondary uppercase">System Operational</span>
+<span class="font-label-sm text-label-sm text-text-secondary uppercase">Sistem Beroperasi</span>
 </div>
 <div class="flex items-center gap-1.5">
 <div class="w-2 h-2 rounded-full bg-outline-variant"></div>
-<span class="font-label-sm text-label-sm text-text-secondary uppercase">Last Scan: 2m ago</span>
+<span class="font-label-sm text-label-sm text-text-secondary uppercase">Pemindaian Terakhir: 2m lalu</span>
 </div>
 </div>
 </div>
@@ -347,7 +343,7 @@
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                Authenticating...
+                Mengautentikasi...
             `;
         });
 
