@@ -280,7 +280,7 @@
                                     <p class="text-caption text-on-surface-variant">Probabilitas: 10%</p>
                                 </div>
                             </div>
-                            <span class="text-label-md font-bold text-secondary">RENDAH</span>
+                            <span class="text-label-md font-bold text-emerald-600">RENDAH</span>
                         </div>
                         <div class="flex items-center justify-between p-md bg-surface-container-low rounded-xl">
                             <div class="flex items-center gap-md">
