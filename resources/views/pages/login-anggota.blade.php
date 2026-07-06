@@ -149,24 +149,35 @@
     </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
-<!-- Top Navigation Bar (Shared Component Reference) -->
-<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm px-gutter py-md">
-<div class="max-w-[1536px] mx-auto flex justify-between items-center">
-<div class="flex items-center gap-stack-sm">
-<span class="material-symbols-outlined text-primary font-bold" style="font-size: 32px;">verified_user</span>
-<span class="text-title-md font-title-md font-bold text-primary dark:text-primary-fixed">Coordination</span>
-</div>
-<div class="hidden md:flex items-center gap-stack-lg">
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Features</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Solutions</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Pricing</a>
-</div>
-<div class="flex items-center gap-stack-md">
-<a href="{{ route('login') }}" class="text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-95 font-body-md text-body-md px-4 py-2">Login</a>
-<a href="{{ route('register') }}" class="bg-primary text-on-primary font-bold px-6 py-2 rounded-lg hover:opacity-90 active:scale-95 transition-all duration-200 font-body-md text-body-md shadow-sm">Get Started</a>
-</div>
-</div>
-</nav>
+<header class="fixed top-0 w-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl border-b border-slate-200/50 dark:border-slate-700/50 shadow-sm z-50 transition-all duration-300">
+    <div class="flex justify-between items-center px-6 py-4 max-w-[1536px] mx-auto">
+        <a href="/" class="text-title-md font-title-md font-bold flex items-center gap-2 group">
+            <div class="bg-gradient-to-tr from-primary to-blue-400 text-white p-1.5 rounded-lg group-hover:scale-105 transition-transform shadow-md">
+                <span class="material-symbols-outlined text-[20px] block">hub</span>
+            </div>
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600 dark:from-blue-400 dark:to-blue-200 tracking-tight">Coordination</span>
+        </a>
+        <nav class="hidden md:flex gap-8">
+            <a class="relative text-primary font-semibold font-body-md text-body-md group" href="#">
+                Fitur
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
+            </a>
+            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="#">
+                Solusi
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="#">
+                Harga
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+            </a>
+        </nav>
+        <div class="flex items-center gap-2 md:gap-4">
+            <a href="{{ route('login') }}" class="text-on-surface-variant font-medium hover:text-primary px-3 py-2 transition-all duration-200 hover:bg-primary/5 rounded-lg active:scale-95 inline-block text-center text-[13px] md:text-base whitespace-nowrap">Masuk</a>
+            <a href="{{ route('register') }}" class="bg-gradient-to-r from-primary to-blue-600 text-on-primary px-4 md:px-6 py-1.5 md:py-2 rounded-full font-bold hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 inline-block text-center border border-transparent hover:border-white/20 whitespace-nowrap text-[13px] md:text-base">Mulai</a>
+        </div>
+    </div>
+</header>
+
 <!-- Main Content Area -->
 <main class="flex-grow flex items-center justify-center pt-24 pb-12 px-margin-mobile md:px-margin-desktop technical-grid relative overflow-hidden">
 <!-- Background Elements -->
@@ -178,25 +189,25 @@
 <div>
 <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue text-primary font-label-md text-label-md mb-4 border border-primary/10">
 <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">security</span>
-                        Division Member Authorization
+                        Otorisasi Anggota Divisi
                     </span>
 <h1 class="font-display-lg text-display-lg text-text-primary leading-tight mb-stack-md">
-                        Staff <span class="text-primary">Operations</span> Portal
+                        Portal <span class="text-primary">Operasional</span> Staf
                     </h1>
 <p class="font-body-lg text-body-lg text-text-secondary max-w-lg">
-                        Access personal task assignments, submit daily progress, and upload on-site documentation securely.
+                        Akses tugas pribadi, kirim kemajuan harian, dan unggah dokumentasi lapangan dengan aman.
                     </p>
 </div>
 <div class="grid grid-cols-2 gap-stack-md">
 <div class="glass-panel p-stack-md rounded-xl">
 <span class="material-symbols-outlined text-primary mb-2">analytics</span>
-<h3 class="font-label-md text-label-md text-text-primary">Real-time Coordination</h3>
-<p class="font-body-sm text-body-sm text-text-secondary">Low-latency data synchronization across divisions.</p>
+<h3 class="font-label-md text-label-md text-text-primary">Koordinasi Real-time</h3>
+<p class="font-body-sm text-body-sm text-text-secondary">Sinkronisasi data latensi rendah lintas divisi.</p>
 </div>
 <div class="glass-panel p-stack-md rounded-xl">
 <span class="material-symbols-outlined text-secondary mb-2">verified</span>
-<h3 class="font-label-md text-label-md text-text-primary">Encrypted Tokens</h3>
-<p class="font-body-sm text-body-sm text-text-secondary">End-to-end asymmetric key encryption for all sessions.</p>
+<h3 class="font-label-md text-label-md text-text-primary">Token Terenkripsi</h3>
+<p class="font-body-sm text-body-sm text-text-secondary">Enkripsi kunci asimetris end-to-end untuk semua sesi.</p>
 </div>
 </div>
 <div class="flex items-center gap-4 mt-4">
@@ -206,44 +217,42 @@
 <img class="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover" data-alt="A professional headshot of a young male division head in a modern minimalist suit, looking confident and focused, high-key lighting, bright light-mode studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhSl0c1_Y9NO7F3JG1FFFvRFWEIU3XDqD45JdEAd7iXVAy3JBVo2pK3weJ9E7cAelRhGHEH8AohoDxooBOFhutFaX24Eh_G8hjybVCBuZwqMtzyaZtOtNW5t474J0BlYmwqi9fFvF01OK1_ROKqBbTEVCJ4-oE5aVyptRXZvh6rKJffnnGyPo-kjj3ukFD5FeW0IHZxo_Wt7h5Vm8L4Oo7yoxTB8SXLPfkWo63vsQ0cnSy61Cy_gSLjp6BKDbjC9JsOmjbZSk4wOQ"/>
 <div class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-white flex items-center justify-center text-[10px] font-bold text-text-secondary shadow-sm">+12</div>
 </div>
-<p class="font-body-sm text-body-sm text-text-secondary italic">Currently overseeing Active Command sessions.</p>
+<p class="font-body-sm text-body-sm text-text-secondary italic">Saat ini mengawasi sesi Komando Aktif.</p>
 </div>
 </div>
 <!-- Right Side: Login Card -->
 <div class="w-full max-w-[480px] mx-auto">
 <div class="glass-panel p-stack-lg md:p-12 rounded-[24px] border-t-4 border-t-primary relative overflow-hidden">
 
-<div class="flex items-center gap-sm mb-stack-lg p-2 bg-surface-container-high rounded-lg shadow-inner">
-    <a href="{{ route('login') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md text-text-secondary hover:text-primary transition-all">Perusahaan</a>
-    <a href="{{ route('login.ketua') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md text-text-secondary hover:text-primary transition-all">Ketua Divisi</a>
-    <a href="{{ route('login.anggota') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md bg-white text-primary shadow-sm transition-all border border-outline-variant/20">Anggota</a>
+<div class="flex items-center p-1.5 bg-slate-100 dark:bg-slate-800/50 rounded-xl mb-stack-lg relative z-20 shadow-inner">
+    <a href="{{ route('login') }}" class="flex-1 py-2 text-center rounded-lg font-medium text-sm text-slate-500 hover:text-primary hover:bg-slate-200/50 dark:text-slate-400 dark:hover:bg-slate-700/50 transition-all duration-300">Event</a>
+    <a href="{{ route('login.ketua') }}" class="flex-1 py-2 text-center rounded-lg font-medium text-sm text-slate-500 hover:text-primary hover:bg-slate-200/50 dark:text-slate-400 dark:hover:bg-slate-700/50 transition-all duration-300">Ketua Divisi</a>
+    <a href="{{ route('login.anggota') }}" class="flex-1 py-2 text-center rounded-lg font-bold text-sm bg-white dark:bg-slate-700 text-primary dark:text-white shadow-[0_2px_8px_-2px_rgba(0,0,0,0.1)] transition-all duration-300">Anggota</a>
 </div>
 
-<!-- Subtle technical corner accents -->
-<div class="absolute top-0 right-0 p-4">
-<span class="material-symbols-outlined text-outline-variant/40" style="font-size: 48px;">settings_overscan</span>
-</div>
+
+
 <div class="mb-stack-lg">
-<h2 class="font-headline-lg text-headline-lg text-text-primary mb-2">Secure Login</h2>
-<p class="font-body-md text-body-md text-text-secondary">Enter credentials to initialize secure session.</p>
+<h2 class="font-headline-lg text-headline-lg text-text-primary mb-2">Login Aman</h2>
+<p class="font-body-md text-body-md text-text-secondary">Masukkan kredensial untuk memulai sesi aman.</p>
 </div>
 <form action="{{ route('dashboard') }}" class="flex flex-col gap-stack-md" id="secure-login-form">
 <!-- Officer ID -->
 <div class="flex flex-col gap-2">
 <label class="font-label-md text-label-md text-text-primary flex items-center justify-between" for="officer-id">
-                                Member Identification
-                                <span class="text-[10px] font-bold text-outline uppercase tracking-wider">Required</span>
+                                ID Anggota
+                                <span class="text-[10px] font-bold text-outline uppercase tracking-wider">Wajib</span>
 </label>
 <div class="relative group">
 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">badge</span>
 <input class="w-full h-[48px] pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-text-primary placeholder:text-outline/50 input-focus-ring transition-all" id="officer-id" placeholder="ID-MEMBER-001" type="text" required/>
 </div>
 </div>
-<!-- Access Keycode -->
+<!-- Kode Akses -->
 <div class="flex flex-col gap-2">
 <label class="font-label-md text-label-md text-text-primary flex items-center justify-between" for="access-keycode">
-                                Access Keycode
-                                <a class="text-primary hover:underline text-[12px]" href="#">Request OTP</a>
+                                Kode Akses
+                                <a class="text-primary hover:underline text-[12px]" href="#">Minta OTP</a>
 </label>
 <div class="relative group">
 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>
