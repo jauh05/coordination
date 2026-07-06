@@ -106,7 +106,7 @@
                 <span class="text-label-md text-primary font-bold">3 Peringatan</span>
             </div>
             <div class="space-y-md">
-                <div class="p-md rounded-xl bg-error-container/20 border border-error/10">
+                <div class="p-md rounded-xl bg-red-50 border border-error/10">
                     <p class="text-label-md font-bold text-on-error-container flex items-center gap-sm">
                         <span class="material-symbols-outlined text-[18px]">warning</span> Vendor LED Belum Terkonfirmasi
                     </p>
