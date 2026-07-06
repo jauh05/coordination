@@ -206,7 +206,7 @@
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <div class="w-6 h-6 bg-white border-4 border-primary rounded-full shadow-md -mt-1"></div>
-                            <span class="text-label-md font-black text-primary">Preparation</span>
+                            <span class="text-label-md font-black text-primary">Persiapan</span>
                             <span class="text-caption text-primary">H-18 Now</span>
                         </div>
                         <div class="flex flex-col items-center gap-2">
