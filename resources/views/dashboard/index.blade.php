@@ -359,7 +359,7 @@
                         <div class="pt-0.5">
                             <p class="text-label-md font-bold">Invoice Dibayar</p>
                             <p class="text-caption text-on-surface-variant">Marketing telah membayar tagihan vendor billboard.</p>
-                            <p class="text-caption text-outline mt-1 italic">11.00 WIB</p>
+                            <p class="text-caption text-slate-400 mt-1 italic">11.00 WIB</p>
                         </div>
                     </div>
                     <div class="relative flex gap-lg items-start">
@@ -369,7 +369,7 @@
                         <div class="pt-0.5">
                             <p class="text-label-md font-bold">Dokumen Baru</p>
                             <p class="text-caption text-on-surface-variant">Riri mengunggah 'Stage Layout Rev.3'.</p>
-                            <p class="text-caption text-outline mt-1 italic">10.15 WIB</p>
+                            <p class="text-caption text-slate-400 mt-1 italic">10.15 WIB</p>
                         </div>
                     </div>
                     <div class="relative flex gap-lg items-start">
@@ -379,7 +379,7 @@
                         <div class="pt-0.5">
                             <p class="text-label-md font-bold">Meeting Selesai</p>
                             <p class="text-caption text-on-surface-variant">Sinkronisasi harian tim produksi & logistik.</p>
-                            <p class="text-caption text-outline mt-1 italic">09.30 WIB</p>
+                            <p class="text-caption text-slate-400 mt-1 italic">09.30 WIB</p>
                         </div>
                     </div>
                 </div>
