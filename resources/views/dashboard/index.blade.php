@@ -251,7 +251,7 @@
                         <span class="text-caption text-red-600 bg-red-50 px-md py-0.5 rounded-full">72%</span>
                     </div>
                     <div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
-                        <div class="h-full bg-error w-[72%]"></div>
+                        <div class="h-full bg-red-500 w-[72%]"></div>
                     </div>
                     <p class="text-caption text-on-surface-variant">Menunggu kontrak BCA & Aqua ditandatangani.</p>
                 </div>
