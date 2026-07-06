@@ -347,7 +347,7 @@
             <!-- Activity Feed -->
             <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-xl shadow-sm">
                 <div class="flex items-center justify-between mb-lg">
-                    <h3 class="font-title-md text-title-md">Activity Feed</h3>
+                    <h3 class="font-title-md text-title-md">Aktivitas Terkini</h3>
                     <button class="text-primary text-label-md font-bold hover:underline">Lihat Semua</button>
                 </div>
                 <div class="space-y-lg relative">
