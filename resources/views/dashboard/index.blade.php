@@ -263,7 +263,7 @@
                     <div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
                         <div class="h-full bg-amber-500 w-[88%]"></div>
                     </div>
-                    <p class="text-caption text-on-surface-variant">Catering final. Hotel artis 100% dibayar.</p>
+                    <p class="text-caption text-slate-500">Catering final. Hotel artis 100% dibayar.</p>
                 </div>
             </div>
 
