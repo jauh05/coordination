@@ -89,7 +89,7 @@
         <button class="flex items-center gap-3 bg-on-surface text-white p-4 rounded-2xl shadow-2xl hover:scale-105 active:scale-95 transition-all group overflow-hidden relative">
             <div class="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <span class="material-symbols-outlined relative z-10" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
-            <span class="font-label-md text-label-md relative z-10">Ask Flowvent AI</span>
+            <span class="font-label-md text-label-md relative z-10">Ask Coordination AI</span>
         </button>
     </div>
 
