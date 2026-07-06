@@ -243,7 +243,7 @@
                     <div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
                         <div class="h-full bg-emerald-500 w-[94%]"></div>
                     </div>
-                    <p class="text-caption text-on-surface-variant">Tiket Early Bird Sold Out. Billboard Jakarta aktif.</p>
+                    <p class="text-caption text-slate-500">Tiket Early Bird Sold Out. Billboard Jakarta aktif.</p>
                 </div>
                 <div class="bg-white p-lg rounded-2xl border border-outline-variant/30 shadow-sm space-y-md hover:shadow-md transition-all">
                     <div class="flex justify-between items-center">
