@@ -274,7 +274,7 @@
                     <div class="space-y-md">
                         <div class="flex items-center justify-between p-md bg-surface-container-low rounded-xl">
                             <div class="flex items-center gap-md">
-                                <div class="w-2 h-10 bg-secondary rounded-full"></div>
+                                <div class="w-2 h-10 bg-emerald-500 rounded-full"></div>
                                 <div>
                                     <p class="font-label-md">Pembengkakan Anggaran</p>
                                     <p class="text-caption text-on-surface-variant">Probabilitas: 10%</p>
