@@ -119,7 +119,7 @@
                     <p class="text-caption text-on-surface-variant mt-1">AI menyarankan realokasi Rp12M dari marketing ke vendor sound untuk menutupi kenaikan kurs.</p>
                 </div>
             </div>
-            <button class="w-full mt-lg py-md border border-primary/20 text-primary rounded-xl font-label-md hover:bg-primary-container/10 transition-all">Lihat Semua Rekomendasi</button>
+            <button class="w-full mt-lg py-md border border-primary/20 text-primary rounded-xl font-label-md hover:bg-blue-50 transition-all">Lihat Semua Rekomendasi</button>
         </div>
 
         <!-- Waiting Approval Summary -->
@@ -389,14 +389,14 @@
             <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-xl shadow-sm">
                 <h3 class="font-title-md text-title-md mb-lg">Jadwal Mendatang</h3>
                 <div class="space-y-md">
-                    <div class="p-md rounded-xl bg-surface-container hover:bg-primary-container/10 transition-all border border-transparent hover:border-primary/20 cursor-pointer">
+                    <div class="p-md rounded-xl bg-surface-container hover:bg-blue-50 transition-all border border-transparent hover:border-primary/20 cursor-pointer">
                         <div class="flex justify-between">
                             <span class="text-label-md font-bold text-primary">Hari Ini, 14:00</span>
                             <span class="text-caption text-on-surface-variant">Zoom</span>
                         </div>
                         <p class="text-body-md mt-1">Review Media Plan (WPP)</p>
                     </div>
-                    <div class="p-md rounded-xl bg-surface-container hover:bg-primary-container/10 transition-all border border-transparent hover:border-primary/20 cursor-pointer">
+                    <div class="p-md rounded-xl bg-surface-container hover:bg-blue-50 transition-all border border-transparent hover:border-primary/20 cursor-pointer">
                         <div class="flex justify-between">
                             <span class="text-label-md font-bold">Besok, 10:00</span>
                             <span class="text-caption text-on-surface-variant">On-Site</span>
