@@ -270,7 +270,7 @@
             <!-- Risk Matrix & Budget Visual -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-lg">
                 <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-xl shadow-sm">
-                    <h3 class="font-title-md text-title-md mb-lg">Risk Matrix Summary</h3>
+                    <h3 class="font-title-md text-title-md mb-lg">Ringkasan Matriks Risiko</h3>
                     <div class="space-y-md">
                         <div class="flex items-center justify-between p-md bg-surface-container-low rounded-xl">
                             <div class="flex items-center gap-md">
