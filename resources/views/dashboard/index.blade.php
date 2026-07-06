@@ -17,7 +17,7 @@
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-lg pt-xl border-t border-white/10">
                     <div>
-                        <p class="text-caption font-caption opacity-80 mb-xs">Health Score</p>
+                        <p class="text-caption font-caption opacity-80 mb-xs">Skor Kesehatan</p>
                         <div class="flex items-center gap-sm">
                             <span class="text-headline-sm font-bold">89/100</span>
                             <span class="w-3 h-3 bg-[#4edea3] rounded-full shadow-[0_0_8px_#4edea3]"></span>
