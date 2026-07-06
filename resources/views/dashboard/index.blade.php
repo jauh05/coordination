@@ -216,7 +216,7 @@
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <div class="w-4 h-4 bg-surface-container-high rounded-full ring-4 ring-white"></div>
-                            <span class="text-label-md font-bold text-on-surface-variant">Execution</span>
+                            <span class="text-label-md font-bold text-on-surface-variant">Eksekusi</span>
                             <span class="text-caption text-on-surface-variant">Aug 28</span>
                         </div>
                     </div>
