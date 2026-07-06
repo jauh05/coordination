@@ -373,7 +373,7 @@
                         </div>
                     </div>
                     <div class="relative flex gap-lg items-start">
-                        <div class="z-10 w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-white ring-4 ring-white">
+                        <div class="z-10 w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-white ring-4 ring-white">
                             <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">groups</span>
                         </div>
                         <div class="pt-0.5">
