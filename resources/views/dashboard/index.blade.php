@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="flex gap-md pt-md">
-                    <a href="{{ route('events') }}" class="bg-white text-primary px-lg py-md rounded-xl font-label-md shadow-sm hover:shadow-md transition-all active:scale-95 inline-block">Lihat Detail Event</a>
+                    <a href="{{ route('events') }}" class="bg-white text-primary px-lg py-md rounded-xl font-label-md shadow-sm hover:shadow-md transition-all active:scale-95 inline-block"><span class="material-symbols-outlined text-[16px]">visibility</span> Lihat Detail Event</a>
                     <a href="{{ route('planning') }}" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-lg py-md rounded-xl font-label-md transition-all active:scale-95 inline-block">Buka Workspace</a>
                 </div>
             </div>
