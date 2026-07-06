@@ -2,7 +2,7 @@
 <div class="flex-grow p-margin max-w-screen-2xl mx-auto w-full space-y-lg">
     <!-- Hero Section: Welcome & Core KPIs -->
     <section class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
-        <div class="lg:col-span-2 hero-gradient rounded-2xl p-xl shadow-lg relative overflow-hidden text-white">
+        <div class="lg:col-span-2 bg-gradient-to-br from-indigo-900 to-blue-800 rounded-2xl p-xl shadow-lg relative overflow-hidden text-white">
             
             <div class="relative z-10 space-y-md">
                 <div class="flex justify-between items-start">
