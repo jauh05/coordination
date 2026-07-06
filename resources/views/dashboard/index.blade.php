@@ -28,7 +28,7 @@
                         <span class="text-headline-sm font-bold">74%</span>
                     </div>
                     <div class="col-span-2 md:col-span-2">
-                        <p class="text-caption font-caption opacity-80 mb-xs">Budget Realization</p>
+                        <p class="text-caption font-caption opacity-80 mb-xs">Realisasi Anggaran</p>
                         <div class="flex items-end gap-sm">
                             <span class="text-headline-sm font-bold">Rp318M</span>
                             <span class="text-caption font-caption opacity-80 mb-xs pb-0.5">/ Rp520M</span>
