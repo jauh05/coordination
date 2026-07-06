@@ -233,7 +233,7 @@
                     <div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
                         <div class="h-full bg-primary w-[81%]"></div>
                     </div>
-                    <p class="text-caption text-on-surface-variant">Panggung utama 40% terpasang. Vendor sound tiba besok.</p>
+                    <p class="text-caption text-slate-500">Panggung utama 40% terpasang. Vendor sound tiba besok.</p>
                 </div>
                 <div class="bg-white p-lg rounded-2xl border border-outline-variant/30 shadow-sm space-y-md hover:shadow-md transition-all">
                     <div class="flex justify-between items-center">
