@@ -71,7 +71,7 @@
         <!-- AI Mission Briefing -->
         <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-xl shadow-sm space-y-md">
             <div class="flex items-center gap-md">
-                <div class="w-10 h-10 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary">
+                <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center text-tertiary">
                     <span class="material-symbols-outlined">assignment_turned_in</span>
                 </div>
                 <h3 class="font-title-md text-title-md">Mission Briefing Hari Ini</h3>
