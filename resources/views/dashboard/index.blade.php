@@ -184,7 +184,7 @@
             <!-- Horizontal Timeline -->
             <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-xl shadow-sm overflow-hidden relative">
                 <div class="flex items-center justify-between mb-xl">
-                    <h3 class="font-title-md text-title-md">Event Roadmap</h3>
+                    <h3 class="font-title-md text-title-md">Peta Jalan Event</h3>
                     <div class="flex items-center gap-sm">
                         <span class="px-md py-1 bg-primary text-on-primary rounded-full text-caption font-bold">Fase Persiapan</span>
                         <span class="text-caption text-on-surface-variant">Jun - Aug 2027</span>
