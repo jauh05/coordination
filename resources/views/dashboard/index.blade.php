@@ -114,7 +114,7 @@
                 </div>
                 <div class="p-md rounded-xl bg-surface-container-low border border-outline-variant/30">
                     <p class="text-label-md font-bold text-on-surface flex items-center gap-sm">
-                        <span class="material-symbols-outlined text-[18px] text-tertiary">lightbulb</span> Optimasi Budget Produksi
+                        <span class="material-symbols-outlined text-[18px] text-amber-600">lightbulb</span> Optimasi Budget Produksi
                     </p>
                     <p class="text-caption text-on-surface-variant mt-1">AI menyarankan realokasi Rp12M dari marketing ke vendor sound untuk menutupi kenaikan kurs.</p>
                 </div>
