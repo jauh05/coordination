@@ -248,7 +248,7 @@
                 <div class="bg-white p-lg rounded-2xl border border-outline-variant/30 shadow-sm space-y-md hover:shadow-md transition-all">
                     <div class="flex justify-between items-center">
                         <span class="text-label-md font-bold text-on-surface-variant">Sponsor</span>
-                        <span class="text-caption text-error bg-error/10 px-md py-0.5 rounded-full">72%</span>
+                        <span class="text-caption text-red-600 bg-red-50 px-md py-0.5 rounded-full">72%</span>
                     </div>
                     <div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
                         <div class="h-full bg-error w-[72%]"></div>
