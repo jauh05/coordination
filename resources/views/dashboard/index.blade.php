@@ -300,7 +300,7 @@
                                     <p class="text-caption text-on-surface-variant">Probabilitas: 40%</p>
                                 </div>
                             </div>
-                            <span class="text-label-md font-bold text-[#FFB000]">MEDIUM</span>
+                            <span class="text-label-md font-bold text-[#FFB000]">SEDANG</span>
                         </div>
                     </div>
                 </div>
