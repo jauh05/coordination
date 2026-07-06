@@ -156,16 +156,16 @@
 <!-- Progress Indicator -->
 <nav aria-label="Progress" class="mb-stack-lg">
 <ol class="flex items-center space-x-4" role="list">
-<li class="flex items-center">
+<li class="flex items-center cursor-pointer" onclick="goToStep(1)">
 <span id="node-1" class="flex items-center justify-center w-8 h-8 rounded-full border-2 border-primary-container bg-primary-container text-white font-label-md text-label-md transition-colors">1</span>
 <span class="ml-2 font-label-md text-label-md text-primary" id="text-1">Akun</span>
 </li>
-<li class="flex items-center">
+<li class="flex items-center cursor-pointer" onclick="goToStep(2)">
 <div class="w-8 h-[2px] bg-outline-variant mx-2" id="line-1"></div>
 <span id="node-2" class="flex items-center justify-center w-8 h-8 rounded-full border-2 border-outline-variant text-on-surface-variant font-label-md text-label-md transition-colors">2</span>
 <span class="ml-2 font-label-md text-label-md text-on-surface-variant" id="text-2">Event</span>
 </li>
-<li class="flex items-center">
+<li class="flex items-center cursor-pointer" onclick="goToStep(3)">
 <div class="w-8 h-[2px] bg-outline-variant mx-2" id="line-2"></div>
 <span id="node-3" class="flex items-center justify-center w-8 h-8 rounded-full border-2 border-outline-variant text-on-surface-variant font-label-md text-label-md transition-colors">3</span>
 <span class="ml-2 font-label-md text-label-md text-on-surface-variant" id="text-3">Selesai</span>
@@ -371,8 +371,8 @@
             const step2 = document.getElementById('step-2');
             const step3 = document.getElementById('step-3');
             
-            // Validate step 1 before going to step 2
-            if (step === 2) {
+            // Validate step 1 if trying to go to step 2 or 3
+            if (step > 1) {
                 const name = document.getElementById('name');
                 const email = document.getElementById('email');
                 const password = document.getElementById('password');
