@@ -117,20 +117,31 @@
 <body class="bg-background text-on-background font-body-md selection:bg-primary/20">
 
 <!-- TopNavBar -->
-<header class="fixed top-0 w-full bg-surface/80 dark:bg-on-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm z-50">
+<header class="fixed top-0 w-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl border-b border-slate-200/50 dark:border-slate-700/50 shadow-sm z-50 transition-all duration-300">
     <div class="flex justify-between items-center px-gutter py-md max-w-[1536px] mx-auto">
-        <div class="text-title-md font-title-md font-bold text-primary dark:text-primary-fixed flex items-center gap-2">
-            <span class="material-symbols-outlined">hub</span>
-            Coordination
-        </div>
+        <a href="/" class="text-title-md font-title-md font-bold flex items-center gap-2 group">
+            <div class="bg-gradient-to-tr from-primary to-blue-400 text-white p-1.5 rounded-lg group-hover:scale-105 transition-transform shadow-md">
+                <span class="material-symbols-outlined text-[20px] block">hub</span>
+            </div>
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600 dark:from-blue-400 dark:to-blue-200 tracking-tight">Coordination</span>
+        </a>
         <nav class="hidden md:flex gap-xl">
-            <a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">Features</a>
-            <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Solutions</a>
-            <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Pricing</a>
+            <a class="relative text-primary font-semibold font-body-md text-body-md group" href="#">
+                Features
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
+            </a>
+            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="#">
+                Solutions
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="#">
+                Pricing
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+            </a>
         </nav>
-        <div class="flex items-center gap-md">
-            <a href="{{ route('login') }}" class="text-on-surface-variant hover:text-primary px-md py-sm transition-all duration-200 active:scale-95 inline-block text-center">Login</a>
-            <a href="{{ route('register') }}" class="bg-primary text-on-primary px-lg py-sm rounded-full font-bold hover:opacity-90 active:scale-95 transition-all duration-200 shadow-lg shadow-primary/20 inline-block text-center">Get Started</a>
+        <div class="flex items-center gap-2 md:gap-md">
+            <a href="{{ route('login') }}" class="text-on-surface-variant font-medium hover:text-primary px-2 md:px-md py-sm transition-all duration-200 hover:bg-primary/5 rounded-lg active:scale-95 inline-block text-center text-[13px] md:text-base whitespace-nowrap">Login</a>
+            <a href="{{ route('register') }}" class="bg-gradient-to-r from-primary to-blue-600 text-on-primary px-3 md:px-lg py-1.5 md:py-sm rounded-full font-bold hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 inline-block text-center border border-transparent hover:border-white/20 whitespace-nowrap text-[13px] md:text-base">Get Started</a>
         </div>
     </div>
 </header>
@@ -141,22 +152,43 @@
         <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none"></div>
         <div class="grid lg:grid-cols-2 gap-xxl items-center relative z-10">
             <div class="space-y-lg">
-                <div class="absolute -inset-4 bg-primary/5 blur-2xl rounded-full pointer-events-none -z-10 shadow-sm border-primary/20" data-stitch-orig-opacity="0"></div>
-                <div class="inline-flex items-center gap-2 px-md py-xs bg-primary-fixed text-on-primary-fixed rounded-full border border-primary/10">
-                    <span class="material-symbols-outlined text-[18px]">verified</span>
-                    <span class="font-label-md text-label-md">MISSION CONTROL ELITE</span>
+                <div class="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-blue-400/20 blur-3xl rounded-full pointer-events-none -z-10 animate-pulse duration-3000"></div>
+                
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50/80 dark:bg-blue-900/20 text-primary dark:text-blue-300 rounded-full border border-blue-100 dark:border-blue-800/50 shadow-sm backdrop-blur-sm mb-2 transform hover:scale-105 transition-transform cursor-default">
+                    <div class="w-2 h-2 rounded-full bg-primary animate-ping absolute opacity-75"></div>
+                    <div class="w-2 h-2 rounded-full bg-primary relative"></div>
+                    <span class="font-bold text-xs tracking-wider uppercase">Mission Control Elite</span>
                 </div>
-                <h1 class="font-display-lg text-display-lg text-primary leading-tight tracking-tight tracking-widest shadow-sm font-bold">
-                    <span style="color: rgb(0, 53, 148); letter-spacing: -0.025em;">Operasional Event<br></span>
-                    <span style="color: rgb(0, 74, 198);">Tanpa Resiko.</span>
+                
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight mb-6">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 dark:from-white dark:to-slate-300 block mb-2">
+                        Operasional Event
+                    </span>
+                    <span class="relative inline-block">
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary via-blue-500 to-cyan-400">
+                            Tanpa Resiko.
+                        </span>
+                        <svg class="absolute w-full h-3 -bottom-2 left-0 text-blue-400/40" viewBox="0 0 100 10" preserveAspectRatio="none">
+                            <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="4" fill="transparent"/>
+                        </svg>
+                    </span>
                 </h1>
-                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
-                    Ubah kompleksitas logistik menjadi presisi militer. Coordination menggunakan AI untuk memantau kesehatan event Anda secara real-time, mencegah budget bocor, dan memastikan Riders terpenuhi 100%.
+                
+                <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed mb-8 font-medium">
+                    Ubah kompleksitas logistik menjadi <span class="text-primary font-semibold">presisi militer</span>. Coordination menggunakan AI untuk memantau kesehatan event Anda secara real-time, mencegah budget bocor, dan memastikan Riders terpenuhi 100%.
                 </p>
-                <div class="flex flex-wrap gap-md pt-md">
-                    <a href="{{ route('register') }}" class="inline-block bg-primary text-on-primary px-xxl py-lg rounded-full font-bold text-title-md hover:shadow-xl hover:shadow-primary/30 transition-all active:scale-95">Mulai Mission Control</a>
-                    <button class="flex items-center gap-sm px-xxl py-lg rounded-full border border-outline-variant font-bold text-title-md hover:bg-surface-container-low transition-all">
-                        <span class="material-symbols-outlined">play_circle</span> Lihat Demo
+                
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="{{ route('register') }}" class="group relative inline-flex items-center justify-center bg-primary text-white px-8 py-4 rounded-full font-bold text-lg overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(0,82,204,0.5)]">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary to-blue-600 transition-all group-hover:scale-110"></div>
+                        <span class="relative flex items-center gap-2">
+                            Mulai Mission Control
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </span>
+                    </a>
+                    <button class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-slate-200 text-slate-700 font-bold text-lg hover:bg-slate-50 hover:border-slate-300 transition-all dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+                        <span class="material-symbols-outlined text-primary">play_circle</span> 
+                        Lihat Demo
                     </button>
                 </div>
             </div>
