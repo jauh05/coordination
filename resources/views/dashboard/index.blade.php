@@ -419,7 +419,7 @@
             <a class="text-label-md hover:text-primary transition-all" href="{{ route('support') }}">Support</a>
         </div>
         <div class="flex items-center gap-md">
-            <span class="text-caption font-bold text-outline">v2.4.1 MISSION_STABLE</span>
+            <span class="text-caption font-bold text-outline">v2.4.1 STABIL</span>
             <div class="h-2 w-2 bg-secondary rounded-full animate-pulse"></div>
             <span class="text-caption font-bold text-secondary uppercase tracking-widest">Sistem Online</span>
         </div>
