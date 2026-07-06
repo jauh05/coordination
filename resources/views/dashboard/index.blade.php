@@ -126,19 +126,19 @@
         <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-xl shadow-sm">
             <h3 class="font-title-md text-title-md mb-lg">Menunggu Persetujuan</h3>
             <div class="grid grid-cols-2 gap-md">
-                <a href="{{ route('approval') }}" class="p-lg bg-surface-container rounded-2xl border border-outline-variant/20 hover:border-primary/30 transition-all cursor-pointer block">
+                <a href="{{ route('approval') }}" class="p-lg bg-surface-container rounded-2xl border border-outline-variant/20 hover:border-blue-300 hover:shadow-md transition-all cursor-pointer block">
                     <span class="text-display-lg font-display-lg block leading-none mb-2">03</span>
                     <span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-tighter">Budget</span>
                 </a>
-                <a href="{{ route('approval') }}" class="p-lg bg-surface-container rounded-2xl border border-outline-variant/20 hover:border-primary/30 transition-all cursor-pointer block">
+                <a href="{{ route('approval') }}" class="p-lg bg-surface-container rounded-2xl border border-outline-variant/20 hover:border-blue-300 hover:shadow-md transition-all cursor-pointer block">
                     <span class="text-display-lg font-display-lg block leading-none mb-2">02</span>
                     <span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-tighter">Vendor</span>
                 </a>
-                <a href="{{ route('approval') }}" class="p-lg bg-surface-container rounded-2xl border border-outline-variant/20 hover:border-primary/30 transition-all cursor-pointer block">
+                <a href="{{ route('approval') }}" class="p-lg bg-surface-container rounded-2xl border border-outline-variant/20 hover:border-blue-300 hover:shadow-md transition-all cursor-pointer block">
                     <span class="text-display-lg font-display-lg block leading-none mb-2">05</span>
                     <span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-tighter">Invoice</span>
                 </a>
-                <a href="{{ route('approval') }}" class="p-lg bg-surface-container rounded-2xl border border-outline-variant/20 hover:border-primary/30 transition-all cursor-pointer block">
+                <a href="{{ route('approval') }}" class="p-lg bg-surface-container rounded-2xl border border-outline-variant/20 hover:border-blue-300 hover:shadow-md transition-all cursor-pointer block">
                     <span class="text-display-lg font-display-lg block leading-none mb-2">01</span>
                     <span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-tighter">Kontrak</span>
                 </a>
