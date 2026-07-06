@@ -286,7 +286,7 @@
                             <div class="flex items-center gap-md">
                                 <div class="w-2 h-10 bg-error rounded-full shadow-[0_0_8px_rgba(186,26,26,0.3)]"></div>
                                 <div>
-                                    <p class="font-label-md">Vendor Timeline</p>
+                                    <p class="font-label-md">Timeline Vendor</p>
                                     <p class="text-caption text-on-surface-variant">Probabilitas: 65%</p>
                                 </div>
                             </div>
