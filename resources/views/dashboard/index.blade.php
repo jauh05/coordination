@@ -50,7 +50,7 @@
                     <circle class="text-primary" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-dasharray="440" stroke-dashoffset="48" stroke-width="12"></circle>
                 </svg>
                 <div class="absolute inset-0 flex flex-col items-center justify-center">
-                    <span class="text-display-lg font-display-lg text-on-surface leading-none">89</span>
+                    <span class="text-display-lg font-display-lg text-slate-800 leading-none">89</span>
                     <span class="text-label-md font-label-md text-secondary tracking-widest font-bold">AMAN</span>
                 </div>
             </div>
