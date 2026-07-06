@@ -98,7 +98,7 @@
             <div class="absolute top-0 right-0 w-32 h-32 bg-tertiary/5 rounded-full -mr-16 -mt-16 blur-3xl group-hover:scale-150 transition-all duration-700"></div>
             <div class="flex items-center justify-between mb-md">
                 <div class="flex items-center gap-md">
-                    <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                    <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
                         <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
                     </div>
                     <h3 class="font-title-md text-title-md">Wawasan AI</h3>
