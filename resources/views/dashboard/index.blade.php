@@ -415,7 +415,7 @@
         <div class="flex gap-lg">
             <a class="text-label-md hover:text-primary transition-all" href="{{ route('support') }}">Basis Pengetahuan</a>
             <a class="text-label-md hover:text-primary transition-all" href="{{ route('evaluation') }}">Pelajaran Terambil</a>
-            <a class="text-label-md hover:text-primary transition-all" href="{{ route('documents') }}">Resource Library</a>
+            <a class="text-label-md hover:text-primary transition-all" href="{{ route('documents') }}">Perpustakaan Sumber Daya</a>
             <a class="text-label-md hover:text-primary transition-all" href="{{ route('support') }}">Support</a>
         </div>
         <div class="flex items-center gap-md">
