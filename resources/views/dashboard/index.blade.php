@@ -276,7 +276,7 @@
                             <div class="flex items-center gap-md">
                                 <div class="w-2 h-10 bg-secondary rounded-full"></div>
                                 <div>
-                                    <p class="font-label-md">Budget Overshoot</p>
+                                    <p class="font-label-md">Pembengkakan Anggaran</p>
                                     <p class="text-caption text-on-surface-variant">Probability: 10%</p>
                                 </div>
                             </div>
