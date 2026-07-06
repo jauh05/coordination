@@ -5,7 +5,7 @@
         </div>
         <div>
             <h1 class="font-headline-lg text-headline-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">Coordination</h1>
-            <p class="font-label-sm text-label-sm text-text-secondary">Operasi Enterprise</p>
+            <p class="font-label-sm text-label-sm text-text-secondary">Event Coordination</p>
         </div>
     </div>
     <button class="w-full flex items-center justify-center gap-2 bg-primary text-on-primary py-3 px-4 rounded-xl font-label-md text-label-md mb-stack-md hover:brightness-110 active:scale-[0.98] transition-all">
