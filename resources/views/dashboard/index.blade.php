@@ -416,7 +416,7 @@
             <a class="text-label-md hover:text-primary transition-all" href="{{ route('support') }}">Basis Pengetahuan</a>
             <a class="text-label-md hover:text-primary transition-all" href="{{ route('evaluation') }}">Pelajaran Terambil</a>
             <a class="text-label-md hover:text-primary transition-all" href="{{ route('documents') }}">Perpustakaan Sumber Daya</a>
-            <a class="text-label-md hover:text-primary transition-all" href="{{ route('support') }}">Support</a>
+            <a class="text-label-md hover:text-primary transition-all" href="{{ route('support') }}">Bantuan</a>
         </div>
         <div class="flex items-center gap-md">
             <span class="text-caption font-bold text-outline">v2.4.1 STABIL</span>
