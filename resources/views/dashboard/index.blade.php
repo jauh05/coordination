@@ -211,7 +211,7 @@
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <div class="w-4 h-4 bg-surface-container-high rounded-full ring-4 ring-white"></div>
-                            <span class="text-label-md font-bold text-on-surface-variant">Production</span>
+                            <span class="text-label-md font-bold text-on-surface-variant">Produksi</span>
                             <span class="text-caption text-on-surface-variant">Aug 15</span>
                         </div>
                         <div class="flex flex-col items-center gap-2">
