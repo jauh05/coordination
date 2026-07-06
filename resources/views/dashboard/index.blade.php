@@ -140,7 +140,7 @@
                 </a>
                 <a href="{{ route('approval') }}" class="p-lg bg-surface-container rounded-2xl border border-outline-variant/20 hover:border-primary/30 transition-all cursor-pointer block">
                     <span class="text-display-lg font-display-lg block leading-none mb-2">01</span>
-                    <span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-tighter">Contract</span>
+                    <span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-tighter">Kontrak</span>
                 </a>
             </div>
         </div>
