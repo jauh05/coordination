@@ -399,7 +399,7 @@
                     <div class="p-md rounded-xl bg-surface-container hover:bg-blue-50 transition-all border border-transparent hover:border-blue-200 cursor-pointer">
                         <div class="flex justify-between">
                             <span class="text-label-md font-bold">Besok, 10:00</span>
-                            <span class="text-caption text-on-surface-variant">On-Site</span>
+                            <span class="text-caption text-on-surface-variant">Langsung</span>
                         </div>
                         <p class="text-body-md mt-1">Site Visit: GBK Stadium</p>
                     </div>
