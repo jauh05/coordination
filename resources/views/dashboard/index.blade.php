@@ -1,4 +1,4 @@
-<x-layouts.app title="Mission Control | Coordination">
+<x-layouts.app title="Pusat Kendali | Coordination">
 <div class="flex-grow p-margin max-w-screen-2xl mx-auto w-full space-y-lg">
     <!-- Hero Section: Welcome & Core KPIs -->
     <section class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
