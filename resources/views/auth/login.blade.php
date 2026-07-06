@@ -189,25 +189,25 @@
 <div>
 <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue text-primary font-label-md text-label-md mb-4 border border-primary/10">
 <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">security</span>
-                        Division Head Authorization Required
+                        Otorisasi Ketua Divisi Diperlukan
                     </span>
 <h1 class="font-display-lg text-display-lg text-text-primary leading-tight mb-stack-md">
-                        Executive <span class="text-primary">Operational</span> Command Portal
+                        Portal Komando <span class="text-primary">Operasional</span> Eksekutif
                     </h1>
 <p class="font-body-lg text-body-lg text-text-secondary max-w-lg">
-                        Access high-security event coordination tools and AI-driven predictive insights. This interface is restricted to Grade A-1 Division Heads and authorized personnel.
+                        Akses alat koordinasi event dengan keamanan tinggi dan wawasan prediktif berbasis AI. Antarmuka ini dibatasi khusus untuk Ketua Divisi Grade A-1 dan personel yang berwenang.
                     </p>
 </div>
 <div class="grid grid-cols-2 gap-stack-md">
 <div class="glass-panel p-stack-md rounded-xl">
 <span class="material-symbols-outlined text-primary mb-2">analytics</span>
-<h3 class="font-label-md text-label-md text-text-primary">Real-time Coordination</h3>
-<p class="font-body-sm text-body-sm text-text-secondary">Low-latency data synchronization across divisions.</p>
+<h3 class="font-label-md text-label-md text-text-primary">Koordinasi Real-time</h3>
+<p class="font-body-sm text-body-sm text-text-secondary">Sinkronisasi data latensi rendah lintas divisi.</p>
 </div>
 <div class="glass-panel p-stack-md rounded-xl">
 <span class="material-symbols-outlined text-secondary mb-2">verified</span>
-<h3 class="font-label-md text-label-md text-text-primary">Encrypted Tokens</h3>
-<p class="font-body-sm text-body-sm text-text-secondary">End-to-end asymmetric key encryption for all sessions.</p>
+<h3 class="font-label-md text-label-md text-text-primary">Token Terenkripsi</h3>
+<p class="font-body-sm text-body-sm text-text-secondary">Enkripsi kunci asimetris end-to-end untuk semua sesi.</p>
 </div>
 </div>
 <div class="flex items-center gap-4 mt-4">
@@ -217,7 +217,7 @@
 <img class="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover" data-alt="A professional headshot of a young male division head in a modern minimalist suit, looking confident and focused, high-key lighting, bright light-mode studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhSl0c1_Y9NO7F3JG1FFFvRFWEIU3XDqD45JdEAd7iXVAy3JBVo2pK3weJ9E7cAelRhGHEH8AohoDxooBOFhutFaX24Eh_G8hjybVCBuZwqMtzyaZtOtNW5t474J0BlYmwqi9fFvF01OK1_ROKqBbTEVCJ4-oE5aVyptRXZvh6rKJffnnGyPo-kjj3ukFD5FeW0IHZxo_Wt7h5Vm8L4Oo7yoxTB8SXLPfkWo63vsQ0cnSy61Cy_gSLjp6BKDbjC9JsOmjbZSk4wOQ"/>
 <div class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-white flex items-center justify-center text-[10px] font-bold text-text-secondary shadow-sm">+12</div>
 </div>
-<p class="font-body-sm text-body-sm text-text-secondary italic">Currently overseeing Active Command sessions.</p>
+<p class="font-body-sm text-body-sm text-text-secondary italic">Saat ini mengawasi sesi Komando Aktif.</p>
 </div>
 </div>
 <!-- Right Side: Login Card -->
@@ -225,7 +225,7 @@
 <div class="glass-panel p-stack-lg md:p-12 rounded-[24px] border-t-4 border-t-primary relative overflow-hidden">
 
 <div class="flex items-center gap-sm mb-stack-lg p-2 bg-surface-container-high rounded-lg shadow-inner z-20 relative">
-    <a href="{{ route('login') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md bg-white text-primary shadow-sm transition-all border border-outline-variant/20">Perusahaan</a>
+    <a href="{{ route('login') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md bg-white text-primary shadow-sm transition-all border border-outline-variant/20">Event</a>
     <a href="{{ route('login.ketua') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md text-text-secondary hover:text-primary transition-all">Ketua Divisi</a>
     <a href="{{ route('login.anggota') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md text-text-secondary hover:text-primary transition-all">Anggota</a>
 </div>

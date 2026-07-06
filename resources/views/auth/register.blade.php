@@ -158,7 +158,7 @@
 <ol class="flex items-center space-x-4" role="list">
 <li class="flex items-center">
 <span class="flex items-center justify-center w-8 h-8 rounded-full border-2 border-primary-container bg-primary-container text-white font-label-md text-label-md">1</span>
-<span class="ml-2 font-label-md text-label-md text-primary">Account</span>
+<span class="ml-2 font-label-md text-label-md text-primary">Akun</span>
 </li>
 <li class="flex items-center">
 <div class="w-8 h-[2px] bg-outline-variant mx-2"></div>
@@ -168,36 +168,36 @@
 <li class="flex items-center">
 <div class="w-8 h-[2px] bg-outline-variant mx-2"></div>
 <span class="flex items-center justify-center w-8 h-8 rounded-full border-2 border-outline-variant text-on-surface-variant font-label-md text-label-md">3</span>
-<span class="ml-2 font-label-md text-label-md text-on-surface-variant">Finish</span>
+<span class="ml-2 font-label-md text-label-md text-on-surface-variant">Selesai</span>
 </li>
 </ol>
 </nav>
 <div class="mb-stack-lg">
-<h1 class="font-headline-lg text-headline-lg text-text-primary mb-2">Create your professional profile</h1>
-<p class="font-body-md text-body-md text-text-secondary">Start managing high-stakes events with AI-driven precision.</p>
+<h1 class="font-headline-lg text-headline-lg text-text-primary mb-2">Buat profil profesional Anda</h1>
+<p class="font-body-md text-body-md text-text-secondary">Mulai kelola event penting dengan presisi berbasis AI.</p>
 </div>
 <form method="POST" action="{{ route('register') }}" class="space-y-stack-md" id="registrationForm">
 @csrf
 <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
 <div class="space-y-1">
-<label class="font-label-md text-label-md text-on-surface-variant" for="first_name">First Name</label>
-<input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" id="first_name" name="first_name" placeholder="Jane" type="text" required/>
+<label class="font-label-md text-label-md text-on-surface-variant" for="first_name">Nama Depan</label>
+<input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" id="first_name" name="first_name" placeholder="Budi" type="text" required/>
 </div>
 <div class="space-y-1">
-<label class="font-label-md text-label-md text-on-surface-variant" for="last_name">Last Name</label>
-<input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" id="last_name" name="last_name" placeholder="Doe" type="text" required/>
+<label class="font-label-md text-label-md text-on-surface-variant" for="last_name">Nama Belakang</label>
+<input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" id="last_name" name="last_name" placeholder="Santoso" type="text" required/>
 </div>
 </div>
 <!-- Laravel expects 'name' by default in Fortify/Breeze, but keeping first/last for design, will add a hidden name field for compatibility if needed, or just let it submit and the backend will need adjusting -->
 <div class="space-y-1">
-<label class="font-label-md text-label-md text-on-surface-variant" for="email">Business Email</label>
-<input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" id="email" name="email" placeholder="jane@company.com" type="email" required/>
+<label class="font-label-md text-label-md text-on-surface-variant" for="email">Email Bisnis</label>
+<input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" id="email" name="email" placeholder="budi@perusahaan.com" type="email" required/>
 @error('email')
 <p class="text-[11px] text-danger mt-1">{{ $message }}</p>
 @enderror
 </div>
 <div class="space-y-1">
-<label class="font-label-md text-label-md text-on-surface-variant" for="password">Password</label>
+<label class="font-label-md text-label-md text-on-surface-variant" for="password">Kata Sandi</label>
 <div class="relative">
 <input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" id="password" name="password" placeholder="••••••••" type="password" required/>
 <button class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant" type="button">
@@ -207,32 +207,32 @@
 @error('password')
 <p class="text-[11px] text-danger mt-1">{{ $message }}</p>
 @else
-<p class="text-[11px] text-text-secondary mt-1">Minimum 8 characters with at least one number and symbol.</p>
+<p class="text-[11px] text-text-secondary mt-1">Minimal 8 karakter dengan setidaknya satu angka dan simbol.</p>
 @enderror
 </div>
 <div class="space-y-1">
-<label class="font-label-md text-label-md text-on-surface-variant" for="password_confirmation">Confirm Password</label>
+<label class="font-label-md text-label-md text-on-surface-variant" for="password_confirmation">Konfirmasi Kata Sandi</label>
 <div class="relative">
 <input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" id="password_confirmation" name="password_confirmation" placeholder="••••••••" type="password" required/>
 </div>
 </div>
 <div class="pt-stack-md">
 <button class="w-full h-12 bg-primary-container text-white font-label-md text-label-md rounded-lg shadow-sm hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2" type="submit">
-                                Continue to Event Details
+                                Lanjutkan ke Detail Event
                                 <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </button>
 </div>
 <div class="flex items-center gap-2 py-2">
 <input class="rounded border-border-subtle text-primary focus:ring-primary" id="terms" type="checkbox" required/>
 <label class="font-body-sm text-body-sm text-on-surface-variant" for="terms">
-                                I agree to the <a class="text-primary hover:underline" href="#">Terms of Service</a> and <a class="text-primary hover:underline" href="#">Privacy Policy</a>.
+                                Saya setuju dengan <a class="text-primary hover:underline" href="#">Syarat Layanan</a> dan <a class="text-primary hover:underline" href="#">Kebijakan Privasi</a>.
                             </label>
 </div>
 </form>
 </div>
 <!-- Trusted By Section -->
 <div class="mt-stack-lg">
-<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest text-center lg:text-left mb-stack-md">Trusted by Enterprise Leaders</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest text-center lg:text-left mb-stack-md">Dipercaya oleh Perusahaan Terkemuka</p>
 <div class="flex flex-wrap justify-center lg:justify-start items-center gap-stack-lg opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
 <div class="h-6 w-24 bg-on-surface-variant/20 rounded"></div>
 <div class="h-6 w-32 bg-on-surface-variant/20 rounded"></div>
@@ -255,7 +255,7 @@
 <span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">star</span>
 <span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">star</span>
 </div>
-<p class="font-body-md text-body-md text-text-primary italic mb-4">"Coordination has transformed how we manage our global summits. The AI insights reduce our planning time by 40%."</p>
+<p class="font-body-md text-body-md text-text-primary italic mb-4">"Coordination telah mengubah cara kami mengelola pertemuan global. Wawasan AI mengurangi waktu perencanaan kami hingga 40%."</p>
 <div class="flex items-center gap-3">
 <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold">SM</div>
 <div>
@@ -269,15 +269,15 @@
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary-container bg-accent-blue p-2 rounded-lg">verified_user</span>
 <div>
-<p class="font-label-md text-label-md text-text-primary">Bank-grade Security</p>
-<p class="text-[12px] text-text-secondary">ISO 27001 & GDPR Compliant</p>
+<p class="font-label-md text-label-md text-text-primary">Keamanan Setingkat Bank</p>
+<p class="text-[12px] text-text-secondary">Sesuai ISO 27001 & GDPR</p>
 </div>
 </div>
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-secondary bg-accent-emerald p-2 rounded-lg">bolt</span>
 <div>
-<p class="font-label-md text-label-md text-text-primary">Instant Setup</p>
-<p class="text-[12px] text-text-secondary">Ready in under 2 minutes</p>
+<p class="font-label-md text-label-md text-text-primary">Pengaturan Instan</p>
+<p class="text-[12px] text-text-secondary">Siap di bawah 2 menit</p>
 </div>
 </div>
 </div>
