@@ -201,39 +201,34 @@
                     <header class="mb-lg">
                         <div class="flex justify-between items-start">
                             <div>
-                                <h3 class="font-headline-md text-headline-md mb-xs">Konteks Acara</h3>
-                                <p class="font-body-md text-body-md text-on-surface-variant">Beritahu kami apa yang Anda koordinasikan.</p>
+                                <h3 class="font-headline-md text-headline-md mb-xs">Detail Event</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant">Lengkapi informasi dasar mengenai event Anda.</p>
                             </div>
                             <button class="text-primary font-label-md text-label-md hover:underline" onclick="goToStep(3)" type="button">Lewati</button>
                         </div>
                     </header>
                     <div class="space-y-md">
                         <div class="space-y-xs">
-                            <label class="font-label-md text-label-md text-on-surface">Nama Acara Berikutnya</label>
-                            <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="contoh: Global Tech Summit 2024" type="text"/>
+                            <label class="font-label-md text-label-md text-on-surface">Nama Event</label>
+                            <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="contoh: Festival Musik Indonesia 2027" type="text"/>
                         </div>
                         <div class="space-y-xs">
-                            <label class="font-label-md text-label-md text-on-surface">Estimasi Peserta</label>
-                            <select class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md appearance-none">
-                                <option>Pilih rentang</option>
-                                <option>Di bawah 500</option>
-                                <option>500 - 2.500</option>
-                                <option>2.500 - 10.000</option>
-                                <option>10.000+</option>
-                            </select>
+                            <label class="font-label-md text-label-md text-on-surface">Budget Perkiraan</label>
+                            <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="contoh: Rp 500.000.000" type="text"/>
                         </div>
-                        <div class="space-y-xs">
-                            <label class="font-label-md text-label-md text-on-surface">Tujuan Utama</label>
-                            <div class="grid grid-cols-2 gap-sm">
-                                <button class="p-md rounded-xl border border-outline-variant text-left hover:border-primary transition-colors group" type="button">
-                                    <span class="material-symbols-outlined text-outline group-hover:text-primary mb-xs">hub</span>
-                                    <p class="font-label-md text-label-md">Logistik</p>
-                                </button>
-                                <button class="p-md rounded-xl border border-outline-variant text-left hover:border-primary transition-colors group" type="button">
-                                    <span class="material-symbols-outlined text-outline group-hover:text-primary mb-xs">campaign</span>
-                                    <p class="font-label-md text-label-md">Keterlibatan</p>
-                                </button>
+                        <div class="grid grid-cols-2 gap-sm">
+                            <div class="space-y-xs">
+                                <label class="font-label-md text-label-md text-on-surface">Tanggal Mulai</label>
+                                <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" type="date"/>
                             </div>
+                            <div class="space-y-xs">
+                                <label class="font-label-md text-label-md text-on-surface">Hari H Event</label>
+                                <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" type="date"/>
+                            </div>
+                        </div>
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface">Target Penonton</label>
+                            <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="contoh: 5000 orang" type="text"/>
                         </div>
                     </div>
                     <div class="mt-xl flex gap-md">
@@ -253,15 +248,12 @@
                         <div class="w-24 h-24 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center mx-auto mb-lg">
                             <span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
                         </div>
-                        <h3 class="font-headline-md text-headline-md mb-xs">Hampir selesai!</h3>
-                        <p class="font-body-md text-body-md text-on-surface-variant px-xl">Kami telah mengirimkan tautan verifikasi ke email Anda. Klik tautan tersebut untuk mengaktifkan dasbor Mission Control Anda.</p>
+                        <h3 class="font-headline-md text-headline-md mb-xs">Pendaftaran Selesai!</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant px-xl">Event Anda telah berhasil dibuat. Ruang kerja (workspace) untuk event ini sudah siap digunakan oleh seluruh tim.</p>
                     </div>
                     <div class="space-y-md">
                         <button class="w-full py-md bg-primary text-white rounded-full font-title-md text-title-md hover:opacity-90 active:scale-95 transition-all" type="submit">
-                            Buka Dasbor
-                        </button>
-                        <button class="w-full py-md border border-outline-variant text-on-surface rounded-full font-title-md text-title-md hover:bg-surface-container-low transition-all" type="button">
-                            Kirim Ulang Email
+                            Buka Dasbor Operasional
                         </button>
                     </div>
                 </div>
