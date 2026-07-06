@@ -60,7 +60,7 @@
             backdrop-filter: blur(12px);
             border: 1px solid rgba(226, 232, 240, 0.5);
         }
-        .hero-gradient { background: linear-gradient(135deg, #004ac6 0%, #2563eb 100%); }
+        .hero-gradient { background: linear-gradient(135deg, #003594 0%, #004ac6 40%, #2563eb 100%); }
     </style>
     
     <!-- Legacy Coordination Styles for other pages -->
