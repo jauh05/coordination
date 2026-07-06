@@ -1,7 +1,7 @@
 <aside class="w-sidebar-width h-screen sticky left-0 top-0 border-r border-border-subtle bg-surface flex flex-col py-stack-lg px-stack-md gap-stack-sm z-50">
     <div class="flex items-center gap-3 px-2 mb-stack-lg">
         <div class="w-10 h-10 bg-gradient-to-tr from-primary to-blue-400 rounded-xl flex items-center justify-center text-white shadow-md">
-            <span class="material-symbols-outlined">corporate_fare</span>
+            <span class="material-symbols-outlined">hub</span>
         </div>
         <div>
             <h1 class="font-headline-lg text-headline-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">Coordination</h1>
@@ -26,7 +26,7 @@
             <span class="font-label-md text-label-md">Perencanaan</span>
         </a>
         <a class="flex items-center gap-3 px-3 py-2 {{ request()->routeIs('organization') ? 'text-primary font-semibold bg-surface-container-low' : 'text-text-secondary hover:text-on-surface hover:bg-surface-container-low' }} transition-colors rounded-lg" href="{{ route('organization') }}">
-            <span class="material-symbols-outlined">corporate_fare</span>
+            <span class="material-symbols-outlined">hub</span>
             <span class="font-label-md text-label-md">Organisasi</span>
         </a>
         <a class="flex items-center gap-3 px-3 py-2 {{ request()->routeIs('divisions') ? 'text-primary font-semibold bg-surface-container-low' : 'text-text-secondary hover:text-on-surface hover:bg-surface-container-low' }} transition-colors rounded-lg" href="{{ route('divisions') }}">
