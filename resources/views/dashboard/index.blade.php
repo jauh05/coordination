@@ -228,7 +228,7 @@
                 <div class="bg-white p-lg rounded-2xl border border-outline-variant/30 shadow-sm space-y-md hover:shadow-md transition-all">
                     <div class="flex justify-between items-center">
                         <span class="text-label-md font-bold text-on-surface-variant">Produksi</span>
-                        <span class="text-caption text-primary bg-primary/10 px-md py-0.5 rounded-full">81%</span>
+                        <span class="text-caption text-blue-700 bg-blue-50 px-md py-0.5 rounded-full">81%</span>
                     </div>
                     <div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
                         <div class="h-full bg-primary w-[81%]"></div>
