@@ -150,7 +150,7 @@
     <!-- Quick Actions Bar -->
     <section class="flex gap-lg overflow-x-auto no-scrollbar pb-xs">
         <button class="flex-shrink-0 flex items-center gap-md bg-white border border-outline-variant/30 px-lg py-md rounded-2xl hover:shadow-md transition-all active:scale-95 group">
-            <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-on-secondary-container group-hover:scale-110 transition-transform">
+            <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 group-hover:scale-110 transition-transform">
                 <span class="material-symbols-outlined">receipt_long</span>
             </div>
             <span class="font-label-md">Input Invoice</span>
