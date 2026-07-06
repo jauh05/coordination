@@ -207,7 +207,7 @@
                         <div class="flex flex-col items-center gap-2">
                             <div class="w-6 h-6 bg-white border-4 border-primary rounded-full shadow-md -mt-1"></div>
                             <span class="text-label-md font-black text-primary">Persiapan</span>
-                            <span class="text-caption text-primary">H-18 Sekarang</span>
+                            <span class="text-caption text-blue-600 font-semibold">H-18 Sekarang</span>
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <div class="w-4 h-4 bg-slate-200 rounded-full ring-4 ring-white"></div>
