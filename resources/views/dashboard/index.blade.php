@@ -197,12 +197,12 @@
                         <div class="flex flex-col items-center gap-2">
                             <div class="w-4 h-4 bg-primary rounded-full ring-4 ring-white"></div>
                             <span class="text-label-md font-bold">Konsep</span>
-                            <span class="text-caption text-emerald-600">Selesai</span>
+                            <span class="text-caption text-green-600 font-semibold">Selesai</span>
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <div class="w-4 h-4 bg-primary rounded-full ring-4 ring-white"></div>
                             <span class="text-label-md font-bold">Sponsorship</span>
-                            <span class="text-caption text-emerald-600">Selesai</span>
+                            <span class="text-caption text-green-600 font-semibold">Selesai</span>
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <div class="w-6 h-6 bg-white border-4 border-primary rounded-full shadow-md -mt-1"></div>
