@@ -59,7 +59,7 @@
                 <div class="flex justify-between items-center"><span class="text-caption font-caption text-slate-500">Budget</span><span class="text-label-md font-bold">92%</span></div>
                 <div class="flex justify-between items-center"><span class="text-caption font-caption text-slate-500">Produksi</span><span class="text-label-md font-bold">81%</span></div>
                 <div class="flex justify-between items-center"><span class="text-caption font-caption text-on-surface-variant">Sponsor</span><span class="text-label-md font-bold text-red-600 font-bold">72%</span></div>
-                <div class="flex justify-between items-center"><span class="text-caption font-caption text-on-surface-variant">Vendor</span><span class="text-label-md font-bold">84%</span></div>
+                <div class="flex justify-between items-center"><span class="text-caption font-caption text-slate-500">Vendor</span><span class="text-label-md font-bold">84%</span></div>
                 <div class="flex justify-between items-center"><span class="text-caption font-caption text-on-surface-variant">SDM</span><span class="text-label-md font-bold">88%</span></div>
             </div>
         </div>
