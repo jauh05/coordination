@@ -394,7 +394,7 @@
                             <span class="text-label-md font-bold text-primary">Hari Ini, 14:00</span>
                             <span class="text-caption text-on-surface-variant">Online</span>
                         </div>
-                        <p class="text-body-md mt-1">Review Media Plan (WPP)</p>
+                        <p class="text-body-md mt-1">Review Rencana Media (WPP)</p>
                     </div>
                     <div class="p-md rounded-xl bg-surface-container hover:bg-blue-50 transition-all border border-transparent hover:border-blue-200 cursor-pointer">
                         <div class="flex justify-between">
