@@ -103,7 +103,7 @@
                     </div>
                     <h3 class="font-title-md text-title-md">AI Insights</h3>
                 </div>
-                <span class="text-label-md text-primary font-bold">3 Alerts</span>
+                <span class="text-label-md text-primary font-bold">3 Peringatan</span>
             </div>
             <div class="space-y-md">
                 <div class="p-md rounded-xl bg-error-container/20 border border-error/10">
