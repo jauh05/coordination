@@ -253,7 +253,7 @@
                     <div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
                         <div class="h-full bg-red-500 w-[72%]"></div>
                     </div>
-                    <p class="text-caption text-on-surface-variant">Menunggu kontrak BCA & Aqua ditandatangani.</p>
+                    <p class="text-caption text-slate-500">Menunggu kontrak BCA & Aqua ditandatangani.</p>
                 </div>
                 <div class="bg-white p-lg rounded-2xl border border-outline-variant/30 shadow-sm space-y-md hover:shadow-md transition-all">
                     <div class="flex justify-between items-center">
