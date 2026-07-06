@@ -401,7 +401,7 @@
                             <span class="text-label-md font-bold">Besok, 10:00</span>
                             <span class="text-caption text-on-surface-variant">Langsung</span>
                         </div>
-                        <p class="text-body-md mt-1">Site Visit: GBK Stadium</p>
+                        <p class="text-body-md mt-1">Kunjungan Lokasi: GBK Stadium</p>
                     </div>
                 </div>
                 <button class="w-full mt-lg py-md text-primary text-label-md font-bold border border-blue-200 rounded-xl hover:bg-primary/5 transition-all">Buka Kalender Penuh</button>
