@@ -258,7 +258,7 @@
                 <div class="bg-white p-lg rounded-2xl border border-outline-variant/30 shadow-sm space-y-md hover:shadow-md transition-all">
                     <div class="flex justify-between items-center">
                         <span class="text-label-md font-bold text-on-surface-variant">Logistik</span>
-                        <span class="text-caption text-tertiary bg-tertiary/10 px-md py-0.5 rounded-full">88%</span>
+                        <span class="text-caption text-amber-700 bg-amber-100 px-md py-0.5 rounded-full">88%</span>
                     </div>
                     <div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
                         <div class="h-full bg-tertiary w-[88%]"></div>
