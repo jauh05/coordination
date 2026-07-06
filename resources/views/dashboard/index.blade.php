@@ -277,7 +277,7 @@
                                 <div class="w-2 h-10 bg-secondary rounded-full"></div>
                                 <div>
                                     <p class="font-label-md">Pembengkakan Anggaran</p>
-                                    <p class="text-caption text-on-surface-variant">Probability: 10%</p>
+                                    <p class="text-caption text-on-surface-variant">Probabilitas: 10%</p>
                                 </div>
                             </div>
                             <span class="text-label-md font-bold text-secondary">LOW</span>
@@ -287,7 +287,7 @@
                                 <div class="w-2 h-10 bg-error rounded-full shadow-[0_0_8px_rgba(186,26,26,0.3)]"></div>
                                 <div>
                                     <p class="font-label-md">Vendor Timeline</p>
-                                    <p class="text-caption text-on-surface-variant">Probability: 65%</p>
+                                    <p class="text-caption text-on-surface-variant">Probabilitas: 65%</p>
                                 </div>
                             </div>
                             <span class="text-label-md font-bold text-error">HIGH</span>
@@ -297,7 +297,7 @@
                                 <div class="w-2 h-10 bg-[#FFB000] rounded-full"></div>
                                 <div>
                                     <p class="font-label-md">Cuaca (Rain Plan)</p>
-                                    <p class="text-caption text-on-surface-variant">Probability: 40%</p>
+                                    <p class="text-caption text-on-surface-variant">Probabilitas: 40%</p>
                                 </div>
                             </div>
                             <span class="text-label-md font-bold text-[#FFB000]">MEDIUM</span>
