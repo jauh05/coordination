@@ -173,11 +173,11 @@
 </ol>
 </nav>
 
-<form method="POST" action="{{ route('register') }}" class="relative min-h-[400px]" id="registrationForm">
+<form method="POST" action="{{ route('register') }}" id="registrationForm">
 @csrf
 
 <!-- STEP 1: Akun -->
-<div id="step-1" class="absolute w-full top-0 left-0 transition-all duration-500 opacity-100 translate-x-0 z-10">
+<div id="step-1" class="transition-all duration-500 opacity-100 translate-x-0 block">
     <div class="mb-stack-lg">
         <h1 class="font-headline-lg text-headline-lg text-text-primary mb-2">Buat profil profesional Anda</h1>
         <p class="font-body-md text-body-md text-text-secondary">Mulai kelola event penting dengan presisi berbasis AI.</p>
@@ -238,7 +238,7 @@
 </div>
 
 <!-- STEP 2: Event -->
-<div id="step-2" class="absolute w-full top-0 left-0 transition-all duration-500 opacity-0 translate-x-20 z-0 invisible">
+<div id="step-2" class="transition-all duration-500 opacity-0 translate-x-20 hidden">
     <div class="mb-stack-lg flex justify-between items-start">
         <div>
             <h1 class="font-headline-lg text-headline-lg text-text-primary mb-2">Detail Event</h1>
@@ -284,7 +284,7 @@
 </div>
 
 <!-- STEP 3: Selesai -->
-<div id="step-3" class="absolute w-full top-0 left-0 transition-all duration-500 opacity-0 translate-x-20 z-0 invisible text-center py-8">
+<div id="step-3" class="transition-all duration-500 opacity-0 translate-x-20 hidden text-center py-8">
     <div class="mb-stack-lg">
         <div class="w-24 h-24 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center mx-auto mb-stack-md">
             <span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
@@ -384,15 +384,18 @@
             }
 
             [step1, step2, step3].forEach(s => {
-                s.classList.remove('opacity-100', 'translate-x-0', 'z-10');
-                s.classList.add('opacity-0', 'translate-x-20', 'z-0', 'invisible');
+                s.classList.add('hidden');
+                s.classList.remove('opacity-100', 'translate-x-0', 'block');
+                s.classList.add('opacity-0', 'translate-x-20');
             });
 
             const current = document.getElementById('step-' + step);
-            current.classList.remove('invisible');
+            current.classList.remove('hidden');
+            current.classList.add('block');
+            // Allow DOM to update display:block before starting opacity transition
             setTimeout(() => {
-                current.classList.remove('opacity-0', 'translate-x-20', 'z-0');
-                current.classList.add('opacity-100', 'translate-x-0', 'z-10');
+                current.classList.remove('opacity-0', 'translate-x-20');
+                current.classList.add('opacity-100', 'translate-x-0');
             }, 50);
 
             // Update Nodes
