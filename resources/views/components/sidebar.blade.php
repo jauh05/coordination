@@ -33,6 +33,14 @@
             <span class="material-symbols-outlined">groups</span>
             <span class="font-label-md text-label-md">Divisi</span>
         </a>
+        <a class="flex items-center gap-3 px-3 py-2 {{ request()->routeIs('gueststar') ? 'text-primary font-semibold bg-surface-container-low' : 'text-text-secondary hover:text-on-surface hover:bg-surface-container-low' }} transition-colors rounded-lg" href="{{ route('gueststar') }}">
+            <span class="material-symbols-outlined">star</span>
+            <span class="font-label-md text-label-md">Guest Star</span>
+        </a>
+        <a class="flex items-center gap-3 px-3 py-2 {{ request()->routeIs('fee') ? 'text-primary font-semibold bg-surface-container-low' : 'text-text-secondary hover:text-on-surface hover:bg-surface-container-low' }} transition-colors rounded-lg" href="{{ route('fee') }}">
+            <span class="material-symbols-outlined">account_balance_wallet</span>
+            <span class="font-label-md text-label-md">Fee Anggota</span>
+        </a>
         <a class="flex items-center gap-3 px-3 py-2 {{ request()->routeIs('budget') ? 'text-primary font-semibold bg-surface-container-low' : 'text-text-secondary hover:text-on-surface hover:bg-surface-container-low' }} transition-colors rounded-lg" href="{{ route('budget') }}">
             <span class="material-symbols-outlined">payments</span>
             <span class="font-label-md text-label-md">Anggaran</span>
@@ -72,12 +80,20 @@
             <span class="material-symbols-outlined">settings</span>
             <span class="font-label-md text-label-md">Pengaturan</span>
         </a>
-        <div class="flex items-center gap-3 p-2 mt-2 bg-surface-container rounded-xl">
-            <img class="w-8 h-8 rounded-full border border-primary/20" data-alt="A professional headshot of a corporate executive in a modern glass office. Soft morning lighting highlights the sharp business attire and confident, approachable expression. The background is a blurred high-end workspace with minimal tech and greenery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmRcUCYi7pRaXf8wr6V_Iv8LWEyLIfNMvcL57MJEh7z2G19FU3Y6sb5dI3XxgL04dws2j462Q246G_C5-51JWRgKyx4iZejckugwzcSyiUyOQ4mmZmZhxyrpdrp1XHkrWMTQQun-Kb3kFEFDYcgE-zkQXDjjNBaFa5Qanx81T2R3JA9IAC1-g2NNZPespobtrj_uoKko3xnPMR_c-jkEIPYSwUgUNqQOBp1EhLzxSgcUpg8BNm8lhDRgUJi7lmCzhTaU4x-g_lRMQ"/>
-            <div class="flex-1 min-w-0">
-                <p class="font-label-md text-label-md text-on-surface truncate">Alex Rivera</p>
-                <p class="font-label-sm text-[10px] text-text-secondary uppercase">COO</p>
+        <div class="flex items-center justify-between p-2 mt-2 bg-surface-container rounded-xl">
+            <div class="flex items-center gap-3">
+                <img class="w-8 h-8 rounded-full border border-primary/20" data-alt="A professional headshot of a corporate executive in a modern glass office. Soft morning lighting highlights the sharp business attire and confident, approachable expression. The background is a blurred high-end workspace with minimal tech and greenery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmRcUCYi7pRaXf8wr6V_Iv8LWEyLIfNMvcL57MJEh7z2G19FU3Y6sb5dI3XxgL04dws2j462Q246G_C5-51JWRgKyx4iZejckugwzcSyiUyOQ4mmZmZhxyrpdrp1XHkrWMTQQun-Kb3kFEFDYcgE-zkQXDjjNBaFa5Qanx81T2R3JA9IAC1-g2NNZPespobtrj_uoKko3xnPMR_c-jkEIPYSwUgUNqQOBp1EhLzxSgcUpg8BNm8lhDRgUJi7lmCzhTaU4x-g_lRMQ"/>
+                <div class="flex-1 min-w-0">
+                    <p class="font-label-md text-label-md text-on-surface truncate">Alex Rivera</p>
+                    <p class="font-label-sm text-[10px] text-text-secondary uppercase">COO</p>
+                </div>
             </div>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="text-text-secondary hover:text-danger p-1 rounded-lg transition-colors" title="Keluar">
+                    <span class="material-symbols-outlined text-[20px]">logout</span>
+                </button>
+            </form>
         </div>
     </div>
 </aside>

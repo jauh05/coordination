@@ -31,18 +31,7 @@
                         <span class="material-symbols-outlined">notifications</span>
                         <span class="font-label-md text-label-md">Notifikasi</span>
                     </a>
-                    <a href="#" class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors">
-                        <span class="material-symbols-outlined">shield</span>
-                        <span class="font-label-md text-label-md">Keamanan & Peran</span>
-                    </a>
-                    <a href="#" class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors">
-                        <span class="material-symbols-outlined">extension</span>
-                        <span class="font-label-md text-label-md">Integrasi API</span>
-                    </a>
-                    <a href="#" class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors">
-                        <span class="material-symbols-outlined">credit_card</span>
-                        <span class="font-label-md text-label-md">Langganan & Tagihan</span>
-                    </a>
+
                 </nav>
             </div>
 

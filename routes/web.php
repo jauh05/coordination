@@ -56,6 +56,14 @@ Route::get('/divisions', function () {
     return view('divisions.index');
 })->name('divisions');
 
+Route::get('/gueststar', function () {
+    return view('gueststar.index');
+})->name('gueststar');
+
+Route::get('/fee', function () {
+    return view('fee.index');
+})->name('fee');
+
 Route::get('/timeline', function () {
     return view('timeline.index');
 })->name('timeline');
