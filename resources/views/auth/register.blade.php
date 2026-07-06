@@ -119,18 +119,34 @@
     </style>
 </head>
 <body class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
-<!-- Top Navigation (Shell suppressed for Transactional focus, using simplified header) -->
-<header class="fixed top-0 w-full z-50 glass-effect border-b border-outline-variant/30">
-<div class="flex justify-between items-center px-gutter py-md max-w-[1536px] mx-auto h-16">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">dataset</span>
-<span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight">Coordination</span>
-</div>
-<div class="flex items-center gap-4">
-<span class="text-on-surface-variant font-label-md text-label-md">Already have an account?</span>
-<button class="text-primary font-bold hover:opacity-90 active:scale-95 transition-all">Login</button>
-</div>
-</div>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl border-b border-slate-200/50 dark:border-slate-700/50 shadow-sm z-50 transition-all duration-300">
+    <div class="flex justify-between items-center px-6 py-4 max-w-[1536px] mx-auto">
+        <a href="/" class="text-title-md font-title-md font-bold flex items-center gap-2 group">
+            <div class="bg-gradient-to-tr from-primary to-blue-400 text-white p-1.5 rounded-lg group-hover:scale-105 transition-transform shadow-md">
+                <span class="material-symbols-outlined text-[20px] block">hub</span>
+            </div>
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600 dark:from-blue-400 dark:to-blue-200 tracking-tight">Coordination</span>
+        </a>
+        <nav class="hidden md:flex gap-8">
+            <a class="relative text-primary font-semibold font-body-md text-body-md group" href="#">
+                Features
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
+            </a>
+            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="#">
+                Solutions
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="#">
+                Pricing
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+            </a>
+        </nav>
+        <div class="flex items-center gap-2 md:gap-4">
+            <a href="{{ route('login') }}" class="text-on-surface-variant font-medium hover:text-primary px-3 py-2 transition-all duration-200 hover:bg-primary/5 rounded-lg active:scale-95 inline-block text-center text-[13px] md:text-base whitespace-nowrap">Login</a>
+            <a href="{{ route('register') }}" class="bg-gradient-to-r from-primary to-blue-600 text-on-primary px-4 md:px-6 py-1.5 md:py-2 rounded-full font-bold hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 inline-block text-center border border-transparent hover:border-white/20 whitespace-nowrap text-[13px] md:text-base">Get Started</a>
+        </div>
+    </div>
 </header>
 <main class="flex-grow flex items-center justify-center pt-24 pb-12 px-margin-mobile md:px-margin-desktop">
 <div class="w-full max-w-[1100px] grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
