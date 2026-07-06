@@ -2,7 +2,7 @@
 <div class="flex-grow p-margin max-w-screen-2xl mx-auto w-full space-y-lg">
     <!-- Hero Section: Welcome & Core KPIs -->
     <section class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
-        <div class="lg:col-span-2 hero-gradient rounded-2xl p-xl shadow-lg relative overflow-hidden text-on-primary">
+        <div class="lg:col-span-2 hero-gradient rounded-2xl p-xl shadow-lg relative overflow-hidden text-white">
             
             <div class="relative z-10 space-y-md">
                 <div class="flex justify-between items-start">
@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="flex gap-md pt-md">
-                    <a href="{{ route('events') }}" class="bg-white text-primary px-lg py-md rounded-xl font-label-md shadow-sm hover:shadow-md transition-all active:scale-95 inline-block"><span class="material-symbols-outlined text-[16px]">visibility</span> Lihat Detail Event</a>
+                    <a href="{{ route('events') }}" class="bg-white/20 hover:bg-white/30 text-white border border-white/30 px-lg py-md rounded-xl font-label-md shadow-sm hover:shadow-md transition-all active:scale-95 inline-block"><span class="material-symbols-outlined text-[16px]">visibility</span> Lihat Detail Event</a>
                     <a href="{{ route('planning') }}" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-lg py-md rounded-xl font-label-md transition-all active:scale-95 inline-block"><span class="material-symbols-outlined text-[16px]">workspaces</span> Buka Workspace</a>
                 </div>
             </div>
@@ -407,6 +407,127 @@
                 <button class="w-full mt-lg py-md text-primary text-label-md font-bold border border-blue-200 rounded-xl hover:bg-primary/5 transition-all">Buka Kalender Penuh</button>
             </div>
             
+        </div>
+        </div>
+    </section>
+
+    <!-- Guest Star & Tim Section -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-lg mt-lg">
+        <!-- Guest Star Card -->
+        <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-xl shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center justify-between mb-lg">
+                <div class="flex items-center gap-md">
+                    <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
+                        <span class="material-symbols-outlined">mic</span>
+                    </div>
+                    <h3 class="font-title-md text-title-md">Guest Star & Riders</h3>
+                </div>
+                <button class="text-primary text-label-md font-bold hover:underline">Kelola Artis</button>
+            </div>
+            <div class="space-y-md">
+                <div class="flex items-center justify-between p-md bg-surface-container-low rounded-xl border border-transparent hover:border-outline-variant/30 transition-all cursor-pointer">
+                    <div class="flex items-center gap-md">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden shadow-inner">
+                            <img src="https://ui-avatars.com/api/?name=Raisa&background=random" alt="Raisa" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-label-md font-bold">Raisa</p>
+                            <p class="text-caption text-slate-500">Status: Hired</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="px-sm py-xs bg-emerald-100 text-emerald-700 rounded-md text-caption font-bold">Riders: Siap</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between p-md bg-surface-container-low rounded-xl border border-transparent hover:border-outline-variant/30 transition-all cursor-pointer">
+                    <div class="flex items-center gap-md">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden shadow-inner">
+                            <img src="https://ui-avatars.com/api/?name=Tulus&background=random" alt="Tulus" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-label-md font-bold">Tulus</p>
+                            <p class="text-caption text-slate-500">Status: Hired</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="px-sm py-xs bg-amber-100 text-amber-700 rounded-md text-caption font-bold">Riders: Diproses</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between p-md bg-surface-container-low rounded-xl border border-transparent hover:border-outline-variant/30 transition-all cursor-pointer">
+                    <div class="flex items-center gap-md">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden shadow-inner">
+                            <img src="https://ui-avatars.com/api/?name=Dewa+19&background=random" alt="Dewa 19" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-label-md font-bold">Dewa 19</p>
+                            <p class="text-caption text-slate-500">Status: Negosiasi</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="px-sm py-xs bg-slate-100 text-slate-700 rounded-md text-caption font-bold">Riders: -</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fee Anggota Card -->
+        <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-xl shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center justify-between mb-lg">
+                <div class="flex items-center gap-md">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
+                        <span class="material-symbols-outlined">payments</span>
+                    </div>
+                    <h3 class="font-title-md text-title-md">Fee Anggota</h3>
+                </div>
+                <button class="text-primary text-label-md font-bold hover:underline">Lihat Semua</button>
+            </div>
+            <div class="space-y-md">
+                <div class="flex items-center justify-between p-md bg-surface-container-low rounded-xl border border-transparent hover:border-outline-variant/30 transition-all cursor-pointer">
+                    <div class="flex items-center gap-md">
+                        <div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden shadow-inner">
+                            <img src="https://ui-avatars.com/api/?name=Budi&background=random" alt="Budi" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-label-md font-bold">Budi Santoso</p>
+                            <p class="text-caption text-slate-500">Logistik</p>
+                        </div>
+                    </div>
+                    <div class="text-right flex flex-col items-end">
+                        <span class="font-label-md font-bold text-slate-800">Rp 5.000.000</span>
+                        <span class="text-caption text-emerald-600 font-bold">Lunas</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between p-md bg-surface-container-low rounded-xl border border-transparent hover:border-outline-variant/30 transition-all cursor-pointer">
+                    <div class="flex items-center gap-md">
+                        <div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden shadow-inner">
+                            <img src="https://ui-avatars.com/api/?name=Siti&background=random" alt="Siti" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-label-md font-bold">Siti Aminah</p>
+                            <p class="text-caption text-slate-500">Marketing</p>
+                        </div>
+                    </div>
+                    <div class="text-right flex flex-col items-end">
+                        <span class="font-label-md font-bold text-slate-800">Rp 4.500.000</span>
+                        <span class="text-caption text-amber-600 font-bold">Menunggu</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between p-md bg-surface-container-low rounded-xl border border-transparent hover:border-outline-variant/30 transition-all cursor-pointer">
+                    <div class="flex items-center gap-md">
+                        <div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden shadow-inner">
+                            <img src="https://ui-avatars.com/api/?name=Andi&background=random" alt="Andi" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-label-md font-bold">Andi Wijaya</p>
+                            <p class="text-caption text-slate-500">Produksi</p>
+                        </div>
+                    </div>
+                    <div class="text-right flex flex-col items-end">
+                        <span class="font-label-md font-bold text-slate-800">Rp 6.000.000</span>
+                        <span class="text-caption text-amber-600 font-bold">Menunggu</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
