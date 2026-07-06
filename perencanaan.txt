@@ -1,0 +1,820 @@
+Menurut saya, desain ini **jauh lebih bagus** daripada login biasa. Ini membuat **Coordination** terasa seperti aplikasi enterprise (ERP), bukan aplikasi CRUD.
+
+Namun saya ada beberapa revisi supaya alurnya lebih aman dan lebih masuk akal secara implementasi.
+
+---
+
+# Konsep Login Coordination
+
+Ada **3 jenis login**, tetapi **tetap menggunakan satu tabel users**.
+
+Yang membedakan adalah **cara autentikasi dan hak akses**.
+
+```
+Coordination
+
+├── Login Event Owner
+├── Login Ketua Divisi
+└── Login Anggota Divisi
+```
+
+Jangan membuat 3 tabel login.
+
+---
+
+# 1. LOGIN EVENT OWNER
+
+```
+Login Aman
+
+Masukkan kredensial untuk memulai sesi aman.
+
+────────────────────────────
+
+Alamat Email
+
+nama@perusahaan.com
+
+Kata Sandi
+
+••••••••••••
+
+☐ Ingat saya selama 30 hari
+
+[Lupa Kata Sandi]
+
+[Masuk]
+
+────────────────────────────
+```
+
+Setelah login
+
+↓
+
+Jika memiliki beberapa event
+
+↓
+
+Muncul
+
+```
+Pilih Workspace Event
+
+Festival Musik Indonesia
+
+Tech Expo 2027
+
+Wedding Expo
+
+Corporate Gathering
+```
+
+↓
+
+Masuk Dashboard.
+
+---
+
+# 2. LOGIN KETUA DIVISI
+
+Saya menyarankan **jangan login menggunakan email**.
+
+Karena biasanya ketua divisi diundang.
+
+Misalnya
+
+```
+Login Ketua Divisi
+
+ID Petugas
+
+ID-PRD-001
+
+Kode Akses
+
+••••••••••
+
+Specific Event Token
+
+EVT-2026-A4D21
+
+☐ Enable Biometric Layer
+
+[Minta OTP]
+
+[Masuk]
+```
+
+Flow
+
+```
+ID Petugas
+
+↓
+
+Kode Akses
+
+↓
+
+Event Token
+
+↓
+
+OTP
+
+↓
+
+Dashboard Divisi
+```
+
+---
+
+# 3. LOGIN ANGGOTA
+
+Mirip
+
+```
+Login Anggota
+
+ID Anggota
+
+ID-MKT-023
+
+Kode Akses
+
+••••••••
+
+Specific Event Token
+
+EVT-2026-A4D21
+
+☐ Enable Biometric Layer
+
+[Minta OTP]
+
+[Authorize Access]
+```
+
+---
+
+# REGISTER EVENT OWNER
+
+Saya menambahkan beberapa field.
+
+```
+Nama Lengkap
+
+Email
+
+No HP
+
+Password
+
+Konfirmasi Password
+
+↓
+
+Verifikasi Email
+
+↓
+
+Masuk
+
+↓
+
+Membuat Event Pertama
+```
+
+---
+
+# REGISTER EVENT
+
+```
+Nama Event
+
+Kategori
+
+Tanggal Mulai
+
+Hari H
+
+Lokasi
+
+Provinsi
+
+Kota
+
+Target Peserta
+
+Estimasi Budget
+
+Deskripsi
+
+Logo Event (Opsional)
+
+↓
+
+Generate Event
+
+↓
+
+Generate Event Token
+
+↓
+
+Generate Event ID
+
+↓
+
+Generate Workspace
+```
+
+Misalnya
+
+```
+Event ID
+
+EVT-2026-00021
+
+Event Token
+
+EVT-0XF382-77
+```
+
+---
+
+# MEMBUAT KETUA DIVISI
+
+Ini fitur yang menurut saya sangat keren.
+
+Owner
+
+↓
+
+Klik
+
+```
+Tambah Ketua Divisi
+```
+
+↓
+
+Pilih Divisi
+
+```
+Produksi
+
+Marketing
+
+Logistik
+
+Program
+
+Sponsorship
+```
+
+↓
+
+Isi
+
+```
+Nama
+
+Email
+
+No HP
+```
+
+↓
+
+Generate
+
+```
+ID Petugas
+
+ID-PRD-001
+```
+
+↓
+
+Generate Password Sementara
+
+↓
+
+Generate Invitation
+
+↓
+
+Kirim Email
+
+---
+
+# SAAT KETUA LOGIN PERTAMA
+
+```
+Masukkan Password Sementara
+
+↓
+
+Verifikasi OTP
+
+↓
+
+Ganti Password
+
+↓
+
+Masuk Dashboard
+```
+
+---
+
+# HAK AKSES OWNER
+
+Yang saya suka dari ide kamu adalah
+
+Owner bisa menentukan
+
+```
+Dashboard
+
+☑
+
+Timeline
+
+☑
+
+Budget
+
+☑
+
+Approval
+
+☑
+
+Vendor
+
+☑
+
+AI
+
+☑
+
+Laporan
+
+☑
+
+Analytics
+
+☑
+
+```
+
+Misalnya
+
+Ketua Produksi
+
+```
+Dashboard Produksi
+
+☑
+
+Budget Produksi
+
+☑
+
+Vendor Produksi
+
+☑
+
+Timeline Produksi
+
+☑
+
+Approval Produksi
+
+☑
+
+Analytics
+
+☐
+
+HR
+
+☐
+
+```
+
+---
+
+# Ketua Divisi
+
+Ketua juga bisa membuat
+
+```
+Tambah Anggota
+```
+
+↓
+
+Generate
+
+```
+ID Member
+
+ID-PRD-017
+```
+
+↓
+
+Generate Password
+
+↓
+
+Generate Invitation
+
+↓
+
+Kirim
+
+---
+
+# Ketua Mengatur Hak Akses Anggota
+
+Misalnya
+
+```
+Dashboard
+
+☑
+
+Task
+
+☑
+
+Upload Foto
+
+☑
+
+Upload Invoice
+
+☑
+
+Upload Nota
+
+☑
+
+Approval
+
+☒
+
+Budget
+
+☒
+
+Vendor
+
+☒
+
+Analytics
+
+☒
+
+```
+
+Jadi setiap anggota benar-benar memiliki akses sesuai kebutuhan.
+
+---
+
+# Login Security
+
+Saya menyarankan
+
+```
+Password
+
+↓
+
+Pepper
+
+↓
+
+Argon2id
+
+↓
+
+Hash Database
+```
+
+---
+
+Ketua dan Anggota
+
+```
+Password
+
++
+
+OTP
+
++
+
+Event Token
+
++
+
+Device Validation
+
+↓
+
+Login
+```
+
+Jadi ada **4 Layer**
+
+```
+ID
+
+↓
+
+Password
+
+↓
+
+Event Token
+
+↓
+
+OTP
+```
+
+---
+
+# Device Trust
+
+Setelah berhasil login
+
+```
+Perangkat Ini Dipercaya?
+
+☑ Ya
+
+↓
+
+Tidak meminta OTP lagi selama
+
+30 hari
+```
+
+---
+
+# Session
+
+Ketika login
+
+```
+Session ID Baru
+
+↓
+
+JWT Internal / Sanctum
+
+↓
+
+Dashboard
+```
+
+---
+
+# PROMPT FINAL (Untuk AI Developer)
+
+---
+
+```text
+You are a Senior Enterprise Software Architect.
+
+Build a production-ready authentication and authorization module for Coordination, an AI-Powered Event Operations Platform built with Laravel 12.
+
+The application must support a multi-tenant architecture where one user can belong to multiple events with different roles. Authentication must use a single users table, while authorization is controlled through event_id, division_id, role, and permissions.
+
+=========================================================
+AUTHENTICATION MODULE
+=========================================================
+
+There are three login interfaces:
+
+1. Event Owner Login
+2. Division Leader Login
+3. Division Member Login
+
+All logins authenticate against the same users table.
+
+=========================================================
+EVENT OWNER LOGIN
+=========================================================
+
+Fields:
+
+- Email Address
+- Password
+- Remember Me (30 Days)
+- Forgot Password
+
+Flow:
+
+Login
+→ Email Verification Check
+→ Session Regeneration
+→ Load User Events
+→ If multiple events exist, show Event Selector
+→ Redirect to Event Command Center
+
+=========================================================
+DIVISION LEADER LOGIN
+=========================================================
+
+Fields:
+
+- Officer ID
+- Access Code (Password)
+- Event Token
+- Request OTP
+- Enable Biometric Authentication
+
+Flow:
+
+Officer ID
+→ Password
+→ Event Token Validation
+→ OTP Verification
+→ Optional Trusted Device
+→ Division Dashboard
+
+=========================================================
+DIVISION MEMBER LOGIN
+=========================================================
+
+Fields:
+
+- Member ID
+- Access Code (Password)
+- Event Token
+- Request OTP
+- Enable Biometric Authentication
+
+Flow:
+
+Member ID
+→ Password
+→ Event Token Validation
+→ OTP Verification
+→ Optional Trusted Device
+→ Member Dashboard
+
+=========================================================
+EVENT REGISTRATION
+=========================================================
+
+After Event Owner registration:
+
+Create First Event
+
+Fields:
+
+- Event Name
+- Event Category
+- Start Date
+- Event Day
+- Location
+- Estimated Budget
+- Target Participants
+- Description
+
+Automatically Generate:
+
+- Event ID
+- Event Token
+- Workspace
+- Default Divisions
+
+=========================================================
+DIVISION MANAGEMENT
+=========================================================
+
+Event Owner can:
+
+- Create Division
+- Invite Division Leader
+- Assign Permissions
+- Generate Officer ID
+- Generate Temporary Password
+- Generate Invitation Link
+
+Division Leader can:
+
+- Invite Members
+- Generate Member ID
+- Assign Member Permissions
+- Manage Division Tasks
+
+=========================================================
+PERMISSION SYSTEM
+=========================================================
+
+Permissions are configurable.
+
+Event Owner can decide which menus each Division Leader can access.
+
+Division Leader can decide which menus each Member can access.
+
+Permissions include:
+
+Dashboard
+
+Timeline
+
+Task
+
+Budget
+
+Expense
+
+Approval
+
+Vendor
+
+Documents
+
+Reports
+
+Analytics
+
+AI Assistant
+
+Knowledge Base
+
+Notifications
+
+Settings
+
+Permissions are stored in the database and checked through Laravel Policies and Gates.
+
+=========================================================
+SECURITY
+=========================================================
+
+Password Hashing:
+Argon2id + Pepper
+
+Session:
+Laravel Sanctum
+
+CSRF Protection
+
+Rate Limiter
+
+OTP Verification
+
+Trusted Device
+
+Secure Cookies
+
+HttpOnly Cookies
+
+SameSite=Lax
+
+UUID Primary Keys
+
+Audit Logs
+
+=========================================================
+GENERATE
+=========================================================
+
+Generate:
+
+- Laravel Migrations
+- Models
+- Controllers
+- Policies
+- Gates
+- Middleware
+- Form Requests
+- Seeders
+- Factories
+- RBAC System
+- Database Schema
+- Activity Diagram
+- Sequence Diagram
+- ERD
+- Complete Authentication Flow
+- Authorization Flow
+- Production-ready Laravel 12 code following SOLID principles.
+```
+
+---
+
+## 💡 Saran Terakhir (Agar Sangat Enterprise)
+
+Saya menyarankan **mengganti istilah "Kode Akses" menjadi "Passphrase" atau "Access Passphrase"** untuk login Ketua Divisi dan Anggota. Selain terdengar lebih profesional, istilah ini membedakan autentikasi internal event dari password akun utama. Dengan kombinasi **Officer ID/Member ID + Passphrase + Event Token + OTP + Trusted Device**, Coordination akan memiliki autentikasi berlapis yang kuat tanpa mengorbankan pengalaman pengguna.

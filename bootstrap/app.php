@@ -12,7 +12,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->alias([
+            'event.access' => \App\Http\Middleware\CheckEventAccess::class,
+            'event.role' => \App\Http\Middleware\EventRoleMiddleware::class,
+            'device.trust' => \App\Http\Middleware\RequireDeviceTrust::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
