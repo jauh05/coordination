@@ -196,7 +196,7 @@
                     <div class="flex justify-between relative z-10">
                         <div class="flex flex-col items-center gap-2">
                             <div class="w-4 h-4 bg-primary rounded-full ring-4 ring-white"></div>
-                            <span class="text-label-md font-bold">Concept</span>
+                            <span class="text-label-md font-bold">Konsep</span>
                             <span class="text-caption text-secondary">Selesai</span>
                         </div>
                         <div class="flex flex-col items-center gap-2">
