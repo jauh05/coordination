@@ -4,7 +4,7 @@
             <span class="material-symbols-outlined">corporate_fare</span>
         </div>
         <div>
-            <h1 class="font-headline-lg text-headline-lg font-bold text-primary">Coordination</h1>
+            <h1 class="font-headline-lg text-headline-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">Coordination</h1>
             <p class="font-label-sm text-label-sm text-text-secondary">Operasi Enterprise</p>
         </div>
     </div>
