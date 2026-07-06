@@ -64,7 +64,7 @@
                         <div class="md:col-span-2 space-y-4">
                             <div>
                                 <label class="block font-label-sm text-label-sm text-on-surface mb-1">Nama Organisasi</label>
-                                <input type="text" value="Flowvent Global Ops" class="w-full bg-surface-container-lowest border border-border-subtle rounded-lg px-4 py-2 font-body-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all">
+                                <input type="text" value="Coordination Global Ops" class="w-full bg-surface-container-lowest border border-border-subtle rounded-lg px-4 py-2 font-body-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all">
                             </div>
                             <div>
                                 <label class="block font-label-sm text-label-sm text-on-surface mb-1">Email Kontak Utama</label>
