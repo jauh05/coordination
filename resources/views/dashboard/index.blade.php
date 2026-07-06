@@ -210,12 +210,12 @@
                             <span class="text-caption text-primary">H-18 Sekarang</span>
                         </div>
                         <div class="flex flex-col items-center gap-2">
-                            <div class="w-4 h-4 bg-surface-container-high rounded-full ring-4 ring-white"></div>
+                            <div class="w-4 h-4 bg-slate-200 rounded-full ring-4 ring-white"></div>
                             <span class="text-label-md font-bold text-on-surface-variant">Produksi</span>
                             <span class="text-caption text-on-surface-variant">Aug 15</span>
                         </div>
                         <div class="flex flex-col items-center gap-2">
-                            <div class="w-4 h-4 bg-surface-container-high rounded-full ring-4 ring-white"></div>
+                            <div class="w-4 h-4 bg-slate-200 rounded-full ring-4 ring-white"></div>
                             <span class="text-label-md font-bold text-on-surface-variant">Eksekusi</span>
                             <span class="text-caption text-on-surface-variant">Aug 28</span>
                         </div>
