@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="w-full grid grid-cols-2 gap-x-lg gap-y-sm">
-                <div class="flex justify-between items-center"><span class="text-caption font-caption text-on-surface-variant">Timeline</span><span class="text-label-md font-bold">95%</span></div>
+                <div class="flex justify-between items-center"><span class="text-caption font-caption text-slate-500">Timeline</span><span class="text-label-md font-bold">95%</span></div>
                 <div class="flex justify-between items-center"><span class="text-caption font-caption text-on-surface-variant">Budget</span><span class="text-label-md font-bold">92%</span></div>
                 <div class="flex justify-between items-center"><span class="text-caption font-caption text-on-surface-variant">Produksi</span><span class="text-label-md font-bold">81%</span></div>
                 <div class="flex justify-between items-center"><span class="text-caption font-caption text-on-surface-variant">Sponsor</span><span class="text-label-md font-bold text-red-600 font-bold">72%</span></div>
