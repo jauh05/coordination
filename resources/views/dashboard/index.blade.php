@@ -308,7 +308,7 @@
                 <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-xl shadow-sm">
                     <div class="flex justify-between items-center mb-lg">
                         <h3 class="font-title-md text-title-md">Visualisasi Anggaran</h3>
-                        <span class="text-caption text-on-surface-variant">Actual vs Planned</span>
+                        <span class="text-caption text-on-surface-variant">Aktual vs Rencana</span>
                     </div>
                     <div class="h-48 w-full flex items-end justify-between gap-md pt-lg">
                         <div class="flex-grow flex flex-col gap-2 items-center">
