@@ -241,7 +241,7 @@
                         <span class="text-caption text-emerald-700 bg-emerald-100 px-md py-0.5 rounded-full">94%</span>
                     </div>
                     <div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
-                        <div class="h-full bg-secondary w-[94%]"></div>
+                        <div class="h-full bg-emerald-500 w-[94%]"></div>
                     </div>
                     <p class="text-caption text-on-surface-variant">Tiket Early Bird Sold Out. Billboard Jakarta aktif.</p>
                 </div>
