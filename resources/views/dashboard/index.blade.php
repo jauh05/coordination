@@ -94,7 +94,7 @@
         </div>
 
         <!-- AI Insight Card -->
-        <div class="bg-surface-container-lowest border border-tertiary-container/30 rounded-2xl p-xl shadow-sm relative overflow-hidden group">
+        <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-xl shadow-sm relative overflow-hidden group">
             <div class="absolute top-0 right-0 w-32 h-32 bg-tertiary/5 rounded-full -mr-16 -mt-16 blur-3xl group-hover:scale-150 transition-all duration-700"></div>
             <div class="flex items-center justify-between mb-md">
                 <div class="flex items-center gap-md">
