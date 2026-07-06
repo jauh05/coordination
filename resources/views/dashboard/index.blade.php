@@ -107,7 +107,7 @@
             </div>
             <div class="space-y-md">
                 <div class="p-md rounded-xl bg-red-50 border border-error/10">
-                    <p class="text-label-md font-bold text-on-error-container flex items-center gap-sm">
+                    <p class="text-label-md font-bold text-red-800 flex items-center gap-sm">
                         <span class="material-symbols-outlined text-[18px]">warning</span> Vendor LED Belum Terkonfirmasi
                     </p>
                     <p class="text-caption text-on-surface-variant mt-1">Estimasi keterlambatan instalasi jika tidak difinalisasi hari ini: 48 jam.</p>
