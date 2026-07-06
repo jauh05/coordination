@@ -284,7 +284,7 @@
                         </div>
                         <div class="flex items-center justify-between p-md bg-surface-container-low rounded-xl">
                             <div class="flex items-center gap-md">
-                                <div class="w-2 h-10 bg-error rounded-full shadow-[0_0_8px_rgba(186,26,26,0.3)]"></div>
+                                <div class="w-2 h-10 bg-red-500 rounded-full shadow-[0_0_8px_rgba(186,26,26,0.3)]"></div>
                                 <div>
                                     <p class="font-label-md">Timeline Vendor</p>
                                     <p class="text-caption text-on-surface-variant">Probabilitas: 65%</p>
