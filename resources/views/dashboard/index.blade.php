@@ -413,7 +413,7 @@
     <!-- Bottom Navigation / Links -->
     <footer class="pt-xl pb-margin border-t border-outline-variant/30 flex flex-wrap gap-xl justify-between items-center text-on-surface-variant">
         <div class="flex gap-lg">
-            <a class="text-label-md hover:text-primary transition-all" href="{{ route('support') }}">Knowledge Base</a>
+            <a class="text-label-md hover:text-primary transition-all" href="{{ route('support') }}">Basis Pengetahuan</a>
             <a class="text-label-md hover:text-primary transition-all" href="{{ route('evaluation') }}">Lessons Learned</a>
             <a class="text-label-md hover:text-primary transition-all" href="{{ route('documents') }}">Resource Library</a>
             <a class="text-label-md hover:text-primary transition-all" href="{{ route('support') }}">Support</a>
