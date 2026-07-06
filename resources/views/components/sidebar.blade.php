@@ -1,6 +1,6 @@
 <aside class="w-sidebar-width h-screen sticky left-0 top-0 border-r border-border-subtle bg-surface flex flex-col py-stack-lg px-stack-md gap-stack-sm z-50">
     <div class="flex items-center gap-3 px-2 mb-stack-lg">
-        <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-on-primary">
+        <div class="w-10 h-10 bg-gradient-to-tr from-primary to-blue-400 rounded-xl flex items-center justify-center text-white shadow-md">
             <span class="material-symbols-outlined">corporate_fare</span>
         </div>
         <div>
