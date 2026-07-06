@@ -387,7 +387,7 @@
 
             <!-- Upcoming Calendar -->
             <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-xl shadow-sm">
-                <h3 class="font-title-md text-title-md mb-lg">Upcoming Schedule</h3>
+                <h3 class="font-title-md text-title-md mb-lg">Jadwal Mendatang</h3>
                 <div class="space-y-md">
                     <div class="p-md rounded-xl bg-surface-container hover:bg-primary-container/10 transition-all border border-transparent hover:border-primary/20 cursor-pointer">
                         <div class="flex justify-between">
