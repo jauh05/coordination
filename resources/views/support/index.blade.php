@@ -55,7 +55,7 @@
                     <div class="w-12 h-12 bg-warning/10 text-warning rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                         <span class="material-symbols-outlined text-[24px]">smart_toy</span>
                     </div>
-                    <h3 class="font-headline-md text-headline-md text-on-surface">Fitur AI Flowvent</h3>
+                    <h3 class="font-headline-md text-headline-md text-on-surface">Fitur AI Coordination</h3>
                 </div>
                 <p class="font-body-sm text-body-sm text-text-secondary mb-4">Cara memaksimalkan analitik prediktif, rekomendasi anggaran otomatis, dan wawasan strategis.</p>
                 <span class="text-primary font-label-sm text-label-sm flex items-center gap-1 group-hover:gap-2 transition-all">
