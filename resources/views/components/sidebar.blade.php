@@ -8,7 +8,7 @@
             <p class="font-label-sm text-label-sm text-text-secondary">Event Coordination</p>
         </div>
     </div>
-    <button class="w-full flex items-center justify-center gap-2 bg-primary text-on-primary py-3 px-4 rounded-xl font-label-md text-label-md mb-stack-md hover:brightness-110 active:scale-[0.98] transition-all">
+    <button class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-blue-500 text-white py-3 px-4 rounded-xl font-label-md text-label-md mb-stack-md hover:brightness-110 active:scale-[0.98] transition-all">
         <span class="material-symbols-outlined text-[20px]">add</span>
         Event Baru
     </button>
