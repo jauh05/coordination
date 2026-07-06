@@ -238,7 +238,7 @@
                 <div class="bg-white p-lg rounded-2xl border border-outline-variant/30 shadow-sm space-y-md hover:shadow-md transition-all">
                     <div class="flex justify-between items-center">
                         <span class="text-label-md font-bold text-on-surface-variant">Marketing</span>
-                        <span class="text-caption text-secondary bg-secondary/10 px-md py-0.5 rounded-full">94%</span>
+                        <span class="text-caption text-emerald-700 bg-emerald-100 px-md py-0.5 rounded-full">94%</span>
                     </div>
                     <div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
                         <div class="h-full bg-secondary w-[94%]"></div>
