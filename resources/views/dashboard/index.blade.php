@@ -101,7 +101,7 @@
                     <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
                         <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
                     </div>
-                    <h3 class="font-title-md text-title-md">AI Insights</h3>
+                    <h3 class="font-title-md text-title-md">Wawasan AI</h3>
                 </div>
                 <span class="text-label-md text-primary font-bold">3 Peringatan</span>
             </div>
