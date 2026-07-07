@@ -123,10 +123,10 @@
 <header class="fixed top-0 w-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl border-b border-slate-200/50 dark:border-slate-700/50 shadow-sm z-50 transition-all duration-300">
     <div class="flex justify-between items-center px-6 py-4 max-w-[1536px] mx-auto">
         <a href="/" class="text-title-md font-title-md font-bold flex items-center gap-2 group">
-            <div class="bg-gradient-to-tr from-primary to-blue-400 text-white p-1.5 rounded-lg group-hover:scale-105 transition-transform shadow-md">
+            <div class="bg-primary text-white p-1.5 rounded-lg group-hover:scale-105 transition-transform shadow-md">
                 <span class="material-symbols-outlined text-[20px] block">hub</span>
             </div>
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600 dark:from-blue-400 dark:to-blue-200 tracking-tight">Coordination</span>
+            <span class="text-primary dark:text-blue-400 tracking-tight">Coordination</span>
         </a>
         <nav class="hidden md:flex gap-8">
             <a class="relative text-primary font-semibold font-body-md text-body-md group" href="#">
@@ -144,7 +144,7 @@
         </nav>
         <div class="flex items-center gap-2 md:gap-4">
             <a href="{{ route('login') }}" class="text-on-surface-variant font-medium hover:text-primary px-3 py-2 transition-all duration-200 hover:bg-primary/5 rounded-lg active:scale-95 inline-block text-center text-[13px] md:text-base whitespace-nowrap">Masuk</a>
-            <a href="{{ route('register') }}" class="bg-gradient-to-r from-primary to-blue-600 text-on-primary px-4 md:px-6 py-1.5 md:py-2 rounded-full font-bold hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 inline-block text-center border border-transparent hover:border-white/20 whitespace-nowrap text-[13px] md:text-base">Mulai</a>
+            <a href="{{ route('register') }}" class="bg-primary text-on-primary px-4 md:px-6 py-1.5 md:py-2 rounded-full font-bold hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 inline-block text-center border border-transparent hover:border-white/20 whitespace-nowrap text-[13px] md:text-base">Mulai</a>
         </div>
     </div>
 </header>
@@ -314,7 +314,7 @@
 <!-- Right Side: Marketing/Visual Panel -->
 <div class="hidden lg:block order-1 lg:order-2 pl-stack-lg">
 <div class="relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
-<div class="absolute inset-0 z-10 bg-gradient-to-tr from-primary/40 to-transparent"></div>
+<div class="absolute inset-0 z-10 bg-primary/40"></div>
 <img class="w-full h-full object-cover" data-alt="A professional high-key photography of a modern, sleek corporate event space with clean lines, minimalist furniture, and large windows overlooking a city skyline. The lighting is bright and airy, matching a premium enterprise SaaS brand aesthetic. Several high-end tablets and laptops are visible on tables, displaying clean data dashboards with blue and white color schemes. The atmosphere is sophisticated and organized, implying elite coordination and planning capabilities." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbAJLtZm9e6hu-YfCNU7-u1yhgKAfy_Z8Ep2NPsu2NEfZnG9Z9Qct9WIqGBgZOUpYOTcVR3YRury8TpmgIr5QkbaJOBBrzGUDmXO1ru1TGp5RpZni1FSGY7F6kiJDCxu4pw6fro1-zLNF9MzfDqp-gP369fsTWlZhzSNU3uJfMnySbwWU_JgrCUbrynDKX1OUYMFT-IN0iV8okJQRlZMhH7QqlzvMPvJwuSRXCcgvcbRZJt9g0al5nIQ3MLICzy8tywj7yHW8Nzcw"/>
 <!-- Floating Testimonial Card -->
 <div class="absolute bottom-8 left-8 right-8 z-20 glass-effect p-6 rounded-2xl border border-white/20 shadow-xl">

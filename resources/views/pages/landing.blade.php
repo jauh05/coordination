@@ -120,10 +120,10 @@
 <header class="fixed top-0 w-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl border-b border-slate-200/50 dark:border-slate-700/50 shadow-sm z-50 transition-all duration-300">
     <div class="flex justify-between items-center px-gutter py-md max-w-[1536px] mx-auto">
         <a href="/" class="text-title-md font-title-md font-bold flex items-center gap-2 group">
-            <div class="bg-gradient-to-tr from-primary to-blue-400 text-white p-1.5 rounded-lg group-hover:scale-105 transition-transform shadow-md">
+            <div class="bg-primary text-white p-1.5 rounded-lg group-hover:scale-105 transition-transform shadow-md">
                 <span class="material-symbols-outlined text-[20px] block">hub</span>
             </div>
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600 dark:from-blue-400 dark:to-blue-200 tracking-tight">Coordination</span>
+            <span class="text-primary dark:text-blue-400 tracking-tight">Coordination</span>
         </a>
         <nav class="hidden md:flex gap-xl">
             <a class="relative text-primary font-semibold font-body-md text-body-md group" href="#">
@@ -141,7 +141,7 @@
         </nav>
         <div class="flex items-center gap-2 md:gap-md">
             <a href="{{ route('login') }}" class="text-on-surface-variant font-medium hover:text-primary px-2 md:px-md py-sm transition-all duration-200 hover:bg-primary/5 rounded-lg active:scale-95 inline-block text-center text-[13px] md:text-base whitespace-nowrap">Login</a>
-            <a href="{{ route('register') }}" class="bg-gradient-to-r from-primary to-blue-600 text-on-primary px-3 md:px-lg py-1.5 md:py-sm rounded-full font-bold hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 inline-block text-center border border-transparent hover:border-white/20 whitespace-nowrap text-[13px] md:text-base">Get Started</a>
+            <a href="{{ route('register') }}" class="bg-primary text-on-primary px-3 md:px-lg py-1.5 md:py-sm rounded-full font-bold hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 inline-block text-center border border-transparent hover:border-white/20 whitespace-nowrap text-[13px] md:text-base">Get Started</a>
         </div>
     </div>
 </header>
@@ -152,7 +152,7 @@
         <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none"></div>
         <div class="grid lg:grid-cols-2 gap-xxl items-center relative z-10">
             <div class="space-y-lg">
-                <div class="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-blue-400/20 blur-3xl rounded-full pointer-events-none -z-10 animate-pulse duration-3000"></div>
+                <div class="absolute -inset-4 bg-primary/20 blur-3xl rounded-full pointer-events-none -z-10 animate-pulse duration-3000"></div>
                 
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50/80 dark:bg-blue-900/20 text-primary dark:text-blue-300 rounded-full border border-blue-100 dark:border-blue-800/50 shadow-sm backdrop-blur-sm mb-2 transform hover:scale-105 transition-transform cursor-default">
                     <div class="w-2 h-2 rounded-full bg-primary animate-ping absolute opacity-75"></div>
@@ -160,27 +160,27 @@
                     <span class="font-bold text-xs tracking-wider uppercase">Mission Control Elite</span>
                 </div>
                 
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight mb-6">
-                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 dark:from-white dark:to-slate-300 block mb-2">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.1] tracking-tight mb-6">
+                    <span class="text-slate-800 dark:text-white block mb-2">
                         Operasional Event
                     </span>
                     <span class="relative inline-block">
-                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary via-blue-500 to-cyan-400">
+                        <span class="text-primary">
                             Tanpa Resiko.
                         </span>
-                        <svg class="absolute w-full h-3 -bottom-2 left-0 text-blue-400/40" viewBox="0 0 100 10" preserveAspectRatio="none">
+                        <svg class="absolute w-full h-3 -bottom-2 left-0 text-primary/40" viewBox="0 0 100 10" preserveAspectRatio="none">
                             <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="4" fill="transparent"/>
                         </svg>
                     </span>
                 </h1>
                 
                 <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed mb-8 font-medium">
-                    Ubah kompleksitas logistik menjadi <span class="text-primary font-semibold">presisi militer</span>. Coordination menggunakan AI untuk memantau kesehatan event Anda secara real-time, mencegah budget bocor, dan memastikan Riders terpenuhi 100%.
+                    Ubah kompleksitas logistik menjadi <span class="text-primary font-semibold">presisi militer</span>. Coordination memantau kesehatan event Anda secara real-time, mencegah budget bocor, dan memastikan Riders terpenuhi 100%.
                 </p>
                 
                 <div class="flex flex-wrap gap-4 pt-2">
                     <a href="{{ route('register') }}" class="group relative inline-flex items-center justify-center bg-primary text-white px-8 py-4 rounded-full font-bold text-lg overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(0,82,204,0.5)]">
-                        <div class="absolute inset-0 bg-gradient-to-r from-primary to-blue-600 transition-all group-hover:scale-110"></div>
+                        <div class="absolute inset-0 bg-primary transition-all group-hover:scale-110"></div>
                         <span class="relative flex items-center gap-2">
                             Mulai Mission Control
                             <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>

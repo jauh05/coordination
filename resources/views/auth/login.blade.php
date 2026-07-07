@@ -153,10 +153,10 @@
 <header class="fixed top-0 w-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl border-b border-slate-200/50 dark:border-slate-700/50 shadow-sm z-50 transition-all duration-300">
     <div class="flex justify-between items-center px-6 py-4 max-w-[1536px] mx-auto">
         <a href="/" class="text-title-md font-title-md font-bold flex items-center gap-2 group">
-            <div class="bg-gradient-to-tr from-primary to-blue-400 text-white p-1.5 rounded-lg group-hover:scale-105 transition-transform shadow-md">
+            <div class="bg-primary text-white p-1.5 rounded-lg group-hover:scale-105 transition-transform shadow-md">
                 <span class="material-symbols-outlined text-[20px] block">hub</span>
             </div>
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600 dark:from-blue-400 dark:to-blue-200 tracking-tight">Coordination</span>
+            <span class="text-primary dark:text-blue-400 tracking-tight">Coordination</span>
         </a>
         <nav class="hidden md:flex gap-8">
             <a class="relative text-primary font-semibold font-body-md text-body-md group" href="#">
@@ -172,16 +172,16 @@
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
         </nav>
-        <div class="flex items-center gap-2 md:gap-4">
-            <a href="{{ route('login') }}" class="text-on-surface-variant font-medium hover:text-primary px-3 py-2 transition-all duration-200 hover:bg-primary/5 rounded-lg active:scale-95 inline-block text-center text-[13px] md:text-base whitespace-nowrap">Masuk</a>
-            <a href="{{ route('register') }}" class="bg-gradient-to-r from-primary to-blue-600 text-on-primary px-4 md:px-6 py-1.5 md:py-2 rounded-full font-bold hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 inline-block text-center border border-transparent hover:border-white/20 whitespace-nowrap text-[13px] md:text-base">Mulai</a>
+        <div class="flex items-center gap-2 md:gap-md">
+            <a href="{{ route('login') }}" class="text-primary font-medium px-4 md:px-6 py-1.5 md:py-2 transition-all duration-200 bg-primary/5 rounded-full active:scale-95 inline-block text-center text-[13px] md:text-base whitespace-nowrap">Login</a>
+            <a href="{{ route('register') }}" class="bg-primary text-on-primary px-4 md:px-6 py-1.5 md:py-2 rounded-full font-bold hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 inline-block text-center border border-transparent hover:border-white/20 whitespace-nowrap text-[13px] md:text-base">Mulai</a>
         </div>
     </div>
 </header>
 <!-- Main Content Area -->
 <main class="flex-grow flex items-center justify-center pt-24 pb-12 px-margin-mobile md:px-margin-desktop technical-grid relative overflow-hidden">
 <!-- Background Elements -->
-<div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
+<div class="absolute top-0 right-0 w-1/3 h-full bg-primary/5 pointer-events-none"></div>
 <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-accent-blue/40 rounded-full blur-3xl pointer-events-none"></div>
 <div class="w-full max-w-[1200px] grid lg:grid-cols-2 gap-stack-lg items-center z-10">
 <!-- Left Side: Branding & Info -->
