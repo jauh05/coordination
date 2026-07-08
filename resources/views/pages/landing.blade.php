@@ -126,7 +126,7 @@
             <span class="text-primary dark:text-blue-400 tracking-tight">Coordination</span>
         </a>
         <nav class="hidden md:flex gap-xl">
-            <a class="relative text-primary font-semibold font-body-md text-body-md group" href="#">
+            <a class="relative text-primary font-semibold font-body-md text-body-md group" href="{{ route('fitur') }}">
                 Fitur
                 <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
             </a>

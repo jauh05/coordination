@@ -6,13 +6,23 @@
     <title>Tentang - Coordination</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
-    <div class="flex-grow flex items-center justify-center p-8">
-        <div class="text-center">
-            <h1 class="text-4xl font-bold mb-4 text-blue-600">Tentang Kami</h1>
-            <p class="text-lg text-gray-600 mb-8">Pelajari lebih lanjut tentang misi dan visi Coordination.</p>
-            <a href="/" class="text-blue-600 hover:underline">&larr; Kembali ke Beranda</a>
+<body class="bg-blue-50 text-slate-800 flex flex-col min-h-screen">
+    <header class="w-full bg-blue-600 text-white p-6 shadow-md">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-wider">COORDINATION</h1>
+            <a href="/" class="hover:underline font-semibold">&larr; Kembali ke Beranda</a>
         </div>
-    </div>
+    </header>
+    <main class="flex-grow max-w-4xl mx-auto p-8 py-16">
+        <h2 class="text-4xl font-extrabold text-blue-700 mb-6 text-center">Di Balik Coordination</h2>
+        <div class="bg-white p-8 rounded-xl shadow border border-slate-200 text-lg leading-relaxed text-slate-700 space-y-6">
+            <p>Kami lahir dari rasa frustrasi akan kacaunya manajemen acara berskala besar yang hanya mengandalkan spreadsheet dan puluhan grup pesan obrolan.</p>
+            <p>Coordination dibangun oleh Event Director berpengalaman bersama engineer kelas dunia, bertujuan memberikan satu ruang kendali (Mission Control) yang menghadirkan kepastian dan presisi tinggi ke dalam kekacauan logistik lapangan.</p>
+            <p>Visi kami sederhana: <strong>Tanpa celah. Tanpa resiko anggaran bocor. 100% tereksekusi secara presisi.</strong></p>
+        </div>
+    </main>
+    <footer class="bg-slate-900 text-slate-400 text-center py-6">
+        <p>&copy; 2026 Coordination. All rights reserved.</p>
+    </footer>
 </body>
 </html>
