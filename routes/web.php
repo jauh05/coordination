@@ -14,6 +14,10 @@ Route::get('/', function () {
     return view('pages.landing');
 })->name('landing');
 
+Route::get('/fitur', function () {
+    return view('pages.fitur');
+})->name('fitur');
+
 Route::get('/solusi', function () {
     return view('pages.solutions');
 })->name('solutions');
