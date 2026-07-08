@@ -14,6 +14,22 @@ Route::get('/', function () {
     return view('pages.landing');
 })->name('landing');
 
+Route::get('/solusi', function () {
+    return view('pages.solutions');
+})->name('solutions');
+
+Route::get('/harga', function () {
+    return view('pages.pricing');
+})->name('pricing');
+
+Route::get('/tentang', function () {
+    return view('pages.tentang');
+})->name('tentang');
+
+Route::get('/kontak', function () {
+    return view('pages.kontak');
+})->name('kontak');
+
 // Registration Page
 Route::get('/register', function () {
     return view('pages.register');

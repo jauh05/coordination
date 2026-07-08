@@ -127,15 +127,23 @@
         </a>
         <nav class="hidden md:flex gap-xl">
             <a class="relative text-primary font-semibold font-body-md text-body-md group" href="#">
-                Features
+                Fitur
                 <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
             </a>
-            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="#">
-                Solutions
+            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="{{ route('solutions') }}">
+                Solusi
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="#">
-                Pricing
+            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="{{ route('pricing') }}">
+                Harga
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="{{ route('tentang') }}">
+                Tentang
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="{{ route('kontak') }}">
+                Kontak
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
         </nav>
