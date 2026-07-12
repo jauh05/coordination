@@ -7,8 +7,8 @@
             <div class="relative z-10 space-y-md">
                 <div class="flex justify-between items-start">
                     <div>
-                        <h2 class="font-headline-lg text-headline-lg">Selamat pagi, Jauhar 👋</h2>
-                        <p class="font-body-lg text-body-lg opacity-90">Festival Musik Indonesia 2027 — Operasi berjalan sesuai rencana.</p>
+                        <h2 class="font-headline-lg text-headline-lg">Selamat pagi, {{ auth()->user()->name ?? 'Pengguna' }} 👋</h2>
+                        <p class="font-body-lg text-body-lg opacity-90">{{ auth()->check() && auth()->user()->events()->exists() ? auth()->user()->events()->first()->name : 'Festival Musik Indonesia 2027' }} — Operasi berjalan sesuai rencana.</p>
                     </div>
                     <div class="bg-white/10 backdrop-blur-md px-md py-sm rounded-xl border border-white/20 text-center">
                         <span class="block text-headline-sm font-bold">H-18</span>
