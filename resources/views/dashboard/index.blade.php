@@ -7,7 +7,7 @@
             <div class="relative z-10 space-y-md">
                 <div class="flex justify-between items-start">
                     <div>
-                        <h2 class="font-headline-lg text-headline-lg">Selamat pagi, {{ auth()->user()->name ?? 'Pengguna' }} 👋</h2>
+                        <h2 class="font-headline-lg text-headline-lg">Selamat pagi, <span class="font-bold text-white">{{ auth()->user()->name ?? 'Pengguna' }}</span> 👋</h2>
                         <p class="font-body-lg text-body-lg opacity-90">{{ auth()->check() && auth()->user()->events()->exists() ? auth()->user()->events()->first()->name : 'Festival Musik Indonesia 2027' }} — Operasi berjalan sesuai rencana.</p>
                     </div>
                     <div class="bg-white/10 backdrop-blur-md px-md py-sm rounded-xl border border-white/20 text-center">
@@ -35,9 +35,34 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex gap-md pt-md">
+                <div class="flex gap-md pt-md items-center flex-wrap">
                     <a href="{{ route('events') }}" class="bg-white/20 hover:bg-white/30 text-white border border-white/30 px-lg py-md rounded-xl font-label-md shadow-sm hover:shadow-md transition-all active:scale-95 inline-block"><span class="material-symbols-outlined text-[16px]">visibility</span> Lihat Detail Event</a>
                     <a href="{{ route('planning') }}" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-lg py-md rounded-xl font-label-md transition-all active:scale-95 inline-block"><span class="material-symbols-outlined text-[16px]">workspaces</span> Buka Workspace</a>
+                    
+                    @if(isset($events) && $events->count() > 0)
+                    <div x-data="{ open: false }" class="relative inline-block ml-auto">
+                        <button @click="open = !open" @click.away="open = false" class="bg-white text-primary px-lg py-md rounded-xl font-label-md shadow-sm hover:shadow-md transition-all active:scale-95 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[16px]">vpn_key</span>
+                            ID Event (Untuk Anggota)
+                            <span class="material-symbols-outlined text-[16px] transition-transform" :class="open ? 'rotate-180' : ''">expand_more</span>
+                        </button>
+                        
+                        <div x-show="open" x-transition x-cloak class="absolute right-0 mt-2 w-72 bg-white rounded-xl shadow-lg border border-outline-variant/30 overflow-hidden z-50 p-2 text-left">
+                            <div class="px-3 py-2 text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-outline-variant/20 mb-1">
+                                Pilih & Salin ID Event
+                            </div>
+                            @foreach($events as $ev)
+                            <div class="p-3 hover:bg-surface-container rounded-lg cursor-pointer transition-colors group" onclick="navigator.clipboard.writeText('{{ $ev->event_id_code }}'); alert('ID {{ $ev->event_id_code }} berhasil disalin untuk {{ $ev->name }}')">
+                                <div class="font-bold text-slate-800 group-hover:text-primary transition-colors truncate">{{ $ev->name }}</div>
+                                <div class="flex justify-between items-center mt-1">
+                                    <code class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">{{ $ev->event_id_code }}</code>
+                                    <span class="material-symbols-outlined text-[14px] text-slate-400 group-hover:text-primary">content_copy</span>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>

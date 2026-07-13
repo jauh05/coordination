@@ -1,5 +1,6 @@
 <x-layouts.app title="Struktur Organisasi">
 
+    <div x-data="{ showAddDivision: false, showAddMember: false }">
     <div class="page-header">
         <div class="page-header-row">
             <div>
@@ -8,7 +9,8 @@
             </div>
             <div class="page-header-actions">
                 <button class="btn btn-outline"><span>👁</span> Tampilan Chart</button>
-                <button class="btn btn-primary"><span>＋</span> Tambah Anggota</button>
+                <button type="button" @click="showAddMember = true" class="btn btn-secondary" style="background:var(--color-secondary-container);color:var(--color-on-secondary-container);border:1px solid var(--color-outline-variant);"><span>＋</span> Tambah Anggota</button>
+                <button type="button" @click="showAddDivision = true" class="btn btn-primary"><span>＋</span> Tambah Divisi & Ketua</button>
             </div>
         </div>
     </div>
@@ -17,148 +19,239 @@
     <div class="card mb-8">
         <h3 class="card-title mb-6">Hierarki Organisasi — Festival Musik 2026</h3>
         <div class="org-chart">
+            @php
+                $owner = null;
+                if ($event) {
+                    $ownerRel = $event->users()->wherePivot('role', 'owner')->first();
+                    $owner = $ownerRel ?? auth()->user();
+                }
+            @endphp
             {{-- Level 1: Event Director --}}
             <div class="org-node" style="border-color:var(--color-primary);">
-                <div class="org-node-avatar" style="background:var(--color-primary);color:#fff;">AR</div>
-                <div class="org-node-name">Ahmad Rizky</div>
+                <div class="org-node-avatar" style="background:var(--color-primary);color:#fff;">{{ $owner ? strtoupper(substr($owner->name, 0, 2)) : 'AR' }}</div>
+                <div class="org-node-name">{{ $owner ? $owner->name : 'Ahmad Rizky' }}</div>
                 <div class="org-node-role">Event Director</div>
-                <div style="display:flex;gap:var(--space-3);justify-content:center;margin-top:var(--space-3);">
-                    <span class="badge badge-success">Health: 94</span>
-                    <span class="badge badge-info">12 Tasks</span>
-                </div>
             </div>
 
+            @if(isset($divisions) && $divisions->count() > 0)
             <div class="org-connector"></div>
-
-            {{-- Level 2: Project Managers --}}
-            <div class="org-level">
-                <div class="org-node">
-                    <div class="org-node-avatar">SA</div>
-                    <div class="org-node-name">Sarah Amelia</div>
-                    <div class="org-node-role">Project Manager</div>
-                    <div style="display:flex;gap:var(--space-2);justify-content:center;margin-top:var(--space-2);">
-                        <span class="badge badge-success">88%</span>
+            
+            {{-- Level 2 & 3: Division Heads & Members --}}
+            <div class="org-level" style="flex-wrap: wrap; justify-content: center; gap: 30px; align-items: flex-start;">
+                @foreach($divisions as $div)
+                    @php
+                        $head = $div->members->where('role', 'division_head')->first();
+                        $headName = $head ? $head->user->name : 'Belum Ada Ketua';
+                        $initials = strtoupper(substr($headName, 0, 2));
+                        $members = $div->members->where('role', 'member');
+                    @endphp
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        {{-- Division Head --}}
+                        <div class="org-node" style="min-width:140px;padding:var(--space-3) var(--space-4);">
+                            <div class="org-node-avatar" style="width:36px;height:36px;font-size:14px;">{{ $initials }}</div>
+                            <div class="org-node-name" style="font-size:13px;">{{ $headName }}</div>
+                            <div class="org-node-role" style="font-size:10px;font-weight:bold;color:var(--color-primary);">{{ $div->name }}</div>
+                        </div>
+                        
+                        {{-- Members --}}
+                        @if($members->count() > 0)
+                        <div style="width: 2px; height: 20px; background: var(--color-outline-variant);"></div>
+                        <div style="display: flex; gap: 10px; border-top: 2px solid var(--color-outline-variant); padding-top: 10px; flex-wrap: wrap; justify-content: center; max-width: 300px;">
+                            @foreach($members as $member)
+                            <div class="org-node" style="min-width:100px;padding:var(--space-2);background:var(--color-surface-container-lowest);">
+                                <div class="org-node-avatar" style="width:24px;height:24px;font-size:10px;margin-bottom:4px;">{{ strtoupper(substr($member->user->name, 0, 2)) }}</div>
+                                <div class="org-node-name" style="font-size:11px;">{{ $member->user->name }}</div>
+                                <div class="org-node-role" style="font-size:9px;">Anggota</div>
+                            </div>
+                            @endforeach
+                        </div>
+                        @endif
                     </div>
-                </div>
-                <div class="org-node">
-                    <div class="org-node-avatar">BR</div>
-                    <div class="org-node-name">Budi Raharjo</div>
-                    <div class="org-node-role">Project Manager</div>
-                    <div style="display:flex;gap:var(--space-2);justify-content:center;margin-top:var(--space-2);">
-                        <span class="badge badge-warning">62%</span>
-                    </div>
-                </div>
+                @endforeach
             </div>
-
-            <div class="org-connector"></div>
-
-            {{-- Level 3: Division Heads --}}
-            <div class="org-level">
-                <div class="org-node" style="min-width:140px;padding:var(--space-3) var(--space-4);">
-                    <div class="org-node-avatar" style="width:36px;height:36px;font-size:14px;">DW</div>
-                    <div class="org-node-name" style="font-size:13px;">Dewi W.</div>
-                    <div class="org-node-role" style="font-size:10px;">Sekretaris</div>
-                </div>
-                <div class="org-node" style="min-width:140px;padding:var(--space-3) var(--space-4);">
-                    <div class="org-node-avatar" style="width:36px;height:36px;font-size:14px;">RP</div>
-                    <div class="org-node-name" style="font-size:13px;">Rina P.</div>
-                    <div class="org-node-role" style="font-size:10px;">Bendahara</div>
-                </div>
-                <div class="org-node" style="min-width:140px;padding:var(--space-3) var(--space-4);">
-                    <div class="org-node-avatar" style="width:36px;height:36px;font-size:14px;">FH</div>
-                    <div class="org-node-name" style="font-size:13px;">Fajar H.</div>
-                    <div class="org-node-role" style="font-size:10px;">Program</div>
-                </div>
-                <div class="org-node" style="min-width:140px;padding:var(--space-3) var(--space-4);">
-                    <div class="org-node-avatar" style="width:36px;height:36px;font-size:14px;">NA</div>
-                    <div class="org-node-name" style="font-size:13px;">Nanda A.</div>
-                    <div class="org-node-role" style="font-size:10px;">Produksi</div>
-                </div>
-                <div class="org-node" style="min-width:140px;padding:var(--space-3) var(--space-4);">
-                    <div class="org-node-avatar" style="width:36px;height:36px;font-size:14px;">IA</div>
-                    <div class="org-node-name" style="font-size:13px;">Indra A.</div>
-                    <div class="org-node-role" style="font-size:10px;">Pemasaran</div>
-                </div>
-                <div class="org-node" style="min-width:140px;padding:var(--space-3) var(--space-4);">
-                    <div class="org-node-avatar" style="width:36px;height:36px;font-size:14px;">LS</div>
-                    <div class="org-node-name" style="font-size:13px;">Lisa S.</div>
-                    <div class="org-node-role" style="font-size:10px;">Logistik</div>
-                </div>
-            </div>
+            @endif
         </div>
     </div>
 
     {{-- Division Cards Grid --}}
     <h3 style="font-size:var(--font-size-xl);font-weight:700;margin-bottom:var(--space-6);">Divisi Event</h3>
     <div class="grid grid-3 mb-8">
-        @php
-        $divisions = [
-            ['name'=>'Sekretaris','head'=>'Dewi W.','initials'=>'DW','members'=>8,'budget'=>'Rp 45 jt','budget_pct'=>62,'progress'=>72,'health'=>85,'tasks'=>14,'issues'=>1,'deadline'=>'12 Jul','color'=>'primary'],
-            ['name'=>'Bendahara','head'=>'Rina P.','initials'=>'RP','members'=>4,'budget'=>'Rp 12 jt','budget_pct'=>45,'progress'=>68,'health'=>90,'tasks'=>8,'issues'=>0,'deadline'=>'15 Jul','color'=>'secondary'],
-            ['name'=>'Program','head'=>'Fajar H.','initials'=>'FH','members'=>12,'budget'=>'Rp 180 jt','budget_pct'=>78,'progress'=>85,'health'=>92,'tasks'=>28,'issues'=>2,'deadline'=>'10 Jul','color'=>'primary'],
-            ['name'=>'Produksi','head'=>'Nanda A.','initials'=>'NA','members'=>15,'budget'=>'Rp 320 jt','budget_pct'=>88,'progress'=>88,'health'=>95,'tasks'=>35,'issues'=>1,'deadline'=>'8 Jul','color'=>'success'],
-            ['name'=>'Pemasaran','head'=>'Indra A.','initials'=>'IA','members'=>10,'budget'=>'Rp 150 jt','budget_pct'=>94,'progress'=>94,'health'=>97,'tasks'=>22,'issues'=>0,'deadline'=>'14 Jul','color'=>'success'],
-            ['name'=>'Sponsorship','head'=>'Maya R.','initials'=>'MR','members'=>6,'budget'=>'Rp 25 jt','budget_pct'=>38,'progress'=>38,'health'=>65,'tasks'=>15,'issues'=>3,'deadline'=>'7 Jul','color'=>'danger'],
-            ['name'=>'Media Partner','head'=>'Dion K.','initials'=>'DK','members'=>5,'budget'=>'Rp 35 jt','budget_pct'=>56,'progress'=>56,'health'=>78,'tasks'=>12,'issues'=>1,'deadline'=>'11 Jul','color'=>'warning'],
-            ['name'=>'Logistik','head'=>'Lisa S.','initials'=>'LS','members'=>8,'budget'=>'Rp 95 jt','budget_pct'=>45,'progress'=>45,'health'=>70,'tasks'=>20,'issues'=>2,'deadline'=>'6 Jul','color'=>'warning'],
-            ['name'=>'Dokumentasi','head'=>'Rendi M.','initials'=>'RM','members'=>6,'budget'=>'Rp 28 jt','budget_pct'=>100,'progress'=>100,'health'=>100,'tasks'=>10,'issues'=>0,'deadline'=>'—','color'=>'success'],
-            ['name'=>'Konsumsi','head'=>'Sari N.','initials'=>'SN','members'=>7,'budget'=>'Rp 85 jt','budget_pct'=>72,'progress'=>72,'health'=>82,'tasks'=>16,'issues'=>1,'deadline'=>'9 Jul','color'=>'primary'],
-            ['name'=>'Perizinan','head'=>'Agus T.','initials'=>'AT','members'=>3,'budget'=>'Rp 18 jt','budget_pct'=>80,'progress'=>80,'health'=>88,'tasks'=>6,'issues'=>0,'deadline'=>'13 Jul','color'=>'primary'],
-            ['name'=>'Keamanan','head'=>'Hendra W.','initials'=>'HW','members'=>12,'budget'=>'Rp 65 jt','budget_pct'=>55,'progress'=>55,'health'=>75,'tasks'=>18,'issues'=>2,'deadline'=>'7 Jul','color'=>'warning'],
-        ];
-        @endphp
+        @if(isset($divisions) && $divisions->count() > 0)
+            @foreach($divisions as $div)
+            @php
+                $head = $div->members->where('role', 'division_head')->first();
+                $headName = $head ? $head->user->name : 'Belum Ada Ketua';
+                $initials = strtoupper(substr($headName, 0, 2));
+                $membersCount = $div->members->count();
+                // Mock data for UI
+                $progress = 0; $budget = 'Rp 0'; $budget_pct = 0; $health = 100;
+                $tasks = 0; $issues = 0; $deadline = '—'; $color = 'primary';
+            @endphp
+            <div class="card card-clickable" style="cursor:pointer;">
+                <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);">
+                    <div style="width:40px;height:40px;border-radius:var(--radius-full);background:var(--color-{{ $color }}-light,var(--color-primary-light));color:var(--color-{{ $color }},var(--color-primary));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;">{{ $initials }}</div>
+                    <div>
+                        <div class="font-semibold">{{ $div->name }}</div>
+                        <div class="text-xs text-secondary">{{ $headName }} • {{ $membersCount }} anggota</div>
+                    </div>
+                    @if($health >= 90)
+                        <span class="badge badge-success ml-auto">{{ $health }}</span>
+                    @elseif($health >= 70)
+                        <span class="badge badge-warning ml-auto">{{ $health }}</span>
+                    @else
+                        <span class="badge badge-danger ml-auto">{{ $health }}</span>
+                    @endif
+                </div>
 
-        @foreach($divisions as $div)
-        <div class="card card-clickable" style="cursor:pointer;">
-            <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);">
-                <div style="width:40px;height:40px;border-radius:var(--radius-full);background:var(--color-{{ $div['color'] }}-light,var(--color-primary-light));color:var(--color-{{ $div['color'] }},var(--color-primary));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;">{{ $div['initials'] }}</div>
+                {{-- Progress --}}
+                <div style="margin-bottom:var(--space-3);">
+                    <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;">
+                        <span class="text-secondary">Progress</span>
+                        <span class="font-semibold">{{ $progress }}%</span>
+                    </div>
+                    <div class="progress progress-sm">
+                        <div class="progress-bar {{ $progress >= 80 ? 'success' : ($progress >= 50 ? '' : 'warning') }}" style="width:{{ $progress }}%"></div>
+                    </div>
+                </div>
+
+                {{-- Budget --}}
+                <div style="margin-bottom:var(--space-3);">
+                    <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;">
+                        <span class="text-secondary">Budget</span>
+                        <span class="font-semibold">{{ $budget }}</span>
+                    </div>
+                    <div class="progress progress-sm">
+                        <div class="progress-bar {{ $budget_pct > 90 ? 'danger' : ($budget_pct > 70 ? 'warning' : '') }}" style="width:{{ $budget_pct }}%"></div>
+                    </div>
+                </div>
+
+                {{-- Stats --}}
+                <div style="display:flex;gap:var(--space-4);font-size:12px;color:var(--color-text-secondary);">
+                    <span>📋 {{ $tasks }} Task</span>
+                    @if($issues > 0)
+                        <span style="color:var(--color-danger);">⚠ {{ $issues }} Kendala</span>
+                    @else
+                        <span style="color:var(--color-success);">✓ Lancar</span>
+                    @endif
+                    <span class="ml-auto">📅 {{ $deadline }}</span>
+                </div>
+            </div>
+            @endforeach
+        @else
+            <div class="col-span-3 text-center py-8 text-on-surface-variant">Belum ada divisi yang dibuat.</div>
+        @endif
+    </div>
+
+    <!-- Modal Tambah Divisi -->
+    <div x-show="showAddDivision" class="fixed inset-0 z-[100] flex items-center justify-center" x-cloak>
+        <div x-show="showAddDivision" x-transition.opacity class="fixed inset-0 bg-black/50 backdrop-blur-sm" @click="showAddDivision = false"></div>
+        
+        <div x-show="showAddDivision" 
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 scale-95 translate-y-4"
+             x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+             class="relative bg-surface rounded-2xl shadow-xl border border-outline-variant/30 p-8 w-full max-w-lg mx-4 z-10 max-h-[90vh] overflow-y-auto">
+            
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="font-headline-sm text-headline-sm text-on-surface">Tambah Divisi Baru</h3>
+                <button type="button" @click="showAddDivision = false" class="text-slate-400 hover:text-slate-600">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            
+            <form method="POST" action="{{ route('organization.store') }}" class="space-y-4">
+                @csrf
                 <div>
-                    <div class="font-semibold">{{ $div['name'] }}</div>
-                    <div class="text-xs text-secondary">{{ $div['head'] }} • {{ $div['members'] }} anggota</div>
+                    <label class="block text-sm font-semibold mb-1">Nama Divisi</label>
+                    <input type="text" name="division_name" class="w-full px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Contoh: Produksi, Sponsorship" required>
                 </div>
-                @if($div['health'] >= 90)
-                    <span class="badge badge-success ml-auto">{{ $div['health'] }}</span>
-                @elseif($div['health'] >= 70)
-                    <span class="badge badge-warning ml-auto">{{ $div['health'] }}</span>
-                @else
-                    <span class="badge badge-danger ml-auto">{{ $div['health'] }}</span>
-                @endif
-            </div>
-
-            {{-- Progress --}}
-            <div style="margin-bottom:var(--space-3);">
-                <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;">
-                    <span class="text-secondary">Progress</span>
-                    <span class="font-semibold">{{ $div['progress'] }}%</span>
+                
+                <hr class="border-outline-variant/30 my-4">
+                <h4 class="font-title-md text-title-md mb-2">Akun Ketua Divisi</h4>
+                
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Nama Lengkap Ketua</label>
+                    <input type="text" name="head_name" class="w-full px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Nama Lengkap" required>
                 </div>
-                <div class="progress progress-sm">
-                    <div class="progress-bar {{ $div['progress'] >= 80 ? 'success' : ($div['progress'] >= 50 ? '' : 'warning') }}" style="width:{{ $div['progress'] }}%"></div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Email</label>
+                    <input type="email" name="head_email" class="w-full px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary/20 outline-none" placeholder="email@contoh.com" required>
                 </div>
-            </div>
-
-            {{-- Budget --}}
-            <div style="margin-bottom:var(--space-3);">
-                <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;">
-                    <span class="text-secondary">Budget</span>
-                    <span class="font-semibold">{{ $div['budget'] }}</span>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">Password</label>
+                        <input type="password" name="password" class="w-full px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary/20 outline-none" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">Konfirmasi Password</label>
+                        <input type="password" name="password_confirmation" class="w-full px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary/20 outline-none" required>
+                    </div>
                 </div>
-                <div class="progress progress-sm">
-                    <div class="progress-bar {{ $div['budget_pct'] > 90 ? 'danger' : ($div['budget_pct'] > 70 ? 'warning' : '') }}" style="width:{{ $div['budget_pct'] }}%"></div>
+                
+                <div class="pt-4 flex gap-4">
+                    <button type="button" @click="showAddDivision = false" class="flex-1 px-4 py-2 border border-outline-variant text-on-surface rounded-xl font-label-md hover:bg-surface-container transition-colors">Batal</button>
+                    <button type="submit" class="flex-1 px-4 py-2 bg-primary text-white rounded-xl font-label-md hover:bg-blue-700 shadow-sm transition-colors">Simpan & Buat Akun</button>
                 </div>
-            </div>
-
-            {{-- Stats --}}
-            <div style="display:flex;gap:var(--space-4);font-size:12px;color:var(--color-text-secondary);">
-                <span>📋 {{ $div['tasks'] }} Task</span>
-                @if($div['issues'] > 0)
-                    <span style="color:var(--color-danger);">⚠ {{ $div['issues'] }} Kendala</span>
-                @else
-                    <span style="color:var(--color-success);">✓ Lancar</span>
-                @endif
-                <span class="ml-auto">📅 {{ $div['deadline'] }}</span>
-            </div>
+            </form>
         </div>
-        @endforeach
+    </div>
+    
+    <!-- Modal Tambah Anggota -->
+    <div x-show="showAddMember" class="fixed inset-0 z-[100] flex items-center justify-center" x-cloak>
+        <div x-show="showAddMember" x-transition.opacity class="fixed inset-0 bg-black/50 backdrop-blur-sm" @click="showAddMember = false"></div>
+        
+        <div x-show="showAddMember" 
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 scale-95 translate-y-4"
+             x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+             class="relative bg-surface rounded-2xl shadow-xl border border-outline-variant/30 p-8 w-full max-w-lg mx-4 z-10 max-h-[90vh] overflow-y-auto">
+            
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="font-headline-sm text-headline-sm text-on-surface">Tambah Anggota Baru</h3>
+                <button type="button" @click="showAddMember = false" class="text-slate-400 hover:text-slate-600">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            
+            <form method="POST" action="{{ route('organization.member.store') }}" class="space-y-4">
+                @csrf
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Pilih Divisi</label>
+                    <select name="division_id" class="w-full px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary/20 outline-none" required>
+                        <option value="">-- Pilih Divisi --</option>
+                        @if(isset($divisions))
+                            @foreach($divisions as $div)
+                                <option value="{{ $div->id }}">{{ $div->name }}</option>
+                            @endforeach
+                        @endif
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Nama Lengkap Anggota</label>
+                    <input type="text" name="member_name" class="w-full px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Nama Lengkap" required>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Email</label>
+                    <input type="email" name="member_email" class="w-full px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary/20 outline-none" placeholder="email@contoh.com" required>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">Password</label>
+                        <input type="password" name="password" class="w-full px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary/20 outline-none" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">Konfirmasi Password</label>
+                        <input type="password" name="password_confirmation" class="w-full px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary/20 outline-none" required>
+                    </div>
+                </div>
+                
+                <div class="pt-4 flex gap-4">
+                    <button type="button" @click="showAddMember = false" class="flex-1 px-4 py-2 border border-outline-variant text-on-surface rounded-xl font-label-md hover:bg-surface-container transition-colors">Batal</button>
+                    <button type="submit" class="flex-1 px-4 py-2 bg-primary text-white rounded-xl font-label-md hover:bg-blue-700 shadow-sm transition-colors">Simpan & Buat Akun</button>
+                </div>
+            </form>
+        </div>
     </div>
 
 </x-layouts.app>

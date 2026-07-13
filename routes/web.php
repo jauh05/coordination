@@ -57,12 +57,14 @@ Route::get('/login/anggota-divisi', function () {
 // Auth routes
 Route::middleware('auth')->group(function () {
     // Dashboard / Command Center
-    Route::get('/dashboard', function () { return view('dashboard.index'); })->name('dashboard');
+    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
     // Core Pages
     Route::get('/events', function () { return view('events.index'); })->name('events');
     Route::get('/planning', function () { return view('planning.index'); })->name('planning');
-    Route::get('/organization', function () { return view('organization.index'); })->name('organization');
+    Route::get('/organization', [App\Http\Controllers\OrganizationController::class, 'index'])->name('organization');
+    Route::post('/organization', [App\Http\Controllers\OrganizationController::class, 'store'])->name('organization.store');
+    Route::post('/organization/member', [App\Http\Controllers\OrganizationController::class, 'storeMember'])->name('organization.member.store');
     Route::get('/divisions', function () { return view('divisions.index'); })->name('divisions');
     Route::get('/gueststar', function () { return view('gueststar.index'); })->name('gueststar');
     Route::get('/fee', function () { return view('fee.index'); })->name('fee');

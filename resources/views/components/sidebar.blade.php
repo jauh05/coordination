@@ -88,12 +88,48 @@
                     <p class="font-label-sm text-[10px] text-text-secondary uppercase">COO</p>
                 </div>
             </div>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="text-text-secondary hover:text-danger p-1 rounded-lg transition-colors" title="Keluar">
+            <div x-data="{ showLogoutModal: false }" class="flex">
+                <button type="button" @click="showLogoutModal = true" class="text-text-secondary hover:text-danger p-1 rounded-lg transition-colors" title="Keluar">
                     <span class="material-symbols-outlined text-[20px]">logout</span>
                 </button>
-            </form>
+
+                <!-- Logout Modal -->
+                <div x-show="showLogoutModal" class="fixed inset-0 z-[100] flex items-center justify-center" x-cloak>
+                    <!-- Backdrop -->
+                    <div x-show="showLogoutModal" x-transition.opacity class="fixed inset-0 bg-black/50 backdrop-blur-sm" @click="showLogoutModal = false"></div>
+                    
+                    <!-- Modal Panel -->
+                    <div x-show="showLogoutModal" 
+                         x-transition:enter="transition ease-out duration-300"
+                         x-transition:enter-start="opacity-0 scale-95 translate-y-4"
+                         x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+                         x-transition:leave="transition ease-in duration-200"
+                         x-transition:leave-start="opacity-100 scale-100 translate-y-0"
+                         x-transition:leave-end="opacity-0 scale-95 translate-y-4"
+                         class="relative bg-surface rounded-2xl shadow-xl border border-outline-variant/30 p-8 w-full max-w-md mx-4 z-10">
+                        
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-red-50 text-red-600 rounded-full flex items-center justify-center mb-4">
+                                <span class="material-symbols-outlined text-4xl">logout</span>
+                            </div>
+                            <h3 class="font-headline-sm text-headline-sm mb-2 text-on-surface">Konfirmasi Keluar</h3>
+                            <p class="text-body-md text-on-surface-variant mb-6 whitespace-normal">Apakah Anda yakin ingin mengakhiri sesi ini? Anda harus masuk kembali untuk mengakses dashboard.</p>
+                            
+                            <div class="flex gap-4 w-full">
+                                <button type="button" @click="showLogoutModal = false" class="flex-1 px-4 py-2 border border-outline-variant text-on-surface rounded-xl font-label-md hover:bg-surface-container transition-colors">
+                                    Batal
+                                </button>
+                                <form method="POST" action="{{ route('logout') }}" class="flex-1">
+                                    @csrf
+                                    <button type="submit" class="w-full h-full px-4 py-2 bg-danger text-white rounded-xl font-label-md hover:bg-red-700 shadow-sm transition-colors">
+                                        Ya, Keluar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </aside>
