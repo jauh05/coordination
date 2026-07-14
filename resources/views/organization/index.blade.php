@@ -15,6 +15,22 @@
         </div>
     </div>
 
+    @if (session('success'))
+        <div style="padding: 1rem; margin-bottom: 1.5rem; border-radius: var(--radius-md); background-color: var(--color-success-light, #d1fae5); border: 1px solid var(--color-success, #10b981); color: var(--color-on-success-container, #065f46);">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div style="padding: 1rem; margin-bottom: 1.5rem; border-radius: var(--radius-md); background-color: var(--color-danger-light, #fee2e2); border: 1px solid var(--color-danger, #ef4444); color: var(--color-on-danger-container, #991b1b);">
+            <ul style="margin: 0; padding-left: 1.5rem;">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     {{-- Organization Chart --}}
     <div class="card mb-8">
         <h3 class="card-title mb-6">Hierarki Organisasi — Festival Musik 2026</h3>
@@ -90,8 +106,18 @@
             <div class="card card-clickable" style="cursor:pointer;">
                 <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);">
                     <div style="width:40px;height:40px;border-radius:var(--radius-full);background:var(--color-{{ $color }}-light,var(--color-primary-light));color:var(--color-{{ $color }},var(--color-primary));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;">{{ $initials }}</div>
-                    <div>
-                        <div class="font-semibold">{{ $div->name }}</div>
+                    <div style="flex:1;">
+                        <div class="font-semibold" style="display:flex; justify-content:space-between; align-items:center;">
+                            {{ $div->name }}
+                            <div style="display:flex; gap:5px;">
+                                <button type="button" onclick="editDivision('{{ $div->id }}', '{{ $div->name }}')" class="btn btn-outline btn-sm" style="padding: 2px 5px; font-size:10px;">✎</button>
+                                <form action="{{ route('organization.division.destroy', $div->id) }}" method="POST" onsubmit="return confirm('Yakin hapus divisi ini?');" style="margin:0;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-outline btn-sm" style="padding: 2px 5px; font-size:10px; color:var(--color-danger); border-color:var(--color-danger);">🗑</button>
+                                </form>
+                            </div>
+                        </div>
                         <div class="text-xs text-secondary">{{ $headName }} • {{ $membersCount }} anggota</div>
                     </div>
                     @if($health >= 90)
@@ -254,4 +280,37 @@
         </div>
     </div>
 
+    <!-- Script for Edit Division -->
+    <script>
+        function editDivision(id, currentName) {
+            let newName = prompt("Edit Nama Divisi:", currentName);
+            if (newName && newName !== currentName) {
+                // Create a form and submit
+                let form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '/organization/division/' + id;
+                
+                let csrf = document.createElement('input');
+                csrf.type = 'hidden';
+                csrf.name = '_token';
+                csrf.value = '{{ csrf_token() }}';
+                form.appendChild(csrf);
+                
+                let method = document.createElement('input');
+                method.type = 'hidden';
+                method.name = '_method';
+                method.value = 'PUT';
+                form.appendChild(method);
+                
+                let nameInput = document.createElement('input');
+                nameInput.type = 'hidden';
+                nameInput.name = 'name';
+                nameInput.value = newName;
+                form.appendChild(nameInput);
+                
+                document.body.appendChild(form);
+                form.submit();
+            }
+        }
+    </script>
 </x-layouts.app>

@@ -104,4 +104,28 @@ class OrganizationController extends Controller
 
         return redirect()->route('organization')->with('success', 'Anggota berhasil ditambahkan.');
     }
+
+    public function updateDivision(Request $request, $id)
+    {
+        $request->validate(['name' => 'required|string|max:255']);
+        $division = Division::findOrFail($id);
+        $division->update(['name' => $request->name]);
+        return back()->with('success', 'Divisi berhasil diperbarui.');
+    }
+
+    public function destroyDivision($id)
+    {
+        $division = Division::findOrFail($id);
+        // Delete users in this division first? Not implemented yet for brevity, just delete event_users
+        EventUser::where('division_id', $division->id)->delete();
+        $division->delete();
+        return back()->with('success', 'Divisi berhasil dihapus.');
+    }
+
+    public function destroyMember($id)
+    {
+        $eventUser = EventUser::where('id', $id)->firstOrFail();
+        $eventUser->delete();
+        return back()->with('success', 'Anggota berhasil dihapus dari divisi.');
+    }
 }

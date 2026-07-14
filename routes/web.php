@@ -64,7 +64,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/planning', function () { return view('planning.index'); })->name('planning');
     Route::get('/organization', [App\Http\Controllers\OrganizationController::class, 'index'])->name('organization');
     Route::post('/organization', [App\Http\Controllers\OrganizationController::class, 'store'])->name('organization.store');
+    Route::put('/organization/division/{id}', [App\Http\Controllers\OrganizationController::class, 'updateDivision'])->name('organization.division.update');
+    Route::delete('/organization/division/{id}', [App\Http\Controllers\OrganizationController::class, 'destroyDivision'])->name('organization.division.destroy');
+    
     Route::post('/organization/member', [App\Http\Controllers\OrganizationController::class, 'storeMember'])->name('organization.member.store');
+    Route::delete('/organization/member/{id}', [App\Http\Controllers\OrganizationController::class, 'destroyMember'])->name('organization.member.destroy');
+    
     Route::get('/divisions', function () { return view('divisions.index'); })->name('divisions');
     Route::get('/gueststar', function () { return view('gueststar.index'); })->name('gueststar');
     Route::get('/fee', function () { return view('fee.index'); })->name('fee');
