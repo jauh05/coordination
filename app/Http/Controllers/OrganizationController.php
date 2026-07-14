@@ -30,7 +30,7 @@ class OrganizationController extends Controller
             'division_name' => 'required|string|max:255',
             'head_name' => 'required|string|max:255',
             'head_email' => 'required|string|email|max:255|unique:users,email',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string|min:4|confirmed',
         ]);
 
         $event = Auth::user()->events()->first();
@@ -72,7 +72,7 @@ class OrganizationController extends Controller
             'division_id' => 'required|exists:divisions,id',
             'member_name' => 'required|string|max:255',
             'member_email' => 'required|string|email|max:255|unique:users,email',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string|min:4|confirmed',
         ]);
 
         $event = Auth::user()->events()->first();
