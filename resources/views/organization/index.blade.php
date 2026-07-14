@@ -33,7 +33,7 @@
                 <div class="org-node-role">Event Director</div>
             </div>
 
-            @if(isset($divisions) && $divisions->count() > 0)
+            @if(isset($divisions) && count($divisions) > 0)
             <div class="org-connector"></div>
             
             {{-- Level 2 & 3: Division Heads & Members --}}
@@ -54,7 +54,7 @@
                         </div>
                         
                         {{-- Members --}}
-                        @if($members->count() > 0)
+                        @if(count($members) > 0)
                         <div style="width: 2px; height: 20px; background: var(--color-outline-variant);"></div>
                         <div style="display: flex; gap: 10px; border-top: 2px solid var(--color-outline-variant); padding-top: 10px; flex-wrap: wrap; justify-content: center; max-width: 300px;">
                             @foreach($members as $member)
@@ -76,13 +76,13 @@
     {{-- Division Cards Grid --}}
     <h3 style="font-size:var(--font-size-xl);font-weight:700;margin-bottom:var(--space-6);">Divisi Event</h3>
     <div class="grid grid-3 mb-8">
-        @if(isset($divisions) && $divisions->count() > 0)
+        @if(isset($divisions) && count($divisions) > 0)
             @foreach($divisions as $div)
             @php
                 $head = $div->members->where('role', 'division_head')->first();
                 $headName = $head ? $head->user->name : 'Belum Ada Ketua';
                 $initials = strtoupper(substr($headName, 0, 2));
-                $membersCount = $div->members->count();
+                $membersCount = count($div->members);
                 // Mock data for UI
                 $progress = 0; $budget = 'Rp 0'; $budget_pct = 0; $health = 100;
                 $tasks = 0; $issues = 0; $deadline = '—'; $color = 'primary';
