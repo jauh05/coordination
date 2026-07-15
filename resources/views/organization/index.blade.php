@@ -52,6 +52,9 @@
                 <div class="org-node-avatar" style="background:var(--color-primary);color:#fff;">{{ $owner ? strtoupper(substr($owner->name, 0, 2)) : 'AR' }}</div>
                 <div class="org-node-name">{{ $owner ? $owner->name : 'Ahmad Rizky' }}</div>
                 <div class="org-node-role">Event Director</div>
+                <button type="button" @click="showAddDivision = true" class="btn btn-primary" style="position: absolute; right: -20px; top: -10px; width: 32px; height: 32px; padding: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.15);" title="Tambah Divisi">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+                </button>
             </div>
 
             @if(isset($divisions) && count($divisions) > 0)
@@ -69,10 +72,13 @@
                     @endphp
                     <div data-id="{{ $div->id }}" class="draggable-chart-division" style="position: absolute; left: {{ $left }}px; top: {{ $top }}px; display: flex; flex-direction: column; align-items: center; cursor: move; z-index: 10; background: #fff; padding: 10px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
                         {{-- Division Head --}}
-                        <div class="org-node" style="min-width:140px;padding:var(--space-3) var(--space-4);">
+                        <div class="org-node" style="min-width:140px;padding:var(--space-3) var(--space-4); position: relative;">
                             <div class="org-node-avatar" style="width:36px;height:36px;font-size:14px;">{{ $initials }}</div>
                             <div class="org-node-name" style="font-size:13px;">{{ $headName }}</div>
                             <div class="org-node-role" style="font-size:10px;font-weight:bold;color:var(--color-primary);">{{ $div->name }}</div>
+                            <button type="button" @click.stop="document.getElementById('divisionSelect').value = '{{ $div->id }}'; showAddMember = true" class="btn" style="position: absolute; right: -15px; top: -15px; width: 28px; height: 28px; padding: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--color-secondary-container); color: var(--color-on-secondary-container); box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 1px solid var(--color-outline-variant);" title="Tambah Anggota">
+                                <span class="material-symbols-outlined" style="font-size: 16px;">add</span>
+                            </button>
                         </div>
                         
                         {{-- Members --}}
@@ -285,7 +291,7 @@
                 @csrf
                 <div>
                     <label class="block text-sm font-semibold mb-1">Pilih Divisi</label>
-                    <select name="division_id" class="w-full px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary/20 outline-none" required>
+                    <select name="division_id" id="divisionSelect" class="w-full px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary/20 outline-none" required>
                         <option value="">-- Pilih Divisi --</option>
                         @if(isset($divisions))
                             @foreach($divisions as $div)
@@ -406,7 +412,7 @@
                     var line = new LeaderLine(
                         eventDirector,
                         div,
-                        { color: 'var(--color-primary)', size: 3, path: 'fluid' }
+                        { color: 'var(--color-primary)', size: 3, path: 'grid', startSocket: 'bottom', endSocket: 'top' }
                     );
                     lines.push({ element: div, line: line });
 
