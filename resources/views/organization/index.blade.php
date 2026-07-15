@@ -5,6 +5,7 @@
         $showMemModal = $errors->has('member_name') || $errors->has('member_email') || $errors->has('division_id');
     @endphp
     <div x-data="{ showAddDivision: {{ $showDivModal ? 'true' : 'false' }}, showAddMember: {{ $showMemModal ? 'true' : 'false' }} }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
     <div class="page-header">
         <div class="page-header-row">
             <div>
@@ -95,7 +96,7 @@
 
     {{-- Division Cards Grid --}}
     <h3 style="font-size:var(--font-size-xl);font-weight:700;margin-bottom:var(--space-6);">Divisi Event</h3>
-    <div class="grid grid-3 mb-8" style="gap: 24px; margin-top: 16px; margin-bottom: 32px; padding: 0 8px;">
+    <div id="divisionGrid" class="mb-8" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 32px; margin-top: 24px; margin-bottom: 48px;">
         @if(isset($divisions) && count($divisions) > 0)
             @foreach($divisions as $div)
             @php
@@ -107,62 +108,98 @@
                 $progress = 0; $budget = 'Rp 0'; $budget_pct = 0; $health = 100;
                 $tasks = 0; $issues = 0; $deadline = '—'; $color = 'primary';
             @endphp
-            <div class="card card-clickable" style="cursor:pointer; border: 1px solid rgba(0,0,0,0.03); border-radius: 20px; padding: 24px; background: #ffffff; transition: all 0.3s ease; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04)';">
-                <div style="display:flex;align-items:flex-start;gap:var(--space-4);margin-bottom:var(--space-5);">
-                    <div style="width:48px;height:48px;border-radius:12px;background:var(--color-{{ $color }}-container,var(--color-primary-container));color:var(--color-on-{{ $color }}-container,var(--color-on-primary-container));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px; box-shadow: inset 0 2px 4px rgba(255,255,255,0.3);">
+            <div data-id="{{ $div->id }}" class="card card-clickable draggable-division" style="position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); border-radius: 24px; padding: 32px; background: #ffffff; transition: all 0.3s ease; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 32px rgba(0, 0, 0, 0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(0, 0, 0, 0.03)';">
+                
+                {{-- Card Header: Avatar & Title --}}
+                <div style="display:flex; align-items:center; gap:16px; margin-bottom:20px;">
+                    <div style="width:56px; height:56px; border-radius:16px; background: linear-gradient(135deg, var(--color-primary), #3b82f6); color:#ffffff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:22px; box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);">
                         {{ $initials }}
                     </div>
                     <div style="flex:1;">
-                        <div class="font-semibold" style="display:flex; justify-content:space-between; align-items:flex-start; font-size: 16px; margin-bottom: 4px;">
-                            {{ $div->name }}
-                            <div style="display:flex; gap:6px;">
-                                <button type="button" onclick="editDivision('{{ $div->id }}', '{{ $div->name }}')" class="btn btn-sm" style="padding: 4px 8px; font-size:12px; background: var(--color-surface-container); border: 1px solid var(--color-outline-variant); border-radius: 8px; display:flex; align-items:center; gap:4px; color: var(--color-on-surface); transition: all 0.2s;" onmouseover="this.style.background='var(--color-surface-container-high)'" onmouseout="this.style.background='var(--color-surface-container)'"><span class="material-symbols-outlined" style="font-size: 14px;">edit</span> Edit</button>
-                                <form action="{{ route('organization.division.destroy', $div->id) }}" method="POST" onsubmit="return confirm('Yakin hapus divisi ini? Semua anggota di dalamnya akan terhapus.');" style="margin:0;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm" style="padding: 4px 8px; font-size:12px; background: var(--color-error-container); border: 1px solid var(--color-error); border-radius: 8px; display:flex; align-items:center; gap:4px; color: var(--color-on-error-container); transition: all 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'"><span class="material-symbols-outlined" style="font-size: 14px;">delete</span></button>
-                                </form>
-                            </div>
+                        <h4 style="font-size: 18px; font-weight: 700; margin: 0 0 4px 0; color: var(--color-on-surface); line-height: 1.2;">{{ $div->name }}</h4>
+                        <div style="display:flex; align-items:center; gap:12px;">
+                            <span style="font-size: 13px; color: var(--color-text-secondary); display:flex; align-items:center; gap:4px; font-weight: 500;">
+                                <span class="material-symbols-outlined" style="font-size: 16px;">person</span> {{ $headName }}
+                            </span>
                         </div>
-                        <div class="text-sm text-secondary" style="display:flex; align-items:center; gap:4px;"><span class="material-symbols-outlined" style="font-size: 14px;">person</span> {{ $headName }}</div>
-                        <div class="text-xs text-secondary" style="display:flex; align-items:center; gap:4px; margin-top:2px;"><span class="material-symbols-outlined" style="font-size: 14px;">groups</span> {{ $membersCount }} anggota</div>
+                    </div>
+                    {{-- Actions --}}
+                    <div style="display:flex; gap:8px; align-self: flex-start;">
+                        <button type="button" onclick="editDivision('{{ $div->id }}', '{{ $div->name }}')" class="btn btn-sm" title="Edit Divisi" style="width:32px; height:32px; padding:0; border-radius:8px; background:var(--color-surface-container); border:1px solid var(--color-outline-variant); color:var(--color-on-surface); display:flex; align-items:center; justify-content:center; transition:0.2s;" onmouseover="this.style.background='var(--color-surface-container-high)'" onmouseout="this.style.background='var(--color-surface-container)'">
+                            <span class="material-symbols-outlined" style="font-size: 16px;">edit</span>
+                        </button>
+                        <form action="{{ route('organization.division.destroy', $div->id) }}" method="POST" onsubmit="return confirm('Yakin hapus divisi ini? Semua anggota di dalamnya akan terhapus.');" style="margin:0;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm" title="Hapus Divisi" style="width:32px; height:32px; padding:0; border-radius:8px; background:var(--color-error-container); border:1px solid var(--color-error); color:var(--color-on-error-container); display:flex; align-items:center; justify-content:center; transition:0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                                <span class="material-symbols-outlined" style="font-size: 16px;">delete</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                {{-- Stats Row (Members & Tasks) --}}
+                <div style="display:flex; justify-content: space-between; align-items:center; margin-bottom: 20px; padding: 12px 16px; background: var(--color-surface-container-lowest); border-radius: 12px; border: 1px solid rgba(0,0,0,0.04);">
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <div style="width:36px; height:36px; border-radius:10px; background:var(--color-secondary-container); color:var(--color-on-secondary-container); display:flex; align-items:center; justify-content:center;">
+                            <span class="material-symbols-outlined" style="font-size: 20px;">groups</span>
+                        </div>
+                        <div>
+                            <div style="font-size:11px; color:var(--color-text-secondary); font-weight:700; letter-spacing:0.5px;">TIM</div>
+                            <div style="font-size:14px; font-weight:700; color:var(--color-on-surface);">{{ $membersCount }} Anggota</div>
+                        </div>
+                    </div>
+                    <div style="width:1px; height:24px; background:var(--color-outline-variant);"></div>
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <div style="width:36px; height:36px; border-radius:10px; background:var(--color-success-container); color:var(--color-on-success-container); display:flex; align-items:center; justify-content:center;">
+                            <span class="material-symbols-outlined" style="font-size: 20px;">task_alt</span>
+                        </div>
+                        <div>
+                            <div style="font-size:11px; color:var(--color-text-secondary); font-weight:700; letter-spacing:0.5px;">TASK</div>
+                            <div style="font-size:14px; font-weight:700; color:var(--color-on-surface);">{{ $tasks }} Selesai</div>
+                        </div>
                     </div>
                 </div>
 
                 {{-- Progress & Budget Container --}}
-                <div style="background: var(--color-surface-container-lowest); border-radius: 12px; padding: 12px; margin-bottom: 16px; border: 1px solid var(--color-outline-variant);">
+                <div style="margin-bottom: 20px;">
                     {{-- Progress --}}
-                    <div style="margin-bottom:12px;">
-                        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px; font-weight: 600;">
-                            <span class="text-secondary">Progress Pelaksanaan</span>
+                    <div style="margin-bottom:16px;">
+                        <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px; font-weight: 600;">
+                            <span style="color:var(--color-text-secondary);">Progress</span>
                             <span style="color: var(--color-primary);">{{ $progress }}%</span>
                         </div>
-                        <div class="progress progress-sm" style="height: 6px; border-radius: 3px; background: var(--color-surface-container-high);">
-                            <div class="progress-bar {{ $progress >= 80 ? 'success' : ($progress >= 50 ? '' : 'warning') }}" style="width:{{ $progress }}%; border-radius: 3px;"></div>
+                        <div class="progress" style="height: 6px; border-radius: 3px; background: var(--color-surface-container-high); overflow:hidden;">
+                            <div class="progress-bar" style="width:{{ $progress }}%; height: 100%; border-radius: 3px; background: {{ $progress >= 80 ? 'var(--color-success)' : ($progress >= 50 ? 'var(--color-primary)' : 'var(--color-warning)') }};"></div>
                         </div>
                     </div>
 
                     {{-- Budget --}}
                     <div>
-                        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px; font-weight: 600;">
-                            <span class="text-secondary">Penggunaan Budget</span>
-                            <span>{{ $budget }}</span>
+                        <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px; font-weight: 600;">
+                            <span style="color:var(--color-text-secondary);">Budget</span>
+                            <span style="color: var(--color-on-surface);">{{ $budget }}</span>
                         </div>
-                        <div class="progress progress-sm" style="height: 6px; border-radius: 3px; background: var(--color-surface-container-high);">
-                            <div class="progress-bar {{ $budget_pct > 90 ? 'danger' : ($budget_pct > 70 ? 'warning' : 'success') }}" style="width:{{ $budget_pct }}%; border-radius: 3px;"></div>
+                        <div class="progress" style="height: 6px; border-radius: 3px; background: var(--color-surface-container-high); overflow:hidden;">
+                            <div class="progress-bar" style="width:{{ $budget_pct }}%; height: 100%; border-radius: 3px; background: {{ $budget_pct > 90 ? 'var(--color-error)' : ($budget_pct > 70 ? 'var(--color-warning)' : 'var(--color-success)') }};"></div>
                         </div>
                     </div>
                 </div>
 
-                {{-- Stats Footer --}}
-                <div style="display:flex;gap:var(--space-3);font-size:12px;color:var(--color-text-secondary); border-top: 1px dashed var(--color-outline-variant); padding-top: 12px;">
-                    <span style="display:flex; align-items:center; gap:4px; background: var(--color-surface-container); padding: 4px 8px; border-radius: 6px;"><span class="material-symbols-outlined" style="font-size: 14px;">task</span> {{ $tasks }} Task</span>
+                {{-- Status Footer --}}
+                <div style="display:flex; align-items:center; justify-content:space-between; font-size:12px; font-weight:600; padding-top: 16px; border-top: 1px dashed var(--color-outline-variant);">
                     @if($issues > 0)
-                        <span style="display:flex; align-items:center; gap:4px; background: var(--color-error-container); color: var(--color-on-error-container); padding: 4px 8px; border-radius: 6px;"><span class="material-symbols-outlined" style="font-size: 14px;">warning</span> {{ $issues }} Kendala</span>
+                        <span style="display:flex; align-items:center; gap:6px; color: var(--color-error);">
+                            <span class="material-symbols-outlined" style="font-size: 16px;">warning</span> {{ $issues }} Kendala
+                        </span>
                     @else
-                        <span style="display:flex; align-items:center; gap:4px; background: var(--color-success-container); color: var(--color-on-success-container); padding: 4px 8px; border-radius: 6px;"><span class="material-symbols-outlined" style="font-size: 14px;">check_circle</span> Lancar</span>
+                        <span style="display:flex; align-items:center; gap:6px; color: var(--color-success);">
+                            <span class="material-symbols-outlined" style="font-size: 16px;">check_circle</span> Lancar
+                        </span>
                     @endif
-                    <span class="ml-auto" style="display:flex; align-items:center; gap:4px; font-weight: 500;"><span class="material-symbols-outlined" style="font-size: 14px;">event</span> {{ $deadline }}</span>
+                    <span style="display:flex; align-items:center; gap:6px; color: var(--color-text-secondary);">
+                        <span class="material-symbols-outlined" style="font-size: 16px;">event</span> {{ $deadline }}
+                    </span>
                 </div>
             </div>
             @endforeach
@@ -339,6 +376,45 @@
             }
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var grid = document.getElementById('divisionGrid');
+            if (grid) {
+                new Sortable(grid, {
+                    animation: 150,
+                    ghostClass: 'sortable-ghost',
+                    onEnd: function (evt) {
+                        var itemEl = evt.item;
+                        var orderArray = Array.from(grid.querySelectorAll('.draggable-division')).map(function(el) {
+                            return el.getAttribute('data-id');
+                        });
+                        
+                        // Send AJAX request to update order
+                        fetch('{{ route("organization.division.reorder") }}', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            },
+                            body: JSON.stringify({ order: orderArray })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if(data.success) {
+                                console.log('Order updated successfully');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error updating order:', error);
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+    </div> <!-- end layout container -->
+    </div> <!-- end x-data -->
 </x-layouts.app>
 <style>
 @keyframes shake {
@@ -347,5 +423,16 @@
   50% { transform: translateX(5px); }
   75% { transform: translateX(-5px); }
   100% { transform: translateX(0); }
+}
+.sortable-ghost {
+    opacity: 0.4;
+    background: #f8fafc !important;
+    border: 2px dashed var(--color-primary) !important;
+}
+.draggable-division {
+    cursor: grab !important;
+}
+.draggable-division:active {
+    cursor: grabbing !important;
 }
 </style>

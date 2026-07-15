@@ -18,7 +18,7 @@ class OrganizationController extends Controller
         
         $divisions = [];
         if ($event) {
-            $divisions = Division::where('event_id', $event->id)->with('members.user')->get();
+            $divisions = Division::where('event_id', $event->id)->orderBy('order', 'asc')->with('members.user')->get();
         }
 
         return view('organization.index', compact('divisions', 'event'));
@@ -127,5 +127,19 @@ class OrganizationController extends Controller
         $eventUser = EventUser::where('id', $id)->firstOrFail();
         $eventUser->delete();
         return back()->with('success', 'Anggota berhasil dihapus dari divisi.');
+    }
+
+    public function reorderDivision(Request $request)
+    {
+        $request->validate([
+            'order' => 'required|array',
+            'order.*' => 'required|string|exists:divisions,id',
+        ]);
+
+        foreach ($request->order as $index => $divisionId) {
+            Division::where('id', $divisionId)->update(['order' => $index]);
+        }
+
+        return response()->json(['success' => true]);
     }
 }
