@@ -58,7 +58,7 @@
             <div class="org-connector"></div>
             
             {{-- Level 2 & 3: Division Heads & Members --}}
-            <div class="org-level" style="flex-wrap: wrap; justify-content: center; gap: 30px; align-items: flex-start;">
+            <div id="orgChartDivisions" class="org-level" style="flex-wrap: wrap; justify-content: center; gap: 30px; align-items: flex-start;">
                 @foreach($divisions as $div)
                     @php
                         $head = $div->members->where('role', 'division_head')->first();
@@ -66,7 +66,7 @@
                         $initials = strtoupper(substr($headName, 0, 2));
                         $members = $div->members->where('role', 'member');
                     @endphp
-                    <div style="display: flex; flex-direction: column; align-items: center;">
+                    <div data-id="{{ $div->id }}" class="draggable-chart-division" style="display: flex; flex-direction: column; align-items: center; cursor: grab;">
                         {{-- Division Head --}}
                         <div class="org-node" style="min-width:140px;padding:var(--space-3) var(--space-4);">
                             <div class="org-node-avatar" style="width:36px;height:36px;font-size:14px;">{{ $initials }}</div>
@@ -75,18 +75,16 @@
                         </div>
                         
                         {{-- Members --}}
-                        @if(count($members) > 0)
                         <div style="width: 2px; height: 20px; background: var(--color-outline-variant);"></div>
-                        <div style="display: flex; gap: 10px; border-top: 2px solid var(--color-outline-variant); padding-top: 10px; flex-wrap: wrap; justify-content: center; max-width: 300px;">
+                        <div data-division-id="{{ $div->id }}" class="sortable-members" style="display: flex; gap: 10px; border-top: 2px solid var(--color-outline-variant); padding-top: 10px; flex-wrap: wrap; justify-content: center; max-width: 300px; min-height: 50px; min-width: 100px;">
                             @foreach($members as $member)
-                            <div class="org-node" style="min-width:100px;padding:var(--space-2);background:var(--color-surface-container-lowest);">
+                            <div data-id="{{ $member->id }}" class="org-node draggable-chart-member" style="min-width:100px;padding:var(--space-2);background:var(--color-surface-container-lowest); cursor: grab;">
                                 <div class="org-node-avatar" style="width:24px;height:24px;font-size:10px;margin-bottom:4px;">{{ strtoupper(substr($member->user->name, 0, 2)) }}</div>
                                 <div class="org-node-name" style="font-size:11px;">{{ $member->user->name }}</div>
                                 <div class="org-node-role" style="font-size:9px;">Anggota</div>
                             </div>
                             @endforeach
                         </div>
-                        @endif
                     </div>
                 @endforeach
             </div>
@@ -385,32 +383,56 @@
                     animation: 150,
                     ghostClass: 'sortable-ghost',
                     onEnd: function (evt) {
-                        var itemEl = evt.item;
                         var orderArray = Array.from(grid.querySelectorAll('.draggable-division')).map(function(el) {
                             return el.getAttribute('data-id');
                         });
-                        
-                        // Send AJAX request to update order
                         fetch('{{ route("organization.division.reorder") }}', {
                             method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                            },
+                            headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': '{{ csrf_token() }}' },
                             body: JSON.stringify({ order: orderArray })
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if(data.success) {
-                                console.log('Order updated successfully');
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error updating order:', error);
                         });
                     }
                 });
             }
+
+            var chartDivisions = document.getElementById('orgChartDivisions');
+            if (chartDivisions) {
+                new Sortable(chartDivisions, {
+                    animation: 150,
+                    ghostClass: 'sortable-ghost',
+                    onEnd: function (evt) {
+                        var orderArray = Array.from(chartDivisions.querySelectorAll('.draggable-chart-division')).map(function(el) {
+                            return el.getAttribute('data-id');
+                        });
+                        fetch('{{ route("organization.division.reorder") }}', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+                            body: JSON.stringify({ order: orderArray })
+                        });
+                    }
+                });
+            }
+
+            var memberContainers = document.querySelectorAll('.sortable-members');
+            memberContainers.forEach(function(container) {
+                new Sortable(container, {
+                    group: 'members',
+                    animation: 150,
+                    ghostClass: 'sortable-ghost',
+                    onEnd: function (evt) {
+                        var memberId = evt.item.getAttribute('data-id');
+                        var toDivisionId = evt.to.getAttribute('data-division-id');
+                        
+                        if (evt.from !== evt.to) {
+                            fetch('{{ route("organization.member.move") }}', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+                                body: JSON.stringify({ member_id: memberId, division_id: toDivisionId })
+                            });
+                        }
+                    }
+                });
+            });
         });
     </script>
     </div> <!-- end layout container -->

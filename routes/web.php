@@ -68,6 +68,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/organization/division/{id}', [App\Http\Controllers\OrganizationController::class, 'destroyDivision'])->name('organization.division.destroy');
     Route::post('/organization/division/reorder', [App\Http\Controllers\OrganizationController::class, 'reorderDivision'])->name('organization.division.reorder');
     
+    Route::post('/organization/member/move', [App\Http\Controllers\OrganizationController::class, 'moveMember'])->name('organization.member.move');
     Route::post('/organization/member', [App\Http\Controllers\OrganizationController::class, 'storeMember'])->name('organization.member.store');
     Route::delete('/organization/member/{id}', [App\Http\Controllers\OrganizationController::class, 'destroyMember'])->name('organization.member.destroy');
     

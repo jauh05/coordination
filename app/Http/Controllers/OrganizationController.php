@@ -142,4 +142,18 @@ class OrganizationController extends Controller
 
         return response()->json(['success' => true]);
     }
+
+    public function moveMember(Request $request)
+    {
+        $request->validate([
+            'member_id' => 'required|string|exists:event_users,id',
+            'division_id' => 'required|string|exists:divisions,id',
+        ]);
+
+        $eventUser = EventUser::findOrFail($request->member_id);
+        $eventUser->division_id = $request->division_id;
+        $eventUser->save();
+
+        return response()->json(['success' => true]);
+    }
 }
