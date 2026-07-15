@@ -95,7 +95,7 @@
 
     {{-- Division Cards Grid --}}
     <h3 style="font-size:var(--font-size-xl);font-weight:700;margin-bottom:var(--space-6);">Divisi Event</h3>
-    <div class="grid grid-3 mb-8">
+    <div class="grid grid-3 mb-8" style="gap: 24px; margin-top: 16px; margin-bottom: 32px; padding: 0 8px;">
         @if(isset($divisions) && count($divisions) > 0)
             @foreach($divisions as $div)
             @php
@@ -107,7 +107,7 @@
                 $progress = 0; $budget = 'Rp 0'; $budget_pct = 0; $health = 100;
                 $tasks = 0; $issues = 0; $deadline = '—'; $color = 'primary';
             @endphp
-            <div class="card card-clickable" style="cursor:pointer; border: 1px solid var(--color-outline-variant); border-radius: var(--radius-xl); padding: var(--space-5); background: linear-gradient(145deg, var(--color-surface), var(--color-surface-container-lowest)); transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)';">
+            <div class="card card-clickable" style="cursor:pointer; border: 1px solid rgba(0,0,0,0.03); border-radius: 20px; padding: 24px; background: #ffffff; transition: all 0.3s ease; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04)';">
                 <div style="display:flex;align-items:flex-start;gap:var(--space-4);margin-bottom:var(--space-5);">
                     <div style="width:48px;height:48px;border-radius:12px;background:var(--color-{{ $color }}-container,var(--color-primary-container));color:var(--color-on-{{ $color }}-container,var(--color-on-primary-container));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px; box-shadow: inset 0 2px 4px rgba(255,255,255,0.3);">
                         {{ $initials }}
