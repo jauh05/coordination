@@ -39,7 +39,7 @@
     {{-- Organization Chart --}}
     <div class="card mb-8">
         <h3 class="card-title mb-6">Hierarki Organisasi — Festival Musik 2026</h3>
-        <div class="org-chart">
+        <div class="org-chart" style="position: relative; min-height: 800px; overflow: hidden; background: var(--color-surface); border-radius: 12px; border: 1px solid var(--color-outline-variant);">
             @php
                 $owner = null;
                 if ($event) {
@@ -48,25 +48,26 @@
                 }
             @endphp
             {{-- Level 1: Event Director --}}
-            <div class="org-node" style="border-color:var(--color-primary);">
+            <div id="event-director" class="org-node" style="position: absolute; left: 50%; top: 40px; transform: translateX(-50%); border-color:var(--color-primary); z-index: 10;">
                 <div class="org-node-avatar" style="background:var(--color-primary);color:#fff;">{{ $owner ? strtoupper(substr($owner->name, 0, 2)) : 'AR' }}</div>
                 <div class="org-node-name">{{ $owner ? $owner->name : 'Ahmad Rizky' }}</div>
                 <div class="org-node-role">Event Director</div>
             </div>
 
             @if(isset($divisions) && count($divisions) > 0)
-            <div class="org-connector"></div>
             
             {{-- Level 2 & 3: Division Heads & Members --}}
-            <div id="orgChartDivisions" class="org-level" style="flex-wrap: wrap; justify-content: center; gap: 30px; align-items: flex-start;">
+            <div id="orgChartDivisions" style="position: static;">
                 @foreach($divisions as $div)
                     @php
                         $head = $div->members->where('role', 'division_head')->first();
                         $headName = $head ? $head->user->name : 'Belum Ada Ketua';
                         $initials = strtoupper(substr($headName, 0, 2));
                         $members = $div->members->where('role', 'member');
+                        $left = $div->pos_x ?? ($loop->index * 280 + 50);
+                        $top = $div->pos_y ?? 250;
                     @endphp
-                    <div data-id="{{ $div->id }}" class="draggable-chart-division" style="display: flex; flex-direction: column; align-items: center; cursor: grab;">
+                    <div data-id="{{ $div->id }}" class="draggable-chart-division" style="position: absolute; left: {{ $left }}px; top: {{ $top }}px; display: flex; flex-direction: column; align-items: center; cursor: move; z-index: 10; background: #fff; padding: 10px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
                         {{-- Division Head --}}
                         <div class="org-node" style="min-width:140px;padding:var(--space-3) var(--space-4);">
                             <div class="org-node-avatar" style="width:36px;height:36px;font-size:14px;">{{ $initials }}</div>
@@ -374,6 +375,7 @@
             }
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/leader-line@1.0.7/leader-line.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -395,22 +397,70 @@
                 });
             }
 
-            var chartDivisions = document.getElementById('orgChartDivisions');
-            if (chartDivisions) {
-                new Sortable(chartDivisions, {
-                    animation: 150,
-                    ghostClass: 'sortable-ghost',
-                    onEnd: function (evt) {
-                        var orderArray = Array.from(chartDivisions.querySelectorAll('.draggable-chart-division')).map(function(el) {
-                            return el.getAttribute('data-id');
-                        });
-                        fetch('{{ route("organization.division.reorder") }}', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': '{{ csrf_token() }}' },
-                            body: JSON.stringify({ order: orderArray })
-                        });
-                    }
+            var eventDirector = document.getElementById('event-director');
+            var chartDivisions = document.querySelectorAll('.draggable-chart-division');
+            var lines = [];
+
+            if (eventDirector && chartDivisions.length > 0) {
+                chartDivisions.forEach(function(div) {
+                    var line = new LeaderLine(
+                        eventDirector,
+                        div,
+                        { color: 'var(--color-primary)', size: 3, path: 'fluid' }
+                    );
+                    lines.push({ element: div, line: line });
+
+                    // Simple drag logic
+                    var isDragging = false;
+                    var startX, startY, initialLeft, initialTop;
+
+                    div.addEventListener('mousedown', function(e) {
+                        // ignore if clicking on member list
+                        if (e.target.closest('.sortable-members')) return;
+                        
+                        isDragging = true;
+                        startX = e.clientX;
+                        startY = e.clientY;
+                        initialLeft = parseInt(div.style.left || 0);
+                        initialTop = parseInt(div.style.top || 0);
+                        div.style.zIndex = 100;
+                        document.body.style.cursor = 'move';
+                    });
+
+                    document.addEventListener('mousemove', function(e) {
+                        if (!isDragging) return;
+                        var dx = e.clientX - startX;
+                        var dy = e.clientY - startY;
+                        div.style.left = (initialLeft + dx) + 'px';
+                        div.style.top = (initialTop + dy) + 'px';
+                        line.position(); // Update line
+                    });
+
+                    document.addEventListener('mouseup', function(e) {
+                        if (isDragging) {
+                            isDragging = false;
+                            div.style.zIndex = 10;
+                            document.body.style.cursor = 'default';
+                            
+                            // Save coordinates
+                            var newLeft = parseInt(div.style.left || 0);
+                            var newTop = parseInt(div.style.top || 0);
+                            fetch('{{ route("organization.coordinates.update") }}', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+                                body: JSON.stringify({ type: 'division', id: div.getAttribute('data-id'), pos_x: newLeft, pos_y: newTop })
+                            });
+                        }
+                    });
                 });
+
+                // Update lines when container scrolls
+                var chartContainer = document.querySelector('.org-chart');
+                if (chartContainer) {
+                    chartContainer.addEventListener('scroll', function() {
+                        lines.forEach(function(item) { item.line.position(); });
+                    });
+                }
             }
 
             var memberContainers = document.querySelectorAll('.sortable-members');

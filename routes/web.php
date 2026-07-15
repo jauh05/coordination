@@ -69,6 +69,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/organization/division/reorder', [App\Http\Controllers\OrganizationController::class, 'reorderDivision'])->name('organization.division.reorder');
     
     Route::post('/organization/member/move', [App\Http\Controllers\OrganizationController::class, 'moveMember'])->name('organization.member.move');
+    Route::post('/organization/coordinates', [App\Http\Controllers\OrganizationController::class, 'updateCoordinates'])->name('organization.coordinates.update');
     Route::post('/organization/member', [App\Http\Controllers\OrganizationController::class, 'storeMember'])->name('organization.member.store');
     Route::delete('/organization/member/{id}', [App\Http\Controllers\OrganizationController::class, 'destroyMember'])->name('organization.member.destroy');
     

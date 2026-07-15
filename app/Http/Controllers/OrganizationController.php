@@ -156,4 +156,27 @@ class OrganizationController extends Controller
 
         return response()->json(['success' => true]);
     }
+    public function updateCoordinates(Request $request)
+    {
+        $request->validate([
+            'type' => 'required|in:division,member',
+            'id' => 'required|string',
+            'pos_x' => 'required|numeric',
+            'pos_y' => 'required|numeric',
+        ]);
+
+        if ($request->type === 'division') {
+            Division::where('id', $request->id)->update([
+                'pos_x' => $request->pos_x,
+                'pos_y' => $request->pos_y,
+            ]);
+        } else {
+            EventUser::where('id', $request->id)->update([
+                'pos_x' => $request->pos_x,
+                'pos_y' => $request->pos_y,
+            ]);
+        }
+
+        return response()->json(['success' => true]);
+    }
 }
