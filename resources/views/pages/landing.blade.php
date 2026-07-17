@@ -117,13 +117,13 @@
 <body class="bg-background text-on-background font-body-md selection:bg-primary/20">
 
 <!-- TopNavBar (Floating Glass Navigation) -->
-<header class="fixed top-[20px] left-1/2 -translate-x-1/2 w-[90%] h-[72px] z-50 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.05)] transition-all duration-300 flex items-center" style="background: rgba(255,255,255,0.12); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,0.25);">
-    <div class="flex justify-between items-center w-full px-8">
-        <a href="/" class="text-title-md font-title-md font-bold flex items-center gap-2 group">
+<header class="fixed top-[20px] left-1/2 -translate-x-1/2 w-[90%] max-w-[1400px] h-[72px] z-50 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.05)] transition-all duration-300 flex items-center" style="background: rgba(255,255,255,0.12); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,0.25);">
+    <div class="flex justify-between items-center w-full px-6 lg:px-8">
+        <a href="/" class="font-bold flex items-center gap-2 group">
             <div class="bg-primary text-white p-1.5 rounded-full group-hover:scale-105 transition-transform shadow-md">
                 <span class="material-symbols-outlined text-[20px] block">hub</span>
             </div>
-            <span class="text-slate-900 font-extrabold tracking-tight">Coordination</span>
+            <span class="text-slate-900 font-extrabold tracking-tight text-base">Coordination</span>
         </a>
         <nav class="hidden lg:flex gap-8">
             <a class="relative text-slate-900 font-semibold text-sm group" href="{{ route('fitur') }}">
@@ -147,39 +147,67 @@
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
         </nav>
-        <div class="flex items-center gap-3">
+        <div class="hidden lg:flex items-center gap-3">
             <a href="{{ route('login') }}" class="text-slate-800/90 font-medium hover:text-slate-900 px-4 py-2 transition-all duration-200 hover:bg-white/20 rounded-full active:scale-95 text-sm">Login</a>
             <a href="{{ route('register') }}" class="bg-primary text-white px-5 py-2.5 rounded-full font-bold hover:shadow-[0_4px_14px_rgba(0,118,255,0.39)] hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-sm">Get Started</a>
         </div>
+        <!-- Mobile Hamburger -->
+        <button id="mobile-menu-btn" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/20 transition-colors">
+            <span class="material-symbols-outlined text-slate-900 text-[24px]" id="menu-icon">menu</span>
+        </button>
     </div>
 </header>
 
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="fixed inset-0 z-[60] hidden">
+    <div class="absolute inset-0 bg-black/30 backdrop-blur-sm" id="mobile-menu-backdrop"></div>
+    <div class="absolute top-0 right-0 w-[280px] h-full bg-white shadow-2xl p-8 flex flex-col gap-6 transform translate-x-full transition-transform duration-300" id="mobile-menu-panel">
+        <div class="flex justify-between items-center mb-4">
+            <span class="font-extrabold text-slate-900 text-lg">Menu</span>
+            <button id="mobile-menu-close" class="w-10 h-10 rounded-full hover:bg-slate-100 flex items-center justify-center transition-colors">
+                <span class="material-symbols-outlined text-slate-700">close</span>
+            </button>
+        </div>
+        <nav class="flex flex-col gap-1">
+            <a class="text-slate-900 font-semibold text-base py-3 px-4 rounded-xl bg-primary/5" href="{{ route('fitur') }}">Fitur</a>
+            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('solutions') }}">Solusi</a>
+            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('pricing') }}">Harga</a>
+            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('tentang') }}">Tentang</a>
+            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('kontak') }}">Kontak</a>
+        </nav>
+        <div class="mt-auto flex flex-col gap-3">
+            <a href="{{ route('login') }}" class="text-center text-slate-700 font-medium py-3 px-4 rounded-full border border-slate-200 hover:bg-slate-50 transition-colors">Login</a>
+            <a href="{{ route('register') }}" class="text-center bg-primary text-white py-3 px-4 rounded-full font-bold shadow-sm">Get Started</a>
+        </div>
+    </div>
+</div>
+
 <main>
     <!-- Hero Section -->
-    <section class="relative h-[100vh] min-h-[800px] w-full flex flex-col bg-cover bg-center bg-no-repeat overflow-hidden" style="background-image: url('{{ asset('img/landing.png') }}');">
+    <section class="relative h-[100vh] min-h-[700px] w-full flex flex-col bg-cover bg-center bg-no-repeat overflow-visible" style="background-image: url('{{ asset('img/landing.png') }}');">
         
         <!-- Subtle White Gradient Overlay (15-20%) -->
         <div class="absolute inset-0 w-full sm:w-2/3 lg:w-1/2" style="background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.15) 40%, transparent 100%);"></div>
 
-        <div class="relative z-10 w-full max-w-[1536px] mx-auto px-gutter flex-1 flex flex-col justify-center" style="padding-top: 80px;">
+        <div class="relative z-10 w-full max-w-[1536px] mx-auto px-6 lg:px-gutter flex-1 flex flex-col justify-center" style="padding-top: 92px;">
             
-            <!-- Hero Content Glass Panel -->
-            <div class="max-w-[560px] p-8 md:p-12 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)]" style="background: rgba(255,255,255,0.18); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.35); border-radius: 32px;">
+            <!-- Hero Content (NO Glass) -->
+            <div class="max-w-[560px]">
                 
-                <h1 class="text-[40px] md:text-[52px] lg:text-[64px] font-extrabold leading-[1.1] tracking-tight mb-4 text-slate-900">
+                <h1 class="text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] font-extrabold leading-[1.1] tracking-tight mb-4 text-slate-900">
                     Operasional Event <br/>
                     Tanpa Resiko.
                 </h1>
                 
-                <p class="text-lg leading-relaxed mb-8 font-medium max-w-md" style="color: rgba(15,23,42,0.82);">
+                <p class="text-base sm:text-lg leading-relaxed mb-8 font-medium max-w-md" style="color: rgba(15,23,42,0.82);">
                     Ubah kompleksitas logistik menjadi presisi militer. Coordination memantau kesehatan event Anda secara real-time.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="{{ route('register') }}" class="inline-flex items-center justify-center bg-blue-600 text-white px-8 py-3.5 rounded-full font-bold shadow-[0_4px_14px_rgba(0,118,255,0.39)] hover:bg-blue-700 hover:shadow-[0_6px_20px_rgba(0,118,255,0.23)] transition-all">
+                    <a href="{{ route('register') }}" class="inline-flex items-center justify-center bg-blue-600 text-white px-7 sm:px-8 py-3.5 rounded-full font-bold shadow-[0_4px_14px_rgba(0,118,255,0.39)] hover:bg-blue-700 hover:shadow-[0_6px_20px_rgba(0,118,255,0.23)] transition-all text-sm sm:text-base">
                         Mulai Merencanakan
                     </a>
-                    <button class="inline-flex items-center justify-center px-8 py-3.5 rounded-full text-slate-900 font-bold transition-all hover:bg-white/40" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(10px);">
+                    <button class="inline-flex items-center justify-center px-7 sm:px-8 py-3.5 rounded-full text-slate-900 font-bold transition-all hover:bg-white/40 bg-white/20 border border-white/40 text-sm sm:text-base" style="backdrop-filter: blur(10px);">
                         Lihat Demo
                     </button>
                 </div>
@@ -187,13 +215,14 @@
 
         </div>
 
-        <!-- Floating Feature Cards (Bottom Overlap) -->
-        <div class="absolute -bottom-8 left-0 right-0 px-gutter w-full max-w-[1536px] mx-auto z-20">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <!-- Floating Feature Cards (Inside hero, pinned to bottom) -->
+        <div class="relative z-20 w-full max-w-[1536px] mx-auto px-6 lg:px-gutter pb-8 lg:pb-12">
+            <!-- Desktop: 4 columns, Tablet: 2 columns, Mobile: horizontal scroll -->
+            <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
                 
                 <!-- Card 1 -->
                 <div class="p-5 flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-transform cursor-default" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 24px;">
-                    <div class="w-10 h-10 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800">
+                    <div class="w-10 h-10 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800 shrink-0">
                         <span class="material-symbols-outlined text-[20px]">shield_locked</span>
                     </div>
                     <div>
@@ -204,7 +233,7 @@
 
                 <!-- Card 2 -->
                 <div class="p-5 flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-transform cursor-default" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 24px;">
-                    <div class="w-10 h-10 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800">
+                    <div class="w-10 h-10 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800 shrink-0">
                         <span class="material-symbols-outlined text-[20px]">monitoring</span>
                     </div>
                     <div>
@@ -215,7 +244,7 @@
 
                 <!-- Card 3 -->
                 <div class="p-5 flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-transform cursor-default" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 24px;">
-                    <div class="w-10 h-10 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800">
+                    <div class="w-10 h-10 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800 shrink-0">
                         <span class="material-symbols-outlined text-[20px]">groups</span>
                     </div>
                     <div>
@@ -226,7 +255,7 @@
 
                 <!-- Card 4 -->
                 <div class="p-5 flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-transform cursor-default" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 24px;">
-                    <div class="w-10 h-10 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800">
+                    <div class="w-10 h-10 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800 shrink-0">
                         <span class="material-symbols-outlined text-[20px]">auto_graph</span>
                     </div>
                     <div>
@@ -235,6 +264,45 @@
                     </div>
                 </div>
 
+            </div>
+            <!-- Mobile: horizontal scroll -->
+            <div class="flex md:hidden gap-3 overflow-x-auto pb-2 -mx-2 px-2 snap-x snap-mandatory" style="-webkit-overflow-scrolling: touch;">
+                <div class="p-4 flex items-center gap-3 snap-start shrink-0 w-[200px]" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px;">
+                    <div class="w-9 h-9 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800 shrink-0">
+                        <span class="material-symbols-outlined text-[18px]">shield_locked</span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-900 text-xs">Aman & Terpercaya</p>
+                        <p class="text-[10px] text-slate-700">Data aman</p>
+                    </div>
+                </div>
+                <div class="p-4 flex items-center gap-3 snap-start shrink-0 w-[200px]" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px;">
+                    <div class="w-9 h-9 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800 shrink-0">
+                        <span class="material-symbols-outlined text-[18px]">monitoring</span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-900 text-xs">Real-time Monitor</p>
+                        <p class="text-[10px] text-slate-700">Progres instan</p>
+                    </div>
+                </div>
+                <div class="p-4 flex items-center gap-3 snap-start shrink-0 w-[200px]" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px;">
+                    <div class="w-9 h-9 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800 shrink-0">
+                        <span class="material-symbols-outlined text-[18px]">groups</span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-900 text-xs">Koordinasi Tim</p>
+                        <p class="text-[10px] text-slate-700">Terhubung</p>
+                    </div>
+                </div>
+                <div class="p-4 flex items-center gap-3 snap-start shrink-0 w-[200px]" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px;">
+                    <div class="w-9 h-9 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800 shrink-0">
+                        <span class="material-symbols-outlined text-[18px]">auto_graph</span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-900 text-xs">Laporan Otomatis</p>
+                        <p class="text-[10px] text-slate-700">Akurat</p>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -574,5 +642,30 @@
         &copy; 2024 Coordination AI. All rights reserved.
     </div>
 </footer>
+<script>
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuPanel = document.getElementById('mobile-menu-panel');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+
+    function openMenu() {
+        mobileMenu.classList.remove('hidden');
+        setTimeout(() => {
+            mobileMenuPanel.style.transform = 'translateX(0)';
+        }, 10);
+    }
+    function closeMenu() {
+        mobileMenuPanel.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            mobileMenu.classList.add('hidden');
+        }, 300);
+    }
+
+    menuBtn.addEventListener('click', openMenu);
+    mobileMenuClose.addEventListener('click', closeMenu);
+    mobileMenuBackdrop.addEventListener('click', closeMenu);
+</script>
 </body>
 </html>

@@ -136,44 +136,68 @@
 </head>
 <body class="bg-background text-on-background antialiased overflow-x-hidden">
 
-<!-- TopNavBar (FROM LANDING) -->
-<header class="fixed top-0 w-full bg-white/70 backdrop-blur-2xl border-b border-slate-200/50 shadow-sm z-50 transition-all duration-300">
-    <div class="flex justify-between items-center px-4 py-4 max-w-[1536px] mx-auto">
-        <a href="/" class="text-[16px] font-bold flex items-center gap-2 group">
-            <div class="bg-primary text-white p-1.5 rounded-lg group-hover:scale-105 transition-transform shadow-md">
+<!-- TopNavBar (Floating Glass Navigation) -->
+<header class="fixed top-[20px] left-1/2 -translate-x-1/2 w-[90%] max-w-[1400px] h-[72px] z-50 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.05)] transition-all duration-300 flex items-center" style="background: rgba(255,255,255,0.7); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(226,232,240,0.5);">
+    <div class="flex justify-between items-center w-full px-6 lg:px-8">
+        <a href="/" class="font-bold flex items-center gap-2 group">
+            <div class="bg-primary text-white p-1.5 rounded-full group-hover:scale-105 transition-transform shadow-md">
                 <span class="material-symbols-outlined text-[20px] block">hub</span>
             </div>
-            <span class="text-primary tracking-tight">Coordination</span>
+            <span class="text-slate-900 font-extrabold tracking-tight text-base">Coordination</span>
         </a>
-        <nav class="hidden md:flex gap-8">
-            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-medium group" href="{{ route('fitur') }}">
+        <nav class="hidden lg:flex gap-8">
+            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('fitur') }}">
                 Fitur
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-medium group" href="{{ route('solutions') }}">
+            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('solutions') }}">
                 Solusi
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-medium group" href="{{ route('pricing') }}">
+            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('pricing') }}">
                 Harga
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-medium group" href="{{ route('tentang') }}">
+            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('tentang') }}">
                 Tentang
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a class="relative text-primary font-semibold group" href="{{ route('kontak') }}">
+            <a class="relative text-slate-900 font-semibold text-sm group" href="{{ route('kontak') }}">
                 Kontak
                 <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
             </a>
         </nav>
-        <div class="flex items-center gap-4">
-            <a href="{{ route('login') }}" class="text-on-surface-variant font-medium hover:text-primary px-4 py-2 hover:bg-primary/5 rounded-lg transition-all text-sm">Login</a>
-            <a href="{{ route('register') }}" class="bg-primary text-on-primary px-6 py-2 rounded-full font-bold hover:shadow-lg transition-all text-sm">Get Started</a>
+        <div class="hidden lg:flex items-center gap-3">
+            <a href="{{ route('login') }}" class="text-slate-800/90 font-medium hover:text-slate-900 px-4 py-2 transition-all duration-200 hover:bg-white/20 rounded-full active:scale-95 text-sm">Login</a>
+            <a href="{{ route('register') }}" class="bg-primary text-white px-5 py-2.5 rounded-full font-bold hover:shadow-[0_4px_14px_rgba(0,118,255,0.39)] hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-sm">Get Started</a>
         </div>
+        <button id="mobile-menu-btn" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/20 transition-colors">
+            <span class="material-symbols-outlined text-slate-900 text-[24px]">menu</span>
+        </button>
     </div>
 </header>
-
+<div id="mobile-menu" class="fixed inset-0 z-[60] hidden">
+    <div class="absolute inset-0 bg-black/30 backdrop-blur-sm" id="mobile-menu-backdrop"></div>
+    <div class="absolute top-0 right-0 w-[280px] h-full bg-white shadow-2xl p-8 flex flex-col gap-6 transform translate-x-full transition-transform duration-300" id="mobile-menu-panel">
+        <div class="flex justify-between items-center mb-4">
+            <span class="font-extrabold text-slate-900 text-lg">Menu</span>
+            <button id="mobile-menu-close" class="w-10 h-10 rounded-full hover:bg-slate-100 flex items-center justify-center transition-colors">
+                <span class="material-symbols-outlined text-slate-700">close</span>
+            </button>
+        </div>
+        <nav class="flex flex-col gap-1">
+            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('fitur') }}">Fitur</a>
+            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('solutions') }}">Solusi</a>
+            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('pricing') }}">Harga</a>
+            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('tentang') }}">Tentang</a>
+            <a class="text-slate-900 font-semibold text-base py-3 px-4 rounded-xl bg-primary/5" href="{{ route('kontak') }}">Kontak</a>
+        </nav>
+        <div class="mt-auto flex flex-col gap-3">
+            <a href="{{ route('login') }}" class="text-center text-slate-700 font-medium py-3 px-4 rounded-full border border-slate-200 hover:bg-slate-50 transition-colors">Login</a>
+            <a href="{{ route('register') }}" class="text-center bg-primary text-white py-3 px-4 rounded-full font-bold shadow-sm">Get Started</a>
+        </div>
+    </div>
+</div>
 <main class="pt-32 pb-stack-lg">
 <!-- Hero Section -->
 <section class="max-w-container-max mx-auto px-margin-desktop mb-16">
@@ -381,4 +405,16 @@
             observer.observe(el);
         });
     </script>
+<script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuPanel = document.getElementById('mobile-menu-panel');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+    function openMenu() { mobileMenu.classList.remove('hidden'); setTimeout(() => { mobileMenuPanel.style.transform = 'translateX(0)'; }, 10); }
+    function closeMenu() { mobileMenuPanel.style.transform = 'translateX(100%)'; setTimeout(() => { mobileMenu.classList.add('hidden'); }, 300); }
+    menuBtn.addEventListener('click', openMenu);
+    mobileMenuClose.addEventListener('click', closeMenu);
+    mobileMenuBackdrop.addEventListener('click', closeMenu);
+</script>
 </body></html>
