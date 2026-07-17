@@ -219,8 +219,11 @@
     <!-- Hero Section -->
     <section class="relative h-[100vh] min-h-[700px] w-full flex flex-col overflow-hidden">
         
+        <!-- Static Background (Revealed after video) -->
+        <div class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset('img/landing.png') }}');"></div>
+        
         <!-- Animated Video Background -->
-        <video class="absolute inset-0 w-full h-full object-cover" autoplay muted playsinline onended="this.pause()">
+        <video id="hero-video" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" autoplay muted playsinline onended="this.classList.add('opacity-0'); setTimeout(() => this.remove(), 1000);">
             <source src="{{ asset('img/landing_animasi.mp4') }}" type="video/mp4">
         </video>
         <!-- Subtle White Gradient Overlay (15-20%) -->
