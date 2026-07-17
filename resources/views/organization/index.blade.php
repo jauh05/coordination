@@ -4,7 +4,7 @@
         $showDivModal = $errors->has('division_name') || $errors->has('head_email') || $errors->has('head_name');
         $showMemModal = $errors->has('member_name') || $errors->has('member_email') || $errors->has('division_id');
     @endphp
-    <div x-data="{ showAddDivision: {{ $showDivModal ? 'true' : 'false' }}, showAddMember: {{ $showMemModal ? 'true' : 'false' }} }">
+    <div x-data="{ showAddDivision: {{ $showDivModal ? 'true' : 'false' }}, showAddMember: {{ $showMemModal ? 'true' : 'false' }}, showEditModal: false, showDeleteModal: false, activeDivisionId: '', activeDivisionName: '' }">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
     <div class="page-header">
         <div class="page-header-row">
@@ -130,16 +130,12 @@
                     </div>
                     {{-- Actions --}}
                     <div style="display:flex; gap:8px; align-self: flex-start;">
-                        <button type="button" onclick="editDivision('{{ $div->id }}', '{{ $div->name }}')" class="btn btn-sm" title="Edit Divisi" style="width:32px; height:32px; padding:0; border-radius:8px; background:var(--color-surface-container); border:1px solid var(--color-outline-variant); color:var(--color-on-surface); display:flex; align-items:center; justify-content:center; transition:0.2s;" onmouseover="this.style.background='var(--color-surface-container-high)'" onmouseout="this.style.background='var(--color-surface-container)'">
+                        <button type="button" @click="activeDivisionId = '{{ $div->id }}'; activeDivisionName = '{{ $div->name }}'; showEditModal = true" class="btn btn-sm" title="Edit Divisi" style="width:32px; height:32px; padding:0; border-radius:8px; background:var(--color-surface-container); border:1px solid var(--color-outline-variant); color:var(--color-on-surface); display:flex; align-items:center; justify-content:center; transition:0.2s;" onmouseover="this.style.background='var(--color-surface-container-high)'" onmouseout="this.style.background='var(--color-surface-container)'">
                             <span class="material-symbols-outlined" style="font-size: 16px;">edit</span>
                         </button>
-                        <form action="{{ route('organization.division.destroy', $div->id) }}" method="POST" onsubmit="return confirm('Yakin hapus divisi ini? Semua anggota di dalamnya akan terhapus.');" style="margin:0;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-sm" title="Hapus Divisi" style="width:32px; height:32px; padding:0; border-radius:8px; background:var(--color-error-container); border:1px solid var(--color-error); color:var(--color-on-error-container); display:flex; align-items:center; justify-content:center; transition:0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
-                                <span class="material-symbols-outlined" style="font-size: 16px;">delete</span>
-                            </button>
-                        </form>
+                        <button type="button" @click="activeDivisionId = '{{ $div->id }}'; activeDivisionName = '{{ $div->name }}'; showDeleteModal = true" class="btn btn-sm" title="Hapus Divisi" style="width:32px; height:32px; padding:0; border-radius:8px; background:var(--color-error-container); border:1px solid var(--color-error); color:var(--color-on-error-container); display:flex; align-items:center; justify-content:center; transition:0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                            <span class="material-symbols-outlined" style="font-size: 16px;">delete</span>
+                        </button>
                     </div>
                 </div>
 
@@ -269,7 +265,62 @@
             </form>
         </div>
     </div>
-    
+
+    <!-- Modal Edit Divisi -->
+    <div x-show="showEditModal" class="fixed inset-0 z-[100] flex items-center justify-center" x-cloak>
+        <div x-show="showEditModal" x-transition.opacity class="fixed inset-0 bg-black/50 backdrop-blur-sm" @click="showEditModal = false"></div>
+        <div x-show="showEditModal" 
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 scale-95 translate-y-4"
+             x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+             class="relative bg-surface rounded-2xl shadow-xl border border-outline-variant/30 p-8 w-full max-w-md mx-4 z-10 text-center">
+            
+            <div class="w-16 h-16 rounded-full bg-primary/10 text-primary mx-auto flex items-center justify-center mb-4">
+                <span class="material-symbols-outlined" style="font-size: 32px;">edit</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Edit Nama Divisi</h3>
+            <p class="text-on-surface-variant text-sm mb-6">Ubah nama untuk divisi ini.</p>
+            
+            <form method="POST" :action="'/organization/division/' + activeDivisionId" class="space-y-4 text-left">
+                @csrf
+                @method('PUT')
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Nama Divisi</label>
+                    <input type="text" name="name" x-model="activeDivisionName" class="w-full px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary/20 outline-none" required>
+                </div>
+                
+                <div class="pt-4 flex gap-4">
+                    <button type="button" @click="showEditModal = false" class="flex-1 px-4 py-2 border border-outline-variant text-on-surface rounded-xl font-label-md hover:bg-surface-container transition-colors">Batal</button>
+                    <button type="submit" class="flex-1 px-4 py-2 bg-primary text-white rounded-xl font-label-md hover:bg-blue-700 shadow-sm transition-colors">Simpan Perubahan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Hapus Divisi -->
+    <div x-show="showDeleteModal" class="fixed inset-0 z-[100] flex items-center justify-center" x-cloak>
+        <div x-show="showDeleteModal" x-transition.opacity class="fixed inset-0 bg-black/50 backdrop-blur-sm" @click="showDeleteModal = false"></div>
+        <div x-show="showDeleteModal" 
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 scale-95 translate-y-4"
+             x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+             class="relative bg-surface rounded-2xl shadow-xl border border-outline-variant/30 p-8 w-full max-w-md mx-4 z-10 text-center">
+            
+            <div class="w-16 h-16 rounded-full bg-error/10 text-error mx-auto flex items-center justify-center mb-4">
+                <span class="material-symbols-outlined" style="font-size: 32px;">delete_forever</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Hapus Divisi?</h3>
+            <p class="text-on-surface-variant text-sm mb-6">Apakah Anda yakin ingin menghapus divisi <strong x-text="activeDivisionName"></strong>? <br>Semua anggota yang berada di divisi ini akan ikut terhapus secara permanen.</p>
+            
+            <form method="POST" :action="'/organization/division/' + activeDivisionId" class="flex gap-4">
+                @csrf
+                @method('DELETE')
+                <button type="button" @click="showDeleteModal = false" class="flex-1 px-4 py-2 border border-outline-variant text-on-surface rounded-xl font-label-md hover:bg-surface-container transition-colors">Batal</button>
+                <button type="submit" class="flex-1 px-4 py-2 bg-error text-white rounded-xl font-label-md hover:bg-red-700 shadow-sm transition-colors">Ya, Hapus!</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Modal Tambah Anggota -->
     <div x-show="showAddMember" class="fixed inset-0 z-[100] flex items-center justify-center" x-cloak>
         <div x-show="showAddMember" x-transition.opacity class="fixed inset-0 bg-black/50 backdrop-blur-sm" @click="showAddMember = false"></div>
@@ -335,50 +386,19 @@
     <script>
         function validateForm(formId) {
             let form = document.getElementById(formId);
-            let pass = form.querySelector('input[name="password"]').value;
-            let conf = form.querySelector('input[name="password_confirmation"]').value;
-            let errorDiv = document.getElementById(formId + '_error');
+            let password = form.querySelector('input[name="password"]').value;
+            let confirmPassword = form.querySelector('input[name="password_confirmation"]').value;
+            let errorMsg = document.getElementById(formId + '_error');
             
-            if (pass !== conf) {
-                errorDiv.style.display = 'flex';
+            if (password !== confirmPassword) {
+                errorMsg.style.display = 'flex';
                 // Animasi goyang sedikit untuk menarik perhatian
-                errorDiv.style.animation = 'shake 0.4s';
-                setTimeout(() => errorDiv.style.animation = '', 400);
+                errorMsg.style.animation = 'shake 0.4s';
+                setTimeout(() => errorMsg.style.animation = '', 400);
                 return false; // Mencegah submit
             }
-            errorDiv.style.display = 'none';
+            errorMsg.style.display = 'none';
             return true;
-        }
-
-        function editDivision(id, currentName) {
-            let newName = prompt("Edit Nama Divisi:", currentName);
-            if (newName && newName !== currentName) {
-                // Create a form and submit
-                let form = document.createElement('form');
-                form.method = 'POST';
-                form.action = '/organization/division/' + id;
-                
-                let csrf = document.createElement('input');
-                csrf.type = 'hidden';
-                csrf.name = '_token';
-                csrf.value = '{{ csrf_token() }}';
-                form.appendChild(csrf);
-                
-                let method = document.createElement('input');
-                method.type = 'hidden';
-                method.name = '_method';
-                method.value = 'PUT';
-                form.appendChild(method);
-                
-                let nameInput = document.createElement('input');
-                nameInput.type = 'hidden';
-                nameInput.name = 'name';
-                nameInput.value = newName;
-                form.appendChild(nameInput);
-                
-                document.body.appendChild(form);
-                form.submit();
-            }
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/leader-line@1.0.7/leader-line.min.js"></script>
