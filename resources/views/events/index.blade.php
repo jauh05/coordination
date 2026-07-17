@@ -379,17 +379,26 @@
         const shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
         const days = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
 
-        // Registration date (start date)
-        const registrationDate = new Date(2024, 11, 1); // 1 Dec 2024
+        const savedStart = localStorage.getItem('master_event_start');
+        const savedDday = localStorage.getItem('master_event_dday');
+
+        function parseLocalDate(dateStr) {
+            if(!dateStr) return null;
+            const parts = dateStr.split('-');
+            if(parts.length === 3) return new Date(parseInt(parts[0]), parseInt(parts[1])-1, parseInt(parts[2]));
+            return null;
+        }
+
+        const registrationDate = parseLocalDate(savedStart) || new Date(2024, 11, 1);
+        const dDayDate = parseLocalDate(savedDday) || new Date(2024, 11, 12);
         
-        // H+1 month end date (1 month from today)
-        // Fallback for demo if today is too far ahead: let's pretend today is 12 Dec 2024
-        const demoToday = new Date(2024, 11, 12);
-        
-        const maxDate = new Date(demoToday);
+        const maxDate = new Date(dDayDate);
         maxDate.setMonth(maxDate.getMonth() + 1); // h+1 month
         
-        let currentDisplayDate = new Date(demoToday); // currently viewed month/year
+        let actualToday = new Date();
+        let demoToday = (actualToday >= registrationDate && actualToday <= maxDate) ? actualToday : new Date(registrationDate);
+        
+        let currentDisplayDate = new Date(demoToday);
 
         let currentSelectedDateKey = '';
         

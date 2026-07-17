@@ -433,6 +433,13 @@
         form.addEventListener('submit', (e) => {
             const btn = e.target.querySelector('button[type="submit"]');
             btn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">progress_activity</span> Memproses...';
+            
+            // Save event dates for dashboard usage
+            const evtStart = document.querySelector('input[name="event_start"]');
+            const evtDday = document.querySelector('input[name="event_dday"]');
+            if (evtStart && evtStart.value) localStorage.setItem('master_event_start', evtStart.value);
+            if (evtDday && evtDday.value) localStorage.setItem('master_event_dday', evtDday.value);
+            
             // Clear storage on submit
             Object.keys(sessionStorage).forEach(key => {
                 if(key.startsWith('register_')) sessionStorage.removeItem(key);

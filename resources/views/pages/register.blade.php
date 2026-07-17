@@ -226,11 +226,11 @@
                         <div class="grid grid-cols-2 gap-sm">
                             <div class="space-y-xs">
                                 <label class="font-label-md text-label-md text-on-surface">Tanggal Mulai</label>
-                                <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" type="date"/>
+                                <input name="event_start" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" type="date"/>
                             </div>
                             <div class="space-y-xs">
                                 <label class="font-label-md text-label-md text-on-surface">Hari H Event</label>
-                                <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" type="date"/>
+                                <input name="event_dday" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" type="date"/>
                             </div>
                         </div>
                         <div class="space-y-xs">
@@ -337,6 +337,13 @@
 
     document.getElementById('registration-form').addEventListener('submit', (e) => {
         e.preventDefault();
+        
+        // Save event dates for dashboard usage
+        const evtStart = document.querySelector('input[name="event_start"]');
+        const evtDday = document.querySelector('input[name="event_dday"]');
+        if (evtStart && evtStart.value) localStorage.setItem('master_event_start', evtStart.value);
+        if (evtDday && evtDday.value) localStorage.setItem('master_event_dday', evtDday.value);
+        
         // Clear storage on submit
         Object.keys(sessionStorage).forEach(key => {
             if(key.startsWith('pages_register_')) sessionStorage.removeItem(key);
