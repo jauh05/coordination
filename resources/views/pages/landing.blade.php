@@ -114,14 +114,6 @@
         }catch(_e){}
     </script>
     <style>
-        @keyframes bgZoomOut {
-            0% { transform: scale(1.15); }
-            100% { transform: scale(1); }
-        }
-        .bg-animate {
-            animation: bgZoomOut 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-        }
-
         @keyframes popUp {
             0% { opacity: 0; transform: translateY(40px) scale(0.95); }
             100% { opacity: 1; transform: translateY(0) scale(1); }
@@ -137,14 +129,13 @@
         .delay-400 { animation-delay: 0.4s; }
         .delay-500 { animation-delay: 0.5s; }
 
-        @keyframes panHorizontal {
-            0% { object-position: 10% center; background-position: 10% center; }
-            100% { object-position: 90% center; background-position: 90% center; }
+        @keyframes panRight {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
-        @media (max-width: 767px) {
-            .mobile-pan {
-                animation: panHorizontal 25s ease-in-out infinite alternate;
-            }
+        .bg-pan-right {
+            transform: scale(1.1);
+            animation: panRight 40s ease-in-out infinite alternate;
         }
 
         #hero-glass-panel {
@@ -227,13 +218,8 @@
     <!-- Hero Section -->
     <section class="relative h-[100vh] min-h-[700px] w-full flex flex-col overflow-hidden">
         
-        <!-- Static Background (Revealed after video) -->
-        <div class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat mobile-pan" style="background-image: url('{{ asset('img/landing.png') }}');"></div>
-        
-        <!-- Animated Video Background -->
-        <video id="hero-video" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 mobile-pan" autoplay muted playsinline onended="this.classList.add('opacity-0'); setTimeout(() => this.remove(), 1000);">
-            <source src="{{ asset('img/landing_animasi.mp4') }}" type="video/mp4">
-        </video>
+        <!-- Animated Background -->
+        <div class="absolute inset-0 w-full h-full bg-cover bg-no-repeat bg-pan-right" style="background-image: url('{{ asset('img/landing.png') }}');"></div>
         <!-- Subtle White Gradient Overlay (15-20%) -->
         <div class="absolute inset-0 w-full sm:w-2/3 lg:w-1/2" style="background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.15) 40%, transparent 100%);"></div>
 
