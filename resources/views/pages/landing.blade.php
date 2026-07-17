@@ -147,13 +147,11 @@
             }
         }
 
-        @media (min-width: 768px) {
-            #hero-glass-panel {
-                background: rgba(255,255,255,0.55);
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
-                border: 1px solid rgba(255,255,255,0.45);
-            }
+        #hero-glass-panel {
+            background: rgba(255,255,255,0.55);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.45);
         }
     </style>
 </head>
@@ -239,10 +237,10 @@
         <!-- Subtle White Gradient Overlay (15-20%) -->
         <div class="absolute inset-0 w-full sm:w-2/3 lg:w-1/2" style="background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.15) 40%, transparent 100%);"></div>
 
-        <div class="relative z-10 w-full max-w-[1536px] mx-auto px-6 lg:px-gutter flex-1 flex flex-col items-start justify-start pt-[160px] md:justify-center md:pt-[92px]">
+        <div class="relative z-10 w-full max-w-[1536px] mx-auto px-6 lg:px-gutter flex-1 flex flex-col items-start justify-center pt-[100px] md:pt-[92px]">
             
-            <!-- Hero Content (Glass on desktop only) -->
-            <div class="max-w-[560px] md:p-10 md:rounded-[32px] md:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.06)]" style="" id="hero-glass-panel">
+            <!-- Hero Content -->
+            <div class="max-w-[560px] p-8 md:p-10 rounded-[24px] md:rounded-[32px] shadow-[0_8px_32px_-8px_rgba(0,0,0,0.1)] md:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.06)]" style="" id="hero-glass-panel">
                 
                 <h1 class="text-[26px] sm:text-[36px] md:text-[48px] lg:text-[56px] font-extrabold leading-[1.15] tracking-tight mb-3 md:mb-4 text-slate-900 animate-popup delay-100">
                     Event Hebat Dimulai dari<br/>
