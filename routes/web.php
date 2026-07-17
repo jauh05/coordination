@@ -60,7 +60,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
     // Core Pages
-    Route::get('/events', function () { return view('events.index'); })->name('events');
+    Route::get('/events', function () { 
+        $event = auth()->check() ? auth()->user()->events()->first() : null;
+        return view('events.index', compact('event')); 
+    })->name('events');
     Route::get('/planning', function () { return view('planning.index'); })->name('planning');
     Route::get('/organization', [App\Http\Controllers\OrganizationController::class, 'index'])->name('organization');
     Route::post('/organization', [App\Http\Controllers\OrganizationController::class, 'store'])->name('organization.store');

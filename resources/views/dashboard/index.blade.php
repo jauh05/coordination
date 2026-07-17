@@ -15,6 +15,10 @@
                         <span class="text-caption font-caption uppercase tracking-wider">Menuju Event</span>
                     </div>
                 </div>
+                @php
+                    $mainEvent = auth()->check() && auth()->user()->events()->exists() ? auth()->user()->events()->first() : null;
+                    $budgetString = $mainEvent && $mainEvent->estimated_budget ? 'Rp' . number_format($mainEvent->estimated_budget / 1000000, 0, ',', '.') . 'M' : 'Rp520M';
+                @endphp
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-lg pt-xl border-t border-white/10">
                     <div>
                         <p class="text-caption font-caption opacity-80 mb-xs">Skor Kesehatan</p>
@@ -31,7 +35,7 @@
                         <p class="text-caption font-caption opacity-80 mb-xs">Realisasi Anggaran</p>
                         <div class="flex items-end gap-sm">
                             <span class="text-headline-sm font-bold">Rp318M</span>
-                            <span class="text-caption font-caption opacity-80 mb-xs pb-0.5">/ Rp520M</span>
+                            <span class="text-caption font-caption opacity-80 mb-xs pb-0.5">/ {{ $budgetString }}</span>
                         </div>
                     </div>
                 </div>

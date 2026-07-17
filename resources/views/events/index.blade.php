@@ -379,8 +379,11 @@
         const shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
         const days = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
 
-        const savedStart = localStorage.getItem('master_event_start');
-        const savedDday = localStorage.getItem('master_event_dday');
+        const dbStart = '{!! isset($event) && $event->start_date ? $event->start_date->format("Y-m-d") : "" !!}';
+        const dbDday = '{!! isset($event) && $event->d_day ? $event->d_day->format("Y-m-d") : "" !!}';
+        
+        const savedStart = dbStart || localStorage.getItem('master_event_start');
+        const savedDday = dbDday || localStorage.getItem('master_event_dday');
 
         function parseLocalDate(dateStr) {
             if(!dateStr) return null;
