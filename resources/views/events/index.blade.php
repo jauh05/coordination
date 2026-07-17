@@ -327,22 +327,22 @@
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 <div>
 <label class="block text-[10px] font-bold text-outline uppercase mb-1">Presale 1 (Qty)</label>
-<input class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" type="number" value="200"/>
+<input id="input_presale1" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" type="number" value="0"/>
 </div>
 <div>
 <label class="block text-[10px] font-bold text-outline uppercase mb-1">Presale 2 (Qty)</label>
-<input class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" type="number" value="150"/>
+<input id="input_presale2" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" type="number" value="0"/>
 </div>
 <div>
 <label class="block text-[10px] font-bold text-outline uppercase mb-1">Presale 3 (Qty)</label>
-<input class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" type="number" value="0"/>
+<input id="input_presale3" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" type="number" value="0"/>
 </div>
 <div>
 <label class="block text-[10px] font-bold text-outline uppercase mb-1">OTS (Qty)</label>
-<input class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" type="number" value="0"/>
+<input id="input_ots" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" type="number" value="0"/>
 </div>
 <div class="md:col-span-4 flex justify-end">
-<button class="bg-primary text-white font-semibold px-8 py-2 rounded-lg text-sm hover:bg-primary-container transition-colors shadow-sm">
+<button onclick="saveTicketData()" class="bg-primary text-white font-semibold px-8 py-2 rounded-lg text-sm hover:bg-primary-container transition-colors shadow-sm">
             Simpan Data Penjualan
         </button>
 </div>
@@ -556,6 +556,46 @@
         
         let currentDisplayDate = new Date(demoToday); // currently viewed month/year
 
+        let currentSelectedDateKey = '';
+
+        function loadTicketData(dateKey) {
+            currentSelectedDateKey = dateKey;
+            const savedData = JSON.parse(localStorage.getItem('ticketData_' + dateKey)) || {
+                presale1: 0,
+                presale2: 0,
+                presale3: 0,
+                ots: 0
+            };
+            
+            document.getElementById('input_presale1').value = savedData.presale1;
+            document.getElementById('input_presale2').value = savedData.presale2;
+            document.getElementById('input_presale3').value = savedData.presale3;
+            document.getElementById('input_ots').value = savedData.ots;
+        }
+
+        window.saveTicketData = function() {
+            if(!currentSelectedDateKey) return;
+            
+            const data = {
+                presale1: document.getElementById('input_presale1').value,
+                presale2: document.getElementById('input_presale2').value,
+                presale3: document.getElementById('input_presale3').value,
+                ots: document.getElementById('input_ots').value
+            };
+            
+            localStorage.setItem('ticketData_' + currentSelectedDateKey, JSON.stringify(data));
+            
+            // Show short alert/notification
+            const btn = document.querySelector('button[onclick="saveTicketData()"]');
+            const originalText = btn.innerText;
+            btn.innerText = '✓ Tersimpan';
+            btn.classList.add('bg-success');
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.remove('bg-success');
+            }, 1500);
+        };
+
         function renderCalendar() {
             calendarRail.innerHTML = '';
             document.getElementById('currentMonthLabel').innerText = `${months[currentDisplayDate.getMonth()]} ${currentDisplayDate.getFullYear()}`;
@@ -575,6 +615,7 @@
                 const dateNum = dateObj.getDate();
                 const dayName = days[dateObj.getDay()];
                 const isToday = (dateNum === demoToday.getDate() && month === demoToday.getMonth() && year === demoToday.getFullYear());
+                const dateKey = `${year}-${String(month+1).padStart(2,'0')}-${String(dateNum).padStart(2,'0')}`;
 
                 const dayCard = document.createElement('div');
                 
@@ -583,24 +624,39 @@
                 } else {
                     dayCard.className = `flex-shrink-0 w-14 h-20 rounded-xl flex flex-col items-center justify-center cursor-pointer transition-all border ${isToday ? 'bg-primary text-white border-primary shadow-lg shadow-primary/20 scale-105 day-card-active' : 'bg-white border-border-subtle text-outline hover:border-primary/50 day-card-normal'}`;
                     
+                    if (isToday) {
+                        loadTicketData(dateKey); // load initial data for today
+                    }
+
                     dayCard.onclick = () => {
                         // Update label
                         document.getElementById('selected-date-label').innerText = `Detail Input: ${dateNum} ${months[month]} ${year}`;
+                        
+                        // Load data for selected date
+                        loadTicketData(dateKey);
                         
                         // Simple visual toggle
                         document.querySelectorAll('#calendar-rail > div:not(.cursor-not-allowed)').forEach(el => {
                             el.classList.remove('bg-primary', 'text-white', 'border-primary', 'shadow-lg', 'shadow-primary/20', 'scale-105', 'day-card-active');
                             el.classList.add('bg-white', 'border-border-subtle', 'text-outline', 'day-card-normal');
+                            // Clear dot indicator if not active
+                            const dot = el.querySelector('.indicator-dot');
+                            if(dot) el.removeChild(dot);
                         });
                         dayCard.classList.add('bg-primary', 'text-white', 'border-primary', 'shadow-lg', 'shadow-primary/20', 'scale-105', 'day-card-active');
                         dayCard.classList.remove('bg-white', 'border-border-subtle', 'text-outline', 'day-card-normal');
+                        
+                        // Re-add dot to active card
+                        const dotDiv = document.createElement('div');
+                        dotDiv.className = 'w-1 h-1 bg-white rounded-full mt-1 indicator-dot';
+                        dayCard.appendChild(dotDiv);
                     };
                 }
 
                 dayCard.innerHTML = `
                     <span class="text-[10px] font-bold uppercase ${isToday ? 'text-white/70' : (isOutOfBounds ? 'text-outline/30' : 'text-outline')}">${dayName}</span>
                     <span class="text-xl font-bold mt-1">${dateNum}</span>
-                    ${isToday ? '<div class="w-1 h-1 bg-white rounded-full mt-1"></div>' : ''}
+                    ${isToday ? '<div class="w-1 h-1 bg-white rounded-full mt-1 indicator-dot"></div>' : ''}
                 `;
                 dayCard.setAttribute('data-date', `${dateNum} ${months[month]} ${year}`.toLowerCase());
 
