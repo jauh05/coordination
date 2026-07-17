@@ -180,12 +180,19 @@
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface">Kata Sandi</label>
                             <div class="relative">
-                                <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="••••••••" required type="password"/>
+                                <input id="pages_pw" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="••••••••" required type="password"/>
                                 <button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline" type="button">
                                     <span class="material-symbols-outlined">visibility</span>
                                 </button>
                             </div>
                             <p class="font-caption text-caption text-on-surface-variant pt-xs">Minimal 8 karakter dengan satu simbol.</p>
+                        </div>
+                        <div class="space-y-xs mt-4">
+                            <label class="font-label-md text-label-md text-on-surface">Konfirmasi Kata Sandi</label>
+                            <div class="relative">
+                                <input id="pages_pw_confirm" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="••••••••" required type="password"/>
+                            </div>
+                            <p id="pages_pw_match_msg" class="font-caption text-caption text-error mt-1 hidden">Kata sandi dan konfirmasi tidak cocok!</p>
                         </div>
                     </div>
                     <div class="mt-xl">
@@ -330,6 +337,10 @@
 
     document.getElementById('registration-form').addEventListener('submit', (e) => {
         e.preventDefault();
+        // Clear storage on submit
+        Object.keys(sessionStorage).forEach(key => {
+            if(key.startsWith('pages_register_')) sessionStorage.removeItem(key);
+        });
         window.location.href = "{{ route('dashboard') }}";
     });
 
@@ -345,5 +356,58 @@
             }
         });
     }
+
+    // Password confirmation logic
+    const pwInputPages = document.getElementById('pages_pw');
+    const pwConfirmInputPages = document.getElementById('pages_pw_confirm');
+    const pwMatchMsgPages = document.getElementById('pages_pw_match_msg');
+
+    function checkPasswordMatchPages() {
+        if (pwConfirmInputPages.value === '') {
+            pwMatchMsgPages.classList.add('hidden');
+            return;
+        }
+        if (pwInputPages.value !== pwConfirmInputPages.value) {
+            pwMatchMsgPages.classList.remove('hidden');
+        } else {
+            pwMatchMsgPages.classList.add('hidden');
+        }
+    }
+    
+    if (pwInputPages && pwConfirmInputPages) {
+        pwInputPages.addEventListener('input', checkPasswordMatchPages);
+        pwConfirmInputPages.addEventListener('input', checkPasswordMatchPages);
+    }
+
+    // Form persistence
+    const allInputsPages = document.querySelectorAll('input:not([type="password"])');
+    // Ensure inputs have names so we can track them
+    allInputsPages.forEach((input, index) => {
+        if (!input.name && !input.id) {
+            input.id = 'pages_input_' + index;
+        }
+    });
+
+    allInputsPages.forEach(input => {
+        const inputName = input.name || input.id;
+        if(!inputName || inputName === '_token') return;
+        
+        const savedValue = sessionStorage.getItem('pages_register_' + inputName);
+        if (savedValue !== null) {
+            if (input.type === 'checkbox' || input.type === 'radio') {
+                input.checked = savedValue === 'true';
+            } else {
+                input.value = savedValue;
+            }
+        }
+        
+        input.addEventListener('input', function() {
+            if (input.type === 'checkbox' || input.type === 'radio') {
+                sessionStorage.setItem('pages_register_' + inputName, input.checked);
+            } else {
+                sessionStorage.setItem('pages_register_' + inputName, input.value);
+            }
+        });
+    });
 </script>
 </body></html>

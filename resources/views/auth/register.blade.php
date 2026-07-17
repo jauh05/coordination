@@ -220,6 +220,7 @@
             <div class="relative">
                 <input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" id="password_confirmation" name="password_confirmation" placeholder="••••••••" type="password" required/>
             </div>
+            <p id="password_match_msg" class="text-[11px] text-danger mt-1 hidden">Kata sandi dan konfirmasi tidak cocok!</p>
         </div>
 
         <div class="pt-stack-md">
@@ -432,6 +433,10 @@
         form.addEventListener('submit', (e) => {
             const btn = e.target.querySelector('button[type="submit"]');
             btn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">progress_activity</span> Memproses...';
+            // Clear storage on submit
+            Object.keys(sessionStorage).forEach(key => {
+                if(key.startsWith('register_')) sessionStorage.removeItem(key);
+            });
         });
 
         const passToggles = document.querySelectorAll('.pass-toggle');
@@ -460,5 +465,51 @@
                 }
             });
         }
+
+        // Password confirmation logic
+        const pwInput = document.getElementById('password');
+        const pwConfirmInput = document.getElementById('password_confirmation');
+        const pwMatchMsg = document.getElementById('password_match_msg');
+
+        function checkPasswordMatch() {
+            if (pwConfirmInput.value === '') {
+                pwMatchMsg.classList.add('hidden');
+                return;
+            }
+            if (pwInput.value !== pwConfirmInput.value) {
+                pwMatchMsg.classList.remove('hidden');
+            } else {
+                pwMatchMsg.classList.add('hidden');
+            }
+        }
+        
+        if (pwInput && pwConfirmInput) {
+            pwInput.addEventListener('input', checkPasswordMatch);
+            pwConfirmInput.addEventListener('input', checkPasswordMatch);
+        }
+
+        // Form persistence
+        const allInputs = document.querySelectorAll('input:not([type="password"])');
+        allInputs.forEach(input => {
+            const inputName = input.name || input.id;
+            if(!inputName || inputName === '_token') return;
+            
+            const savedValue = sessionStorage.getItem('register_' + inputName);
+            if (savedValue !== null) {
+                if (input.type === 'checkbox' || input.type === 'radio') {
+                    input.checked = savedValue === 'true';
+                } else {
+                    input.value = savedValue;
+                }
+            }
+            
+            input.addEventListener('input', function() {
+                if (input.type === 'checkbox' || input.type === 'radio') {
+                    sessionStorage.setItem('register_' + inputName, input.checked);
+                } else {
+                    sessionStorage.setItem('register_' + inputName, input.value);
+                }
+            });
+        });
     </script>
 </body></html>

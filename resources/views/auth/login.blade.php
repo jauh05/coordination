@@ -357,5 +357,36 @@
                 input.parentElement.classList.remove('scale-[1.01]');
             });
         });
+
+        // Form persistence
+        const loginInputs = document.querySelectorAll('input:not([type="password"])');
+        
+        loginInputs.forEach(input => {
+            if (!input.id && !input.name) return;
+            const inputKey = input.id || input.name;
+            const savedValue = sessionStorage.getItem('login_' + inputKey);
+            
+            if (savedValue !== null && input.name !== '_token') {
+                if (input.type === 'checkbox' || input.type === 'radio') {
+                    input.checked = savedValue === 'true';
+                } else {
+                    input.value = savedValue;
+                }
+            }
+            
+            input.addEventListener('input', function() {
+                if (input.type === 'checkbox' || input.type === 'radio') {
+                    sessionStorage.setItem('login_' + inputKey, input.checked);
+                } else {
+                    sessionStorage.setItem('login_' + inputKey, input.value);
+                }
+            });
+        });
+
+        document.getElementById('secure-login-form').addEventListener('submit', function(e) {
+            Object.keys(sessionStorage).forEach(key => {
+                if(key.startsWith('login_')) sessionStorage.removeItem(key);
+            });
+        });
     </script>
 </body></html>
