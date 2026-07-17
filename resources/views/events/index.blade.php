@@ -582,6 +582,7 @@
                     
                     if (isToday) {
                         loadTicketData(dateKey); // load initial data for today
+                        document.getElementById('selected-date-label').innerText = `Detail Input: ${dateNum} ${months[month]} ${year}`;
                     }
 
                     dayCard.onclick = () => {
