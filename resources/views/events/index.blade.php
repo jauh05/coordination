@@ -1,213 +1,15 @@
-<!DOCTYPE html>
+<x-layouts.app title="Events - Gala Tahunan 2024">
 
-<html lang="id"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Flowvent - Gala Tahunan 2024</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-primary-fixed": "#00174b",
-                        "background": "#faf8ff",
-                        "error-container": "#ffdad6",
-                        "on-tertiary-fixed-variant": "#7d2d00",
-                        "on-secondary": "#ffffff",
-                        "on-surface": "#131b2e",
-                        "on-secondary-fixed": "#002113",
-                        "primary-container": "#2563eb",
-                        "on-error-container": "#93000a",
-                        "error": "#ba1a1a",
-                        "tertiary-container": "#bc4800",
-                        "tertiary-fixed-dim": "#ffb596",
-                        "tertiary-fixed": "#ffdbcd",
-                        "tertiary": "#943700",
-                        "surface-container-highest": "#dae2fd",
-                        "on-error": "#ffffff",
-                        "on-tertiary-fixed": "#360f00",
-                        "inverse-primary": "#b4c5ff",
-                        "primary-fixed": "#dbe1ff",
-                        "on-secondary-fixed-variant": "#005236",
-                        "primary": "#004ac6",
-                        "on-primary-fixed-variant": "#003ea8",
-                        "surface": "#faf8ff",
-                        "outline-variant": "#c3c6d7",
-                        "on-background": "#131b2e",
-                        "surface-dim": "#d2d9f4",
-                        "on-tertiary": "#ffffff",
-                        "surface-tint": "#0053db",
-                        "surface-container-high": "#e2e7ff",
-                        "secondary-fixed": "#6ffbbe",
-                        "on-tertiary-container": "#ffede6",
-                        "on-secondary-container": "#00714d",
-                        "inverse-on-surface": "#eef0ff",
-                        "surface-variant": "#dae2fd",
-                        "primary-fixed-dim": "#b4c5ff",
-                        "outline": "#737686",
-                        "surface-bright": "#faf8ff",
-                        "surface-container": "#eaedff",
-                        "on-primary-container": "#eeefff",
-                        "surface-container-low": "#f2f3ff",
-                        "on-primary": "#ffffff",
-                        "secondary-container": "#6cf8bb",
-                        "secondary": "#006c49",
-                        "secondary-fixed-dim": "#4edea3",
-                        "inverse-surface": "#283044",
-                        "surface-container-lowest": "#ffffff",
-                        "on-surface-variant": "#434655",
-                        "border-subtle": "#E2E8F0"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.5rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "2xl": "1rem",
-                        "full": "9999px"
-                    },
-                    "fontFamily": {
-                        "headline": ["Inter", "sans-serif"],
-                        "display": ["Inter", "sans-serif"],
-                        "body": ["Inter", "sans-serif"],
-                        "label": ["Inter", "sans-serif"]
-                    },
-                    "spacing": {
-                        "sidebar-width": "260px",
-                        "margin-page": "32px",
-                        "stack-sm": "8px",
-                        "stack-md": "16px",
-                        "stack-lg": "24px"
-                    }
-                }
-            }
-        }
-    </script>
+@push('styles')
 <style>
-        body { font-family: 'Inter', sans-serif; }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
-        }
-        .custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-    </style>
-</head>
-<body class="bg-background text-on-surface flex min-h-screen">
-<!-- SideNavBar -->
-<aside class="w-sidebar-width h-screen sticky left-0 top-0 bg-surface flex flex-col py-stack-lg px-stack-md gap-stack-sm border-r border-border-subtle">
-<div class="flex items-center gap-3 px-2 mb-8">
-<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
-<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">dashboard</span>
-</div>
-<div>
-<h1 class="text-headline-lg font-bold text-primary leading-tight">Flowvent</h1>
-<p class="text-xs font-label uppercase tracking-widest text-outline">Enterprise Ops</p>
-</div>
-</div>
-<nav class="flex-1 space-y-1">
-<a class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:bg-surface-container-low transition-colors duration-200 rounded-lg group" href="{{ route('dashboard') }}">
-<span class="material-symbols-outlined text-xl group-hover:text-primary">dashboard</span>
-<span class="font-medium text-sm">Dashboard</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-primary font-semibold bg-surface-container-low rounded-lg group" href="{{ route('events') }}">
-<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
-<span class="font-medium text-sm">Events</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:bg-surface-container-low transition-colors duration-200 rounded-lg group" href="{{ route('planning') }}">
-<span class="material-symbols-outlined text-xl group-hover:text-primary">event_note</span>
-<span class="font-medium text-sm">Planning</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:bg-surface-container-low transition-colors duration-200 rounded-lg group" href="{{ route('organization') }}">
-<span class="material-symbols-outlined text-xl group-hover:text-primary">corporate_fare</span>
-<span class="font-medium text-sm">Organization</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:bg-surface-container-low transition-colors duration-200 rounded-lg group" href="{{ route('divisions') }}">
-<span class="material-symbols-outlined text-xl group-hover:text-primary">groups</span>
-<span class="font-medium text-sm">Division</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:bg-surface-container-low transition-colors duration-200 rounded-lg group" href="{{ route('budget') }}">
-<span class="material-symbols-outlined text-xl group-hover:text-primary">payments</span>
-<span class="font-medium text-sm">Budget</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:bg-surface-container-low transition-colors duration-200 rounded-lg group" href="{{ route('approval') }}">
-<span class="material-symbols-outlined text-xl group-hover:text-primary">fact_check</span>
-<span class="font-medium text-sm">Approval</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:bg-surface-container-low transition-colors duration-200 rounded-lg group" href="{{ route('vendors') }}">
-<span class="material-symbols-outlined text-xl group-hover:text-primary">handshake</span>
-<span class="font-medium text-sm">Vendor</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:bg-surface-container-low transition-colors duration-200 rounded-lg group" href="{{ route('documents') }}">
-<span class="material-symbols-outlined text-xl group-hover:text-primary">description</span>
-<span class="font-medium text-sm">Documents</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:bg-surface-container-low transition-colors duration-200 rounded-lg group" href="{{ route('reports') }}">
-<span class="material-symbols-outlined text-xl group-hover:text-primary">analytics</span>
-<span class="font-medium text-sm">Reports</span>
-</a>
-<div class="pt-4 pb-2">
-<p class="px-3 text-[10px] font-bold uppercase tracking-widest text-outline">Lainnya</p>
-</div>
-<a class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:bg-surface-container-low transition-colors duration-200 rounded-lg group" href="{{ route('ai-assistant') }}">
-<span class="material-symbols-outlined text-xl group-hover:text-primary">auto_awesome</span>
-<span class="font-medium text-sm">AI Assistant</span>
-</a>
-</nav>
-<div class="mt-auto border-t border-border-subtle pt-stack-md flex flex-col gap-1">
-<a class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:bg-surface-container-low rounded-lg transition-colors" href="{{ route('support') }}">
-<span class="material-symbols-outlined text-xl">help_outline</span>
-<span class="font-medium text-sm">Support</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2 text-text-secondary hover:bg-surface-container-low rounded-lg transition-colors" href="{{ route('profile.edit') }}">
-<span class="material-symbols-outlined text-xl">settings</span>
-<span class="font-medium text-sm">Settings</span>
-</a>
-</div>
-</aside>
-<main class="flex-1 flex flex-col min-w-0">
-<!-- TopAppBar -->
-<header class="h-16 sticky top-0 z-40 w-full bg-surface/80 backdrop-blur-md border-b border-border-subtle flex justify-between items-center px-margin-page">
-<div class="flex items-center gap-4">
-<nav class="flex items-center text-sm font-medium">
-<span class="text-text-secondary">Semua Acara</span>
-<span class="material-symbols-outlined text-outline mx-2 text-sm">chevron_right</span>
-<span class="text-primary border-b-2 border-primary py-1">Gala Tahunan 2024</span>
-</nav>
-</div>
-<div class="flex items-center gap-6">
-<div class="relative flex items-center bg-surface-container-low px-3 py-1.5 rounded-full border border-outline-variant focus-within:ring-2 focus-within:ring-primary/20">
-<span class="material-symbols-outlined text-outline text-lg">search</span>
-<input class="bg-transparent border-none focus:ring-0 text-sm w-48 ml-2 placeholder:text-outline" placeholder="Cari data operasional..." type="text"/>
-</div>
-<div class="flex items-center gap-4">
-<button class="relative p-2 text-on-surface-variant hover:text-primary transition-colors">
-<span class="material-symbols-outlined">notifications</span>
-<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
-</button>
-<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
-<span class="material-symbols-outlined">auto_awesome</span>
-</button>
-<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant">
-<img class="w-full h-full object-cover" data-alt="Close up professional portrait of a tech-savvy female event coordinator with a friendly smile, wearing a modern business casual outfit, studio lighting with a clean, soft background in the light-mode corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd_zg148cSWsQyRa_MeHJy0ONkOW2pdsiZqk2ViV5QWyv8DDoQ9LGEvwTNCZcM6CeHzkCnUctEdclXNst2qirQUpVIAF99DIdzHBiYl8O0GyevL9gVZbkhUaKzBF87m4wGTCZnmr1M6JLpvF75ohY4rL8QBW8tzXpIPZ_8odvSh84-vOOVLK2OnN_XXSRS-lucfmaWbdGX0ztTQaBxSzAr6c86ot3M6ogZL7I8_dNPQlTockfD1RgkftELsLKXZNJNKEiZEWEU4x8"/>
-</div>
-<button class="bg-primary text-white px-4 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2 hover:bg-primary-container transition-transform active:scale-95 shadow-sm">
-<span class="material-symbols-outlined text-sm">add</span>
-                        Tambah Cepat
-                    </button>
-</div>
-</div>
-</header>
+    .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+</style>
+@endpush
+
 <!-- Dashboard Content -->
 <div class="p-margin-page overflow-y-auto custom-scrollbar flex-1">
 <!-- Page Header Area -->
@@ -242,11 +44,11 @@
 </div>
 <div>
 <p class="text-xs font-medium text-outline uppercase tracking-wider mb-1">Tiket Terjual</p>
-<h3 class="text-2xl font-bold text-on-surface">1,248</h3>
+<h3 id="metric_tiket_terjual" class="text-2xl font-bold text-on-surface">1,248</h3>
 <div class="mt-3 w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
-<div class="bg-primary h-full rounded-full" style="width: 83%;"></div>
+<div id="metric_tiket_terjual_progress" class="bg-primary h-full rounded-full transition-all duration-500" style="width: 83%;"></div>
 </div>
-<p class="text-[11px] text-text-secondary mt-2">83% dari target 1,500</p>
+<p id="metric_tiket_terjual_text" class="text-[11px] text-text-secondary mt-2">83% dari target 1,500</p>
 </div>
 </div>
 <!-- Target Penjualan -->
@@ -258,8 +60,8 @@
 </div>
 <div>
 <p class="text-xs font-medium text-outline uppercase tracking-wider mb-1">Target Penjualan</p>
-<h3 class="text-2xl font-bold text-on-surface">Rp 1.5M</h3>
-<p class="text-sm text-text-secondary mt-2">Sisa Rp 300jt untuk mencapai target</p>
+<h3 id="metric_target_penjualan" class="text-2xl font-bold text-on-surface">Rp 1.5M</h3>
+<p id="metric_target_penjualan_sisa" class="text-sm text-text-secondary mt-2">Sisa Rp 300jt untuk mencapai target</p>
 </div>
 </div>
 <!-- Keuntungan Tiket -->
@@ -271,8 +73,8 @@
 </div>
 <div>
 <p class="text-xs font-medium text-outline uppercase tracking-wider mb-1">Keuntungan Tiket</p>
-<h3 class="text-2xl font-bold text-on-surface">Rp 1.2M</h3>
-<p class="text-[11px] text-text-secondary mt-2">Net: Rp 980jt (Setelah pajak/biaya)</p>
+<h3 id="metric_keuntungan" class="text-2xl font-bold text-on-surface">Rp 1.2M</h3>
+<p id="metric_keuntungan_net" class="text-[11px] text-text-secondary mt-2">Net: Rp 980jt (Setelah pajak/biaya)</p>
 </div>
 </div>
 <!-- Sisa Kuota -->
@@ -284,8 +86,8 @@
 </div>
 <div>
 <p class="text-xs font-medium text-outline uppercase tracking-wider mb-1">Sisa Kuota</p>
-<h3 class="text-2xl font-bold text-on-surface">252 Kursi</h3>
-<p class="text-sm text-error font-medium mt-2">Segera habis (Tier VIP)</p>
+<h3 id="metric_sisa_kuota" class="text-2xl font-bold text-on-surface">252 Kursi</h3>
+<p id="metric_sisa_kuota_status" class="text-sm text-error font-medium mt-2">Segera habis (Tier VIP)</p>
 </div>
 </div></div>
 <!-- Main Interactive Section -->
@@ -537,7 +339,7 @@
 </div>
 </div>
 </div>
-</main>
+@push('scripts')
     <script>
         const calendarRail = document.getElementById('calendar-rail');
         const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
@@ -557,6 +359,82 @@
         let currentDisplayDate = new Date(demoToday); // currently viewed month/year
 
         let currentSelectedDateKey = '';
+        
+        const TICKET_TARGET = 1500;
+        const TARGET_REVENUE = 1500000000; // 1.5 Milyar
+        const PRICES = {
+            presale1: 800000,
+            presale2: 1000000,
+            presale3: 1200000,
+            ots: 1500000
+        };
+
+        function formatRupiah(number) {
+            if (number >= 1000000000) {
+                return 'Rp ' + (number / 1000000000).toFixed(2) + ' Milyar';
+            } else if (number >= 1000000) {
+                return 'Rp ' + (number / 1000000).toFixed(1) + ' Jt';
+            }
+            return 'Rp ' + number.toLocaleString('id-ID');
+        }
+
+        function updateMetrics() {
+            let totalTickets = 0;
+            let totalGross = 0;
+            
+            // Loop through all localStorage to calculate totals
+            for(let i=0; i < localStorage.length; i++){
+                const key = localStorage.key(i);
+                if(key.startsWith('ticketData_')) {
+                    const data = JSON.parse(localStorage.getItem(key));
+                    
+                    const p1 = parseInt(data.presale1) || 0;
+                    const p2 = parseInt(data.presale2) || 0;
+                    const p3 = parseInt(data.presale3) || 0;
+                    const ots = parseInt(data.ots) || 0;
+                    
+                    totalTickets += p1 + p2 + p3 + ots;
+                    
+                    totalGross += (p1 * PRICES.presale1) + (p2 * PRICES.presale2) + (p3 * PRICES.presale3) + (ots * PRICES.ots);
+                }
+            }
+
+            // 1. Tiket Terjual
+            const percentSold = Math.min(100, Math.round((totalTickets / TICKET_TARGET) * 100));
+            document.getElementById('metric_tiket_terjual').innerText = totalTickets.toLocaleString('id-ID');
+            document.getElementById('metric_tiket_terjual_progress').style.width = percentSold + '%';
+            document.getElementById('metric_tiket_terjual_text').innerText = percentSold + '% dari target ' + TICKET_TARGET.toLocaleString('id-ID');
+            
+            // 2. Target Penjualan
+            document.getElementById('metric_target_penjualan').innerText = formatRupiah(totalGross);
+            const remainingTarget = TARGET_REVENUE - totalGross;
+            if (remainingTarget > 0) {
+                document.getElementById('metric_target_penjualan_sisa').innerText = 'Sisa ' + formatRupiah(remainingTarget) + ' untuk mencapai target';
+                document.getElementById('metric_target_penjualan_sisa').className = 'text-sm text-text-secondary mt-2';
+            } else {
+                document.getElementById('metric_target_penjualan_sisa').innerText = 'Target Tercapai!';
+                document.getElementById('metric_target_penjualan_sisa').className = 'text-sm text-success font-bold mt-2';
+            }
+            
+            // 3. Keuntungan Tiket (Mock: Net = 80% Gross)
+            const netProfit = totalGross * 0.8;
+            document.getElementById('metric_keuntungan').innerText = formatRupiah(totalGross);
+            document.getElementById('metric_keuntungan_net').innerText = 'Net: ' + formatRupiah(netProfit) + ' (Setelah pajak/biaya)';
+            
+            // 4. Sisa Kuota
+            const remainingQuota = TICKET_TARGET - totalTickets;
+            document.getElementById('metric_sisa_kuota').innerText = Math.max(0, remainingQuota) + ' Kursi';
+            if (remainingQuota <= 0) {
+                document.getElementById('metric_sisa_kuota_status').innerText = 'Habis Terjual (Sold Out)';
+                document.getElementById('metric_sisa_kuota_status').className = 'text-sm text-success font-bold mt-2';
+            } else if (remainingQuota < 200) {
+                document.getElementById('metric_sisa_kuota_status').innerText = 'Segera habis!';
+                document.getElementById('metric_sisa_kuota_status').className = 'text-sm text-error font-medium mt-2';
+            } else {
+                document.getElementById('metric_sisa_kuota_status').innerText = 'Tersedia';
+                document.getElementById('metric_sisa_kuota_status').className = 'text-sm text-text-secondary mt-2';
+            }
+        }
 
         function loadTicketData(dateKey) {
             currentSelectedDateKey = dateKey;
@@ -584,6 +462,9 @@
             };
             
             localStorage.setItem('ticketData_' + currentSelectedDateKey, JSON.stringify(data));
+            
+            // Update metrics instantly
+            updateMetrics();
             
             // Show short alert/notification
             const btn = document.querySelector('button[onclick="saveTicketData()"]');
@@ -674,6 +555,8 @@
                     }
                 }, 100);
             }
+            
+            updateMetrics();
         }
         
         renderCalendar();
@@ -707,4 +590,5 @@
             // No actual date calc for demo, just visual variety
         }, 1000);
     </script>
-</body></html>
+@endpush
+</x-layouts.app>
