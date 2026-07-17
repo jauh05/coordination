@@ -219,8 +219,10 @@
     <!-- Hero Section -->
     <section class="relative h-[100vh] min-h-[700px] w-full flex flex-col overflow-hidden">
         
-        <!-- Animated Background -->
-        <div class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat bg-animate" style="background-image: url('{{ asset('img/landing.png') }}');"></div>
+        <!-- Animated Video Background -->
+        <video class="absolute inset-0 w-full h-full object-cover" autoplay muted playsinline onended="this.pause()">
+            <source src="{{ asset('img/landing_animasi.mp4') }}" type="video/mp4">
+        </video>
         <!-- Subtle White Gradient Overlay (15-20%) -->
         <div class="absolute inset-0 w-full sm:w-2/3 lg:w-1/2" style="background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.15) 40%, transparent 100%);"></div>
 
