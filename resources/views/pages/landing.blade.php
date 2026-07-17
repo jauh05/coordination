@@ -114,6 +114,29 @@
         }catch(_e){}
     </script>
     <style>
+        @keyframes bgZoomOut {
+            0% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+        .bg-animate {
+            animation: bgZoomOut 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        @keyframes popUp {
+            0% { opacity: 0; transform: translateY(40px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .animate-popup {
+            opacity: 0;
+            animation: popUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+
         @media (min-width: 768px) {
             #hero-glass-panel {
                 background: rgba(255,255,255,0.55);
@@ -194,8 +217,10 @@
 
 <main>
     <!-- Hero Section -->
-    <section class="relative h-[100vh] min-h-[700px] w-full flex flex-col bg-cover bg-center bg-no-repeat overflow-visible" style="background-image: url('{{ asset('img/landing.png') }}');">
+    <section class="relative h-[100vh] min-h-[700px] w-full flex flex-col overflow-hidden">
         
+        <!-- Animated Background -->
+        <div class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat bg-animate" style="background-image: url('{{ asset('img/landing.png') }}');"></div>
         <!-- Subtle White Gradient Overlay (15-20%) -->
         <div class="absolute inset-0 w-full sm:w-2/3 lg:w-1/2" style="background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.15) 40%, transparent 100%);"></div>
 
@@ -204,16 +229,16 @@
             <!-- Hero Content (Glass on desktop only) -->
             <div class="max-w-[560px] md:p-10 md:rounded-[32px] md:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.06)]" style="" id="hero-glass-panel">
                 
-                <h1 class="text-[26px] sm:text-[36px] md:text-[48px] lg:text-[56px] font-extrabold leading-[1.15] tracking-tight mb-3 md:mb-4 text-slate-900">
+                <h1 class="text-[26px] sm:text-[36px] md:text-[48px] lg:text-[56px] font-extrabold leading-[1.15] tracking-tight mb-3 md:mb-4 text-slate-900 animate-popup delay-100">
                     Event Hebat Dimulai dari<br/>
                     Koordinasi yang Tepat
                 </h1>
                 
-                <p class="text-sm sm:text-base md:text-lg leading-relaxed mb-6 md:mb-8 font-medium max-w-md" style="color: rgba(15,23,42,0.82);">
+                <p class="text-sm sm:text-base md:text-lg leading-relaxed mb-6 md:mb-8 font-medium max-w-md animate-popup delay-200" style="color: rgba(15,23,42,0.82);">
                     Kelola setiap detail event dalam satu platform. Pantau progres, anggaran, timeline, vendor, dan seluruh divisi secara real-time untuk membantu meminimalisir risiko kegagalan event.
                 </p>
                 
-                <div class="flex flex-row gap-2 sm:gap-4">
+                <div class="flex flex-row gap-2 sm:gap-4 animate-popup delay-300">
                     <a href="{{ route('register') }}" class="inline-flex items-center justify-center bg-blue-600 text-white px-5 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold shadow-[0_4px_14px_rgba(0,118,255,0.39)] hover:bg-blue-700 hover:shadow-[0_6px_20px_rgba(0,118,255,0.23)] transition-all text-xs sm:text-base whitespace-nowrap">
                         Mulai Sekarang
                     </a>
@@ -231,7 +256,7 @@
             <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
                 
                 <!-- Card 1 -->
-                <div class="p-5 flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-transform cursor-default" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 24px;">
+                <div class="p-5 flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-transform cursor-default animate-popup delay-200" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 24px;">
                     <div class="w-10 h-10 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800 shrink-0">
                         <span class="material-symbols-outlined text-[20px]">shield_locked</span>
                     </div>
@@ -242,7 +267,7 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="p-5 flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-transform cursor-default" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 24px;">
+                <div class="p-5 flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-transform cursor-default animate-popup delay-300" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 24px;">
                     <div class="w-10 h-10 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800 shrink-0">
                         <span class="material-symbols-outlined text-[20px]">monitoring</span>
                     </div>
@@ -253,7 +278,7 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="p-5 flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-transform cursor-default" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 24px;">
+                <div class="p-5 flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-transform cursor-default animate-popup delay-400" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 24px;">
                     <div class="w-10 h-10 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800 shrink-0">
                         <span class="material-symbols-outlined text-[20px]">groups</span>
                     </div>
@@ -264,7 +289,7 @@
                 </div>
 
                 <!-- Card 4 -->
-                <div class="p-5 flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-transform cursor-default" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 24px;">
+                <div class="p-5 flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-transform cursor-default animate-popup delay-500" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 24px;">
                     <div class="w-10 h-10 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800 shrink-0">
                         <span class="material-symbols-outlined text-[20px]">auto_graph</span>
                     </div>
@@ -277,7 +302,7 @@
             </div>
             <!-- Mobile: horizontal scroll -->
             <div class="flex md:hidden gap-3 overflow-x-auto pb-2 -mx-2 px-2 snap-x snap-mandatory" style="-webkit-overflow-scrolling: touch;">
-                <div class="p-4 flex items-center gap-3 snap-start shrink-0 w-[200px]" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px;">
+                <div class="p-4 flex items-center gap-3 snap-start shrink-0 w-[200px] animate-popup delay-200" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px;">
                     <div class="w-9 h-9 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800 shrink-0">
                         <span class="material-symbols-outlined text-[18px]">shield_locked</span>
                     </div>
@@ -286,7 +311,7 @@
                         <p class="text-[10px] text-slate-700">Data aman</p>
                     </div>
                 </div>
-                <div class="p-4 flex items-center gap-3 snap-start shrink-0 w-[200px]" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px;">
+                <div class="p-4 flex items-center gap-3 snap-start shrink-0 w-[200px] animate-popup delay-300" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px;">
                     <div class="w-9 h-9 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800 shrink-0">
                         <span class="material-symbols-outlined text-[18px]">monitoring</span>
                     </div>
@@ -295,7 +320,7 @@
                         <p class="text-[10px] text-slate-700">Progres instan</p>
                     </div>
                 </div>
-                <div class="p-4 flex items-center gap-3 snap-start shrink-0 w-[200px]" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px;">
+                <div class="p-4 flex items-center gap-3 snap-start shrink-0 w-[200px] animate-popup delay-400" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px;">
                     <div class="w-9 h-9 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800 shrink-0">
                         <span class="material-symbols-outlined text-[18px]">groups</span>
                     </div>
@@ -304,7 +329,7 @@
                         <p class="text-[10px] text-slate-700">Terhubung</p>
                     </div>
                 </div>
-                <div class="p-4 flex items-center gap-3 snap-start shrink-0 w-[200px]" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px;">
+                <div class="p-4 flex items-center gap-3 snap-start shrink-0 w-[200px] animate-popup delay-500" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px;">
                     <div class="w-9 h-9 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800 shrink-0">
                         <span class="material-symbols-outlined text-[18px]">auto_graph</span>
                     </div>
