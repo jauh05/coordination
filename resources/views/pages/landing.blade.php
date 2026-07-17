@@ -199,25 +199,25 @@
         <!-- Subtle White Gradient Overlay (15-20%) -->
         <div class="absolute inset-0 w-full sm:w-2/3 lg:w-1/2" style="background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.15) 40%, transparent 100%);"></div>
 
-        <div class="relative z-10 w-full max-w-[1536px] mx-auto px-6 lg:px-gutter flex-1 flex flex-col justify-center pt-4 md:pt-[92px]">
+        <div class="relative z-10 w-full max-w-[1536px] mx-auto px-6 lg:px-gutter flex-1 flex flex-col items-start justify-start pt-[100px] md:justify-center md:pt-[92px]">
             
             <!-- Hero Content (Glass on desktop only) -->
             <div class="max-w-[560px] md:p-10 md:rounded-[32px] md:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.06)]" style="" id="hero-glass-panel">
                 
-                <h1 class="text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] font-extrabold leading-[1.1] tracking-tight mb-4 text-slate-900">
-                    Operasional Event <br/>
-                    Tanpa Resiko.
+                <h1 class="text-[26px] sm:text-[36px] md:text-[48px] lg:text-[56px] font-extrabold leading-[1.15] tracking-tight mb-3 md:mb-4 text-slate-900">
+                    Event Hebat Dimulai dari<br/>
+                    Koordinasi yang Tepat
                 </h1>
                 
-                <p class="text-base sm:text-lg leading-relaxed mb-8 font-medium max-w-md" style="color: rgba(15,23,42,0.82);">
-                    Ubah kompleksitas logistik menjadi presisi militer. Coordination memantau kesehatan event Anda secara real-time.
+                <p class="text-sm sm:text-base md:text-lg leading-relaxed mb-6 md:mb-8 font-medium max-w-md" style="color: rgba(15,23,42,0.82);">
+                    Kelola setiap detail event dalam satu platform. Pantau progres, anggaran, timeline, vendor, dan seluruh divisi secara real-time untuk membantu meminimalisir risiko kegagalan event.
                 </p>
                 
-                <div class="flex flex-row gap-3 sm:gap-4">
-                    <a href="{{ route('register') }}" class="inline-flex items-center justify-center bg-blue-600 text-white px-7 sm:px-8 py-3.5 rounded-full font-bold shadow-[0_4px_14px_rgba(0,118,255,0.39)] hover:bg-blue-700 hover:shadow-[0_6px_20px_rgba(0,118,255,0.23)] transition-all text-sm sm:text-base">
-                        Mulai Merencanakan
+                <div class="flex flex-row gap-2 sm:gap-4">
+                    <a href="{{ route('register') }}" class="inline-flex items-center justify-center bg-blue-600 text-white px-5 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold shadow-[0_4px_14px_rgba(0,118,255,0.39)] hover:bg-blue-700 hover:shadow-[0_6px_20px_rgba(0,118,255,0.23)] transition-all text-xs sm:text-base whitespace-nowrap">
+                        Mulai Sekarang
                     </a>
-                    <button class="inline-flex items-center justify-center px-7 sm:px-8 py-3.5 rounded-full text-slate-900 font-bold transition-all hover:bg-white/40 bg-white/20 border border-white/40 text-sm sm:text-base" style="backdrop-filter: blur(10px);">
+                    <button class="inline-flex items-center justify-center px-5 sm:px-8 py-3 sm:py-3.5 rounded-full text-slate-900 font-bold transition-all hover:bg-white/40 bg-white/20 border border-white/40 text-xs sm:text-base whitespace-nowrap" style="backdrop-filter: blur(10px);">
                         Lihat Demo
                     </button>
                 </div>
