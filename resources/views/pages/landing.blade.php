@@ -156,123 +156,109 @@
 
 <main class="pt-xxl">
     <!-- Hero Section -->
-    <section class="relative overflow-hidden px-gutter py-xxl md:py-[120px] max-w-[1536px] mx-auto">
-        <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none"></div>
-        <div class="grid lg:grid-cols-2 gap-xxl items-center relative z-10">
-            <div class="space-y-lg">
-                <div class="absolute -inset-4 bg-primary/20 blur-3xl rounded-full pointer-events-none -z-10 animate-pulse duration-3000"></div>
-                
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50/80 dark:bg-blue-900/20 text-primary dark:text-blue-300 rounded-full border border-blue-100 dark:border-blue-800/50 shadow-sm backdrop-blur-sm mb-2 transform hover:scale-105 transition-transform cursor-default">
-                    <div class="w-2 h-2 rounded-full bg-primary animate-ping absolute opacity-75"></div>
-                    <div class="w-2 h-2 rounded-full bg-primary relative"></div>
-                    <span class="font-bold text-xs tracking-wider uppercase">Mission Control Elite</span>
+    <section class="relative h-screen min-h-[800px] w-full flex items-center bg-cover bg-center bg-no-repeat overflow-hidden" style="background-image: url('{{ asset('img/landing.png') }}');">
+        
+        <!-- Premium Gradient Overlay for Readability -->
+        <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent sm:w-2/3 lg:w-[55%]"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent lg:hidden"></div>
+
+        <div class="relative z-10 w-full max-w-[1536px] mx-auto px-gutter flex flex-col justify-center h-full pt-16">
+            
+            <div class="max-w-2xl mt-12 md:mt-0">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/60 backdrop-blur-md text-primary rounded-full border border-white/50 shadow-sm mb-6">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    </span>
+                    <span class="text-xs font-bold tracking-widest uppercase">Koordinasi Era Baru</span>
                 </div>
                 
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.1] tracking-tight mb-6">
-                    <span class="text-slate-800 dark:text-white block mb-2">
-                        Operasional Event
-                    </span>
-                    <span class="relative inline-block">
-                        <span class="text-primary">
-                            Tanpa Resiko.
-                        </span>
-                        <svg class="absolute w-full h-3 -bottom-2 left-0 text-primary/40" viewBox="0 0 100 10" preserveAspectRatio="none">
-                            <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="4" fill="transparent"/>
-                        </svg>
-                    </span>
+                <h1 class="text-4xl md:text-5xl lg:text-[64px] font-extrabold leading-[1.05] tracking-tight mb-6 text-slate-900 drop-shadow-sm">
+                    Operasional Event <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">Tanpa Resiko.</span>
                 </h1>
                 
-                <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed mb-8 font-medium">
-                    Ubah kompleksitas logistik menjadi <span class="text-primary font-semibold">presisi militer</span>. Coordination memantau kesehatan event Anda secara real-time, mencegah budget bocor, dan memastikan Riders terpenuhi 100%.
+                <p class="text-lg md:text-xl text-slate-800 max-w-xl leading-relaxed mb-10 font-medium drop-shadow-sm">
+                    Ubah kompleksitas logistik menjadi presisi militer. Coordination memantau kesehatan event Anda secara real-time, mencegah budget bocor, dan memastikan persiapan terpenuhi 100%.
                 </p>
                 
-                <div class="flex flex-wrap gap-4 pt-2">
-                    <a href="{{ route('register') }}" class="group relative inline-flex items-center justify-center bg-primary text-white px-8 py-4 rounded-full font-bold text-lg overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(0,82,204,0.5)]">
-                        <div class="absolute inset-0 bg-primary transition-all group-hover:scale-110"></div>
-                        <span class="relative flex items-center gap-2">
-                            Mulai Mission Control
-                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                        </span>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="{{ route('register') }}" class="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-bold text-lg shadow-[0_8px_30px_rgb(0,74,198,0.3)] hover:shadow-[0_8px_30px_rgb(0,74,198,0.5)] hover:-translate-y-1 transition-all duration-300">
+                        Mulai Merencanakan Event
+                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
                     </a>
-                    <button class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-slate-200 text-slate-700 font-bold text-lg hover:bg-slate-50 hover:border-slate-300 transition-all dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
-                        <span class="material-symbols-outlined text-primary">play_circle</span> 
+                    <button class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/70 backdrop-blur-md border border-slate-200/50 text-slate-900 font-bold text-lg shadow-sm hover:bg-white hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                        <span class="material-symbols-outlined text-primary text-[24px]">play_circle</span> 
                         Lihat Demo
                     </button>
                 </div>
             </div>
-            
-            <!-- Hero Dashboard Visual -->
-            <div class="relative group">
-                <div class="absolute -inset-4 bg-primary/5 rounded-[32px] blur-3xl group-hover:bg-primary/10 transition-colors"></div>
-                <div class="glass-card rounded-[24px] p-lg shadow-2xl relative border-outline-variant/40" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(226, 228, 231, 0.5);">
-                    <div class="flex items-center justify-between mb-lg">
-                        <div class="flex items-center gap-sm">
-                            <div class="w-3 h-3 rounded-full bg-error"></div>
-                            <div class="w-3 h-3 rounded-full bg-warning-amber"></div>
-                            <div class="w-3 h-3 rounded-full bg-success-emerald"></div>
+
+            <!-- Floating Feature Bar (Bottom) -->
+            <div class="absolute bottom-8 lg:bottom-12 left-0 right-0 px-gutter w-full max-w-[1536px] mx-auto">
+                <div class="glass-card rounded-3xl p-4 lg:p-6 backdrop-blur-xl border border-white/50 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] bg-white/70 hidden md:flex items-center justify-between gap-4">
+                    
+                    <div class="flex items-center gap-3 group cursor-default">
+                        <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-[20px] lg:text-[24px]">shield_locked</span>
                         </div>
-                        <div class="px-md py-xs bg-surface-container rounded-full text-caption font-bold text-primary">MISSION CONTROL LIVE</div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-md">
-                        <div class="p-md bg-white/10 backdrop-blur-md rounded-xl border border-white/20 space-y-sm">
-                            <div class="flex items-center gap-2 text-primary">
-                                <span class="material-symbols-outlined text-[20px]">flight_takeoff</span>
-                                <span class="font-label-md">Logistik Tamu</span>
-                            </div>
-                            <div class="flex justify-between items-end">
-                                <div class="text-headline-sm font-bold">12</div>
-                                <div class="px-sm py-xs bg-warning-amber/20 text-warning-amber rounded text-[10px] font-bold">TIBA</div>
-                            </div>
-                            <div class="flex justify-between items-end">
-                                <div class="text-headline-sm font-bold">45</div>
-                                <div class="px-sm py-xs bg-success-emerald/20 text-success-emerald rounded text-[10px] font-bold">TERKONFIRMASI</div>
-                            </div>
-                        </div>
-                        <div class="p-md bg-white/10 backdrop-blur-md rounded-xl border border-white/20 space-y-sm">
-                            <div class="flex items-center gap-2 text-primary">
-                                <span class="material-symbols-outlined text-[20px]">payments</span>
-                                <span class="font-label-md">Kesehatan Keuangan</span>
-                            </div>
-                            <div class="space-y-xs">
-                                <div class="flex justify-between text-[10px]">
-                                    <span class="">Laju Pengeluaran</span>
-                                    <span class="text-success-emerald">Optimal</span>
-                                </div>
-                                <div class="flex gap-1 h-4 items-end">
-                                    <div class="flex-grow bg-primary/40 h-1/2 rounded-t-sm"></div>
-                                    <div class="flex-grow bg-primary/60 h-3/4 rounded-t-sm"></div>
-                                    <div class="flex-grow bg-primary h-full rounded-t-sm"></div>
-                                    <div class="flex-grow bg-primary/30 h-1/3 rounded-t-sm"></div>
-                                    <div class="flex-grow bg-primary/80 h-2/3 rounded-t-sm"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-span-2 p-md bg-primary/5 rounded-xl border border-primary/10">
-                            <div class="flex items-center justify-between mb-sm">
-                                <div class="flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-primary">theater_comedy</span>
-                                    <span class="font-label-md">Panggung & Produksi</span>
-                                </div>
-                                <span class="text-caption text-success-emerald font-bold">85% Siap</span>
-                            </div>
-                            <div class="w-full bg-outline-variant/20 h-1.5 rounded-full overflow-hidden">
-                                <div class="bg-primary h-full w-[85%]"></div>
-                            </div>
-                            <div class="flex gap-md mt-sm">
-                                <div class="flex items-center gap-1 text-[10px]">
-                                    <span class="material-symbols-outlined text-[14px] text-success-emerald">check_circle</span> Cek Audio
-                                </div>
-                                <div class="flex items-center gap-1 text-[10px]">
-                                    <span class="material-symbols-outlined text-[14px] text-success-emerald">check_circle</span> Rangka Pencahayaan
-                                </div>
-                                <div class="flex items-center gap-1 text-[10px]">
-                                    <span class="material-symbols-outlined text-[14px] text-outline">pending</span> Dinding LED
-                                </div>
-                            </div>
+                        <div>
+                            <p class="font-bold text-slate-900 text-xs lg:text-sm">Aman & Terpercaya</p>
+                            <p class="text-[10px] lg:text-xs text-slate-600 font-medium">Data event aman</p>
                         </div>
                     </div>
+                    
+                    <div class="w-px h-10 bg-slate-300/50"></div>
+
+                    <div class="flex items-center gap-3 group cursor-default">
+                        <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-blue-500 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-[20px] lg:text-[24px]">monitoring</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-900 text-xs lg:text-sm">Real-time Monitoring</p>
+                            <p class="text-[10px] lg:text-xs text-slate-600 font-medium">Pantau progres instan</p>
+                        </div>
+                    </div>
+
+                    <div class="w-px h-10 bg-slate-300/50"></div>
+
+                    <div class="flex items-center gap-3 group cursor-default">
+                        <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-emerald-500 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-[20px] lg:text-[24px]">groups</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-900 text-xs lg:text-sm">Koordinasi Tim</p>
+                            <p class="text-[10px] lg:text-xs text-slate-600 font-medium">Semua terhubung</p>
+                        </div>
+                    </div>
+
+                    <div class="w-px h-10 bg-slate-300/50"></div>
+
+                    <div class="flex items-center gap-3 group cursor-default">
+                        <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-amber-500 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-[20px] lg:text-[24px]">auto_graph</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-900 text-xs lg:text-sm">Laporan Otomatis</p>
+                            <p class="text-[10px] lg:text-xs text-slate-600 font-medium">Cepat & akurat</p>
+                        </div>
+                    </div>
+
+                    <div class="w-px h-10 bg-slate-300/50"></div>
+
+                    <div class="flex items-center gap-3 group cursor-default">
+                        <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-purple-500 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-[20px] lg:text-[24px]">smart_toy</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-900 text-xs lg:text-sm">AI Assistant</p>
+                            <p class="text-[10px] lg:text-xs text-slate-600 font-medium">Bantuan pintar</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+            
         </div>
     </section>
 
