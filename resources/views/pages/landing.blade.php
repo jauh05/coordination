@@ -137,6 +137,16 @@
         .delay-400 { animation-delay: 0.4s; }
         .delay-500 { animation-delay: 0.5s; }
 
+        @keyframes panHorizontal {
+            0% { object-position: 10% center; background-position: 10% center; }
+            100% { object-position: 90% center; background-position: 90% center; }
+        }
+        @media (max-width: 767px) {
+            .mobile-pan {
+                animation: panHorizontal 25s ease-in-out infinite alternate;
+            }
+        }
+
         @media (min-width: 768px) {
             #hero-glass-panel {
                 background: rgba(255,255,255,0.55);
@@ -220,16 +230,16 @@
     <section class="relative h-[100vh] min-h-[700px] w-full flex flex-col overflow-hidden">
         
         <!-- Static Background (Revealed after video) -->
-        <div class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset('img/landing.png') }}');"></div>
+        <div class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat mobile-pan" style="background-image: url('{{ asset('img/landing.png') }}');"></div>
         
         <!-- Animated Video Background -->
-        <video id="hero-video" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" autoplay muted playsinline onended="this.classList.add('opacity-0'); setTimeout(() => this.remove(), 1000);">
+        <video id="hero-video" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 mobile-pan" autoplay muted playsinline onended="this.classList.add('opacity-0'); setTimeout(() => this.remove(), 1000);">
             <source src="{{ asset('img/landing_animasi.mp4') }}" type="video/mp4">
         </video>
         <!-- Subtle White Gradient Overlay (15-20%) -->
         <div class="absolute inset-0 w-full sm:w-2/3 lg:w-1/2" style="background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.15) 40%, transparent 100%);"></div>
 
-        <div class="relative z-10 w-full max-w-[1536px] mx-auto px-6 lg:px-gutter flex-1 flex flex-col items-start justify-start pt-[100px] md:justify-center md:pt-[92px]">
+        <div class="relative z-10 w-full max-w-[1536px] mx-auto px-6 lg:px-gutter flex-1 flex flex-col items-start justify-start pt-[160px] md:justify-center md:pt-[92px]">
             
             <!-- Hero Content (Glass on desktop only) -->
             <div class="max-w-[560px] md:p-10 md:rounded-[32px] md:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.06)]" style="" id="hero-glass-panel">
