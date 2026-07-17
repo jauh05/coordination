@@ -116,150 +116,128 @@
 </head>
 <body class="bg-background text-on-background font-body-md selection:bg-primary/20">
 
-<!-- TopNavBar -->
-<header class="fixed top-0 w-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl border-b border-slate-200/50 dark:border-slate-700/50 shadow-sm z-50 transition-all duration-300">
-    <div class="flex justify-between items-center px-gutter py-md max-w-[1536px] mx-auto">
+<!-- TopNavBar (Floating Glass Navigation) -->
+<header class="fixed top-[20px] left-1/2 -translate-x-1/2 w-[90%] h-[72px] z-50 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.05)] transition-all duration-300 flex items-center" style="background: rgba(255,255,255,0.12); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,0.25);">
+    <div class="flex justify-between items-center w-full px-8">
         <a href="/" class="text-title-md font-title-md font-bold flex items-center gap-2 group">
-            <div class="bg-primary text-white p-1.5 rounded-lg group-hover:scale-105 transition-transform shadow-md">
+            <div class="bg-primary text-white p-1.5 rounded-full group-hover:scale-105 transition-transform shadow-md">
                 <span class="material-symbols-outlined text-[20px] block">hub</span>
             </div>
-            <span class="text-primary dark:text-blue-400 tracking-tight">Coordination</span>
+            <span class="text-slate-900 font-extrabold tracking-tight">Coordination</span>
         </a>
-        <nav class="hidden md:flex gap-xl">
-            <a class="relative text-primary font-semibold font-body-md text-body-md group" href="{{ route('fitur') }}">
+        <nav class="hidden lg:flex gap-8">
+            <a class="relative text-slate-900 font-semibold text-sm group" href="{{ route('fitur') }}">
                 Fitur
                 <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
             </a>
-            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="{{ route('solutions') }}">
+            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('solutions') }}">
                 Solusi
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="{{ route('pricing') }}">
+            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('pricing') }}">
                 Harga
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="{{ route('tentang') }}">
+            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('tentang') }}">
                 Tentang
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="{{ route('kontak') }}">
+            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('kontak') }}">
                 Kontak
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
         </nav>
-        <div class="flex items-center gap-2 md:gap-md">
-            <a href="{{ route('login') }}" class="text-on-surface-variant font-medium hover:text-primary px-2 md:px-md py-sm transition-all duration-200 hover:bg-primary/5 rounded-lg active:scale-95 inline-block text-center text-[13px] md:text-base whitespace-nowrap">Login</a>
-            <a href="{{ route('register') }}" class="bg-primary text-on-primary px-3 md:px-lg py-1.5 md:py-sm rounded-full font-bold hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 inline-block text-center border border-transparent hover:border-white/20 whitespace-nowrap text-[13px] md:text-base">Get Started</a>
+        <div class="flex items-center gap-3">
+            <a href="{{ route('login') }}" class="text-slate-800/90 font-medium hover:text-slate-900 px-4 py-2 transition-all duration-200 hover:bg-white/20 rounded-full active:scale-95 text-sm">Login</a>
+            <a href="{{ route('register') }}" class="bg-primary text-white px-5 py-2.5 rounded-full font-bold hover:shadow-[0_4px_14px_rgba(0,118,255,0.39)] hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-sm">Get Started</a>
         </div>
     </div>
 </header>
 
-<main class="pt-xxl">
+<main>
     <!-- Hero Section -->
-    <section class="relative h-screen min-h-[800px] w-full flex items-center bg-cover bg-center bg-no-repeat overflow-hidden" style="background-image: url('{{ asset('img/landing.png') }}');">
+    <section class="relative h-[100vh] min-h-[800px] w-full flex flex-col bg-cover bg-center bg-no-repeat overflow-hidden" style="background-image: url('{{ asset('img/landing.png') }}');">
         
-        <!-- Premium Gradient Overlay for Readability -->
-        <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent sm:w-2/3 lg:w-[55%]"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent lg:hidden"></div>
+        <!-- Subtle White Gradient Overlay (15-20%) -->
+        <div class="absolute inset-0 w-full sm:w-2/3 lg:w-1/2" style="background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.15) 40%, transparent 100%);"></div>
 
-        <div class="relative z-10 w-full max-w-[1536px] mx-auto px-gutter flex flex-col justify-center h-full pt-16">
+        <div class="relative z-10 w-full max-w-[1536px] mx-auto px-gutter flex-1 flex flex-col justify-center" style="padding-top: 80px;">
             
-            <div class="max-w-2xl mt-12 md:mt-0">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/60 backdrop-blur-md text-primary rounded-full border border-white/50 shadow-sm mb-6">
-                    <span class="relative flex h-2 w-2">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                    </span>
-                    <span class="text-xs font-bold tracking-widest uppercase">Koordinasi Era Baru</span>
-                </div>
+            <!-- Hero Content Glass Panel -->
+            <div class="max-w-[560px] p-8 md:p-12 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)]" style="background: rgba(255,255,255,0.18); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.35); border-radius: 32px;">
                 
-                <h1 class="text-4xl md:text-5xl lg:text-[64px] font-extrabold leading-[1.05] tracking-tight mb-6 text-slate-900 drop-shadow-sm">
+                <h1 class="text-[40px] md:text-[52px] lg:text-[64px] font-extrabold leading-[1.1] tracking-tight mb-4 text-slate-900">
                     Operasional Event <br/>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">Tanpa Resiko.</span>
+                    Tanpa Resiko.
                 </h1>
                 
-                <p class="text-lg md:text-xl text-slate-800 max-w-xl leading-relaxed mb-10 font-medium drop-shadow-sm">
-                    Ubah kompleksitas logistik menjadi presisi militer. Coordination memantau kesehatan event Anda secara real-time, mencegah budget bocor, dan memastikan persiapan terpenuhi 100%.
+                <p class="text-lg leading-relaxed mb-8 font-medium max-w-md" style="color: rgba(15,23,42,0.82);">
+                    Ubah kompleksitas logistik menjadi presisi militer. Coordination memantau kesehatan event Anda secara real-time.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="{{ route('register') }}" class="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-bold text-lg shadow-[0_8px_30px_rgb(0,74,198,0.3)] hover:shadow-[0_8px_30px_rgb(0,74,198,0.5)] hover:-translate-y-1 transition-all duration-300">
-                        Mulai Merencanakan Event
-                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                    <a href="{{ route('register') }}" class="inline-flex items-center justify-center bg-blue-600 text-white px-8 py-3.5 rounded-full font-bold shadow-[0_4px_14px_rgba(0,118,255,0.39)] hover:bg-blue-700 hover:shadow-[0_6px_20px_rgba(0,118,255,0.23)] transition-all">
+                        Mulai Merencanakan
                     </a>
-                    <button class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/70 backdrop-blur-md border border-slate-200/50 text-slate-900 font-bold text-lg shadow-sm hover:bg-white hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                        <span class="material-symbols-outlined text-primary text-[24px]">play_circle</span> 
+                    <button class="inline-flex items-center justify-center px-8 py-3.5 rounded-full text-slate-900 font-bold transition-all hover:bg-white/40" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(10px);">
                         Lihat Demo
                     </button>
                 </div>
             </div>
 
-            <!-- Floating Feature Bar (Bottom) -->
-            <div class="absolute bottom-8 lg:bottom-12 left-0 right-0 px-gutter w-full max-w-[1536px] mx-auto">
-                <div class="glass-card rounded-3xl p-4 lg:p-6 backdrop-blur-xl border border-white/50 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] bg-white/70 hidden md:flex items-center justify-between gap-4">
-                    
-                    <div class="flex items-center gap-3 group cursor-default">
-                        <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-[20px] lg:text-[24px]">shield_locked</span>
-                        </div>
-                        <div>
-                            <p class="font-bold text-slate-900 text-xs lg:text-sm">Aman & Terpercaya</p>
-                            <p class="text-[10px] lg:text-xs text-slate-600 font-medium">Data event aman</p>
-                        </div>
-                    </div>
-                    
-                    <div class="w-px h-10 bg-slate-300/50"></div>
-
-                    <div class="flex items-center gap-3 group cursor-default">
-                        <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-blue-500 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-[20px] lg:text-[24px]">monitoring</span>
-                        </div>
-                        <div>
-                            <p class="font-bold text-slate-900 text-xs lg:text-sm">Real-time Monitoring</p>
-                            <p class="text-[10px] lg:text-xs text-slate-600 font-medium">Pantau progres instan</p>
-                        </div>
-                    </div>
-
-                    <div class="w-px h-10 bg-slate-300/50"></div>
-
-                    <div class="flex items-center gap-3 group cursor-default">
-                        <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-emerald-500 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-[20px] lg:text-[24px]">groups</span>
-                        </div>
-                        <div>
-                            <p class="font-bold text-slate-900 text-xs lg:text-sm">Koordinasi Tim</p>
-                            <p class="text-[10px] lg:text-xs text-slate-600 font-medium">Semua terhubung</p>
-                        </div>
-                    </div>
-
-                    <div class="w-px h-10 bg-slate-300/50"></div>
-
-                    <div class="flex items-center gap-3 group cursor-default">
-                        <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-amber-500 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-[20px] lg:text-[24px]">auto_graph</span>
-                        </div>
-                        <div>
-                            <p class="font-bold text-slate-900 text-xs lg:text-sm">Laporan Otomatis</p>
-                            <p class="text-[10px] lg:text-xs text-slate-600 font-medium">Cepat & akurat</p>
-                        </div>
-                    </div>
-
-                    <div class="w-px h-10 bg-slate-300/50"></div>
-
-                    <div class="flex items-center gap-3 group cursor-default">
-                        <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-purple-500 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-[20px] lg:text-[24px]">smart_toy</span>
-                        </div>
-                        <div>
-                            <p class="font-bold text-slate-900 text-xs lg:text-sm">AI Assistant</p>
-                            <p class="text-[10px] lg:text-xs text-slate-600 font-medium">Bantuan pintar</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            
         </div>
+
+        <!-- Floating Feature Cards (Bottom Overlap) -->
+        <div class="absolute -bottom-8 left-0 right-0 px-gutter w-full max-w-[1536px] mx-auto z-20">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                
+                <!-- Card 1 -->
+                <div class="p-5 flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-transform cursor-default" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 24px;">
+                    <div class="w-10 h-10 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800">
+                        <span class="material-symbols-outlined text-[20px]">shield_locked</span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-900 text-sm">Aman & Terpercaya</p>
+                        <p class="text-[11px] text-slate-700 font-medium">Data terenkripsi penuh</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="p-5 flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-transform cursor-default" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 24px;">
+                    <div class="w-10 h-10 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800">
+                        <span class="material-symbols-outlined text-[20px]">monitoring</span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-900 text-sm">Real-time Monitor</p>
+                        <p class="text-[11px] text-slate-700 font-medium">Pantau progres instan</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="p-5 flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-transform cursor-default" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 24px;">
+                    <div class="w-10 h-10 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800">
+                        <span class="material-symbols-outlined text-[20px]">groups</span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-900 text-sm">Koordinasi Tim</p>
+                        <p class="text-[11px] text-slate-700 font-medium">Konektivitas terpusat</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="p-5 flex items-center gap-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-transform cursor-default" style="background: rgba(255,255,255,0.22); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 24px;">
+                    <div class="w-10 h-10 rounded-full bg-white/70 shadow-sm flex items-center justify-center text-slate-800">
+                        <span class="material-symbols-outlined text-[20px]">auto_graph</span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-900 text-sm">Laporan Otomatis</p>
+                        <p class="text-[11px] text-slate-700 font-medium">Akurat tanpa jeda</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
     </section>
 
     <!-- Value Proposition / Scenarios -->
