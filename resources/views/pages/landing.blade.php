@@ -113,6 +113,16 @@
             }
         }catch(_e){}
     </script>
+    <style>
+        @media (min-width: 768px) {
+            #hero-glass-panel {
+                background: rgba(255,255,255,0.55);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255,255,255,0.45);
+            }
+        }
+    </style>
 </head>
 <body class="bg-background text-on-background font-body-md selection:bg-primary/20">
 
@@ -161,7 +171,7 @@
 <!-- Mobile Menu Overlay -->
 <div id="mobile-menu" class="fixed inset-0 z-[60] hidden">
     <div class="absolute inset-0 bg-black/30 backdrop-blur-sm" id="mobile-menu-backdrop"></div>
-    <div class="absolute top-0 right-0 w-[280px] h-full bg-white shadow-2xl p-8 flex flex-col gap-6 transform translate-x-full transition-transform duration-300" id="mobile-menu-panel">
+    <div class="absolute top-0 right-0 w-[280px] h-full shadow-2xl p-8 flex flex-col gap-6 transform translate-x-full transition-transform duration-300" id="mobile-menu-panel" style="background: rgba(255,255,255,0.65); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-left: 1px solid rgba(255,255,255,0.3);">
         <div class="flex justify-between items-center mb-4">
             <span class="font-extrabold text-slate-900 text-lg">Menu</span>
             <button id="mobile-menu-close" class="w-10 h-10 rounded-full hover:bg-slate-100 flex items-center justify-center transition-colors">
@@ -189,10 +199,10 @@
         <!-- Subtle White Gradient Overlay (15-20%) -->
         <div class="absolute inset-0 w-full sm:w-2/3 lg:w-1/2" style="background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.15) 40%, transparent 100%);"></div>
 
-        <div class="relative z-10 w-full max-w-[1536px] mx-auto px-6 lg:px-gutter flex-1 flex flex-col justify-center" style="padding-top: 92px;">
+        <div class="relative z-10 w-full max-w-[1536px] mx-auto px-6 lg:px-gutter flex-1 flex flex-col justify-center pt-20 md:pt-[92px]">
             
-            <!-- Hero Content (NO Glass) -->
-            <div class="max-w-[560px]">
+            <!-- Hero Content (Glass on desktop only) -->
+            <div class="max-w-[560px] md:p-10 md:rounded-[32px] md:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.06)]" style="" id="hero-glass-panel">
                 
                 <h1 class="text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] font-extrabold leading-[1.1] tracking-tight mb-4 text-slate-900">
                     Operasional Event <br/>
@@ -203,7 +213,7 @@
                     Ubah kompleksitas logistik menjadi presisi militer. Coordination memantau kesehatan event Anda secara real-time.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row gap-4">
+                <div class="flex flex-row gap-3 sm:gap-4">
                     <a href="{{ route('register') }}" class="inline-flex items-center justify-center bg-blue-600 text-white px-7 sm:px-8 py-3.5 rounded-full font-bold shadow-[0_4px_14px_rgba(0,118,255,0.39)] hover:bg-blue-700 hover:shadow-[0_6px_20px_rgba(0,118,255,0.23)] transition-all text-sm sm:text-base">
                         Mulai Merencanakan
                     </a>
