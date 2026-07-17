@@ -254,7 +254,7 @@
         </div>
         <div class="space-y-1">
             <label class="font-label-md text-label-md text-on-surface-variant">Budget Perkiraan</label>
-            <input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" name="event_budget" placeholder="contoh: Rp 500.000.000" type="text"/>
+            <input id="event_budget" class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" name="event_budget" placeholder="contoh: 500.000.000" type="text"/>
         </div>
         <div class="grid grid-cols-2 gap-stack-md">
             <div class="space-y-1">
@@ -443,5 +443,22 @@
                 e.currentTarget.querySelector('span').innerText = isPass ? 'visibility_off' : 'visibility';
             });
         });
+
+        // Format Budget Perkiraan with thousands separators
+        const budgetInput = document.getElementById('event_budget');
+        if (budgetInput) {
+            budgetInput.addEventListener('input', function(e) {
+                // Remove any characters that aren't digits
+                let val = this.value.replace(/\D/g, '');
+                
+                if (val) {
+                    // Format number with dots as thousands separators
+                    val = parseInt(val, 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                    this.value = val;
+                } else {
+                    this.value = '';
+                }
+            });
+        }
     </script>
 </body></html>

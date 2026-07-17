@@ -214,7 +214,7 @@
                         </div>
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface">Budget Perkiraan</label>
-                            <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="contoh: Rp 500.000.000" type="text"/>
+                            <input id="event_budget_pages" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="contoh: 500.000.000" type="text"/>
                         </div>
                         <div class="grid grid-cols-2 gap-sm">
                             <div class="space-y-xs">
@@ -332,5 +332,18 @@
         e.preventDefault();
         window.location.href = "{{ route('dashboard') }}";
     });
+
+    const budgetInputPages = document.getElementById('event_budget_pages');
+    if (budgetInputPages) {
+        budgetInputPages.addEventListener('input', function(e) {
+            let val = this.value.replace(/\D/g, '');
+            if (val) {
+                val = parseInt(val, 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                this.value = val;
+            } else {
+                this.value = '';
+            }
+        });
+    }
 </script>
 </body></html>
