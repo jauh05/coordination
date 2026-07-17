@@ -127,7 +127,7 @@
 <body class="bg-background text-on-background font-body-md selection:bg-primary/20">
 
 <!-- TopNavBar (Floating Glass Navigation) -->
-<header class="fixed top-[20px] left-1/2 -translate-x-1/2 w-[90%] max-w-[1400px] h-[72px] z-50 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.05)] transition-all duration-300 flex items-center" style="background: rgba(255,255,255,0.12); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,0.25);">
+<header class="fixed top-[20px] left-1/2 -translate-x-1/2 w-[90%] max-w-[1400px] h-[72px] z-50 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.05)] transition-all duration-300 flex items-center" style="background: rgba(255,255,255,0.55); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.45);">
     <div class="flex justify-between items-center w-full px-6 lg:px-8">
         <a href="/" class="font-bold flex items-center gap-2 group">
             <div class="bg-primary text-white p-1.5 rounded-full group-hover:scale-105 transition-transform shadow-md">
@@ -199,7 +199,7 @@
         <!-- Subtle White Gradient Overlay (15-20%) -->
         <div class="absolute inset-0 w-full sm:w-2/3 lg:w-1/2" style="background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.15) 40%, transparent 100%);"></div>
 
-        <div class="relative z-10 w-full max-w-[1536px] mx-auto px-6 lg:px-gutter flex-1 flex flex-col justify-center pt-20 md:pt-[92px]">
+        <div class="relative z-10 w-full max-w-[1536px] mx-auto px-6 lg:px-gutter flex-1 flex flex-col justify-center pt-4 md:pt-[92px]">
             
             <!-- Hero Content (Glass on desktop only) -->
             <div class="max-w-[560px] md:p-10 md:rounded-[32px] md:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.06)]" style="" id="hero-glass-panel">
