@@ -234,7 +234,7 @@
             <!-- Hero Content -->
             <div class="max-w-[560px] p-8 md:p-10 rounded-[24px] md:rounded-[32px] shadow-[0_8px_32px_-8px_rgba(0,0,0,0.1)] md:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.06)]" style="" id="hero-glass-panel">
                 
-                <h1 class="text-[26px] sm:text-[36px] md:text-[48px] lg:text-[56px] font-extrabold leading-[1.15] tracking-tight mb-3 md:mb-4 text-slate-900 animate-popup delay-100">
+                <h1 class="text-[22px] min-[400px]:text-[24px] sm:text-[36px] md:text-[48px] lg:text-[56px] font-extrabold leading-[1.15] tracking-tight mb-3 md:mb-4 text-slate-900 animate-popup delay-100">
                     Event <span class="text-blue-600">Hebat</span> Dimulai dari<br/>
                     <span class="text-blue-600">Koordinasi</span> yang Tepat
                 </h1>
