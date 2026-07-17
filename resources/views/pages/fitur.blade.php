@@ -152,23 +152,41 @@
 </head>
 <body class="bg-background">
 <!-- TopNavBar -->
-<header class="fixed top-0 w-full z-50 bg-surface-container-lowest dark:bg-inverse-surface border-b border-border-subtle dark:border-outline-variant shadow-sm h-16">
-<div class="flex justify-between items-center h-16 px-margin-desktop max-w-container-max mx-auto">
-<div class="text-headline-md font-headline-md text-primary dark:text-primary-fixed font-bold tracking-tight cursor-pointer" onclick="window.location.href='{{ route('landing') }}'">
-                Flowvent
+<header class="fixed top-0 w-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl border-b border-slate-200/50 dark:border-slate-700/50 shadow-sm z-50 transition-all duration-300">
+    <div class="flex justify-between items-center px-gutter py-md max-w-[1536px] mx-auto">
+        <a href="/" class="text-title-md font-title-md font-bold flex items-center gap-2 group">
+            <div class="bg-primary text-white p-1.5 rounded-lg group-hover:scale-105 transition-transform shadow-md">
+                <span class="material-symbols-outlined text-[20px] block">hub</span>
             </div>
-<nav class="hidden md:flex space-x-stack-lg items-center h-full">
-<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary h-full flex items-center px-2" href="{{ route('fitur') }}">Fitur</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors h-full flex items-center px-2" href="{{ route('solutions') }}">Solusi</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors h-full flex items-center px-2" href="{{ route('pricing') }}">Harga</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors h-full flex items-center px-2" href="{{ route('tentang') }}">Tentang</a>
-<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors h-full flex items-center px-2" href="{{ route('kontak') }}">Kontak</a>
-</nav>
-<div class="flex items-center space-x-stack-md">
-<a href="{{ route('login') }}" class="text-label-md font-label-md text-on-surface-variant hover:text-primary px-4 py-2 transition-all duration-200 active:scale-95">Login</a>
-<a href="{{ route('register') }}" class="bg-primary text-on-primary px-5 py-2.5 rounded-lg text-label-md font-label-md shadow-sm transition-all duration-200 active:scale-95">Mulai Sekarang</a>
-</div>
-</div>
+            <span class="text-primary dark:text-blue-400 tracking-tight">Coordination</span>
+        </a>
+        <nav class="hidden md:flex gap-xl">
+            <a class="relative text-primary font-semibold font-body-md text-body-md group" href="{{ route('fitur') }}">
+                Fitur
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
+            </a>
+            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="{{ route('solutions') }}">
+                Solusi
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="{{ route('pricing') }}">
+                Harga
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="{{ route('tentang') }}">
+                Tentang
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a class="relative text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md font-medium group" href="{{ route('kontak') }}">
+                Kontak
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+            </a>
+        </nav>
+        <div class="flex items-center gap-2 md:gap-md">
+            <a href="{{ route('login') }}" class="text-on-surface-variant font-medium hover:text-primary px-2 md:px-md py-sm transition-all duration-200 hover:bg-primary/5 rounded-lg active:scale-95 inline-block text-center text-[13px] md:text-base whitespace-nowrap">Login</a>
+            <a href="{{ route('register') }}" class="bg-primary text-on-primary px-3 md:px-lg py-1.5 md:py-sm rounded-full font-bold hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 inline-block text-center border border-transparent hover:border-white/20 whitespace-nowrap text-[13px] md:text-base">Get Started</a>
+        </div>
+    </div>
 </header>
 <main class="pt-24">
 <!-- Hero Section -->
