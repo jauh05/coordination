@@ -139,10 +139,10 @@
         }
 
         #hero-glass-panel {
-            background: rgba(255,255,255,0.75);
+            background: rgba(255,255,255,0.15);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.55);
+            border: 1px solid rgba(255,255,255,0.2);
         }
         @media (min-width: 768px) {
             #hero-glass-panel {
