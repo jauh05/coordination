@@ -17,9 +17,9 @@
 <div>
 <div class="flex items-center gap-3 mb-2">
 <span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase rounded tracking-widest">AKTIF</span>
-<span class="text-outline text-sm font-medium">ID: EVT-2024-GALA</span>
+<span class="text-outline text-sm font-medium">ID: {{ isset($event) && $event->event_id_code ? $event->event_id_code : 'EVT-2024-GALA' }}</span>
 </div>
-<h2 class="text-3xl font-bold text-on-surface tracking-tight">Gala Tahunan 2024</h2>
+<h2 class="text-3xl font-bold text-on-surface tracking-tight">{{ isset($event) && $event->name ? $event->name : 'Gala Tahunan 2024' }}</h2>
 <p class="text-text-secondary mt-1">Operational Control Center &amp; Real-time Tracking</p>
 </div>
 <div class="flex gap-2">
@@ -48,7 +48,7 @@
 <div class="mt-3 w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
 <div id="metric_tiket_terjual_progress" class="bg-primary h-full rounded-full transition-all duration-500" style="width: 83%;"></div>
 </div>
-<p id="metric_tiket_terjual_text" class="text-[11px] text-text-secondary mt-2">83% dari target 1,500</p>
+<p id="metric_tiket_terjual_text" class="text-[11px] text-text-secondary mt-2">83% dari target {{ isset($event) && $event->target_audience ? number_format($event->target_audience, 0, ',', '.') : '1,500' }}</p>
 </div>
 </div>
 <!-- Target Penjualan -->
@@ -250,7 +250,7 @@
 <div class="p-6 space-y-4">
     <div>
         <label class="block text-[10px] font-bold text-outline uppercase mb-1">Target Total Tiket</label>
-        <input id="config_target" type="number" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" value="1500" onchange="updateConfig()">
+        <input id="config_target" type="number" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" value="{{ isset($event) && $event->target_audience ? $event->target_audience : 1500 }}" onchange="updateConfig()">
     </div>
     <div class="grid grid-cols-2 gap-4">
         <div>
@@ -287,7 +287,7 @@
 <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
 </div>
 <div>
-<p class="text-xs font-bold text-success uppercase">10 Des - SELESAI</p>
+<p class="text-xs font-bold text-success uppercase">{{ isset($event) && $event->start_date ? $event->start_date->translatedFormat('d M') : '10 Des' }} - SELESAI</p>
 <h4 class="font-semibold text-sm">Konfirmasi Venue &amp; Deposit</h4>
 <p class="text-xs text-text-secondary mt-1">Pembayaran termin pertama telah divalidasi oleh Finance.</p>
 </div>
@@ -297,7 +297,7 @@
 <span class="material-symbols-outlined text-sm">radio_button_checked</span>
 </div>
 <div>
-<p class="text-xs font-bold text-primary uppercase">12 Des - HARI INI</p>
+<p class="text-xs font-bold text-primary uppercase">{{ isset($event) && $event->start_date ? $event->start_date->addDays(2)->translatedFormat('d M') : '12 Des' }} - HARI INI</p>
 <h4 class="font-semibold text-sm">Review Final Konten Digital</h4>
 <p class="text-xs text-text-secondary mt-1">Presentasi aset visual untuk layar LED utama panggung.</p>
 </div>
@@ -307,7 +307,7 @@
 <span class="material-symbols-outlined text-sm">schedule</span>
 </div>
 <div>
-<p class="text-xs font-bold text-outline uppercase">15 Des - MENDATANG</p>
+<p class="text-xs font-bold text-outline uppercase">{{ isset($event) && $event->d_day ? $event->d_day->copy()->subDays(5)->translatedFormat('d M') : '15 Des' }} - MENDATANG</p>
 <h4 class="font-semibold text-sm">Loading Barang &amp; Gladi Bersih</h4>
 <p class="text-xs text-text-secondary mt-1">Koordinasi teknis tim panggung dan MC.</p>
 </div>
@@ -317,7 +317,7 @@
 <span class="material-symbols-outlined text-sm">flag</span>
 </div>
 <div>
-<p class="text-xs font-bold text-outline uppercase">20 Des - PELAKSANAAN</p>
+<p class="text-xs font-bold text-outline uppercase">{{ isset($event) && $event->d_day ? $event->d_day->translatedFormat('d M') : '20 Des' }} - PELAKSANAAN</p>
 <h4 class="font-semibold text-sm">Main Event: Gala 2024</h4>
 <p class="text-xs text-text-secondary mt-1">Waktu Pelaksanaan: 19:00 - 23:00 WIB.</p>
 </div>
@@ -405,7 +405,7 @@
 
         let currentSelectedDateKey = '';
         
-        let TICKET_TARGET = 1500;
+        let TICKET_TARGET = {{ isset($event) && $event->target_audience ? $event->target_audience : 1500 }};
         let TARGET_REVENUE = 1500000000; // 1.5 Milyar
         let PRICES = {
             presale1: 800000,

@@ -11,7 +11,7 @@
                         <p class="font-body-lg text-body-lg opacity-90">{{ auth()->check() && auth()->user()->events()->exists() ? auth()->user()->events()->first()->name : 'Festival Musik Indonesia 2027' }} — Operasi berjalan sesuai rencana.</p>
                     </div>
                     <div class="bg-white/10 backdrop-blur-md px-md py-sm rounded-xl border border-white/20 text-center">
-                        <span class="block text-headline-sm font-bold">H-18</span>
+                        <span class="block text-headline-sm font-bold">H-{{ $mainEvent && $mainEvent->d_day ? max(0, (int) ceil(now()->floatDiffInDays($mainEvent->d_day, false))) : 18 }}</span>
                         <span class="text-caption font-caption uppercase tracking-wider">Menuju Event</span>
                     </div>
                 </div>
@@ -216,7 +216,7 @@
                     <h3 class="font-title-md text-title-md">Peta Jalan Event</h3>
                     <div class="flex items-center gap-sm">
                         <span class="px-md py-1 bg-primary text-on-primary rounded-full text-caption font-bold">Fase Persiapan</span>
-                        <span class="text-caption text-on-surface-variant">Jun - Aug 2027</span>
+                        <span class="text-caption text-on-surface-variant">{{ $mainEvent && $mainEvent->start_date && $mainEvent->d_day ? $mainEvent->start_date->translatedFormat('M Y') . ' - ' . $mainEvent->d_day->translatedFormat('M Y') : 'Jun - Aug 2027' }}</span>
                     </div>
                 </div>
                 <div class="relative pt-10 pb-4">
@@ -236,17 +236,17 @@
                         <div class="flex flex-col items-center gap-2">
                             <div class="w-6 h-6 bg-white border-4 border-primary rounded-full shadow-md -mt-1"></div>
                             <span class="text-label-md font-black text-primary">Persiapan</span>
-                            <span class="text-caption text-blue-600 font-semibold">H-18 Sekarang</span>
+                            <span class="text-caption text-blue-600 font-semibold">H-{{ $mainEvent && $mainEvent->d_day ? max(0, (int) ceil(now()->floatDiffInDays($mainEvent->d_day, false))) : 18 }} Sekarang</span>
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <div class="w-4 h-4 bg-slate-200 rounded-full ring-4 ring-white"></div>
                             <span class="text-label-md font-bold text-on-surface-variant">Produksi</span>
-                            <span class="text-caption text-on-surface-variant">Aug 15</span>
+                            <span class="text-caption text-on-surface-variant">{{ $mainEvent && $mainEvent->d_day ? $mainEvent->d_day->copy()->subDays(13)->translatedFormat('M d') : 'Aug 15' }}</span>
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <div class="w-4 h-4 bg-slate-200 rounded-full ring-4 ring-white"></div>
                             <span class="text-label-md font-bold text-on-surface-variant">Eksekusi</span>
-                            <span class="text-caption text-on-surface-variant">Aug 28</span>
+                            <span class="text-caption text-on-surface-variant">{{ $mainEvent && $mainEvent->d_day ? $mainEvent->d_day->translatedFormat('M d') : 'Aug 28' }}</span>
                         </div>
                     </div>
                 </div>
