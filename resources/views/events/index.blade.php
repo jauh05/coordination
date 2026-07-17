@@ -239,6 +239,39 @@
 </div></div>
 <!-- Right Column: Timeline & Map -->
 <div class="space-y-6">
+<!-- Konfigurasi Harga & Target -->
+<div class="bg-surface-container-lowest rounded-2xl border border-border-subtle shadow-sm overflow-hidden">
+<div class="px-6 py-4 border-b border-border-subtle bg-surface-container-low/50">
+<h3 class="font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">sell</span>
+            Konfigurasi Harga &amp; Target
+        </h3>
+</div>
+<div class="p-6 space-y-4">
+    <div>
+        <label class="block text-[10px] font-bold text-outline uppercase mb-1">Target Total Tiket</label>
+        <input id="config_target" type="number" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" value="1500" onchange="updateConfig()">
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+        <div>
+            <label class="block text-[10px] font-bold text-outline uppercase mb-1">Harga Presale 1</label>
+            <input id="config_p1" type="number" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" value="800000" onchange="updateConfig()">
+        </div>
+        <div>
+            <label class="block text-[10px] font-bold text-outline uppercase mb-1">Harga Presale 2</label>
+            <input id="config_p2" type="number" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" value="1000000" onchange="updateConfig()">
+        </div>
+        <div>
+            <label class="block text-[10px] font-bold text-outline uppercase mb-1">Harga Presale 3</label>
+            <input id="config_p3" type="number" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" value="1200000" onchange="updateConfig()">
+        </div>
+        <div>
+            <label class="block text-[10px] font-bold text-outline uppercase mb-1">Harga OTS</label>
+            <input id="config_ots" type="number" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" value="1500000" onchange="updateConfig()">
+        </div>
+    </div>
+</div>
+</div>
 <!-- Event Timeline View -->
 <div class="bg-surface-container-lowest rounded-2xl border border-border-subtle shadow-sm overflow-hidden">
 <div class="px-6 py-4 border-b border-border-subtle bg-surface-container-low/50 flex justify-between items-center">
@@ -360,13 +393,46 @@
 
         let currentSelectedDateKey = '';
         
-        const TICKET_TARGET = 1500;
-        const TARGET_REVENUE = 1500000000; // 1.5 Milyar
-        const PRICES = {
+        let TICKET_TARGET = 1500;
+        let TARGET_REVENUE = 1500000000; // 1.5 Milyar
+        let PRICES = {
             presale1: 800000,
             presale2: 1000000,
             presale3: 1200000,
             ots: 1500000
+        };
+
+        function loadConfig() {
+            const savedConfig = JSON.parse(localStorage.getItem('eventConfig'));
+            if (savedConfig) {
+                TICKET_TARGET = savedConfig.target || 1500;
+                PRICES = savedConfig.prices || PRICES;
+                
+                document.getElementById('config_target').value = TICKET_TARGET;
+                document.getElementById('config_p1').value = PRICES.presale1;
+                document.getElementById('config_p2').value = PRICES.presale2;
+                document.getElementById('config_p3').value = PRICES.presale3;
+                document.getElementById('config_ots').value = PRICES.ots;
+                
+                TARGET_REVENUE = TICKET_TARGET * PRICES.presale2;
+            }
+        }
+
+        window.updateConfig = function() {
+            TICKET_TARGET = parseInt(document.getElementById('config_target').value) || 1500;
+            PRICES.presale1 = parseInt(document.getElementById('config_p1').value) || 0;
+            PRICES.presale2 = parseInt(document.getElementById('config_p2').value) || 0;
+            PRICES.presale3 = parseInt(document.getElementById('config_p3').value) || 0;
+            PRICES.ots = parseInt(document.getElementById('config_ots').value) || 0;
+            
+            TARGET_REVENUE = TICKET_TARGET * PRICES.presale2;
+            
+            localStorage.setItem('eventConfig', JSON.stringify({
+                target: TICKET_TARGET,
+                prices: PRICES
+            }));
+            
+            updateMetrics();
         };
 
         function formatRupiah(number) {
@@ -559,6 +625,7 @@
             updateMetrics();
         }
         
+        loadConfig();
         renderCalendar();
 
         document.getElementById('prevMonthBtn').onclick = () => {
