@@ -115,6 +115,14 @@
       }
     </script>
 <style>
+        @keyframes panRight {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        .bg-pan-right {
+            transform: scale(1.1);
+            animation: panRight 25s ease-in-out infinite alternate;
+        }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f7f9fb;
@@ -149,29 +157,76 @@
     </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
-<!-- Top Navigation Bar (Shared Component Reference) -->
-<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm px-gutter py-md">
-<div class="max-w-[1536px] mx-auto flex justify-between items-center">
-<div class="flex items-center gap-stack-sm">
-<span class="material-symbols-outlined text-primary font-bold" style="font-size: 32px;">verified_user</span>
-<span class="text-title-md font-title-md font-bold text-primary dark:text-primary-fixed">Coordination</span>
+<!-- TopNavBar (Floating Glass Navigation) -->
+<header class="fixed top-[20px] left-1/2 -translate-x-1/2 w-[90%] max-w-[1400px] h-[72px] z-50 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.05)] transition-all duration-300 flex items-center" style="background: rgba(255,255,255,0.55); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.45);">
+    <div class="flex justify-between items-center w-full px-6 lg:px-8">
+        <a href="/" class="font-bold flex items-center gap-2 group">
+            <div class="bg-primary text-white p-1.5 rounded-full group-hover:scale-105 transition-transform shadow-md">
+                <span class="material-symbols-outlined text-[20px] block">hub</span>
+            </div>
+            <span class="text-slate-900 font-extrabold tracking-tight text-base">Coordination</span>
+        </a>
+        <nav class="hidden lg:flex gap-8">
+            <a class="relative text-slate-900 font-semibold text-sm group" href="{{ route('fitur') }}">
+                Fitur
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
+            </a>
+            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('solutions') }}">
+                Solusi
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('pricing') }}">
+                Harga
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('tentang') }}">
+                Tentang
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('kontak') }}">
+                Kontak
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+            </a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+            <a href="{{ route('login') }}" class="text-slate-800/90 font-medium hover:text-slate-900 px-4 py-2 transition-all duration-200 hover:bg-white/20 rounded-full active:scale-95 text-sm">Login</a>
+            <a href="{{ route('register') }}" class="bg-primary text-white px-5 py-2.5 rounded-full font-bold hover:shadow-[0_4px_14px_rgba(0,118,255,0.39)] hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-sm">Get Started</a>
+        </div>
+        <!-- Mobile Hamburger -->
+        <button id="mobile-menu-btn" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/20 transition-colors">
+            <span class="material-symbols-outlined text-slate-900 text-[24px]" id="menu-icon">menu</span>
+        </button>
+    </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="fixed inset-0 z-[60] hidden">
+    <div class="absolute inset-0 bg-black/30 backdrop-blur-sm" id="mobile-menu-backdrop"></div>
+    <div class="absolute top-0 right-0 w-[280px] h-full shadow-2xl p-8 flex flex-col gap-6 transform translate-x-full transition-transform duration-300" id="mobile-menu-panel" style="background: rgba(255,255,255,0.65); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-left: 1px solid rgba(255,255,255,0.3);">
+        <div class="flex justify-between items-center mb-4">
+            <span class="font-extrabold text-slate-900 text-lg">Menu</span>
+            <button id="mobile-menu-close" class="w-10 h-10 rounded-full hover:bg-slate-100 flex items-center justify-center transition-colors">
+                <span class="material-symbols-outlined text-slate-700">close</span>
+            </button>
+        </div>
+        <nav class="flex flex-col gap-1">
+            <a class="text-slate-900 font-semibold text-base py-3 px-4 rounded-xl bg-primary/5" href="{{ route('fitur') }}">Fitur</a>
+            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('solutions') }}">Solusi</a>
+            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('pricing') }}">Harga</a>
+            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('tentang') }}">Tentang</a>
+            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('kontak') }}">Kontak</a>
+        </nav>
+        <div class="mt-auto flex flex-col gap-3">
+            <a href="{{ route('login') }}" class="text-center text-slate-700 font-medium py-3 px-4 rounded-full border border-slate-200 hover:bg-slate-50 transition-colors">Login</a>
+            <a href="{{ route('register') }}" class="text-center bg-primary text-white py-3 px-4 rounded-full font-bold shadow-sm">Get Started</a>
+        </div>
+    </div>
 </div>
-<div class="hidden md:flex items-center gap-stack-lg">
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Features</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Solutions</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Pricing</a>
-</div>
-<div class="flex items-center gap-stack-md">
-<a href="{{ route('login') }}" class="text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-95 font-body-md text-body-md px-4 py-2">Login</a>
-<a href="{{ route('register') }}" class="bg-primary text-on-primary font-bold px-6 py-2 rounded-lg hover:opacity-90 active:scale-95 transition-all duration-200 font-body-md text-body-md shadow-sm">Get Started</a>
-</div>
-</div>
-</nav>
 <!-- Main Content Area -->
 <main class="flex-grow flex items-center justify-center pt-24 pb-12 px-margin-mobile md:px-margin-desktop technical-grid relative overflow-hidden">
 <!-- Background Elements -->
-<div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
-<div class="absolute -bottom-24 -left-24 w-96 h-96 bg-accent-blue/40 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute inset-0 w-full h-full bg-cover bg-no-repeat bg-pan-right" style="background-image: url('{{ asset('img/landing.png') }}'); z-index: -1;"></div>
+<div class="absolute inset-0 w-full sm:w-2/3 lg:w-1/2" style="background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.15) 40%, transparent 100%); z-index: -1;"></div>
 <div class="w-full max-w-[1200px] grid lg:grid-cols-2 gap-stack-lg items-center z-10">
 <!-- Left Side: Branding & Info -->
 <div class="hidden lg:flex flex-col gap-stack-lg pr-12">
