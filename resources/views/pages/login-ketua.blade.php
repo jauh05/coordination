@@ -129,10 +129,10 @@
             overflow-x: hidden;
         }
         .glass-panel {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(226, 232, 240, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
         }
         .material-symbols-outlined {

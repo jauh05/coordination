@@ -115,8 +115,11 @@
         font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
       }
       .glass-effect {
-        backdrop-filter: blur(20px);
-        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        background: rgba(255, 255, 255, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
       }
       .step-active {
         @apply border-primary-container text-primary-container;
@@ -199,7 +202,7 @@
 <div class="w-full max-w-[1100px] grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
 <!-- Left Side: Form Content -->
 <div class="order-2 lg:order-1">
-<div class="bg-surface-card p-stack-lg md:p-12 rounded-xl shadow-sm border border-border-subtle relative overflow-hidden">
+<div class="glass-effect p-stack-lg md:p-12 rounded-xl shadow-sm relative overflow-hidden">
 <!-- Progress Indicator -->
 <nav aria-label="Progress" class="mb-stack-lg">
 <ol class="flex items-center space-x-4" role="list">
