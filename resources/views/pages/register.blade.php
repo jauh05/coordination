@@ -100,8 +100,8 @@
         backdrop-filter: blur(24px);
         -webkit-backdrop-filter: blur(24px);
         background: rgba(255, 255, 255, 0.4);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+        border: none;
+        box-shadow: none;
     }
     .bento-card { background: #ffffff; border: 1px solid #e2e4e7; border-radius: 16px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
     .bento-card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
@@ -125,19 +125,19 @@
                 Fitur
                 <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
             </a>
-            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('solutions') }}">
+            <a class="relative text-black hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('solutions') }}">
                 Solusi
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('pricing') }}">
+            <a class="relative text-black hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('pricing') }}">
                 Harga
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('tentang') }}">
+            <a class="relative text-black hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('tentang') }}">
                 Tentang
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('kontak') }}">
+            <a class="relative text-black hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('kontak') }}">
                 Kontak
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
@@ -160,19 +160,19 @@
         <div class="flex justify-between items-center mb-4">
             <span class="font-extrabold text-slate-900 text-lg">Menu</span>
             <button id="mobile-menu-close" class="w-10 h-10 rounded-full hover:bg-slate-100 flex items-center justify-center transition-colors">
-                <span class="material-symbols-outlined text-slate-700">close</span>
+                <span class="material-symbols-outlined text-black">close</span>
             </button>
         </div>
         <nav class="flex flex-col gap-1">
             <a class="text-slate-900 font-semibold text-base py-3 px-4 rounded-xl bg-primary/5" href="{{ route('fitur') }}">Fitur</a>
-            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('solutions') }}">Solusi</a>
-            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('pricing') }}">Harga</a>
-            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('tentang') }}">Tentang</a>
-            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('kontak') }}">Kontak</a>
+            <a class="text-black font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('solutions') }}">Solusi</a>
+            <a class="text-black font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('pricing') }}">Harga</a>
+            <a class="text-black font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('tentang') }}">Tentang</a>
+            <a class="text-black font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('kontak') }}">Kontak</a>
         </nav>
         <div class="mt-auto flex flex-col gap-3">
-            <a href="{{ route('login') }}" class="text-center text-slate-700 font-medium py-3 px-4 rounded-full border border-slate-200 hover:bg-slate-50 transition-colors">Login</a>
-            <a href="{{ route('register') }}" class="text-center bg-primary text-white py-3 px-4 rounded-full font-bold shadow-sm">Get Started</a>
+            <a href="{{ route('login') }}" class="text-center text-black font-medium py-3 px-4 rounded-full border border-slate-200 hover:bg-slate-50 transition-colors">Login</a>
+            <a href="{{ route('register') }}" class="text-center bg-primary text-white py-3 px-4 rounded-full font-bold ">Get Started</a>
         </div>
     </div>
 </div>
@@ -189,7 +189,7 @@
             <h2 class="font-display-lg text-display-lg text-on-background leading-tight">
                 Skalakan acara Anda dengan <span class="text-primary">presisi.</span>
             </h2>
-            <p class="font-body-lg text-body-lg text-on-surface-variant">
+            <p class="font-body-lg text-body-lg text-black">
                 Bergabunglah dengan 500+ perusahaan global yang menggunakan Coordination AI untuk mengelola logistik acara dengan sinkronisasi nol-latensi.
             </p>
         </div>
@@ -198,19 +198,19 @@
             <div class="bento-card p-lg flex flex-col gap-sm">
                 <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
                 <p class="font-title-md text-title-md">Task Management</p>
-                <p class="font-caption text-caption text-on-surface-variant">Buat, assign, dan pantau task.</p>
+                <p class="font-caption text-caption text-black">Buat, assign, dan pantau task.</p>
             </div>
             <div class="bento-card p-lg flex flex-col gap-sm">
                 <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">summarize</span>
                 <p class="font-title-md text-title-md">Laporan AI</p>
-                <p class="font-caption text-caption text-on-surface-variant">AI merangkum laporan anggota.</p>
+                <p class="font-caption text-caption text-black">AI merangkum laporan anggota.</p>
             </div>
         </div>
     </section>
 
     <!-- Right Side: Multi-Step Registration Form -->
     <section class="lg:col-span-7 flex flex-col items-center justify-center">
-        <div class="w-full max-w-[520px] glass-panel rounded-xl shadow-sm p-xl md:p-xxl relative overflow-hidden">
+        <div class="w-full max-w-[520px] glass-panel rounded-xl  p-xl md:p-xxl relative overflow-hidden">
 
             <!-- Stepper Progress Bar -->
             <div class="flex items-center justify-between mb-xl relative">
@@ -221,12 +221,12 @@
                     <span class="mt-sm font-label-md text-label-md text-primary">Akun</span>
                 </div>
                 <div class="relative z-10 flex flex-col items-center">
-                    <div class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-high text-on-surface-variant font-bold transition-colors" id="step-node-2">2</div>
-                    <span class="mt-sm font-label-md text-label-md text-on-surface-variant">Acara</span>
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-high text-black font-bold transition-colors" id="step-node-2">2</div>
+                    <span class="mt-sm font-label-md text-label-md text-black">Acara</span>
                 </div>
                 <div class="relative z-10 flex flex-col items-center">
-                    <div class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-high text-on-surface-variant font-bold transition-colors" id="step-node-3">3</div>
-                    <span class="mt-sm font-label-md text-label-md text-on-surface-variant">Selesai</span>
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-high text-black font-bold transition-colors" id="step-node-3">3</div>
+                    <span class="mt-sm font-label-md text-label-md text-black">Selesai</span>
                 </div>
             </div>
 
@@ -235,7 +235,7 @@
                 <div class="step-transition opacity-100 transform translate-x-0" id="step-1-content">
                     <header class="mb-lg">
                         <h3 class="font-headline-md text-headline-md mb-xs">Buat akun Anda</h3>
-                        <p class="font-body-md text-body-md text-on-surface-variant">Mulai perjalanan Anda dengan Coordination enterprise.</p>
+                        <p class="font-body-md text-body-md text-black">Mulai perjalanan Anda dengan Coordination enterprise.</p>
                     </header>
                     <div class="space-y-md">
                         <div class="space-y-xs">
@@ -254,7 +254,7 @@
                                     <span class="material-symbols-outlined">visibility</span>
                                 </button>
                             </div>
-                            <p class="font-caption text-caption text-on-surface-variant pt-xs">Minimal 8 karakter dengan satu simbol.</p>
+                            <p class="font-caption text-caption text-black pt-xs">Minimal 8 karakter dengan satu simbol.</p>
                         </div>
                         <div class="space-y-xs mt-4">
                             <label class="font-label-md text-label-md text-on-surface">Konfirmasi Kata Sandi</label>
@@ -278,7 +278,7 @@
                         <div class="flex justify-between items-start">
                             <div>
                                 <h3 class="font-headline-md text-headline-md mb-xs">Detail Event</h3>
-                                <p class="font-body-md text-body-md text-on-surface-variant">Lengkapi informasi dasar mengenai event Anda.</p>
+                                <p class="font-body-md text-body-md text-black">Lengkapi informasi dasar mengenai event Anda.</p>
                             </div>
                             <button class="text-primary font-label-md text-label-md hover:underline" onclick="goToStep(3)" type="button">Lewati</button>
                         </div>
@@ -325,7 +325,7 @@
                             <span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
                         </div>
                         <h3 class="font-headline-md text-headline-md mb-xs">Pendaftaran Selesai!</h3>
-                        <p class="font-body-md text-body-md text-on-surface-variant px-xl">Event Anda telah berhasil dibuat. Ruang kerja (workspace) untuk event ini sudah siap digunakan oleh seluruh tim.</p>
+                        <p class="font-body-md text-body-md text-black px-xl">Event Anda telah berhasil dibuat. Ruang kerja (workspace) untuk event ini sudah siap digunakan oleh seluruh tim.</p>
                     </div>
                     <div class="space-y-md">
                         <button class="w-full py-md bg-primary text-white rounded-full font-title-md text-title-md hover:opacity-90 active:scale-95 transition-all" type="submit">
@@ -336,7 +336,7 @@
             </form>
 
             <div class="mt-xxl pt-lg border-t border-outline-variant text-center">
-                <p class="font-body-md text-body-md text-on-surface-variant">
+                <p class="font-body-md text-body-md text-black">
                     Sudah punya akun? 
                     <a class="text-primary font-bold hover:underline" href="{{ route('login') }}">Masuk</a>
                 </p>
@@ -345,7 +345,7 @@
 
         <!-- Trust Badges -->
         <div class="mt-xl flex items-center gap-xl opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
-            <span class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Dipercaya Oleh</span>
+            <span class="font-label-md text-label-md uppercase tracking-widest text-black">Dipercaya Oleh</span>
             <div class="flex gap-lg items-center">
                 <span class="font-bold text-lg">VERTEX</span>
                 <span class="font-bold text-lg">NOVA</span>
@@ -358,11 +358,11 @@
 
 <!-- Footer -->
 <footer class="mt-xxl w-full max-w-[1536px] px-gutter py-xl border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-md opacity-70">
-    <p class="font-caption text-caption text-on-surface-variant">© 2024 Coordination AI. Seluruh hak cipta dilindungi undang-undang.</p>
+    <p class="font-caption text-caption text-black">© 2024 Coordination AI. Seluruh hak cipta dilindungi undang-undang.</p>
     <div class="flex gap-lg">
-        <a class="font-caption text-caption text-on-surface-variant hover:text-primary" href="#">Kebijakan Privasi</a>
-        <a class="font-caption text-caption text-on-surface-variant hover:text-primary" href="#">Ketentuan Layanan</a>
-        <a class="font-caption text-caption text-on-surface-variant hover:text-primary" href="#">Pengaturan Cookie</a>
+        <a class="font-caption text-caption text-black hover:text-primary" href="#">Kebijakan Privasi</a>
+        <a class="font-caption text-caption text-black hover:text-primary" href="#">Ketentuan Layanan</a>
+        <a class="font-caption text-caption text-black hover:text-primary" href="#">Pengaturan Cookie</a>
     </div>
 </footer>
 
@@ -389,18 +389,18 @@
             step1.classList.remove('hidden');
             setTimeout(() => { step1.classList.remove('opacity-0', 'translate-x-20'); step1.classList.add('opacity-100', 'translate-x-0'); }, 10);
             stepLine.style.width = '0%';
-            node2.classList.replace('bg-primary', 'bg-surface-container-high'); node2.classList.replace('text-white', 'text-on-surface-variant');
+            node2.classList.replace('bg-primary', 'bg-surface-container-high'); node2.classList.replace('text-white', 'text-black');
         } else if (step === 2) {
             step2.classList.remove('hidden');
             setTimeout(() => { step2.classList.remove('opacity-0', 'translate-x-20'); step2.classList.add('opacity-100', 'translate-x-0'); }, 10);
             stepLine.style.width = '50%';
-            node2.classList.replace('bg-surface-container-high', 'bg-primary'); node2.classList.replace('text-on-surface-variant', 'text-white');
-            node3.classList.replace('bg-primary', 'bg-surface-container-high'); node3.classList.replace('text-white', 'text-on-surface-variant');
+            node2.classList.replace('bg-surface-container-high', 'bg-primary'); node2.classList.replace('text-black', 'text-white');
+            node3.classList.replace('bg-primary', 'bg-surface-container-high'); node3.classList.replace('text-white', 'text-black');
         } else if (step === 3) {
             step3.classList.remove('hidden');
             setTimeout(() => { step3.classList.remove('opacity-0', 'translate-x-20'); step3.classList.add('opacity-100', 'translate-x-0'); }, 10);
             stepLine.style.width = '100%';
-            node3.classList.replace('bg-surface-container-high', 'bg-primary'); node3.classList.replace('text-on-surface-variant', 'text-white');
+            node3.classList.replace('bg-surface-container-high', 'bg-primary'); node3.classList.replace('text-black', 'text-white');
         }
     }
 

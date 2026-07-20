@@ -132,8 +132,8 @@
             background: rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+            border: none;
+            box-shadow: none;
         }
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -171,19 +171,19 @@
                 Fitur
                 <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
             </a>
-            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('solutions') }}">
+            <a class="relative text-black hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('solutions') }}">
                 Solusi
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('pricing') }}">
+            <a class="relative text-black hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('pricing') }}">
                 Harga
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('tentang') }}">
+            <a class="relative text-black hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('tentang') }}">
                 Tentang
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('kontak') }}">
+            <a class="relative text-black hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('kontak') }}">
                 Kontak
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
@@ -206,19 +206,19 @@
         <div class="flex justify-between items-center mb-4">
             <span class="font-extrabold text-slate-900 text-lg">Menu</span>
             <button id="mobile-menu-close" class="w-10 h-10 rounded-full hover:bg-slate-100 flex items-center justify-center transition-colors">
-                <span class="material-symbols-outlined text-slate-700">close</span>
+                <span class="material-symbols-outlined text-black">close</span>
             </button>
         </div>
         <nav class="flex flex-col gap-1">
             <a class="text-slate-900 font-semibold text-base py-3 px-4 rounded-xl bg-primary/5" href="{{ route('fitur') }}">Fitur</a>
-            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('solutions') }}">Solusi</a>
-            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('pricing') }}">Harga</a>
-            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('tentang') }}">Tentang</a>
-            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('kontak') }}">Kontak</a>
+            <a class="text-black font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('solutions') }}">Solusi</a>
+            <a class="text-black font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('pricing') }}">Harga</a>
+            <a class="text-black font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('tentang') }}">Tentang</a>
+            <a class="text-black font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('kontak') }}">Kontak</a>
         </nav>
         <div class="mt-auto flex flex-col gap-3">
-            <a href="{{ route('login') }}" class="text-center text-slate-700 font-medium py-3 px-4 rounded-full border border-slate-200 hover:bg-slate-50 transition-colors">Login</a>
-            <a href="{{ route('register') }}" class="text-center bg-primary text-white py-3 px-4 rounded-full font-bold shadow-sm">Get Started</a>
+            <a href="{{ route('login') }}" class="text-center text-black font-medium py-3 px-4 rounded-full border border-slate-200 hover:bg-slate-50 transition-colors">Login</a>
+            <a href="{{ route('register') }}" class="text-center bg-primary text-white py-3 px-4 rounded-full font-bold ">Get Started</a>
         </div>
     </div>
 </div>
@@ -238,7 +238,7 @@
 <h1 class="font-display-lg text-display-lg text-text-primary leading-tight mb-stack-md">
                         Executive <span class="text-primary">Operational</span> Command Portal
                     </h1>
-<p class="font-body-lg text-body-lg text-text-secondary max-w-lg">
+<p class="font-body-lg text-body-lg text-black max-w-lg">
                         Access high-security event coordination tools and AI-driven predictive insights. This interface is restricted to Grade A-1 Division Heads and authorized personnel.
                     </p>
 </div>
@@ -246,22 +246,22 @@
 <div class="glass-panel p-stack-md rounded-xl">
 <span class="material-symbols-outlined text-primary mb-2">analytics</span>
 <h3 class="font-label-md text-label-md text-text-primary">Real-time Coordination</h3>
-<p class="font-body-sm text-body-sm text-text-secondary">Low-latency data synchronization across divisions.</p>
+<p class="font-body-sm text-body-sm text-black">Low-latency data synchronization across divisions.</p>
 </div>
 <div class="glass-panel p-stack-md rounded-xl">
 <span class="material-symbols-outlined text-secondary mb-2">verified</span>
 <h3 class="font-label-md text-label-md text-text-primary">Encrypted Tokens</h3>
-<p class="font-body-sm text-body-sm text-text-secondary">End-to-end asymmetric key encryption for all sessions.</p>
+<p class="font-body-sm text-body-sm text-black">End-to-end asymmetric key encryption for all sessions.</p>
 </div>
 </div>
 <div class="flex items-center gap-4 mt-4">
 <div class="flex -space-x-3">
-<img class="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover" data-alt="A professional headshot of a corporate executive woman in a sharp white blazer, set against a clean minimalist studio background, high-end photography, soft directional lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_wcw8XIA7i-Tst7YzEF5QQoNYhGtj0ozuomNY_exvWfnut-uIBHMBlQicLHrgQn5ku5yWqp--MUZPvI4uGUYGdVeDBt86LdkO5bzDB3pMaR-vNhXSMvUgRFoatZVGD8wTvRIyi0aFJWe3HNYcXwuFawV4GdUFo3KGfmHtUkb_86Ywos0HZV5KoM0BR43bbZN2lQ3rjgGxk5UWLmF-ABFqwxZLaCJprz-dRdV_DgoLF_kxBMvBTg_xaz8Xg9Q7lLgadVAriwUBoWk"/>
-<img class="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover" data-alt="A professional headshot of a senior technology officer with glasses, wearing a premium navy blue sweater, minimalist clean office environment background, natural daylight, professional corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYxyymmDAzEzTX8Y2fmiCnEr8dSc4QQciU53YZhgHos8zwlHytpQdz0rzdEgZ_8GYNAGC4qoD8vMY85MZOtQ-jXcN_SNi_FpcruDvJC7RXQLVchJ-9Rb6flCxb3KURrUriYocPkvbS03nEL3TEW8PrlIh-KyNBA5csAMf62sWx9z454kMTUgy8_z8tpxKsOL7tsPo-fKJiNJ3u-a3msLO7X_DAXCteqyphmmV4A0NSVBYBwNF-FL1ZffSlp4LzFfZbtN3xsOKVp8Y"/>
-<img class="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover" data-alt="A professional headshot of a young male division head in a modern minimalist suit, looking confident and focused, high-key lighting, bright light-mode studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhSl0c1_Y9NO7F3JG1FFFvRFWEIU3XDqD45JdEAd7iXVAy3JBVo2pK3weJ9E7cAelRhGHEH8AohoDxooBOFhutFaX24Eh_G8hjybVCBuZwqMtzyaZtOtNW5t474J0BlYmwqi9fFvF01OK1_ROKqBbTEVCJ4-oE5aVyptRXZvh6rKJffnnGyPo-kjj3ukFD5FeW0IHZxo_Wt7h5Vm8L4Oo7yoxTB8SXLPfkWo63vsQ0cnSy61Cy_gSLjp6BKDbjC9JsOmjbZSk4wOQ"/>
-<div class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-white flex items-center justify-center text-[10px] font-bold text-text-secondary shadow-sm">+12</div>
+<img class="w-10 h-10 rounded-full border-2 border-white  object-cover" data-alt="A professional headshot of a corporate executive woman in a sharp white blazer, set against a clean minimalist studio background, high-end photography, soft directional lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_wcw8XIA7i-Tst7YzEF5QQoNYhGtj0ozuomNY_exvWfnut-uIBHMBlQicLHrgQn5ku5yWqp--MUZPvI4uGUYGdVeDBt86LdkO5bzDB3pMaR-vNhXSMvUgRFoatZVGD8wTvRIyi0aFJWe3HNYcXwuFawV4GdUFo3KGfmHtUkb_86Ywos0HZV5KoM0BR43bbZN2lQ3rjgGxk5UWLmF-ABFqwxZLaCJprz-dRdV_DgoLF_kxBMvBTg_xaz8Xg9Q7lLgadVAriwUBoWk"/>
+<img class="w-10 h-10 rounded-full border-2 border-white  object-cover" data-alt="A professional headshot of a senior technology officer with glasses, wearing a premium navy blue sweater, minimalist clean office environment background, natural daylight, professional corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYxyymmDAzEzTX8Y2fmiCnEr8dSc4QQciU53YZhgHos8zwlHytpQdz0rzdEgZ_8GYNAGC4qoD8vMY85MZOtQ-jXcN_SNi_FpcruDvJC7RXQLVchJ-9Rb6flCxb3KURrUriYocPkvbS03nEL3TEW8PrlIh-KyNBA5csAMf62sWx9z454kMTUgy8_z8tpxKsOL7tsPo-fKJiNJ3u-a3msLO7X_DAXCteqyphmmV4A0NSVBYBwNF-FL1ZffSlp4LzFfZbtN3xsOKVp8Y"/>
+<img class="w-10 h-10 rounded-full border-2 border-white  object-cover" data-alt="A professional headshot of a young male division head in a modern minimalist suit, looking confident and focused, high-key lighting, bright light-mode studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhSl0c1_Y9NO7F3JG1FFFvRFWEIU3XDqD45JdEAd7iXVAy3JBVo2pK3weJ9E7cAelRhGHEH8AohoDxooBOFhutFaX24Eh_G8hjybVCBuZwqMtzyaZtOtNW5t474J0BlYmwqi9fFvF01OK1_ROKqBbTEVCJ4-oE5aVyptRXZvh6rKJffnnGyPo-kjj3ukFD5FeW0IHZxo_Wt7h5Vm8L4Oo7yoxTB8SXLPfkWo63vsQ0cnSy61Cy_gSLjp6BKDbjC9JsOmjbZSk4wOQ"/>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-white flex items-center justify-center text-[10px] font-bold text-black ">+12</div>
 </div>
-<p class="font-body-sm text-body-sm text-text-secondary italic">Currently overseeing Active Command sessions.</p>
+<p class="font-body-sm text-body-sm text-black italic">Currently overseeing Active Command sessions.</p>
 </div>
 </div>
 <!-- Right Side: Login Card -->
@@ -269,9 +269,9 @@
 <div class="glass-panel p-stack-lg md:p-12 rounded-[24px] border-t-4 border-t-primary relative overflow-hidden">
 
 <div class="flex items-center gap-sm mb-stack-lg p-2 bg-surface-container-high rounded-lg shadow-inner z-20 relative">
-    <a href="{{ route('login') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md bg-white text-primary shadow-sm transition-all border border-outline-variant/20">Perusahaan</a>
-    <a href="{{ route('login.ketua') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md text-text-secondary hover:text-primary transition-all">Ketua Divisi</a>
-    <a href="{{ route('login.anggota') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md text-text-secondary hover:text-primary transition-all">Anggota</a>
+    <a href="{{ route('login') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md bg-white text-primary  transition-all border border-outline-variant/20">Perusahaan</a>
+    <a href="{{ route('login.ketua') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md text-black hover:text-primary transition-all">Ketua Divisi</a>
+    <a href="{{ route('login.anggota') }}" class="flex-1 py-2 text-center rounded-md font-label-md text-label-md text-black hover:text-primary transition-all">Anggota</a>
 </div>
 
 <!-- Subtle technical corner accents -->
@@ -280,7 +280,7 @@
 </div>
 <div class="mb-stack-lg">
 <h2 class="font-headline-lg text-headline-lg text-text-primary mb-2">Secure Login</h2>
-<p class="font-body-md text-body-md text-text-secondary">Enter credentials to initialize secure session.</p>
+<p class="font-body-md text-body-md text-black">Enter credentials to initialize secure session.</p>
 </div>
 <form action="{{ route('dashboard') }}" class="flex flex-col gap-stack-md" id="secure-login-form">
 <!-- Officer ID -->
@@ -318,7 +318,7 @@
 </div>
 <div class="flex items-center gap-2 py-2">
 <input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary/20" id="biometric" type="checkbox"/>
-<label class="font-body-sm text-body-sm text-text-secondary" for="biometric">Enable Biometric Secondary Layer</label>
+<label class="font-body-sm text-body-sm text-black" for="biometric">Enable Biometric Secondary Layer</label>
 </div>
 <button class="mt-4 w-full h-[52px] bg-primary text-on-primary font-bold rounded-lg hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/20" type="submit">
 <span class="material-symbols-outlined">verified_user</span>
@@ -326,7 +326,7 @@
                         </button>
 </form>
 <div class="mt-stack-lg pt-stack-lg border-t border-outline-variant/30 text-center">
-<p class="font-body-sm text-body-sm text-text-secondary">
+<p class="font-body-sm text-body-sm text-black">
                             Access Problems? Contact <a class="text-primary font-semibold hover:underline" href="#">Security Division Hub</a>.
                         </p>
 </div>
@@ -335,11 +335,11 @@
 <div class="mt-stack-md flex items-center justify-center gap-6">
 <div class="flex items-center gap-1.5">
 <div class="w-2 h-2 rounded-full bg-success"></div>
-<span class="font-label-sm text-label-sm text-text-secondary uppercase">System Operational</span>
+<span class="font-label-sm text-label-sm text-black uppercase">System Operational</span>
 </div>
 <div class="flex items-center gap-1.5">
 <div class="w-2 h-2 rounded-full bg-outline-variant"></div>
-<span class="font-label-sm text-label-sm text-text-secondary uppercase">Last Scan: 2m ago</span>
+<span class="font-label-sm text-label-sm text-black uppercase">Last Scan: 2m ago</span>
 </div>
 </div>
 </div>
@@ -350,34 +350,34 @@
 <div class="max-w-[1536px] mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-lg px-gutter py-stack-lg">
 <div class="col-span-2">
 <span class="text-headline-sm font-headline-sm font-bold text-on-surface">Coordination AI</span>
-<p class="mt-2 font-caption text-caption text-on-surface-variant max-w-xs">Empowering executive coordination with high-precision AI and military-grade security infrastructure.</p>
+<p class="mt-2 font-caption text-caption text-black max-w-xs">Empowering executive coordination with high-precision AI and military-grade security infrastructure.</p>
 </div>
 <div class="flex flex-col gap-2">
 <span class="text-primary font-semibold font-caption text-caption">Product</span>
-<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Dashboard</a>
-<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Security</a>
-<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Integrations</a>
+<a class="text-black hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Dashboard</a>
+<a class="text-black hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Security</a>
+<a class="text-black hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Integrations</a>
 </div>
 <div class="flex flex-col gap-2">
 <span class="text-primary font-semibold font-caption text-caption">Company</span>
-<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">About Us</a>
-<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Compliance</a>
-<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Careers</a>
+<a class="text-black hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">About Us</a>
+<a class="text-black hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Compliance</a>
+<a class="text-black hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Careers</a>
 </div>
 <div class="flex flex-col gap-2">
 <span class="text-primary font-semibold font-caption text-caption">Legal</span>
-<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Privacy Policy</a>
-<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Terms of Service</a>
-<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">SLA</a>
+<a class="text-black hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Privacy Policy</a>
+<a class="text-black hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Terms of Service</a>
+<a class="text-black hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">SLA</a>
 </div>
 <div class="flex flex-col gap-2">
 <span class="text-primary font-semibold font-caption text-caption">Social</span>
-<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Twitter</a>
-<a class="text-on-surface-variant hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">LinkedIn</a>
+<a class="text-black hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">Twitter</a>
+<a class="text-black hover:text-primary transition-all duration-150 hover:underline font-caption text-caption" href="#">LinkedIn</a>
 </div>
 </div>
 <div class="border-t border-outline-variant/30 py-4 px-gutter text-center">
-<p class="font-caption text-caption text-on-surface-variant">© 2024 Coordination AI. All rights reserved. Managed by SecureSystems Intl.</p>
+<p class="font-caption text-caption text-black">© 2024 Coordination AI. All rights reserved. Managed by SecureSystems Intl.</p>
 </div>
 </footer>
 <!-- Interactive Micro-Interactions Script -->

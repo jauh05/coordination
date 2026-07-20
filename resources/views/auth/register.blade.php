@@ -118,14 +118,14 @@
         backdrop-filter: blur(24px);
         -webkit-backdrop-filter: blur(24px);
         background: rgba(255, 255, 255, 0.4);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+        border: none;
+        box-shadow: none;
       }
       .step-active {
         @apply border-primary-container text-primary-container;
       }
       .step-inactive {
-        @apply border-outline-variant text-on-surface-variant;
+        @apply border-outline-variant text-black;
       }
     </style>
 </head>
@@ -144,19 +144,19 @@
                 Fitur
                 <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
             </a>
-            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('solutions') }}">
+            <a class="relative text-black hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('solutions') }}">
                 Solusi
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('pricing') }}">
+            <a class="relative text-black hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('pricing') }}">
                 Harga
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('tentang') }}">
+            <a class="relative text-black hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('tentang') }}">
                 Tentang
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a class="relative text-slate-800/80 hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('kontak') }}">
+            <a class="relative text-black hover:text-slate-900 transition-colors text-sm font-medium group" href="{{ route('kontak') }}">
                 Kontak
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
             </a>
@@ -179,19 +179,19 @@
         <div class="flex justify-between items-center mb-4">
             <span class="font-extrabold text-slate-900 text-lg">Menu</span>
             <button id="mobile-menu-close" class="w-10 h-10 rounded-full hover:bg-slate-100 flex items-center justify-center transition-colors">
-                <span class="material-symbols-outlined text-slate-700">close</span>
+                <span class="material-symbols-outlined text-black">close</span>
             </button>
         </div>
         <nav class="flex flex-col gap-1">
             <a class="text-slate-900 font-semibold text-base py-3 px-4 rounded-xl bg-primary/5" href="{{ route('fitur') }}">Fitur</a>
-            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('solutions') }}">Solusi</a>
-            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('pricing') }}">Harga</a>
-            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('tentang') }}">Tentang</a>
-            <a class="text-slate-700 font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('kontak') }}">Kontak</a>
+            <a class="text-black font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('solutions') }}">Solusi</a>
+            <a class="text-black font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('pricing') }}">Harga</a>
+            <a class="text-black font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('tentang') }}">Tentang</a>
+            <a class="text-black font-medium text-base py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors" href="{{ route('kontak') }}">Kontak</a>
         </nav>
         <div class="mt-auto flex flex-col gap-3">
-            <a href="{{ route('login') }}" class="text-center text-slate-700 font-medium py-3 px-4 rounded-full border border-slate-200 hover:bg-slate-50 transition-colors">Login</a>
-            <a href="{{ route('register') }}" class="text-center bg-primary text-white py-3 px-4 rounded-full font-bold shadow-sm">Get Started</a>
+            <a href="{{ route('login') }}" class="text-center text-black font-medium py-3 px-4 rounded-full border border-slate-200 hover:bg-slate-50 transition-colors">Login</a>
+            <a href="{{ route('register') }}" class="text-center bg-primary text-white py-3 px-4 rounded-full font-bold ">Get Started</a>
         </div>
     </div>
 </div>
@@ -202,7 +202,7 @@
 <div class="w-full max-w-[1100px] grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
 <!-- Left Side: Form Content -->
 <div class="order-2 lg:order-1">
-<div class="glass-effect p-stack-lg md:p-12 rounded-xl shadow-sm relative overflow-hidden">
+<div class="glass-effect p-stack-lg md:p-12 rounded-xl  relative overflow-hidden">
 <!-- Progress Indicator -->
 <nav aria-label="Progress" class="mb-stack-lg">
 <ol class="flex items-center space-x-4" role="list">
@@ -212,13 +212,13 @@
 </li>
 <li class="flex items-center cursor-pointer" onclick="goToStep(2)">
 <div class="w-8 h-[2px] bg-outline-variant mx-2" id="line-1"></div>
-<span id="node-2" class="flex items-center justify-center w-8 h-8 rounded-full border-2 border-outline-variant text-on-surface-variant font-label-md text-label-md transition-colors">2</span>
-<span class="ml-2 font-label-md text-label-md text-on-surface-variant" id="text-2">Event</span>
+<span id="node-2" class="flex items-center justify-center w-8 h-8 rounded-full border-2 border-outline-variant text-black font-label-md text-label-md transition-colors">2</span>
+<span class="ml-2 font-label-md text-label-md text-black" id="text-2">Event</span>
 </li>
 <li class="flex items-center cursor-pointer" onclick="goToStep(3)">
 <div class="w-8 h-[2px] bg-outline-variant mx-2" id="line-2"></div>
-<span id="node-3" class="flex items-center justify-center w-8 h-8 rounded-full border-2 border-outline-variant text-on-surface-variant font-label-md text-label-md transition-colors">3</span>
-<span class="ml-2 font-label-md text-label-md text-on-surface-variant" id="text-3">Selesai</span>
+<span id="node-3" class="flex items-center justify-center w-8 h-8 rounded-full border-2 border-outline-variant text-black font-label-md text-label-md transition-colors">3</span>
+<span class="ml-2 font-label-md text-label-md text-black" id="text-3">Selesai</span>
 </li>
 </ol>
 </nav>
@@ -230,12 +230,12 @@
 <div id="step-1" class="transition-all duration-500 opacity-100 translate-x-0 block">
     <div class="mb-stack-lg">
         <h1 class="font-headline-lg text-headline-lg text-text-primary mb-2">Buat profil profesional Anda</h1>
-        <p class="font-body-md text-body-md text-text-secondary">Mulai kelola event penting dengan presisi berbasis AI.</p>
+        <p class="font-body-md text-body-md text-black">Mulai kelola event penting dengan presisi berbasis AI.</p>
     </div>
     
     <div class="space-y-stack-md">
         <div class="space-y-1">
-            <label class="font-label-md text-label-md text-on-surface-variant" for="name">Nama Lengkap</label>
+            <label class="font-label-md text-label-md text-black" for="name">Nama Lengkap</label>
             <input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" id="name" name="name" placeholder="Budi Santoso" type="text" required value="{{ old('name') }}"/>
             @error('name')
             <p class="text-[11px] text-danger mt-1">{{ $message }}</p>
@@ -243,7 +243,7 @@
         </div>
 
         <div class="space-y-1">
-            <label class="font-label-md text-label-md text-on-surface-variant" for="email">Email Bisnis</label>
+            <label class="font-label-md text-label-md text-black" for="email">Email Bisnis</label>
             <input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" id="email" name="email" placeholder="budi@perusahaan.com" type="email" required value="{{ old('email') }}"/>
             @error('email')
             <p class="text-[11px] text-danger mt-1">{{ $message }}</p>
@@ -251,22 +251,22 @@
         </div>
 
         <div class="space-y-1">
-            <label class="font-label-md text-label-md text-on-surface-variant" for="password">Kata Sandi</label>
+            <label class="font-label-md text-label-md text-black" for="password">Kata Sandi</label>
             <div class="relative">
                 <input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" id="password" name="password" placeholder="••••••••" type="password" required/>
-                <button class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pass-toggle" type="button">
+                <button class="absolute right-3 top-1/2 -translate-y-1/2 text-black pass-toggle" type="button">
                     <span class="material-symbols-outlined text-sm">visibility</span>
                 </button>
             </div>
             @error('password')
             <p class="text-[11px] text-danger mt-1">{{ $message }}</p>
             @else
-            <p class="text-[11px] text-text-secondary mt-1">Minimal 8 karakter dengan setidaknya satu angka dan simbol.</p>
+            <p class="text-[11px] text-black mt-1">Minimal 8 karakter dengan setidaknya satu angka dan simbol.</p>
             @enderror
         </div>
 
         <div class="space-y-1">
-            <label class="font-label-md text-label-md text-on-surface-variant" for="password_confirmation">Konfirmasi Kata Sandi</label>
+            <label class="font-label-md text-label-md text-black" for="password_confirmation">Konfirmasi Kata Sandi</label>
             <div class="relative">
                 <input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" id="password_confirmation" name="password_confirmation" placeholder="••••••••" type="password" required/>
             </div>
@@ -274,14 +274,14 @@
         </div>
 
         <div class="pt-stack-md">
-            <button onclick="goToStep(2)" class="w-full h-12 bg-primary-container text-white font-label-md text-label-md rounded-lg shadow-sm hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2" type="button">
+            <button onclick="goToStep(2)" class="w-full h-12 bg-primary-container text-white font-label-md text-label-md rounded-lg  hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2" type="button">
                 Lanjutkan ke Detail Event
                 <span class="material-symbols-outlined text-sm">arrow_forward</span>
             </button>
         </div>
         <div class="flex items-center gap-2 py-2">
             <input class="rounded border-border-subtle text-primary focus:ring-primary" id="terms" type="checkbox" required/>
-            <label class="font-body-sm text-body-sm text-on-surface-variant" for="terms">
+            <label class="font-body-sm text-body-sm text-black" for="terms">
                 Saya setuju dengan <a class="text-primary hover:underline" href="#">Syarat Layanan</a> dan <a class="text-primary hover:underline" href="#">Kebijakan Privasi</a>.
             </label>
         </div>
@@ -293,40 +293,40 @@
     <div class="mb-stack-lg flex justify-between items-start">
         <div>
             <h1 class="font-headline-lg text-headline-lg text-text-primary mb-2">Detail Event</h1>
-            <p class="font-body-md text-body-md text-text-secondary">Lengkapi informasi dasar mengenai event Anda.</p>
+            <p class="font-body-md text-body-md text-black">Lengkapi informasi dasar mengenai event Anda.</p>
         </div>
         <button class="text-primary font-label-md text-label-md hover:underline" onclick="goToStep(3)" type="button">Lewati</button>
     </div>
     
     <div class="space-y-stack-md">
         <div class="space-y-1">
-            <label class="font-label-md text-label-md text-on-surface-variant">Nama Event</label>
+            <label class="font-label-md text-label-md text-black">Nama Event</label>
             <input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" name="event_name" placeholder="contoh: Festival Musik Indonesia 2027" type="text"/>
         </div>
         <div class="space-y-1">
-            <label class="font-label-md text-label-md text-on-surface-variant">Budget Perkiraan</label>
+            <label class="font-label-md text-label-md text-black">Budget Perkiraan</label>
             <input id="event_budget" class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" name="event_budget" placeholder="contoh: 500.000.000" type="text"/>
         </div>
         <div class="grid grid-cols-2 gap-stack-md">
             <div class="space-y-1">
-                <label class="font-label-md text-label-md text-on-surface-variant">Tanggal Mulai</label>
+                <label class="font-label-md text-label-md text-black">Tanggal Mulai</label>
                 <input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" name="event_start" type="date"/>
             </div>
             <div class="space-y-1">
-                <label class="font-label-md text-label-md text-on-surface-variant">Hari H Event</label>
+                <label class="font-label-md text-label-md text-black">Hari H Event</label>
                 <input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" name="event_dday" type="date"/>
             </div>
         </div>
         <div class="space-y-1">
-            <label class="font-label-md text-label-md text-on-surface-variant">Target Penonton</label>
+            <label class="font-label-md text-label-md text-black">Target Penonton</label>
             <input class="w-full h-11 px-4 bg-surface-container-lowest border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary-container transition-all outline-none" name="event_audience" placeholder="contoh: 5000 orang" type="text"/>
         </div>
 
         <div class="pt-stack-md flex gap-4">
-            <button onclick="goToStep(1)" class="flex-1 h-12 border border-border-subtle bg-surface-container-lowest text-text-primary font-label-md text-label-md rounded-lg shadow-sm hover:bg-surface-container-low active:scale-[0.98] transition-all" type="button">
+            <button onclick="goToStep(1)" class="flex-1 h-12 border border-border-subtle bg-surface-container-lowest text-text-primary font-label-md text-label-md rounded-lg  hover:bg-surface-container-low active:scale-[0.98] transition-all" type="button">
                 Kembali
             </button>
-            <button onclick="goToStep(3)" class="flex-[2] h-12 bg-primary-container text-white font-label-md text-label-md rounded-lg shadow-sm hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2" type="button">
+            <button onclick="goToStep(3)" class="flex-[2] h-12 bg-primary-container text-white font-label-md text-label-md rounded-lg  hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2" type="button">
                 Langkah Terakhir
                 <span class="material-symbols-outlined text-sm">arrow_forward</span>
             </button>
@@ -341,10 +341,10 @@
             <span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
         </div>
         <h3 class="font-headline-lg text-headline-lg text-text-primary mb-2">Pendaftaran Selesai!</h3>
-        <p class="font-body-md text-body-md text-text-secondary px-8">Event Anda telah berhasil dibuat. Ruang kerja (workspace) untuk event ini sudah siap digunakan oleh seluruh tim.</p>
+        <p class="font-body-md text-body-md text-black px-8">Event Anda telah berhasil dibuat. Ruang kerja (workspace) untuk event ini sudah siap digunakan oleh seluruh tim.</p>
     </div>
     <div class="pt-stack-md">
-        <button class="w-full h-12 bg-primary text-white font-label-md text-label-md rounded-lg shadow-sm hover:opacity-90 active:scale-[0.98] transition-all" type="submit">
+        <button class="w-full h-12 bg-primary text-white font-label-md text-label-md rounded-lg  hover:opacity-90 active:scale-[0.98] transition-all" type="submit">
             Daftar & Buka Dasbor Operasional
         </button>
     </div>
@@ -353,7 +353,7 @@
 </div>
 <!-- Trusted By Section -->
 <div class="mt-stack-lg">
-<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest text-center lg:text-left mb-stack-md">Dipercaya oleh Perusahaan Terkemuka</p>
+<p class="font-label-sm text-label-sm text-black uppercase tracking-widest text-center lg:text-left mb-stack-md">Dipercaya oleh Perusahaan Terkemuka</p>
 <div class="flex flex-wrap justify-center lg:justify-start items-center gap-stack-lg opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
 <div class="h-6 w-24 bg-on-surface-variant/20 rounded"></div>
 <div class="h-6 w-32 bg-on-surface-variant/20 rounded"></div>
@@ -381,7 +381,7 @@
 <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold">SM</div>
 <div>
 <p class="font-label-md text-label-md text-text-primary">Sarah Mitchell</p>
-<p class="font-caption text-[12px] text-text-secondary">Head of Global Events, TechCorp</p>
+<p class="font-caption text-[12px] text-black">Head of Global Events, TechCorp</p>
 </div>
 </div>
 </div>
@@ -391,14 +391,14 @@
 <span class="material-symbols-outlined text-primary-container bg-accent-blue p-2 rounded-lg">verified_user</span>
 <div>
 <p class="font-label-md text-label-md text-text-primary">Keamanan Setingkat Bank</p>
-<p class="text-[12px] text-text-secondary">Sesuai ISO 27001 & GDPR</p>
+<p class="text-[12px] text-black">Sesuai ISO 27001 & GDPR</p>
 </div>
 </div>
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-secondary bg-accent-emerald p-2 rounded-lg">bolt</span>
 <div>
 <p class="font-label-md text-label-md text-text-primary">Pengaturan Instan</p>
-<p class="text-[12px] text-text-secondary">Siap di bawah 2 menit</p>
+<p class="text-[12px] text-black">Siap di bawah 2 menit</p>
 </div>
 </div>
 </div>
@@ -408,11 +408,11 @@
 <!-- Footer (Shell Logic: Simplified for Registration) -->
 <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 mt-auto">
 <div class="max-w-[1536px] mx-auto px-gutter py-8 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="font-caption text-caption text-on-surface-variant">© 2024 Coordination AI. All rights reserved.</p>
+<p class="font-caption text-caption text-black">© 2024 Coordination AI. All rights reserved.</p>
 <div class="flex items-center gap-6">
-<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
-<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
-<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-colors" href="#">Help Center</a>
+<a class="font-caption text-caption text-black hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-caption text-caption text-black hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-caption text-caption text-black hover:text-primary transition-colors" href="#">Help Center</a>
 </div>
 </div>
 </footer>
@@ -459,15 +459,15 @@
             const t3 = document.getElementById('text-3');
 
             if (step === 1) {
-                n2.className = 'flex items-center justify-center w-8 h-8 rounded-full border-2 border-outline-variant text-on-surface-variant font-label-md text-label-md transition-colors';
-                t2.className = 'ml-2 font-label-md text-label-md text-on-surface-variant';
+                n2.className = 'flex items-center justify-center w-8 h-8 rounded-full border-2 border-outline-variant text-black font-label-md text-label-md transition-colors';
+                t2.className = 'ml-2 font-label-md text-label-md text-black';
                 l1.className = 'w-8 h-[2px] bg-outline-variant mx-2 transition-colors';
             } else if (step === 2) {
                 n2.className = 'flex items-center justify-center w-8 h-8 rounded-full border-2 border-primary-container bg-primary-container text-white font-label-md text-label-md transition-colors';
                 t2.className = 'ml-2 font-label-md text-label-md text-primary';
                 l1.className = 'w-8 h-[2px] bg-primary mx-2 transition-colors';
-                n3.className = 'flex items-center justify-center w-8 h-8 rounded-full border-2 border-outline-variant text-on-surface-variant font-label-md text-label-md transition-colors';
-                t3.className = 'ml-2 font-label-md text-label-md text-on-surface-variant';
+                n3.className = 'flex items-center justify-center w-8 h-8 rounded-full border-2 border-outline-variant text-black font-label-md text-label-md transition-colors';
+                t3.className = 'ml-2 font-label-md text-label-md text-black';
                 l2.className = 'w-8 h-[2px] bg-outline-variant mx-2 transition-colors';
             } else if (step === 3) {
                 n2.className = 'flex items-center justify-center w-8 h-8 rounded-full border-2 border-primary-container bg-primary-container text-white font-label-md text-label-md transition-colors';
