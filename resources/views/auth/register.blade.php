@@ -198,7 +198,6 @@
 <main class="flex-grow flex items-center justify-center pt-24 pb-12 px-margin-mobile md:px-margin-desktop relative overflow-hidden">
 <!-- Background Elements -->
 <div class="absolute inset-0 w-full h-full bg-cover bg-no-repeat bg-pan-right" style="background-image: url('{{ asset('img/landing.png') }}'); z-index: -1;"></div>
-<div class="absolute inset-0 w-full" style="background: linear-gradient(90deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.3) 100%); z-index: -1;"></div>
 <div class="w-full max-w-[1100px] grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
 <!-- Left Side: Form Content -->
 <div class="order-2 lg:order-1">

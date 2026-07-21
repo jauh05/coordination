@@ -229,7 +229,7 @@
 <div class="absolute inset-0 w-full sm:w-2/3 lg:w-1/2" style="background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.15) 40%, transparent 100%); z-index: -1;"></div>
 <div class="w-full max-w-[1200px] grid lg:grid-cols-2 gap-stack-lg items-center z-10">
 <!-- Left Side: Branding & Info -->
-<div class="hidden lg:flex flex-col gap-stack-lg pr-12">
+<div class="hidden lg:flex flex-col gap-stack-lg pr-12 glass-panel p-8 rounded-[24px]">
 <div>
 <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue text-primary font-label-md text-label-md mb-4 border border-primary/10">
 <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">security</span>
