@@ -210,12 +210,12 @@
 <span class="ml-2 font-label-md text-label-md text-primary" id="text-1">Akun</span>
 </li>
 <li class="flex items-center cursor-pointer" onclick="goToStep(2)">
-<div class="w-8 h-[2px] bg-outline-variant mx-2" id="line-1"></div>
+<div class="w-8 h-[2px] bg-black mx-2" id="line-1"></div>
 <span id="node-2" class="flex items-center justify-center w-8 h-8 rounded-full border-2 border-outline-variant text-black font-label-md text-label-md transition-colors">2</span>
 <span class="ml-2 font-label-md text-label-md text-black" id="text-2">Event</span>
 </li>
 <li class="flex items-center cursor-pointer" onclick="goToStep(3)">
-<div class="w-8 h-[2px] bg-outline-variant mx-2" id="line-2"></div>
+<div class="w-8 h-[2px] bg-black mx-2" id="line-2"></div>
 <span id="node-3" class="flex items-center justify-center w-8 h-8 rounded-full border-2 border-outline-variant text-black font-label-md text-label-md transition-colors">3</span>
 <span class="ml-2 font-label-md text-label-md text-black" id="text-3">Selesai</span>
 </li>
@@ -460,14 +460,14 @@
             if (step === 1) {
                 n2.className = 'flex items-center justify-center w-8 h-8 rounded-full border-2 border-outline-variant text-black font-label-md text-label-md transition-colors';
                 t2.className = 'ml-2 font-label-md text-label-md text-black';
-                l1.className = 'w-8 h-[2px] bg-outline-variant mx-2 transition-colors';
+                l1.className = 'w-8 h-[2px] bg-black mx-2 transition-colors';
             } else if (step === 2) {
                 n2.className = 'flex items-center justify-center w-8 h-8 rounded-full border-2 border-primary-container bg-primary-container text-white font-label-md text-label-md transition-colors';
                 t2.className = 'ml-2 font-label-md text-label-md text-primary';
                 l1.className = 'w-8 h-[2px] bg-primary mx-2 transition-colors';
                 n3.className = 'flex items-center justify-center w-8 h-8 rounded-full border-2 border-outline-variant text-black font-label-md text-label-md transition-colors';
                 t3.className = 'ml-2 font-label-md text-label-md text-black';
-                l2.className = 'w-8 h-[2px] bg-outline-variant mx-2 transition-colors';
+                l2.className = 'w-8 h-[2px] bg-black mx-2 transition-colors';
             } else if (step === 3) {
                 n2.className = 'flex items-center justify-center w-8 h-8 rounded-full border-2 border-primary-container bg-primary-container text-white font-label-md text-label-md transition-colors';
                 t2.className = 'ml-2 font-label-md text-label-md text-primary';
