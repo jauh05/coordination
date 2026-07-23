@@ -78,3 +78,4 @@ Register black lines 2
 Register black lines 3
 Register black lines 4
 Register black lines 5
+Register black lines 6
