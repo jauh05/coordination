@@ -10,7 +10,8 @@ class DashboardController extends Controller
     public function index()
     {
         $events = Auth::check() ? Auth::user()->events : collect();
+        $mainEvent = $events->first();
         
-        return view('dashboard.index', compact('events'));
+        return view('dashboard.index', compact('events', 'mainEvent'));
     }
 }

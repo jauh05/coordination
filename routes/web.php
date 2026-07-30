@@ -34,16 +34,6 @@ Route::get('/kontak', function () {
     return view('pages.kontak');
 })->name('kontak');
 
-// Registration Page
-Route::get('/register', function () {
-    return view('pages.register');
-})->name('register');
-
-// Login Page
-Route::get('/login', function () {
-    return view('pages.login');
-})->name('login');
-
 // Login Ketua Divisi
 Route::get('/login/ketua-divisi', function () {
     return view('pages.login-ketua');

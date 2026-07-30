@@ -280,45 +280,44 @@
 </div>
 <div class="mb-stack-lg">
 <h2 class="font-headline-lg text-headline-lg text-text-primary mb-2">Secure Login</h2>
-<p class="font-body-md text-body-md text-black">Enter credentials to initialize secure session.</p>
+<p class="font-body-md text-body-md text-black">Masukkan kredensial untuk memulai sesi aman.</p>
 </div>
-<form action="{{ route('dashboard') }}" class="flex flex-col gap-stack-md" id="secure-login-form">
-<!-- Officer ID -->
+@if ($errors->any())
+<div class="bg-red-50 border border-red-200 rounded-xl p-4 mb-4">
+    <ul class="text-sm text-red-600 list-disc list-inside">
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+<form action="{{ route('login') }}" method="POST" class="flex flex-col gap-stack-md" id="secure-login-form">
+@csrf
+<!-- Email -->
 <div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-text-primary flex items-center justify-between" for="officer-id">
-                                Officer Identification
+<label class="font-label-md text-label-md text-text-primary flex items-center justify-between" for="email">
+                                Email
                                 <span class="text-[10px] font-bold text-outline uppercase tracking-wider">Required</span>
 </label>
 <div class="relative group">
-<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">badge</span>
-<input class="w-full h-[48px] pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-text-primary placeholder:text-outline/50 input-focus-ring transition-all" id="officer-id" placeholder="ID-7742-ALPHA" type="text" required/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">mail</span>
+<input name="email" value="{{ old('email') }}" class="w-full h-[48px] pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-text-primary placeholder:text-outline/50 input-focus-ring transition-all" id="email" placeholder="nama@perusahaan.com" type="email" required/>
 </div>
 </div>
-<!-- Access Keycode -->
+<!-- Password -->
 <div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-text-primary flex items-center justify-between" for="access-keycode">
-                                Access Keycode
-                                <a class="text-primary hover:underline text-[12px]" href="#">Request OTP</a>
+<label class="font-label-md text-label-md text-text-primary flex items-center justify-between" for="password">
+                                Kata Sandi
+                                <a class="text-primary hover:underline text-[12px]" href="{{ route('password.request') }}">Lupa Kata Sandi?</a>
 </label>
 <div class="relative group">
 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>
-<input class="w-full h-[48px] pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-text-primary placeholder:text-outline/50 input-focus-ring transition-all" id="access-keycode" placeholder="••••••••••••" type="password" required/>
-</div>
-</div>
-<!-- Event Token -->
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-text-primary flex items-center justify-between" for="event-token">
-                                Specific Event Token
-                                <span class="material-symbols-outlined text-[14px] text-outline cursor-help" title="The unique hash provided for your specific active event assignment.">help_outline</span>
-</label>
-<div class="relative group">
-<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">token</span>
-<input class="w-full h-[48px] pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-text-primary placeholder:text-outline/50 input-focus-ring transition-all uppercase" id="event-token" placeholder="EVT-0XF382-77" type="text" required/>
+<input name="password" class="w-full h-[48px] pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-text-primary placeholder:text-outline/50 input-focus-ring transition-all" id="password" placeholder="••••••••••••" type="password" required/>
 </div>
 </div>
 <div class="flex items-center gap-2 py-2">
-<input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary/20" id="biometric" type="checkbox"/>
-<label class="font-body-sm text-body-sm text-black" for="biometric">Enable Biometric Secondary Layer</label>
+<input name="remember" class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary/20" id="remember" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-black" for="remember">Ingat Saya</label>
 </div>
 <button class="mt-4 w-full h-[52px] bg-primary text-on-primary font-bold rounded-lg hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/20" type="submit">
 <span class="material-symbols-outlined">verified_user</span>
@@ -380,12 +379,10 @@
 <p class="font-caption text-caption text-black">© 2024 Coordination AI. All rights reserved. Managed by SecureSystems Intl.</p>
 </div>
 </footer>
-<!-- Interactive Micro-Interactions Script -->
 <script>
+        // Login form submit - just show spinner then let form submit naturally
         document.getElementById('secure-login-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('button');
-            const originalContent = btn.innerHTML;
+            const btn = this.querySelector('button[type="submit"]');
             
             btn.disabled = true;
             btn.innerHTML = `
@@ -393,27 +390,9 @@
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                Initialising Secure Session...
+                Mengautentikasi...
             `;
-
-            // Simulating authentication delay
-            setTimeout(() => {
-                btn.classList.replace('bg-primary', 'bg-success');
-                btn.innerHTML = `
-                    <span class="material-symbols-outlined">check_circle</span>
-                    Access Granted
-                `;
-                
-                // Visual feedback of success
-                document.body.style.transition = 'opacity 0.5s ease-in-out';
-                setTimeout(() => {
-                    // alert('Session Authorized. Welcome, Division Head.');
-                    btn.disabled = false;
-                    btn.innerHTML = originalContent;
-                    btn.classList.replace('bg-success', 'bg-primary');
-                    window.location.href = "{{ route('dashboard') }}";
-                }, 500);
-            }, 2000);
+            // Let the form submit naturally to the server
         });
 
         // Focus field logic

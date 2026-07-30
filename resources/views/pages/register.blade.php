@@ -230,7 +230,17 @@
                 </div>
             </div>
 
-            <form class="space-y-xl" id="registration-form">
+            <form class="space-y-xl" id="registration-form" method="POST" action="{{ route('register') }}">
+                @csrf
+                @if ($errors->any())
+                <div class="bg-red-50 border border-red-200 rounded-xl p-4 mb-4">
+                    <ul class="text-sm text-red-600 list-disc list-inside">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 <!-- Step 1: Account Setup -->
                 <div class="step-transition opacity-100 transform translate-x-0" id="step-1-content">
                     <header class="mb-lg">
@@ -240,16 +250,16 @@
                     <div class="space-y-md">
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface">Nama Lengkap</label>
-                            <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="contoh: Alexander Pierce" required type="text"/>
+                            <input name="name" value="{{ old('name') }}" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="contoh: Alexander Pierce" required type="text"/>
                         </div>
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface">Email Bisnis</label>
-                            <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="nama@perusahaan.com" required type="email"/>
+                            <input name="email" value="{{ old('email') }}" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="nama@perusahaan.com" required type="email"/>
                         </div>
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface">Kata Sandi</label>
                             <div class="relative">
-                                <input id="pages_pw" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="••••••••" required type="password"/>
+                                <input name="password" id="pages_pw" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="••••••••" required type="password"/>
                                 <button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline" type="button">
                                     <span class="material-symbols-outlined">visibility</span>
                                 </button>
@@ -259,7 +269,7 @@
                         <div class="space-y-xs mt-4">
                             <label class="font-label-md text-label-md text-on-surface">Konfirmasi Kata Sandi</label>
                             <div class="relative">
-                                <input id="pages_pw_confirm" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="••••••••" required type="password"/>
+                                <input name="password_confirmation" id="pages_pw_confirm" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="••••••••" required type="password"/>
                             </div>
                             <p id="pages_pw_match_msg" class="font-caption text-caption text-error mt-1 hidden">Kata sandi dan konfirmasi tidak cocok!</p>
                         </div>
@@ -286,25 +296,25 @@
                     <div class="space-y-md">
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface">Nama Event</label>
-                            <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="contoh: Festival Musik Indonesia 2027" type="text"/>
+                            <input name="event_name" value="{{ old('event_name') }}" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="contoh: Festival Musik Indonesia 2027" type="text"/>
                         </div>
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface">Budget Perkiraan</label>
-                            <input id="event_budget_pages" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="contoh: 500.000.000" type="text"/>
+                            <input name="event_budget" id="event_budget_pages" value="{{ old('event_budget') }}" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="contoh: 500.000.000" type="text"/>
                         </div>
                         <div class="grid grid-cols-2 gap-sm">
                             <div class="space-y-xs">
                                 <label class="font-label-md text-label-md text-on-surface">Tanggal Mulai</label>
-                                <input name="event_start" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" type="date"/>
+                                <input name="event_start" value="{{ old('event_start') }}" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" type="date"/>
                             </div>
                             <div class="space-y-xs">
                                 <label class="font-label-md text-label-md text-on-surface">Hari H Event</label>
-                                <input name="event_dday" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" type="date"/>
+                                <input name="event_dday" value="{{ old('event_dday') }}" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" type="date"/>
                             </div>
                         </div>
                         <div class="space-y-xs">
                             <label class="font-label-md text-label-md text-on-surface">Target Penonton</label>
-                            <input class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="contoh: 5000 orang" type="text"/>
+                            <input name="event_audience" value="{{ old('event_audience') }}" class="w-full px-lg py-md rounded-full bg-surface-container-low border border-outline-variant transition-all font-body-md" placeholder="contoh: 5000 orang" type="text"/>
                         </div>
                     </div>
                     <div class="mt-xl flex gap-md">
@@ -405,8 +415,6 @@
     }
 
     document.getElementById('registration-form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        
         // Save event dates for dashboard usage
         const evtStart = document.querySelector('input[name="event_start"]');
         const evtDday = document.querySelector('input[name="event_dday"]');
@@ -417,7 +425,7 @@
         Object.keys(sessionStorage).forEach(key => {
             if(key.startsWith('pages_register_')) sessionStorage.removeItem(key);
         });
-        window.location.href = "{{ route('dashboard') }}";
+        // Let the form submit naturally to the server
     });
 
     const budgetInputPages = document.getElementById('event_budget_pages');
