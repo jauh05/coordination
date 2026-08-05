@@ -236,62 +236,10 @@
 
                 initBoard() {
                     const savedTasks = localStorage.getItem('kanban_tasks');
-                    if (savedTasks) {
+                    if (savedTasks && !savedTasks.includes('task-1')) {
                         this.tasks = JSON.parse(savedTasks);
                     } else {
-                        // Seed default tasks
-                        this.tasks = [
-                            {
-                                id: 'task-1',
-                                title: 'Tentukan Lokasi (Bali / Bandung)',
-                                project: 'Internal Retreat',
-                                columnId: 'ideasi',
-                                priority: 'Medium',
-                                tags: ['Logistik', 'Internal'],
-                                assignee: '',
-                                assigneeName: 'Aditya'
-                            },
-                            {
-                                id: 'task-2',
-                                title: 'Penyusunan Draft Anggaran',
-                                project: 'Internal Retreat',
-                                columnId: 'ideasi',
-                                priority: 'Rendah',
-                                tags: ['Internal', 'Penting'],
-                                assignee: '',
-                                assigneeName: 'Un'
-                            },
-                            {
-                                id: 'task-3',
-                                title: 'Finalisasi Menu Catering Fiesta',
-                                project: 'Annual Gala',
-                                columnId: 'persiapan',
-                                priority: 'Tinggi',
-                                tags: ['Konsumsi', 'Acara'],
-                                assignee: '',
-                                assigneeName: 'Budi'
-                            },
-                            {
-                                id: 'task-4',
-                                title: 'Setup Booth & Registrasi',
-                                project: 'Tech Expo',
-                                columnId: 'eksekusi',
-                                priority: 'Tinggi',
-                                tags: ['Acara', 'Logistik', 'Urgent'],
-                                assignee: '',
-                                assigneeName: 'AR'
-                            },
-                            {
-                                id: 'task-5',
-                                title: 'Pemilihan Tema Expo',
-                                project: 'Tech Expo',
-                                columnId: 'selesai',
-                                priority: 'Medium',
-                                tags: ['Acara'],
-                                assignee: '',
-                                assigneeName: 'Done'
-                            }
-                        ];
+                        this.tasks = [];
                         this.saveToStorage();
                     }
                 },
