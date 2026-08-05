@@ -250,24 +250,24 @@
 <div class="p-6 space-y-4">
     <div>
         <label class="block text-[10px] font-bold text-outline uppercase mb-1">Target Total Tiket</label>
-        <input id="config_target" type="number" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" value="{{ isset($event) && $event->target_audience ? $event->target_audience : 1500 }}" onchange="updateConfig()">
+        <input id="config_target" type="text" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" value="{{ isset($event) && $event->target_audience ? number_format($event->target_audience, 0, ',', '.') : '1.500' }}" oninput="handleNumberInput(this)" onchange="updateConfig()">
     </div>
     <div class="grid grid-cols-2 gap-4">
         <div>
             <label class="block text-[10px] font-bold text-outline uppercase mb-1">Harga Presale 1</label>
-            <input id="config_p1" type="number" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" value="800000" onchange="updateConfig()">
+            <input id="config_p1" type="text" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" value="800.000" oninput="handleNumberInput(this)" onchange="updateConfig()">
         </div>
         <div>
             <label class="block text-[10px] font-bold text-outline uppercase mb-1">Harga Presale 2</label>
-            <input id="config_p2" type="number" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" value="1000000" onchange="updateConfig()">
+            <input id="config_p2" type="text" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" value="1.000.000" oninput="handleNumberInput(this)" onchange="updateConfig()">
         </div>
         <div>
             <label class="block text-[10px] font-bold text-outline uppercase mb-1">Harga Presale 3</label>
-            <input id="config_p3" type="number" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" value="1200000" onchange="updateConfig()">
+            <input id="config_p3" type="text" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" value="1.200.000" oninput="handleNumberInput(this)" onchange="updateConfig()">
         </div>
         <div>
             <label class="block text-[10px] font-bold text-outline uppercase mb-1">Harga OTS</label>
-            <input id="config_ots" type="number" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" value="1500000" onchange="updateConfig()">
+            <input id="config_ots" type="text" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" value="1.500.000" oninput="handleNumberInput(this)" onchange="updateConfig()">
         </div>
     </div>
 </div>
@@ -414,28 +414,51 @@
             ots: 1500000
         };
 
+        function formatNumberWithDots(val) {
+            let clean = val.toString().replace(/\D/g, '');
+            if (!clean) return '';
+            return parseInt(clean, 10).toLocaleString('id-ID');
+        }
+
+        function parseFormattedNumber(val) {
+            let clean = val.toString().replace(/\./g, '');
+            return parseInt(clean, 10) || 0;
+        }
+
+        window.handleNumberInput = function(input) {
+            let cursorPosition = input.selectionStart;
+            let originalLength = input.value.length;
+            
+            let formatted = formatNumberWithDots(input.value);
+            input.value = formatted;
+            
+            let newLength = formatted.length;
+            let newCursorPosition = cursorPosition + (newLength - originalLength);
+            input.setSelectionRange(newCursorPosition, newCursorPosition);
+        };
+
         function loadConfig() {
             const savedConfig = JSON.parse(localStorage.getItem('eventConfig'));
             if (savedConfig) {
                 TICKET_TARGET = savedConfig.target || 1500;
                 PRICES = savedConfig.prices || PRICES;
-                
-                document.getElementById('config_target').value = TICKET_TARGET;
-                document.getElementById('config_p1').value = PRICES.presale1;
-                document.getElementById('config_p2').value = PRICES.presale2;
-                document.getElementById('config_p3').value = PRICES.presale3;
-                document.getElementById('config_ots').value = PRICES.ots;
-                
-                TARGET_REVENUE = TICKET_TARGET * PRICES.presale2;
             }
+            
+            document.getElementById('config_target').value = formatNumberWithDots(TICKET_TARGET);
+            document.getElementById('config_p1').value = formatNumberWithDots(PRICES.presale1);
+            document.getElementById('config_p2').value = formatNumberWithDots(PRICES.presale2);
+            document.getElementById('config_p3').value = formatNumberWithDots(PRICES.presale3);
+            document.getElementById('config_ots').value = formatNumberWithDots(PRICES.ots);
+            
+            TARGET_REVENUE = TICKET_TARGET * PRICES.presale2;
         }
 
         window.updateConfig = function() {
-            TICKET_TARGET = parseInt(document.getElementById('config_target').value) || 1500;
-            PRICES.presale1 = parseInt(document.getElementById('config_p1').value) || 0;
-            PRICES.presale2 = parseInt(document.getElementById('config_p2').value) || 0;
-            PRICES.presale3 = parseInt(document.getElementById('config_p3').value) || 0;
-            PRICES.ots = parseInt(document.getElementById('config_ots').value) || 0;
+            TICKET_TARGET = parseFormattedNumber(document.getElementById('config_target').value) || 1500;
+            PRICES.presale1 = parseFormattedNumber(document.getElementById('config_p1').value) || 0;
+            PRICES.presale2 = parseFormattedNumber(document.getElementById('config_p2').value) || 0;
+            PRICES.presale3 = parseFormattedNumber(document.getElementById('config_p3').value) || 0;
+            PRICES.ots = parseFormattedNumber(document.getElementById('config_ots').value) || 0;
             
             TARGET_REVENUE = TICKET_TARGET * PRICES.presale2;
             
