@@ -1,3 +1,15 @@
+@php
+    $currentUser = auth()->user();
+    $currentUserName = $currentUser ? $currentUser->name : 'Pengguna Umum';
+    $currentDivisionName = 'Umum';
+    if ($currentUser) {
+        $eventUser = \App\Models\EventUser::where('user_id', $currentUser->id)->first();
+        if ($eventUser && $eventUser->division) {
+            $currentDivisionName = $eventUser->division->name;
+        }
+    }
+@endphp
+
 <x-layouts.app title="Perencanaan Strategis">
     <div x-data="kanbanBoard()" x-init="initBoard()" class="p-margin-page max-w-container-max mx-auto w-full flex flex-col gap-stack-lg h-[calc(100vh-80px)]" x-cloak>
         
@@ -80,13 +92,16 @@
                                         <div class="flex items-center gap-1 font-label-sm text-label-sm" :class="getPriorityClass(task.priority)">
                                             <span class="material-symbols-outlined text-[14px]">flag</span>
                                             <span x-text="task.priority"></span>
+                                            <span class="text-text-secondary ml-1">• PJ: <span class="font-semibold" x-text="task.assigneeName"></span></span>
                                         </div>
-                                        <template x-if="task.assignee">
-                                            <img class="w-6 h-6 rounded-full border border-surface" :src="task.assignee" :alt="task.assigneeName"/>
-                                        </template>
-                                        <template x-if="!task.assignee">
-                                            <div class="w-6 h-6 rounded-full border border-surface bg-surface-variant text-text-secondary flex items-center justify-center font-label-sm text-[10px] font-bold" x-text="getInitials(task.assigneeName)"></div>
-                                        </template>
+                                        <!-- Column Status Icon Badge (replacing photo) -->
+                                        <div 
+                                            class="w-6 h-6 rounded-full flex items-center justify-center shadow-sm"
+                                            :class="getColumnStatusBadge(task.columnId).class"
+                                            :title="getColumnStatusBadge(task.columnId).title"
+                                        >
+                                            <span class="material-symbols-outlined text-[12px]" x-text="getColumnStatusBadge(task.columnId).icon"></span>
+                                        </div>
                                     </div>
                                 </div>
                             </template>
@@ -116,7 +131,7 @@
                     </div>
                     
                     <div>
-                        <label class="block text-xs font-bold text-outline uppercase mb-1">Kategori / Nama Event</label>
+                        <label class="block text-xs font-bold text-outline uppercase mb-1">Kategori / Nama Event (Divisi)</label>
                         <input type="text" x-model="modalTask.project" class="w-full bg-white border border-border-subtle rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="Contoh: Internal Retreat, Annual Gala...">
                     </div>
 
@@ -180,6 +195,8 @@
     <script>
         function kanbanBoard() {
             return {
+                currentUserName: '{{ $currentUserName }}',
+                currentUserDivision: '{{ $currentDivisionName }}',
                 columns: [
                     { id: 'ideasi', name: 'Ideasi', dotColor: 'bg-surface-variant border-outline' },
                     { id: 'persiapan', name: 'Persiapan', dotColor: 'bg-warning border-warning/50' },
@@ -231,7 +248,7 @@
                                 columnId: 'ideasi',
                                 priority: 'Medium',
                                 tags: ['Logistik', 'Internal'],
-                                assignee: 'https://lh3.googleusercontent.com/aida-public/AB6AXuADFYwb1SXvI5oDehHApHkdCA3LpL8F-BjDeBlwZ5egw_TOLtwCVZEqNYbm5VSkAupPvwfvLCM3js3TOQqhFoM_rdIQG_n59sH7wUM5NYfVPDl_JmZAHUCPJS055U84GxJwyRp2ex3yES0sXSyZ-g2roHEomX24_oFwwJcFuyDuSbSXXK9B1gImBRU6H-JH0Swcn-34Gj7JBwILNfC0Hs8z56vZ0T5ngocG7TroN0OeFAA4Nk8Okz07wowsYY6F0ferO-KZaShMLzs',
+                                assignee: '',
                                 assigneeName: 'Aditya'
                             },
                             {
@@ -251,7 +268,7 @@
                                 columnId: 'persiapan',
                                 priority: 'Tinggi',
                                 tags: ['Konsumsi', 'Acara'],
-                                assignee: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBhXu1IRDMHSzf_xcvaSjjknLdSs0_Z6D52T48azjOeO6V6cK0LpFcrFiRQGGWVC-zM4cX8Y3PgYqLPJZORGYWvkNEZ53hIxUApuv92diXQSCxjihp3UGoEWXa4RTi8lucWtXpZwLHG9dj-_E1U3JuHCVV70VnDoEkV68tw78Yg_n-wpDtzRwfBGc2LOvQi23oIBZ18Zs1lBknUHuEzdS-5BC0owAqGt7PXVVbtOQK2aVm5omtOGe2vywkE_n1dVuO_zSao2dscoCc',
+                                assignee: '',
                                 assigneeName: 'Budi'
                             },
                             {
@@ -298,6 +315,42 @@
                     return name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
                 },
 
+                getColumnStatusBadge(columnId) {
+                    if (columnId === 'ideasi') {
+                        return {
+                            icon: 'lightbulb',
+                            class: 'bg-slate-400 text-white',
+                            title: 'Ideasi'
+                        };
+                    }
+                    if (columnId === 'persiapan') {
+                        return {
+                            icon: 'schedule',
+                            class: 'bg-orange-500 text-white',
+                            title: 'Persiapan'
+                        };
+                    }
+                    if (columnId === 'eksekusi') {
+                        return {
+                            icon: 'bolt',
+                            class: 'bg-blue-500 text-white',
+                            title: 'Eksekusi'
+                        };
+                    }
+                    if (columnId === 'selesai') {
+                        return {
+                            icon: 'check_circle',
+                            class: 'bg-success text-white',
+                            title: 'Selesai'
+                        };
+                    }
+                    return {
+                        icon: 'help',
+                        class: 'bg-slate-400 text-white',
+                        title: 'Unknown'
+                    };
+                },
+
                 dragStart(taskId) {
                     this.draggedTaskId = taskId;
                 },
@@ -325,12 +378,12 @@
                     this.modalTask = {
                         id: 'task-' + Date.now(),
                         title: '',
-                        project: '',
+                        project: this.currentUserDivision,
                         columnId: 'ideasi',
                         priority: 'Medium',
                         tags: [],
                         assignee: '',
-                        assigneeName: ''
+                        assigneeName: this.currentUserName
                     };
                     this.showModal = true;
                 },
